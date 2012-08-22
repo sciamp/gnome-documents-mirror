@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.5.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-24 21:52+0200\n"
-"PO-Revision-Date: 2012-07-24 21:53+0200\n"
+"POT-Creation-Date: 2012-08-22 13:54+0200\n"
+"PO-Revision-Date: 2012-08-22 13:54+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -63,51 +63,55 @@ msgstr "Vindu maksimert"
 msgid "Window maximized state"
 msgstr "Om vinduet er maksimert eller ikke"
 
-#: ../src/documents.js:641 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "Lokalt"
 
 #. overridden
-#: ../src/documents.js:694
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:695
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:759 ../src/documents.js:898
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/documents.js:761 ../src/documents.js:900
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "Presentasjon"
 
-#: ../src/documents.js:763 ../src/documents.js:902
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "Samling"
 
-#: ../src/documents.js:765 ../src/documents.js:904
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:832 ../src/documents.js:833
+#: ../src/documents.js:791 ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1016
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Kan ikke laste «%s» for forhåndsvisning"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/embed.js:68
+msgid "Loading..."
+msgstr "Laster …"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "Kan ikke laste dokumentet"
 
-#: ../src/lib/gd-pdf-loader.c:675
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "Kan ikke finne «unoconv». Vennligst sjekk din LibreOffice installasjon"
 
@@ -143,15 +147,15 @@ msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:203 ../src/properties.js:58
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:221
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:239
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
@@ -167,6 +171,39 @@ msgstr "Et program for å håndtere dokumenter"
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Skriver ut «%s»: %s"
+
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "Egenskaper"
+
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "Tittel"
+
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "Forfatter"
+
+#. Source item
+#: ../src/properties.js:95
+msgid "Source"
+msgstr "Kilde"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "Endringsdato"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "Opprettelsesdato"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
+msgid "Type"
+msgstr "Skriv"
 
 #: ../src/searchbar.js:83
 msgid "Category"
@@ -184,10 +221,6 @@ msgstr "Favoritter"
 #: ../src/searchbar.js:99
 msgid "Shared with you"
 msgstr "Delt med deg"
-
-#: ../src/searchbar.js:135
-msgid "Type"
-msgstr "Skriv"
 
 #: ../src/searchbar.js:140
 msgid "Collections"
@@ -215,44 +248,28 @@ msgstr "Tekstdokumenter"
 msgid "Match"
 msgstr "Treff"
 
-#: ../src/searchbar.js:225
-msgid "Title"
-msgstr "Tittel"
-
-#: ../src/searchbar.js:227
-msgid "Author"
-msgstr "Forfatter"
-
-#: ../src/selections.js:773
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../src/selections.js:788
-msgid "Organize"
-msgstr "Organiser"
-
-#: ../src/selections.js:795
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Slett"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Organiser"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:884
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Åpne med %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:887 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Åpne"
-
-#: ../src/selections.js:896
-msgid "Remove from favorites"
-msgstr "Fjern fra favoritter"
-
-#: ../src/selections.js:900
-msgid "Add to favorites"
-msgstr "Legg til i favoritter"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -262,55 +279,51 @@ msgstr "Dokument uten navn"
 msgid "Sources"
 msgstr "Kilder"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "Laster …"
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "Last %d dokument til"
 msgstr[1] "Last %d dokumenter til"
 
-#: ../src/view.js:270
+#: ../src/view.js:271
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:272
+#: ../src/view.js:273
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dager siden"
 
-#: ../src/view.js:276
+#: ../src/view.js:277
 msgid "Last week"
 msgstr "Siste uke"
 
-#: ../src/view.js:278
+#: ../src/view.js:279
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uke siden"
 msgstr[1] "%d uker siden"
 
-#: ../src/view.js:282
+#: ../src/view.js:283
 msgid "Last month"
 msgstr "Siste måned"
 
-#: ../src/view.js:284
+#: ../src/view.js:285
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:288
+#: ../src/view.js:289
 msgid "Last year"
 msgstr "Siste år"
 
-#: ../src/view.js:290
+#: ../src/view.js:291
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
