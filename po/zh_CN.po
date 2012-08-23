@@ -11,16 +11,18 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-10 10:26+0000\n"
-"PO-Revision-Date: 2012-03-21 14:03+0800\n"
-"Last-Translator: EL8LatSPQ <el8latspq@hotmail.com>\n"
+"POT-Creation-Date: 2012-08-22 11:55+0000\n"
+"PO-Revision-Date: 2012-08-22 21:51+0800\n"
+"Last-Translator: tuhaihe <1132321739qq@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
+"Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:54
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "文档"
 
@@ -32,7 +34,8 @@ msgstr "访问，管理以及分享文档"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;文件;文档;"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:1 ../src/application.js:128
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
 msgid "View as"
 msgstr "查看为"
 
@@ -41,298 +44,352 @@ msgid "View as type"
 msgstr "查看为类型"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:3
-msgid "The active source filter"
-msgstr "活动的源过滤器"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:4
-msgid "The last active source filter"
-msgstr "最后活动的源过滤器"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window size"
 msgstr "窗口大小"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:6
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
 msgstr "窗口大小(宽度和高度)。"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:7
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window position"
 msgstr "窗口位置"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:8
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
 msgid "Window position (x and y)."
 msgstr "窗口位置(水平和竖直)。"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:9
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
 msgid "Window maximized"
 msgstr "窗口已最大化"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:10
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
 msgid "Window maximized state"
 msgstr "窗口最大化状态"
 
-#: ../src/application.js:126
-msgid "Grid"
-msgstr "网格"
-
-#: ../src/application.js:127
-msgid "List"
-msgstr "列表"
-
-#: ../src/application.js:131
-msgid "Fullscreen"
-msgstr "全屏"
-
-#: ../src/application.js:134
-msgid "About Documents"
-msgstr "关于文档"
-
-#: ../src/application.js:135
-msgid "Quit"
-msgstr "退出"
-
-#: ../src/documents.js:619 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "本地"
 
 #. overridden
-#: ../src/documents.js:675
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "谷歌文档"
 
-#: ../src/documents.js:676
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "谷歌"
 
-#: ../src/documents.js:745
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "电子表格"
 
-#: ../src/documents.js:747
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "演示文档"
 
-#: ../src/documents.js:749
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "合集"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "文档"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "无法加载“%s”进行预览"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "无法获取文档清单"
+#: ../src/embed.js:68
+msgid "Loading..."
+msgstr "正在加载..."
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:269
-msgid "Done"
-msgstr "完成"
-
-#: ../src/lib/gd-pdf-loader.c:208
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "无法加载文档"
 
-#: ../src/lib/gd-pdf-loader.c:489
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "无法找到“unoconv”，请检查你的 LibreOffice 安装"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "再加载 %d 份文档"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "搜索"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "新建及最近文档"
 
-#: ../src/mainToolbar.js:201
+#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "“%s”的结果"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:167
 msgid "filtered by title"
 msgstr "按标题过滤"
 
-#: ../src/mainToolbar.js:205
+#: ../src/mainToolbar.js:169
 msgid "filtered by author"
 msgstr "按作者过滤"
 
-#: ../src/mainToolbar.js:218
-#,  c-format
-msgid "%d of %d"
-msgstr "第 %d 个，共 %d 个"
-
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "点击项目来选择它们"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已选 %d 项"
 
-#: ../src/mainWindow.js:254
+#: ../src/mainToolbar.js:203 ../src/properties.js:58
+msgid "Done"
+msgstr "完成"
+
+#: ../src/mainToolbar.js:221
+msgid "Back"
+msgstr "返回"
+
+#: ../src/mainToolbar.js:239
+msgid "Select Items"
+msgstr "选择项目"
+
+#: ../src/mainWindow.js:204
 msgid "translator-credits"
 msgstr ""
 "甘 露 <rhythm.gan@gmail.com>, 2011\n"
 "YunQiang Su <wzssyqa@gmail.com>, 2011\n"
 "Wylmer Wang <wantinghard@gmail.com>, 2011\n"
-"EL8LatSPQ <el8latspq@hotmail.com>, 2012"
+"EL8LatSPQ <el8latspq@hotmail.com>, 2012\n"
+"tuhaihe <1132321739qq@gmail.com>, 2012"
 
-#: ../src/mainWindow.js:255
-msgid "GNOME Documents"
-msgstr "GNOME 文档"
-
-#: ../src/mainWindow.js:256
+#: ../src/mainWindow.js:206
 msgid "A document manager application"
 msgstr "一个文档管理程序"
 
-#: ../src/notifications.js:85
+#: ../src/notifications.js:84
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "正在打印“%s”：%s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "类别"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "属性"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:210
-#: ../src/sources.js:94
-msgid "All"
-msgstr "全部"
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "标题"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "收藏"
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "作者"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "分享给您的"
+#. Source item
+#: ../src/properties.js:95
+msgid "Source"
+msgstr "源"
 
-#: ../src/searchbar.js:138
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "修改日期"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "创建日期"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
 msgid "Type"
 msgstr "类型"
 
-#: ../src/searchbar.js:143
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "类别"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "全部"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "收藏"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "分享给您的"
+
+#: ../src/searchbar.js:140
 msgid "Collections"
 msgstr "合集"
 
-#: ../src/searchbar.js:147
+#: ../src/searchbar.js:144
 msgid "PDF Documents"
 msgstr "PDF 文档"
 
-#: ../src/searchbar.js:150
+#: ../src/searchbar.js:148
 msgid "Presentations"
 msgstr "演示文档"
 
-#: ../src/searchbar.js:153
+#: ../src/searchbar.js:151
 msgid "Spreadsheets"
 msgstr "电子表格"
 
-#: ../src/searchbar.js:156
+#: ../src/searchbar.js:154
 msgid "Text Documents"
 msgstr "文本文档"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:207
+#: ../src/searchbar.js:220
 msgid "Match"
 msgstr "匹配"
 
-#: ../src/searchbar.js:212
-msgid "Title"
-msgstr "标题"
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "打印"
 
-#: ../src/searchbar.js:214
-msgid "Author"
-msgstr "作者"
-
-#: ../src/selections.js:735
-msgid "Organize"
-msgstr "组织"
-
-#: ../src/selections.js:742
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "删除"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "组织"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:842 ../src/view.js:69
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "使用 %s 打开"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:845 ../src/view.js:72
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "打开"
 
-#: ../src/selections.js:858 ../src/view.js:82
-msgid "Remove from favorites"
-msgstr "从收藏中移除"
-
-#: ../src/selections.js:862 ../src/view.js:82
-msgid "Add to favorites"
-msgstr "添加到收藏"
-
-#: ../src/shellSearchProvider.js:332
+#: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
 msgstr "无标题文档"
 
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "源"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "正在加载..."
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "再加载 %d 份文档"
 
-#: ../src/view.js:196
+#: ../src/view.js:271
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/view.js:198
+#: ../src/view.js:273
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 天前"
 
-#: ../src/view.js:202
+#: ../src/view.js:277
 msgid "Last week"
 msgstr "上周"
 
-#: ../src/view.js:204
+#: ../src/view.js:279
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d 周前"
 
-#: ../src/view.js:208
+#: ../src/view.js:283
 msgid "Last month"
 msgstr "上个月"
 
-#: ../src/view.js:210
+#: ../src/view.js:285
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d 个月前"
 
-#: ../src/view.js:214
+#: ../src/view.js:289
 msgid "Last year"
 msgstr "去年"
 
-#: ../src/view.js:216
+#: ../src/view.js:291
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d 年前"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "网格"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "列表"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "全屏"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "关于文档"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Quit"
+msgstr "退出"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "打印..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "放大"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "缩小"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "向左旋转"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "向右旋转"
+
+#~ msgid "The active source filter"
+#~ msgstr "活动的源过滤器"
+
+#~ msgid "The last active source filter"
+#~ msgstr "最后活动的源过滤器"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "无法获取文档清单"
+
+#~ msgid "%d of %d"
+#~ msgstr "第 %d 个，共 %d 个"
+
+#~ msgid "GNOME Documents"
+#~ msgstr "GNOME 文档"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "从收藏中移除"
+
+#~ msgid "Add to favorites"
+#~ msgstr "添加到收藏"
