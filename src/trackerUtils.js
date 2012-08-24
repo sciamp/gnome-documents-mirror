@@ -24,7 +24,7 @@ const GLib = imports.gi.GLib;
 const Global = imports.global;
 
 function setEditedName(newTitle, docId, callback) {
-    let sparql = ('INSERT OR REPLACE { <%s> nfo:fileName\"%s\" }'.format(docId, newTitle));
+    let sparql = ('INSERT OR REPLACE { <%s> nie:title \"%s\" }'.format(docId, newTitle));
 
     Global.connectionQueue.update(sparql, null,
         function(object, res) {
