@@ -261,13 +261,17 @@ const Application = new Lang.Class({
         Global.modeController = new WindowMode.ModeController();
         Global.notificationManager = new Notifications.NotificationManager();
 
-        // startup a refresh of the gdocs cache
-        let gdataMiner = new Miners.GDataMiner();
-        this._refreshMinerNow(gdataMiner);
+        try {
+          // startup a refresh of the gdocs cache
+          let gdataMiner = new Miners.GDataMiner();
+          this._refreshMinerNow(gdataMiner);
 
-        // startup a refresh of the skydrive cache
-        let zpjMiner = new Miners.ZpjMiner();
-        this._refreshMinerNow(zpjMiner);
+          // startup a refresh of the skydrive cache
+          let zpjMiner = new Miners.ZpjMiner();
+          this._refreshMinerNow(zpjMiner);
+        } catch (e) {
+	  log('Unable to start miners: ' + e.message);
+        }
 
         this._initActions();
         this._initAppMenu();
