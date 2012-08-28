@@ -206,6 +206,18 @@ const ViewContainer = new Lang.Class({
                                       Lang.bind(this, this._onWindowModeChanged));
         this._onWindowModeChanged();
 
+        let selectAll = Global.application.lookup_action('select-all');
+        selectAll.connect('activate', Lang.bind(this,
+            function() {
+                this.view.select_all();
+            }));
+
+        let selectNone = Global.application.lookup_action('select-none');
+        selectNone.connect('activate', Lang.bind(this,
+            function() {
+                this.view.unselect_all();
+            }));
+
         this._queryId =
             Global.trackerController.connect('query-status-changed',
                                              Lang.bind(this, this._onQueryStatusChanged));

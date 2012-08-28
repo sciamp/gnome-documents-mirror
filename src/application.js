@@ -158,7 +158,11 @@ const Application = new Lang.Class({
             { name: 'rotate-left', accel: '<Primary>Left',
               window_mode: WindowMode.WindowMode.PREVIEW },
             { name: 'rotate-right', accel: '<Primary>Right',
-              window_mode: WindowMode.WindowMode.PREVIEW }
+              window_mode: WindowMode.WindowMode.PREVIEW },
+            { name: 'select-all', accel: '<Primary>a',
+              window_mode: WindowMode.WindowMode.OVERVIEW },
+            { name: 'select-none',
+              window_mode: WindowMode.WindowMode.OVERVIEW }
         ];
 
         actionEntries.forEach(Lang.bind(this,

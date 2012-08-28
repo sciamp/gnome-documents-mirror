@@ -199,6 +199,11 @@ const OverviewToolbar = new Lang.Class({
 
         this.addSearchButton();
 
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/documents/selection-menu.ui');
+        let selectionMenu = builder.get_object('selection-menu');
+        this.widget.set_labels_menu(selectionMenu);
+
         let selectionButton =
             this.widget.add_button(null, _("Done"), false);
         selectionButton.get_style_context().add_class('suggested-action');
@@ -250,6 +255,7 @@ const OverviewToolbar = new Lang.Class({
 
     _clearStateData: function() {
         this._collBackButton = null;
+        this.widget.set_labels_menu(null);
 
         if (this._collectionId != 0) {
             Global.collectionManager.disconnect(this._collectionId);

@@ -45,7 +45,8 @@ gnome-documents.gresource: gnome-documents.gresource.xml $(shell $(GLIB_COMPILE_
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) $<
 EXTRA_DIST += gnome-documents.gresource.xml \
 	resources/app-menu.ui \
-	resources/preview-menu.ui
+	resources/preview-menu.ui \
+	resources/selection-menu.ui
 
 resourcedir = $(pkgdatadir)
 resource_DATA = gnome-documents.gresource
