@@ -24,6 +24,7 @@ const Gd = imports.gi.Gd;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const GtkClutter = imports.gi.GtkClutter;
+const TrackerMiner = imports.gi.TrackerMiner;
 const _ = imports.gettext.gettext;
 
 const Global = imports.global;
@@ -89,6 +90,93 @@ const PrintNotification = new Lang.Class({
 
         if (fraction == 1)
             this.widget.destroy();
+    }
+});
+
+const IndexingNotification = new Lang.Class({
+    Name: 'IndexingNotification',
+
+    _init: function() {
+        try {
+            this._manager = TrackerMiner.MinerManager.new_full(false);
+        } catch(e) {
+            log('Unable to create a TrackerMinerManager, indexing progress ' +
+                'notification won\'t work: ' + e.message);
+            return;
+        }
+
+        this._minerFiles = 'org.freedesktop.Tracker1.Miner.Files';
+        this.widget = null;
+        this._manuallyClosed = false;
+
+        this._manager.connect('miner-progress', Lang.bind(this, this._checkNotification));
+        this._checkNotification();
+    },
+
+    _checkNotification: function() {
+        let running = this._manager.get_running();
+
+        if (running.indexOf(this._minerFiles) != -1) {
+            let [res, status, progress, time] = this._manager.get_status(this._minerFiles);
+
+            if (progress < 1) {
+                this._displayNotification();
+            } else {
+                this._manuallyClosed = false;
+                this._destroyNotification();
+            }
+        }
+    },
+
+    _displayNotification: function() {
+        if (this.widget)
+            return;
+
+        if (this._manuallyClosed)
+            return;
+
+        this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
+                                     margin_left: 12,
+                                     margin_right: 12,
+                                     column_spacing: 12 });
+
+        let spinner = new Gtk.Spinner({ width_request: 16,
+                                        height_request: 16 });
+        this.widget.add(spinner);
+
+        let labels = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                    row_spacing: 3 });
+        this.widget.add(labels);
+
+        let primary = new Gtk.Label({ label: _("Your documents are being indexed"),
+                                      halign: Gtk.Align.START });
+        labels.add(primary);
+
+        let secondary = new Gtk.Label({ label: _("Some documents might not be available during this process"),
+                                        halign: Gtk.Align.START });
+        secondary.get_style_context().add_class('dim-label');
+        labels.add(secondary);
+
+        let close = new Gtk.Button({ child: new Gtk.Image({ icon_name: 'window-close-symbolic',
+                                                            pixel_size: 16,
+                                                            margin_top: 2,
+                                                            margin_bottom: 2 }),
+                                     valign: Gtk.Align.CENTER });
+        close.connect('clicked', Lang.bind(this,
+            function() {
+                this._manuallyClosed = true;
+                this._destroyNotification();
+            }));
+        this.widget.add(close);
+
+        Global.notificationManager.addNotification(this);
+    },
+
+    _destroyNotification: function() {
+        if (this.widget) {
+            this.widget.destroy();
+            this.widget = null;
+        }
     }
 });
 

@@ -25,6 +25,7 @@ const Tweener = imports.util.tweener;
 
 const Global = imports.global;
 const MainToolbar = imports.mainToolbar;
+const Notifications = imports.notifications;
 const Preview = imports.preview;
 const Searchbar = imports.searchbar;
 const Selections = imports.selections;
@@ -333,6 +334,9 @@ const Embed = new Lang.Class({
 
         // pack the OSD notification actor
         this._viewActor.add_child(Global.notificationManager.actor);
+
+        // start the monitor for the indexing notification
+        this._indexingNotification = new Notifications.IndexingNotification();
 
         // now create the actual content widgets
         this._view = new View.ViewContainer();
