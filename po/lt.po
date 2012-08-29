@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-07-19 22:20+0000\n"
-"PO-Revision-Date: 2012-07-22 00:25+0300\n"
+"POT-Creation-Date: 2012-08-21 16:02+0000\n"
+"PO-Revision-Date: 2012-08-29 22:51+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: \n"
@@ -65,57 +65,57 @@ msgstr "Langas išdidintas"
 msgid "Window maximized state"
 msgstr "Lango išdidinimo būsena"
 
-#: ../src/documents.js:641
+#: ../src/documents.js:640
 #: ../src/sources.js:95
 msgid "Local"
 msgstr "Vietiniai"
 
 #. overridden
-#: ../src/documents.js:694
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:695
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:759
-#: ../src/documents.js:898
+#: ../src/documents.js:758
+#: ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Skaičiuoklė"
 
-#: ../src/documents.js:761
-#: ../src/documents.js:900
+#: ../src/documents.js:760
+#: ../src/documents.js:859
 msgid "Presentation"
 msgstr "Pateiktis"
 
-#: ../src/documents.js:763
-#: ../src/documents.js:902
+#: ../src/documents.js:762
+#: ../src/documents.js:861
 msgid "Collection"
 msgstr "Kolekcija"
 
-#: ../src/documents.js:765
-#: ../src/documents.js:904
+#: ../src/documents.js:764
+#: ../src/documents.js:863
 msgid "Document"
 msgstr "Dokumentas"
 
 #. overridden
-#: ../src/documents.js:832
-#: ../src/documents.js:833
+#: ../src/documents.js:791
+#: ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1016
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Nepavyksta įkelti „%s“ peržiūrai"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "Nepavyksta įkelti dokumento"
 
-#: ../src/lib/gd-pdf-loader.c:675
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "Nepavyksta rasti „unoconv“, patikrinkite savo LibreOffice įdiegtį"
 
@@ -153,14 +153,15 @@ msgstr[1] "%d pažymėti"
 msgstr[2] "%d pažymėta"
 
 #: ../src/mainToolbar.js:203
+#: ../src/properties.js:58
 msgid "Done"
 msgstr "Atlikta"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:221
 msgid "Back"
 msgstr "Grįžti"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:239
 msgid "Select Items"
 msgstr "Pasirinkite elementus"
 
@@ -178,6 +179,44 @@ msgstr "Dokumentų tvarkymo programa"
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Spausdinama „%s“: %s"
+
+#. Properties dialog heading
+#: ../src/properties.js:73
+#: ../src/selections.js:792
+msgid "Properties"
+msgstr "Savybės"
+
+#. Title item
+#: ../src/properties.js:81
+#: ../src/searchbar.js:225
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: ../src/properties.js:88
+#: ../src/searchbar.js:227
+msgid "Author"
+msgstr "Autorius"
+
+#. Source item
+#: ../src/properties.js:95
+#| msgid "Sources"
+msgid "Source"
+msgstr "Šaltinis"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "Keitimo data"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "Sukūrimo data"
+
+#. Document type item
+#: ../src/properties.js:115
+#: ../src/searchbar.js:135
+msgid "Type"
+msgstr "Tipas"
 
 #: ../src/searchbar.js:83
 msgid "Category"
@@ -197,10 +236,6 @@ msgstr "Mėgiamiausi"
 #: ../src/searchbar.js:99
 msgid "Shared with you"
 msgstr "Bendrinami su jumis"
-
-#: ../src/searchbar.js:135
-msgid "Type"
-msgstr "Tipas"
 
 #: ../src/searchbar.js:140
 msgid "Collections"
@@ -228,45 +263,29 @@ msgstr "Teksto dokumentai"
 msgid "Match"
 msgstr "Atitikmuo"
 
-#: ../src/searchbar.js:225
-msgid "Title"
-msgstr "Pavadinimas"
-
-#: ../src/searchbar.js:227
-msgid "Author"
-msgstr "Autorius"
-
-#: ../src/selections.js:773
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Spausdinti"
 
-#: ../src/selections.js:788
-msgid "Organize"
-msgstr "Tvarkyti"
-
-#: ../src/selections.js:795
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Ištrinti"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Tvarkyti"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:884
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Atverti su %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:887
+#: ../src/selections.js:876
 #: ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Atverti"
-
-#: ../src/selections.js:896
-msgid "Remove from favorites"
-msgstr "Pašalinti iš mėgiamiausių"
-
-#: ../src/selections.js:900
-msgid "Add to favorites"
-msgstr "Pridėti prie mėgiamiausių"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -280,7 +299,7 @@ msgstr "Šaltiniai"
 msgid "Loading..."
 msgstr "Įkeliama..."
 
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
@@ -288,11 +307,11 @@ msgstr[0] "Įkelti dar %d dokumentą"
 msgstr[1] "Įkelti dar %d dokumentus"
 msgstr[2] "Įkelti dar %d dokumentų"
 
-#: ../src/view.js:270
+#: ../src/view.js:271
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/view.js:272
+#: ../src/view.js:273
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -300,11 +319,11 @@ msgstr[0] "Prieš %d dieną"
 msgstr[1] "Prieš %d dienas"
 msgstr[2] "Prieš %d dienų"
 
-#: ../src/view.js:276
+#: ../src/view.js:277
 msgid "Last week"
 msgstr "Praeitą savaitę"
 
-#: ../src/view.js:278
+#: ../src/view.js:279
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -312,11 +331,11 @@ msgstr[0] "Prieš %d savaitę"
 msgstr[1] "Prieš %d savaites"
 msgstr[2] "Prieš %d savaičių"
 
-#: ../src/view.js:282
+#: ../src/view.js:283
 msgid "Last month"
 msgstr "Praeitą mėnesį"
 
-#: ../src/view.js:284
+#: ../src/view.js:285
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -324,11 +343,11 @@ msgstr[0] "Prieš %d mėnesį"
 msgstr[1] "Prieš %d mėnesius"
 msgstr[2] "Prieš %d mėnesių"
 
-#: ../src/view.js:288
+#: ../src/view.js:289
 msgid "Last year"
 msgstr "Praeitais metais"
 
-#: ../src/view.js:290
+#: ../src/view.js:291
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
