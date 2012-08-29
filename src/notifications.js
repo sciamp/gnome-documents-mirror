@@ -124,9 +124,6 @@ const NotificationManager = new Lang.Class({
 
         if (children.length == 0)
             this.widget.hide();
-    },
-
-    _onNotificationDismissed: function() {
     }
 });
 Signals.addSignalMethods(NotificationManager.prototype);
