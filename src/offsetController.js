@@ -78,6 +78,10 @@ const OffsetController = new Lang.Class({
         this._offset = 0;
     },
 
+    getItemCount: function() {
+        return this._itemCount;
+    },
+
     getRemainingDocs: function() {
         return (this._itemCount - (this._offset + _OFFSET_STEP));
     },

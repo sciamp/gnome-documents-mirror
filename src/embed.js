@@ -33,6 +33,7 @@ const WindowMode = imports.windowMode;
 
 const Clutter = imports.gi.Clutter;
 const EvView = imports.gi.EvinceView;
+const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -194,11 +195,79 @@ const ErrorBox = new Lang.Class({
     }
 });
 
+const EmptyResultsBox = new Lang.Class({
+    Name: 'EmptyResultsBox',
+
+    _init: function() {
+        this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
+                                     column_spacing: 12,
+                                     hexpand: true,
+                                     vexpand: true,
+                                     halign: Gtk.Align.CENTER,
+                                     valign: Gtk.Align.CENTER });
+        this.widget.get_style_context().add_class('dim-label');
+
+        this._image = new Gtk.Image({ pixel_size: 64,
+                                      icon_name: 'emblem-documents-symbolic' });
+        this.widget.add(this._image);
+
+        let labelsGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                        row_spacing: 12 });
+        this.widget.add(labelsGrid);
+
+        let titleLabel = new Gtk.Label({ label: '<b><span size="large">' +
+                                         _("No Documents Found") +
+                                         '</span></b>',
+                                         use_markup: true,
+                                         halign: Gtk.Align.START });
+        labelsGrid.add(titleLabel);
+
+        let details = new Gtk.Label({ label: _("You can add your online accounts in") +
+                                      " <a href=\"system-settings\">" + _("System Settings") + "</a>",
+                                      use_markup: true,
+                                      halign: Gtk.Align.START,
+                                      xalign: 0,
+                                      max_width_chars: 24,
+                                      wrap: true });
+        labelsGrid.add(details);
+
+        details.connect('activate-link', Lang.bind(this,
+            function(label, uri) {
+                if (uri != 'system-settings')
+                    return false;
+
+                try {
+                    let app = Gio.AppInfo.create_from_commandline(
+                        'gnome-control-center online-accounts', null, 0);
+
+                    let screen = this.widget.get_screen();
+                    let display = screen ? screen.get_display() : Gdk.Display.get_default();
+                    let ctx = display.get_app_launch_context();
+
+                    if (screen)
+                        ctx.set_screen(screen);
+
+                    app.launch([], ctx);
+                } catch(e) {
+                    log('Unable to launch gnome-control-center: ' + e.message);
+                }
+
+                return true;
+            }));
+
+        this.actor = new GtkClutter.Actor({ contents: this.widget,
+                                            opacity: 255 });
+
+        this.widget.show_all();
+    }
+});
+
 const Embed = new Lang.Class({
     Name: 'Embed',
 
     _init: function() {
         this._queryErrorId = 0;
+        this._noResultsChangeId = 0;
 
         this.widget = new GtkClutter.Embed({ use_layout_size: true });
         this.widget.show();
@@ -241,6 +310,10 @@ const Embed = new Lang.Class({
         this._errorBox = new ErrorBox();
         this._viewActor.insert_child_below(this._errorBox.actor,  null);
 
+        this._noResults = new EmptyResultsBox();
+        this._viewLayout.add(this._noResults.actor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
+        this._noResults.actor.lower_bottom();
+
         // also pack a white background to use for spotlights between window modes
         this._background =
             new Clutter.Rectangle({ color: new Clutter.Color ({ red: 255,
@@ -277,6 +350,9 @@ const Embed = new Lang.Class({
         Global.trackerController.connect('query-error',
                                          Lang.bind(this, this._onQueryError));
 
+        Global.offsetController.connect('item-count-changed',
+                                        Lang.bind(this, this._onItemCountChanged));
+
         Global.documentManager.connect('active-changed',
                                        Lang.bind(this, this._onActiveItemChanged));
         Global.documentManager.connect('load-started',
@@ -297,6 +373,32 @@ const Embed = new Lang.Class({
             this._spinnerBox.moveIn();
         } else {
             this._spinnerBox.moveOut();
+        }
+    },
+
+    _hideNoResultsPage: function() {
+        if (this._noResultsChangeId != 0) {
+            Global.changeMonitor.disconnect(this._noResultsChangeId);
+            this._noResultsChangeId = 0;
+        }
+
+        this._noResults.actor.lower_bottom();
+    },
+
+    _onItemCountChanged: function() {
+        let itemCount = Global.offsetController.getItemCount();
+
+        if (itemCount == 0) {
+            // also listen to changes-pending while in this mode
+            this._noResultsChangeId =
+                Global.changeMonitor.connect('changes-pending', Lang.bind(this,
+                    function() {
+                        this._hideNoResultsPage();
+                    }));
+
+            this._noResults.actor.raise_top();
+        } else {
+            this._hideNoResultsPage();
         }
     },
 
