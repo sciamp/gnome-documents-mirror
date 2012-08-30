@@ -16,3 +16,4 @@ src/sources.js
 src/view.js
 [type: gettext/glade]src/resources/app-menu.ui
 [type: gettext/glade]src/resources/preview-menu.ui
+[type: gettext/glade]src/resources/selection-menu.ui
