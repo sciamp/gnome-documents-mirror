@@ -19,6 +19,7 @@
  *
  */
 
+const Clutter = imports.gi.Clutter;
 const Gd = imports.gi.Gd;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
@@ -101,7 +102,10 @@ const NotificationManager = new Lang.Class({
                                     row_spacing: 6 });
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 0 });
+                                            opacity: 0,
+                                            x_align: Clutter.ActorAlign.CENTER,
+                                            y_align: Clutter.ActorAlign.START,
+                                            y_expand: true });
         Utils.alphaGtkWidget(this.actor.get_widget());
 
         this.widget.add(this._grid);

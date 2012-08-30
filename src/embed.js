@@ -56,7 +56,11 @@ const SpinnerBox = new Lang.Class({
                                      valign: Gtk.Align.CENTER });
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255 });
+                                            opacity: 255,
+                                            x_align: Clutter.ActorAlign.FILL,
+                                            x_expand: true,
+                                            y_align: Clutter.ActorAlign.FILL,
+                                            y_expand: true });
 
         this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
                                           height_request: _ICON_SIZE,
@@ -84,7 +88,9 @@ const SpinnerBox = new Lang.Class({
 
     moveIn: function() {
         this._clearDelayId();
-        this.actor.raise_top();
+
+        let parent = this.actor.get_parent();
+        parent.set_child_above_sibling(this.actor, null);
 
         Tweener.addTween(this.actor, { opacity: 255,
                                        time: 0.30,
@@ -98,7 +104,8 @@ const SpinnerBox = new Lang.Class({
                                        time: 0.30,
                                        transition: 'easeOutQuad',
                                        onComplete: function () {
-                                           this.actor.lower_bottom();
+                                           let parent = this.actor.get_parent();
+                                           parent.set_child_below_sibling(this.actor, null);
                                        },
                                        onCompleteScope: this });
     },
@@ -151,7 +158,11 @@ const ErrorBox = new Lang.Class({
         this.widget.show_all();
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255 });
+                                            opacity: 255,
+                                            x_align: Clutter.ActorAlign.FILL,
+                                            x_expand: true,
+                                            y_align: Clutter.ActorAlign.FILL,
+                                            y_expand: true });
     },
 
     update: function(primary, secondary) {
@@ -163,7 +174,8 @@ const ErrorBox = new Lang.Class({
     },
 
     moveIn: function() {
-        this.actor.raise_top();
+        let parent = this.actor.get_parent();
+        parent.set_child_above_sibling(this.actor, null);
 
         Tweener.addTween(this.actor, { opacity: 255,
                                        time: 0.30,
@@ -175,7 +187,8 @@ const ErrorBox = new Lang.Class({
                                        time: 0.30,
                                        transition: 'easeOutQuad',
                                        onComplete: function () {
-                                           this.actor.lower_bottom();
+                                           let parent = this.actor.get_parent();
+                                           parent.set_child_below_sibling(this.actor, null);
                                        },
                                        onCompleteScope: this });
     }
@@ -215,26 +228,30 @@ const Embed = new Lang.Class({
         this._notebook = new Gtk.Notebook({ show_tabs: false,
                                             show_border: false });
         this._notebook.show();
-        this._notebookActor = new GtkClutter.Actor({ contents: this._notebook });
-        this._viewLayout.add(this._notebookActor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
+        this._notebookActor = new GtkClutter.Actor({ contents: this._notebook,
+                                                     x_align: Clutter.ActorAlign.FILL,
+                                                     x_expand: true,
+                                                     y_align: Clutter.ActorAlign.FILL,
+                                                     y_expand: true });
+        this._viewActor.add_child(this._notebookActor);
 
         this._spinnerBox = new SpinnerBox();
-        this._viewLayout.add(this._spinnerBox.actor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
-        this._spinnerBox.actor.lower_bottom();
+        this._viewActor.insert_child_below(this._spinnerBox.actor, null);
 
         this._errorBox = new ErrorBox();
-        this._viewLayout.add(this._errorBox.actor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
-        this._errorBox.actor.lower_bottom();
+        this._viewActor.insert_child_below(this._errorBox.actor,  null);
 
         // also pack a white background to use for spotlights between window modes
         this._background =
             new Clutter.Rectangle({ color: new Clutter.Color ({ red: 255,
                                                                 blue: 255,
                                                                 green: 255,
-                                                                alpha: 255 }) });
-        this._viewLayout.add(this._background,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
-        this._background.lower_bottom();
+                                                                alpha: 255 }),
+                                    x_align: Clutter.ActorAlign.FILL,
+                                    x_expand: true,
+                                    y_align: Clutter.ActorAlign.FILL,
+                                    y_expand: true });
+        this._viewActor.insert_child_below(this._background, null);
 
         // create the OSD toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar(this._contentsActor);
@@ -242,8 +259,7 @@ const Embed = new Lang.Class({
             Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
 
         // pack the OSD notification actor
-        this._viewLayout.add(Global.notificationManager.actor,
-            Clutter.BinAlignment.CENTER, Clutter.BinAlignment.START);
+        this._viewActor.add_child(Global.notificationManager.actor);
 
         // now create the actual content widgets
         this._view = new View.ViewContainer();
@@ -305,14 +321,14 @@ const Embed = new Lang.Class({
                                              time: 0.20,
                                              transition: 'easeInQuad',
                                              onComplete: function() {
-                                                 this._background.lower_bottom();
+                                                 this._viewActor.set_child_below_sibling(this._background, null);
                                              },
                                              onCompleteScope: this });
     },
 
     _windowModeChangeFlash: function() {
         // fade from white when returning to the view anyway
-        this._background.raise_top();
+        this._viewActor.set_child_above_sibling(this._background, null);
         this._background.opacity = 255;
         this._moveOutBackground();
     },

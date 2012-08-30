@@ -448,7 +448,10 @@ const Dropdown = new Lang.Class({
 
     show: function() {
         this.widget.show_all();
-        this.actor.raise_top();
+
+        let parent = this.actor.get_parent();
+        parent.set_child_above_sibling(this.actor, null);
+
         Tweener.addTween(this.actor, { opacity: 245,
                                        time: 0.20,
                                        transition: 'easeOutQuad' });
@@ -460,7 +463,8 @@ const Dropdown = new Lang.Class({
                                        time: 0.20,
                                        transition: 'easeOutQuad',
                                        onComplete: function() {
-                                           this.actor.lower_bottom();
+                                           let parent = this.actor.get_parent();
+                                           parent.set_child_below_sibling(this.actor, null);
                                        },
                                        onCompleteScope: this });
     }
