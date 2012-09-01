@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-01 14:24+0700\n"
+"PO-Revision-Date: 2012-09-01 14:26+0700\n"
 "Last-Translator: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -109,18 +109,17 @@ msgid "Loading..."
 msgstr "Đang nạp..."
 
 #: ../src/embed.js:220
-#, fuzzy
 #| msgid "About Documents"
 msgid "No Documents Found"
-msgstr "Giới thiệu Tài liệu"
+msgstr "Không tìm thấy tài liệu"
 
 #: ../src/embed.js:226
 msgid "You can add your online accounts in"
-msgstr ""
+msgstr "Bạn có thể thêm tài khoản trực tuyến vào"
 
 #: ../src/embed.js:227
 msgid "System Settings"
-msgstr ""
+msgstr "Thiết lập hệ thống"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -134,7 +133,7 @@ msgstr ""
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
-msgstr ""
+msgstr "Tìm"
 
 #: ../src/mainToolbar.js:158
 msgid "New and Recent"
@@ -190,16 +189,16 @@ msgstr "In \"%s\": %s"
 
 #: ../src/notifications.js:151
 msgid "Your documents are being indexed"
-msgstr ""
+msgstr "Đang đánh chỉ mục tài liệu của bạn"
 
 #: ../src/notifications.js:155
 msgid "Some documents might not be available during this process"
-msgstr ""
+msgstr "Vài tài liệu sẽ không thể dùng trong suốt quá trình này"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
 msgid "Properties"
-msgstr ""
+msgstr "Thuộc tính"
 
 #. Title item
 #: ../src/properties.js:81 ../src/searchbar.js:225
@@ -212,7 +211,6 @@ msgstr "Tác giả"
 
 #. Source item
 #: ../src/properties.js:95
-#, fuzzy
 #| msgid "Sources"
 msgid "Source"
 msgstr "Nguồn"
@@ -220,11 +218,11 @@ msgstr "Nguồn"
 #. Date Modified item
 #: ../src/properties.js:101
 msgid "Date Modified"
-msgstr ""
+msgstr "Ngày thay đổi"
 
 #: ../src/properties.js:108
 msgid "Date Created"
-msgstr ""
+msgstr "Ngày tạo"
 
 #. Document type item
 #: ../src/properties.js:115 ../src/searchbar.js:135
@@ -372,38 +370,35 @@ msgid "Quit"
 msgstr "Thoát"
 
 #: ../src/resources/preview-menu.ui.h:2
-#, fuzzy
 #| msgid "Print"
 msgid "Print..."
-msgstr "In"
+msgstr "In..."
 
 #: ../src/resources/preview-menu.ui.h:3
 msgid "Zoom In"
-msgstr ""
+msgstr "Phóng to"
 
 #: ../src/resources/preview-menu.ui.h:4
 msgid "Zoom Out"
-msgstr ""
+msgstr "Thu nhỏ"
 
 #: ../src/resources/preview-menu.ui.h:5
 msgid "Rotate Left"
-msgstr ""
+msgstr "Quay trái"
 
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
-msgstr ""
+msgstr "Quay phải"
 
 #: ../src/resources/selection-menu.ui.h:1
-#, fuzzy
 #| msgid "Select Items"
 msgid "Select All"
-msgstr "Chọn mục"
+msgstr "Chọn hết"
 
 #: ../src/resources/selection-menu.ui.h:2
-#, fuzzy
 #| msgid "Select Items"
 msgid "Select None"
-msgstr "Chọn mục"
+msgstr "Không chọn gì cả"
 
 #~ msgid "Unable to fetch the list of documents"
 #~ msgstr "Không thể lấy danh sách tài liệu"
