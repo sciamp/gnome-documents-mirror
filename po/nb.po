@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.5.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-22 13:54+0200\n"
-"PO-Revision-Date: 2012-08-22 13:54+0200\n"
+"POT-Creation-Date: 2012-09-01 10:48+0200\n"
+"PO-Revision-Date: 2012-09-01 10:49+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -103,9 +103,21 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Kan ikke laste «%s» for forhåndsvisning"
 
-#: ../src/embed.js:68
+#: ../src/embed.js:74
 msgid "Loading..."
 msgstr "Laster …"
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "Ingen dokumenter funnet"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "Du kan legge til dine kontoer på nettet i"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "Systeminnstillinger"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -147,15 +159,15 @@ msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
@@ -167,10 +179,18 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 msgid "A document manager application"
 msgstr "Et program for å håndtere dokumenter"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Skriver ut «%s»: %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Dokumentene dine blir indeksert"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Noen dokumenter vil kanskje ikke være tilgjengelig under denne prosessen"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
@@ -286,44 +306,44 @@ msgid_plural "Load %d more documents"
 msgstr[0] "Last %d dokument til"
 msgstr[1] "Last %d dokumenter til"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dager siden"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Siste uke"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uke siden"
 msgstr[1] "%d uker siden"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Siste måned"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Siste år"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -369,3 +389,11 @@ msgstr "Roter til venstre"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "Roter til høyre"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Velg alle"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Velg ingen"
