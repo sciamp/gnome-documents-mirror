@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-07-20 01:13+0200\n"
-"PO-Revision-Date: 2012-07-20 01:13+0200\n"
+"POT-Creation-Date: 2012-09-01 23:17+0200\n"
+"PO-Revision-Date: 2012-09-01 23:17+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -67,51 +67,67 @@ msgstr "تكبير النافذة"
 msgid "Window maximized state"
 msgstr "حالة تكبير النافذة"
 
-#: ../src/documents.js:641 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "محلّي"
 
 #. overridden
-#: ../src/documents.js:694
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "مستندات جوجل"
 
-#: ../src/documents.js:695
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "جوجل"
 
-#: ../src/documents.js:759 ../src/documents.js:898
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "جدول ممتد"
 
-#: ../src/documents.js:761 ../src/documents.js:900
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "عرض تقديمي"
 
-#: ../src/documents.js:763 ../src/documents.js:902
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "تجميع"
 
-#: ../src/documents.js:765 ../src/documents.js:904
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "مستندات"
 
 #. overridden
-#: ../src/documents.js:832 ../src/documents.js:833
+#: ../src/documents.js:791 ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1016
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "تعذّر تحميل \"%s\" للعرض المُسبق"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "يُحمّل..."
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "لم يُعثر على أي مستندات"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "يمكنك إضافة حسابات الإنترنت في"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "إعدادات النظام"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "تعذّر تحميل المُستند"
 
-#: ../src/lib/gd-pdf-loader.c:675
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "تعذّر العثور على \"unoconv\"، رجاءً تأكد من تثبيت ليبر أوفيس"
 
@@ -151,15 +167,15 @@ msgstr[3] "%d عناصر مُختارة"
 msgstr[4] "%d عنصرا مُختارة"
 msgstr[5] "%d عنصر مُختارة"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "تم"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "السابق"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "اختر العناصر"
 
@@ -174,10 +190,51 @@ msgstr ""
 msgid "A document manager application"
 msgstr "تطبيق إدارة مُستندات"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "طباعة\"%s\": %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "يجري فهرسة مستنداتك"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "قد لا تتاح بعض المستندات أثناء هذا"
+
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "الخصائص"
+
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "العنوان"
+
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "المؤلف"
+
+#. Source item
+#: ../src/properties.js:95
+msgid "Source"
+msgstr "المصدر"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "تاريخ التعديل"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "تاريخ الإنشاء"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
+msgid "Type"
+msgstr "النوع"
 
 #: ../src/searchbar.js:83
 msgid "Category"
@@ -195,10 +252,6 @@ msgstr "المفضّلة"
 #: ../src/searchbar.js:99
 msgid "Shared with you"
 msgstr "مشتركة معك"
-
-#: ../src/searchbar.js:135
-msgid "Type"
-msgstr "النوع"
 
 #: ../src/searchbar.js:140
 msgid "Collections"
@@ -226,44 +279,28 @@ msgstr "مستندات نصيّة"
 msgid "Match"
 msgstr "طابق"
 
-#: ../src/searchbar.js:225
-msgid "Title"
-msgstr "العنوان"
-
-#: ../src/searchbar.js:227
-msgid "Author"
-msgstr "المؤلف"
-
-#: ../src/selections.js:773
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "اطبع"
 
-#: ../src/selections.js:788
-msgid "Organize"
-msgstr "نظّم"
-
-#: ../src/selections.js:795
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "احذف"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "نظّم"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:884
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "افتح باستخدام %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:887 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "افتح"
-
-#: ../src/selections.js:896
-msgid "Remove from favorites"
-msgstr "أزل من المفضّلة"
-
-#: ../src/selections.js:900
-msgid "Add to favorites"
-msgstr "أضف للمفضّلة"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -273,11 +310,7 @@ msgstr "مستند بلا عنوان"
 msgid "Sources"
 msgstr "المصادر"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "يُحمّل..."
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
@@ -288,11 +321,11 @@ msgstr[3] "حمّل %d مستندات إضافيّة"
 msgstr[4] "حمّل %d مستندا إضافيّا"
 msgstr[5] "حمّل %d مستند إضافي"
 
-#: ../src/view.js:270
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "بالأمس"
 
-#: ../src/view.js:272
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -303,11 +336,11 @@ msgstr[3] "منذ %d أيام"
 msgstr[4] "منذ %d يوما"
 msgstr[5] "منذ %d يوم"
 
-#: ../src/view.js:276
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "الأسبوع الماضي"
 
-#: ../src/view.js:278
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -318,11 +351,11 @@ msgstr[3] "منذ %d أسابيع"
 msgstr[4] "منذ %d أسبوعا"
 msgstr[5] "منذ %d أسبوع"
 
-#: ../src/view.js:282
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "الشهر الماضي"
 
-#: ../src/view.js:284
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -333,11 +366,11 @@ msgstr[3] "منذ %d أشهر"
 msgstr[4] "منذ %d شهرا"
 msgstr[5] "منذ %d شهر"
 
-#: ../src/view.js:288
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "السنة الماضية"
 
-#: ../src/view.js:290
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -387,6 +420,20 @@ msgstr "أدِر لليسار"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "أدِر لليمين"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "اختر الكل"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "أزل الاختيار عن الكل"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "أزل من المفضّلة"
+
+#~ msgid "Add to favorites"
+#~ msgstr "أضف للمفضّلة"
 
 #~ msgid "Unable to fetch the list of documents"
 #~ msgstr "تعذّر جلب قائمة المستندات"
