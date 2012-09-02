@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-21 16:02+0000\n"
-"PO-Revision-Date: 2012-08-29 22:51+0300\n"
+"POT-Creation-Date: 2012-08-30 02:39+0000\n"
+"PO-Revision-Date: 2012-09-02 15:56+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: \n"
@@ -111,6 +111,23 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Nepavyksta įkelti „%s“ peržiūrai"
 
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "Įkeliama..."
+
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "Nerasta dokumentų"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "Kur galite pridėti internetines paskyras"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "Sistemos nustatymai"
+
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "Nepavyksta įkelti dokumento"
@@ -152,16 +169,16 @@ msgstr[0] "%d pažymėtas"
 msgstr[1] "%d pažymėti"
 msgstr[2] "%d pažymėta"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:208
 #: ../src/properties.js:58
 msgid "Done"
 msgstr "Atlikta"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Grįžti"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Pasirinkite elementus"
 
@@ -175,10 +192,18 @@ msgstr ""
 msgid "A document manager application"
 msgstr "Dokumentų tvarkymo programa"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Spausdinama „%s“: %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Jūsų dokumentai indeksuojami"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Kai kurie dokumentai šio proceso metu gali būti neprieinami"
 
 #. Properties dialog heading
 #: ../src/properties.js:73
@@ -199,7 +224,6 @@ msgstr "Autorius"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "Šaltinis"
 
@@ -295,10 +319,6 @@ msgstr "Nepavadintas dokumentas"
 msgid "Sources"
 msgstr "Šaltiniai"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "Įkeliama..."
-
 #: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
@@ -307,11 +327,11 @@ msgstr[0] "Įkelti dar %d dokumentą"
 msgstr[1] "Įkelti dar %d dokumentus"
 msgstr[2] "Įkelti dar %d dokumentų"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Vakar"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -319,11 +339,11 @@ msgstr[0] "Prieš %d dieną"
 msgstr[1] "Prieš %d dienas"
 msgstr[2] "Prieš %d dienų"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Praeitą savaitę"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -331,11 +351,11 @@ msgstr[0] "Prieš %d savaitę"
 msgstr[1] "Prieš %d savaites"
 msgstr[2] "Prieš %d savaičių"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Praeitą mėnesį"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -343,11 +363,11 @@ msgstr[0] "Prieš %d mėnesį"
 msgstr[1] "Prieš %d mėnesius"
 msgstr[2] "Prieš %d mėnesių"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Praeitais metais"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -394,4 +414,14 @@ msgstr "Pasukti į kairę"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "Pasukti į dešinę"
+
+#: ../src/resources/selection-menu.ui.h:1
+#| msgid "Select Items"
+msgid "Select All"
+msgstr "Pasirinkti visus"
+
+#: ../src/resources/selection-menu.ui.h:2
+#| msgid "Select Items"
+msgid "Select None"
+msgstr "Nepasirinkti nieko"
 
