@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-22 21:16+0530\n"
+"POT-Creation-Date: 2012-02-25 21:08+0530\n"
 "PO-Revision-Date: 2012-02-23 07:57+0530\n"
 "Last-Translator: Dr.T.Vasudevan <agnihot3@gmail.com>\n"
 "Language-Team: Tamil <ta@ubuntu.org>\n"
@@ -134,8 +134,7 @@ msgstr "ஆவணத்தை ஏற்ற முடியவில்லை"
 #: ../src/lib/gd-pdf-loader.c:488
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr ""
-"\"unoconv\" ஐ கண்டுபிடிக்க முடியவில்லை, உங்கள் லிப்ரே ஆபீஸ் நிறுவலை சரி "
-"பார்க்கவும்."
+"\"unoconv\" ஐ கண்டுபிடிக்க முடியவில்லை, உங்கள் லிப்ரே ஆபீஸ் நிறுவலை சரி பார்க்கவும்."
 
 #: ../src/loadMore.js:70
 #, c-format
