@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-14 22:20+0000\n"
-"PO-Revision-Date: 2012-08-16 15:59+0200\n"
+"POT-Creation-Date: 2012-08-30 02:39+0000\n"
+"PO-Revision-Date: 2012-09-03 13:34+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -66,45 +66,62 @@ msgstr "Ventana maximizada"
 msgid "Window maximized state"
 msgstr "Estado maximizado de la ventana"
 
-#: ../src/documents.js:650 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "Locales"
 
 #. overridden
-#: ../src/documents.js:703
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:704
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:768 ../src/documents.js:907
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Hoja de cálculo"
 
-#: ../src/documents.js:770 ../src/documents.js:909
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "Presentación"
 
-#: ../src/documents.js:772 ../src/documents.js:911
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "Colección"
 
-#: ../src/documents.js:774 ../src/documents.js:913
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:841 ../src/documents.js:842
+#: ../src/documents.js:791 ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1025
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "No se pudo cargar «%s» para su vista previa"
+
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "Cargando…"
+
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "No se encontraron documentos"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "Puede añadir sus cuentas en línea en"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "Configuración del sistema"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -146,15 +163,15 @@ msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "Hecho"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Atrás"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Seleccionar elementos"
 
@@ -166,13 +183,21 @@ msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012"
 msgid "A document manager application"
 msgstr "Una aplicación para gestionar documentos"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Imprimiendo «%s»: %s"
 
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Se están indexando sus documentos"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Algunos documentos pueden no estar disponibles durante este proceso"
+
 #. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:774
+#: ../src/properties.js:73 ../src/selections.js:792
 msgid "Properties"
 msgstr "Propiedades"
 
@@ -187,7 +212,6 @@ msgstr "Autor"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "Fuente"
 
@@ -248,36 +272,28 @@ msgstr "Documentos de texto"
 msgid "Match"
 msgstr "Coincidencia"
 
-#: ../src/selections.js:780
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Imprimir"
 
-#: ../src/selections.js:795
-msgid "Organize"
-msgstr "Organizar"
-
-#: ../src/selections.js:802
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Eliminar"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Organizar"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:894
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:897 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Abrir"
-
-#: ../src/selections.js:906
-msgid "Remove from favorites"
-msgstr "Quitar de los marcadores"
-
-#: ../src/selections.js:910
-msgid "Add to favorites"
-msgstr "Añadir a los marcadores"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -287,55 +303,51 @@ msgstr "Documento sin título"
 msgid "Sources"
 msgstr "Fuentes"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "Cargando…"
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "Cargar %d documento más"
 msgstr[1] "Cargar %d documentos más"
 
-#: ../src/view.js:270
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/view.js:272
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "hace %d día"
 msgstr[1] "hace %d días"
 
-#: ../src/view.js:276
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Última semana"
 
-#: ../src/view.js:278
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "hace %d semana"
 msgstr[1] "hace %d semanas"
 
-#: ../src/view.js:282
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Último mes"
 
-#: ../src/view.js:284
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "hace %d mes"
 msgstr[1] "hace %d meses"
 
-#: ../src/view.js:288
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Último año"
 
-#: ../src/view.js:290
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -381,6 +393,22 @@ msgstr "Rotar a la izquierda"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "Rotar a la derecha"
+
+#: ../src/resources/selection-menu.ui.h:1
+#| msgid "Select Items"
+msgid "Select All"
+msgstr "Seleccionar todo"
+
+#: ../src/resources/selection-menu.ui.h:2
+#| msgid "Select Items"
+msgid "Select None"
+msgstr "Seleccionar nada"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "Quitar de los marcadores"
+
+#~ msgid "Add to favorites"
+#~ msgstr "Añadir a los marcadores"
 
 #~ msgid "Unable to fetch the list of documents"
 #~ msgstr "No se pudo obtener la lista de documentos"
