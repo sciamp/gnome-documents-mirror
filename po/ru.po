@@ -2,27 +2,27 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 #
+#
 # Stas Solovey <whats_up@tut.by>, 2011.
 # Yuri Kozlov <yuray@komyakino.ru>, 2012.
 # Alexsey Nadtochey <irbis4lan@yandex.com>, 2012.
 # Yuri Myasoedov <omerta13@yandex.ru>, 2011, 2012.
-#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-14 22:20+0000\n"
-"PO-Revision-Date: 2012-08-16 16:42+0400\n"
-"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
-"Language-Team: русский <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2012-09-01 21:18+0000\n"
+"PO-Revision-Date: 2012-09-02 09:33+0400\n"
+"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
+"Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -70,45 +70,61 @@ msgstr "Окно развёрнуто"
 msgid "Window maximized state"
 msgstr "Состояние развёрнутого окна"
 
-#: ../src/documents.js:650 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "Локальные"
 
 #. overridden
-#: ../src/documents.js:703
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Документы Google"
 
-#: ../src/documents.js:704
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:768 ../src/documents.js:907
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Таблица"
 
-#: ../src/documents.js:770 ../src/documents.js:909
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "Презентация"
 
-#: ../src/documents.js:772 ../src/documents.js:911
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "Коллекция"
 
-#: ../src/documents.js:774 ../src/documents.js:913
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "Документ"
 
 #. overridden
-#: ../src/documents.js:841 ../src/documents.js:842
+#: ../src/documents.js:791 ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1025
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Не удалось загрузить «%s» для просмотра"
+
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "Загрузка…"
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "Нет документов"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "Вы можете добавить учётные записи в"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "Системные параметры"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -151,15 +167,15 @@ msgstr[0] "Выбрано: %d"
 msgstr[1] "Выбрано: %d"
 msgstr[2] "Выбрано: %d"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "Выполнено"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Назад"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Выбрать элементы"
 
@@ -171,13 +187,21 @@ msgstr "Юрий Мясоедов <omerta13@yandex.ru>, 2012"
 msgid "A document manager application"
 msgstr "Приложение для управления документами"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Печать «%s»: %s"
 
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Документы проиндексированы"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Некоторые документы могут быть недоступны во время данного процесса"
+
 #. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:774
+#: ../src/properties.js:73 ../src/selections.js:792
 msgid "Properties"
 msgstr "Свойства"
 
@@ -192,7 +216,6 @@ msgstr "Автор"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "Источник"
 
@@ -253,36 +276,28 @@ msgstr "Текстовые документы"
 msgid "Match"
 msgstr "Совпадение"
 
-#: ../src/selections.js:780
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Печать"
 
-#: ../src/selections.js:795
-msgid "Organize"
-msgstr "Создать"
-
-#: ../src/selections.js:802
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Удалить"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Создать"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:894
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Открыть с помощью %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:897 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Открыть"
-
-#: ../src/selections.js:906
-msgid "Remove from favorites"
-msgstr "Удалить из избранного"
-
-#: ../src/selections.js:910
-msgid "Add to favorites"
-msgstr "Добавить в избранное"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -292,11 +307,7 @@ msgstr "Безымянный документ"
 msgid "Sources"
 msgstr "Источники"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "Загрузка…"
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
@@ -304,11 +315,11 @@ msgstr[0] "Загрузить ещё %d документ"
 msgstr[1] "Загрузить ещё %d документа"
 msgstr[2] "Загрузить ещё %d документов"
 
-#: ../src/view.js:270
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Вчера"
 
-#: ../src/view.js:272
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -316,11 +327,11 @@ msgstr[0] "%d день назад"
 msgstr[1] "%d дня назад"
 msgstr[2] "%d дней назад"
 
-#: ../src/view.js:276
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "На прошлой неделе"
 
-#: ../src/view.js:278
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -328,11 +339,11 @@ msgstr[0] "%d неделя назад"
 msgstr[1] "%d недели назад"
 msgstr[2] "%d недель назад"
 
-#: ../src/view.js:282
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "В прошлом месяце"
 
-#: ../src/view.js:284
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -340,11 +351,11 @@ msgstr[0] "%d месяц назад"
 msgstr[1] "%d месяца назад"
 msgstr[2] "%d месяцев назад"
 
-#: ../src/view.js:288
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "В прошлом году"
 
-#: ../src/view.js:290
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -391,6 +402,20 @@ msgstr "Повернуть влево"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "Повернуть вправо"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Выбрать все"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Отменить выбор"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "Удалить из избранного"
+
+#~ msgid "Add to favorites"
+#~ msgstr "Добавить в избранное"
 
 #~ msgid "Unable to fetch the list of documents"
 #~ msgstr "Не удалось получить список документов"
