@@ -212,17 +212,31 @@ const EmptyResultsBox = new Lang.Class({
                                       icon_name: 'emblem-documents-symbolic' });
         this.widget.add(this._image);
 
-        let labelsGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                        row_spacing: 12 });
-        this.widget.add(labelsGrid);
+        this._labelsGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                          row_spacing: 12 });
+        this.widget.add(this._labelsGrid);
 
         let titleLabel = new Gtk.Label({ label: '<b><span size="large">' +
                                          _("No Documents Found") +
                                          '</span></b>',
                                          use_markup: true,
-                                         halign: Gtk.Align.START });
-        labelsGrid.add(titleLabel);
+                                         halign: Gtk.Align.START,
+                                         vexpand: true });
+        this._labelsGrid.add(titleLabel);
 
+        if (Global.sourceManager.hasOnlineSources()) {
+            titleLabel.valign = Gtk.Align.CENTER;
+        } else {
+            titleLabel.valign = Gtk.Align.START;
+            this._addSystemSettingsLabel();
+        }
+
+        this.actor = new GtkClutter.Actor({ contents: this.widget,
+                                            opacity: 255 });
+        this.widget.show_all();
+    },
+
+    _addSystemSettingsLabel: function() {
         let details = new Gtk.Label({ label: _("You can add your online accounts in") +
                                       " <a href=\"system-settings\">" + _("System Settings") + "</a>",
                                       use_markup: true,
@@ -230,7 +244,7 @@ const EmptyResultsBox = new Lang.Class({
                                       xalign: 0,
                                       max_width_chars: 24,
                                       wrap: true });
-        labelsGrid.add(details);
+        this._labelsGrid.add(details);
 
         details.connect('activate-link', Lang.bind(this,
             function(label, uri) {
@@ -255,11 +269,6 @@ const EmptyResultsBox = new Lang.Class({
 
                 return true;
             }));
-
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255 });
-
-        this.widget.show_all();
     }
 });
 

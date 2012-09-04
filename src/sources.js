@@ -121,5 +121,16 @@ const SourceManager = new Lang.Class({
             }));
 
         this.processNewItems(newItems);
+    },
+
+    hasOnlineSources: function() {
+        let hasOnline = false;
+        this.forEachItem(
+            function(source) {
+                if (source.object)
+                    hasOnline = true;
+            });
+
+        return hasOnline;
     }
 });
