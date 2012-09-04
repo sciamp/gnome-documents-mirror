@@ -1,3 +1,12 @@
+3.5.91 - "Whiteberry"
+====================
+
+- Add a Select All/Select None menu to the selection mode toolbar
+- Add a notification while Tracker is indexing the file system
+- Add a No Documents Found page when tracker returns empty results
+- Fix persistance of document name change from the properties dialog
+- Don't abort when failing to start miners (Anna Zacchi)
+
 3.5.90 - "From My Dreams"
 =========================
 
