@@ -6,337 +6,423 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-06 04:42+0100\n"
-"PO-Revision-Date: 2012-03-06 04:44+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-08-30 02:39+0000\n"
+"PO-Revision-Date: 2012-09-04 13:15+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
-"Language: \n"
+"Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-msgid "Access, manage and share documents"
-msgstr "Dokumentumok elérése, kezelése és megosztása"
-
-#: ../data/gnome-documents.desktop.in.in.h:2
-msgid "Docs;PDF;Document;"
-msgstr "Dokumentum;PDF;Doksi;"
-
-#: ../data/gnome-documents.desktop.in.in.h:3 ../src/mainWindow.js:54
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "Dokumentumok"
 
+#: ../data/gnome-documents.desktop.in.in.h:2
+msgid "Access, manage and share documents"
+msgstr "Dokumentumok elérése, kezelése és megosztása"
+
+#: ../data/gnome-documents.desktop.in.in.h:3
+msgid "Docs;PDF;Document;"
+msgstr "Dokumentum;PDF;Doksi;"
+
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
-msgid "The active source filter"
-msgstr "Az aktív forrásszűrő"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:2
-msgid "The last active source filter"
-msgstr "Az utoljára aktív forrásszűrő"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:3 ../src/application.js:128
+#: ../src/resources/app-menu.ui.h:1
 msgid "View as"
 msgstr "Megjelenítés mint"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:4
+#: ../data/org.gnome.documents.gschema.xml.in.h:2
 msgid "View as type"
 msgstr "Megjelenítés típusként"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:5
-msgid "Window maximized"
-msgstr "Ablak teljes méretű"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:6
-msgid "Window maximized state"
-msgstr "Az ablak maximalizált állapota"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:7
-msgid "Window position"
-msgstr "Ablakpozíció"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:8
-msgid "Window position (x and y)."
-msgstr "Ablakpozíció (x és y)."
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:9
+#: ../data/org.gnome.documents.gschema.xml.in.h:3
 msgid "Window size"
 msgstr "Ablakméret"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:10
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
 msgstr "Ablak mérete (szélesség és magasság)."
 
-#: ../src/application.js:126
-msgid "Grid"
-msgstr "Rács"
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "Ablakpozíció"
 
-#: ../src/application.js:127
-msgid "List"
-msgstr "Lista"
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "Ablakpozíció (x és y)."
 
-#: ../src/application.js:131
-msgid "Fullscreen"
-msgstr "Teljes képernyő"
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr "Ablak teljes méretű"
 
-#: ../src/application.js:134
-msgid "About Documents"
-msgstr "A Dokumentumok névjegye"
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr "Az ablak maximalizált állapota"
 
-#: ../src/application.js:135
-msgid "Quit"
-msgstr "Kilépés"
-
-#: ../src/documents.js:618 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "Helyi"
 
 #. overridden
-#: ../src/documents.js:681
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Dokumentumok"
 
-#: ../src/documents.js:682
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Táblázat"
 
-#: ../src/documents.js:753
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "Prezentáció"
 
-#: ../src/documents.js:755
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "Gyűjtemény"
 
-#: ../src/documents.js:757
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "Dokumentum"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "A(z) „%s” nem tölthető be az előnézetből"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "Nem kérhető le a dokumentumok listája"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "Betöltés…"
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:269
-msgid "Done"
-msgstr "Kész"
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "Nincsenek dokumentumok"
 
-#: ../src/lib/gd-pdf-loader.c:208
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "Felveheti online fiókjait"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "a Rendszerbeállításokban"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "Nem tölthető be a dokumentum"
 
-#: ../src/lib/gd-pdf-loader.c:489
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "Az „unoconv” nem található, ellenőrizze a LibreOffice telepítését"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Még %d dokumentum betöltése"
-msgstr[1] "Még %d dokumentum betöltése"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "Keresés"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "Új és legutóbbi"
 
-#: ../src/mainToolbar.js:201
+#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "Találatok erre: „%s”"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:167
 msgid "filtered by title"
 msgstr "cím szerint szűrve"
 
-#: ../src/mainToolbar.js:205
+#: ../src/mainToolbar.js:169
 msgid "filtered by author"
 msgstr "szerző szerint szűrve"
 
-#: ../src/mainToolbar.js:218
-#, c-format
-msgid "%d of %d"
-msgstr "%d / %d"
-
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "Kattintson az elemekre a kiválasztásukhoz"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d kiválasztva"
 msgstr[1] "%d kiválasztva"
 
-#: ../src/mainWindow.js:254
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
+msgid "Done"
+msgstr "Kész"
+
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "Vissza"
+
+#: ../src/mainToolbar.js:244
+msgid "Select Items"
+msgstr "Válasszon elemeket"
+
+#: ../src/mainWindow.js:204
 msgid "translator-credits"
 msgstr "Kelemen Gábor <kelemeng at gnome dot hu>"
 
-#: ../src/mainWindow.js:255
-msgid "GNOME Documents"
-msgstr "GNOME Dokumentumok"
-
-#: ../src/mainWindow.js:256
+#: ../src/mainWindow.js:206
 msgid "A document manager application"
 msgstr "Egy dokumentumkezelő alkalmazás"
 
-#: ../src/notifications.js:85
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "„%s” nyomtatása: %s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "Kategória"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Dokumentumai indexelése folyamatban"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:210
-#: ../src/sources.js:94
-msgid "All"
-msgstr "Összes"
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr ""
+"Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "Kedvencek"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "Tulajdonságok"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "Megosztva Önnel"
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "Cím"
 
-#: ../src/searchbar.js:138
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "Szerző"
+
+#. Source item
+#: ../src/properties.js:95
+#| msgid "Sources"
+msgid "Source"
+msgstr "Forrás"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "Módosítás dátuma"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "Létrehozás dátuma"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
 msgid "Type"
 msgstr "Típus"
 
-#: ../src/searchbar.js:143
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "Kategória"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "Összes"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "Kedvencek"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "Megosztva Önnel"
+
+#: ../src/searchbar.js:140
 msgid "Collections"
 msgstr "Gyűjtemények"
 
-#: ../src/searchbar.js:147
+#: ../src/searchbar.js:144
 msgid "PDF Documents"
 msgstr "PDF-dokumentumok"
 
-#: ../src/searchbar.js:150
+#: ../src/searchbar.js:148
 msgid "Presentations"
 msgstr "Bemutatók"
 
-#: ../src/searchbar.js:153
+#: ../src/searchbar.js:151
 msgid "Spreadsheets"
 msgstr "Táblázatok"
 
-#: ../src/searchbar.js:156
+#: ../src/searchbar.js:154
 msgid "Text Documents"
 msgstr "Szöveges dokumentumok"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:207
+#: ../src/searchbar.js:220
 msgid "Match"
 msgstr "Keresés"
 
-#: ../src/searchbar.js:212
-msgid "Title"
-msgstr "Cím"
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "Nyomtatás"
 
-#: ../src/searchbar.js:214
-msgid "Author"
-msgstr "Szerző"
-
-#: ../src/selections.js:698
-msgid "Organize"
-msgstr "Rendszerezés"
-
-#: ../src/selections.js:705
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Törlés"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Rendszerezés"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:808 ../src/view.js:69
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Megnyitás ezzel: %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:811 ../src/view.js:72
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Megnyitás"
 
-#: ../src/selections.js:824 ../src/view.js:82
-msgid "Remove from favorites"
-msgstr "Eltávolítás a Kedvencek közül"
-
-#: ../src/selections.js:828 ../src/view.js:82
-msgid "Add to favorites"
-msgstr "Hozzáadás a Kedvencekhez"
-
-#: ../src/shellSearchProvider.js:332
+#: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
 msgstr "Névtelen dokumentum"
 
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "Források"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "Betöltés…"
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "Még %d dokumentum betöltése"
+msgstr[1] "Még %d dokumentum betöltése"
 
-#: ../src/view.js:196
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: ../src/view.js:198
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d napja"
 msgstr[1] "%d napja"
 
-#: ../src/view.js:202
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Múlt héten"
 
-#: ../src/view.js:204
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d hete"
 msgstr[1] "%d hete"
 
-#: ../src/view.js:208
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Múlt hónapban"
 
-#: ../src/view.js:210
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d hónapja"
 msgstr[1] "%d hónapja"
 
-#: ../src/view.js:214
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Múlt évben"
 
-#: ../src/view.js:216
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d éve"
 msgstr[1] "%d éve"
 
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "Rács"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "Lista"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "Teljes képernyő"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "A Dokumentumok névjegye"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Kilépés"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "Nyomtatás…"
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "Nagyítás"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "Kicsinyítés"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "Forgatás balra"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "Forgatás jobbra"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Összes kijelölése"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Kijelölés megszüntetése"
+
+#~ msgid "The active source filter"
+#~ msgstr "Az aktív forrásszűrő"
+
+#~ msgid "The last active source filter"
+#~ msgstr "Az utoljára aktív forrásszűrő"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "Nem kérhető le a dokumentumok listája"
+
+#~ msgid "%d of %d"
+#~ msgstr "%d / %d"
+
+#~ msgid "GNOME Documents"
+#~ msgstr "GNOME Dokumentumok"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "Eltávolítás a Kedvencek közül"
+
+#~ msgid "Add to favorites"
+#~ msgstr "Hozzáadás a Kedvencekhez"
+
 #~ msgid "Enable list view"
 #~ msgstr "Listanézet engedélyezése"
-
