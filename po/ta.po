@@ -25,7 +25,7 @@ msgstr "ஆவணங்களை அணுகு, மேலாளு, பகி�
 
 #: ../data/gnome-documents.desktop.in.in.h:2
 msgid "Docs;PDF;Document;"
-msgstr "டாக்ஸ்;பிடிஎஃப்;ஆவணங்கள்"
+msgstr "டாக்ஸ்;பிடிஎஃப்;ஆவணங்கள்;"
 
 #: ../data/gnome-documents.desktop.in.in.h:3 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
