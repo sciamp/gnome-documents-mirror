@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-21 16:16+0000\n"
-"PO-Revision-Date: 2012-08-13 22:21+0700\n"
+"POT-Creation-Date: 2012-09-04 16:49+0000\n"
+"PO-Revision-Date: 2012-09-04 17:43+0700\n"
 "Last-Translator: Dirgita <dirgitadevina@yahoo.co.id>\n"
-"Language-Team: Indonesian <gnome@i15n.org>\n"
+"Language-Team: Indonesian <gnome-l10n-id@googlegroups.com>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -106,9 +106,21 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Tak bisa memuat \"%s\" untuk pratilik"
 
-#: ../src/embed.js:68
+#: ../src/embed.js:74
 msgid "Loading..."
 msgstr "Memuat..."
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "Tidak Ada Dokumen"
+
+#: ../src/embed.js:240
+msgid "You can add your online accounts in"
+msgstr "Akun daring Anda dapat ditambahkan pada"
+
+#: ../src/embed.js:241
+msgid "System Settings"
+msgstr "Pengaturan Sistem"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -149,15 +161,15 @@ msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d dipilih"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "Selesai"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Mundur"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Pilih Item"
 
@@ -169,10 +181,18 @@ msgstr "Andika Triwidada <andika@gmail.com>, 2011, 2012"
 msgid "A document manager application"
 msgstr "Aplikasi manajer dokumen"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Mencetak \"%s\": %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Dokumen milik Anda tengah diindeks"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Sejumlah dokumen mungkin tak tersedia selama proses ini berlangsung"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
@@ -287,41 +307,41 @@ msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "Muat %d dokumen lagi"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Kemarin"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d hari yang lalu"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Minggu lalu"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d minggu yang lalu"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Bulan lalu"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d bulan yang laly"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Tahun lalu"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -367,3 +387,10 @@ msgstr "Putar ke Kiri"
 msgid "Rotate Right"
 msgstr "Putar ke Kanan"
 
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Pilih Semua"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Jangan Pilih"
