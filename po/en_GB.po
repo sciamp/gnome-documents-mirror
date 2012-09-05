@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-03-13 13:59+0000\n"
-"PO-Revision-Date: 2012-03-13 14:01+0100\n"
+"POT-Creation-Date: 2012-09-05 14:54+0100\n"
+"PO-Revision-Date: 2012-09-05 14:55+0100\n"
 "Last-Translator: Bruce Cowan <bruce@bcowan.me.uk>\n"
 "Language-Team: British English <en@li.org>\n"
 "Language: en_GB\n"
@@ -18,7 +18,8 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:54
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "Documents"
 
@@ -30,7 +31,8 @@ msgstr "Access, manage and share documents"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:1 ../src/application.js:131
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
 msgid "View as"
 msgstr "View as"
 
@@ -39,303 +41,384 @@ msgid "View as type"
 msgstr "View as type"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:3
-msgid "The active source filter"
-msgstr "The active source filter"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:4
-msgid "The last active source filter"
-msgstr "The last active source filter"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window size"
 msgstr "Window size"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:6
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
 msgstr "Window size (width and height)."
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:7
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window position"
 msgstr "Window position"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:8
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
 msgid "Window position (x and y)."
 msgstr "Window position (x and y)."
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:9
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
 msgid "Window maximized"
 msgstr "Window maximised"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:10
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
 msgid "Window maximized state"
 msgstr "Window maximised state"
 
-#: ../src/application.js:129
-msgid "Grid"
-msgstr "Grid"
-
-#: ../src/application.js:130
-msgid "List"
-msgstr "List"
-
-#: ../src/application.js:134
-msgid "Fullscreen"
-msgstr "Fullscreen"
-
-#: ../src/application.js:137
-msgid "About Documents"
-msgstr "About Documents"
-
-#: ../src/application.js:138
-msgid "Quit"
-msgstr "Quit"
-
-#: ../src/documents.js:619 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "Local"
 
 #. overridden
-#: ../src/documents.js:675
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:676
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:745
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Spreadsheet"
 
-#: ../src/documents.js:747
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "Presentation"
 
-#: ../src/documents.js:749
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "Collection"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "Document"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Unable to load \"%s\" for preview"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "Unable to fetch the list of documents"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "Loading…"
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:269
-msgid "Done"
-msgstr "Done"
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "No Documents Found"
 
-#: ../src/lib/gd-pdf-loader.c:208
+#: ../src/embed.js:240
+msgid "You can add your online accounts in"
+msgstr "You can add your online accounts in"
+
+#: ../src/embed.js:241
+msgid "System Settings"
+msgstr "System Settings"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "Unable to load the document"
 
-#: ../src/lib/gd-pdf-loader.c:489
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "Cannot find \"unoconv\", please check your LibreOffice installation"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Load %d more document"
-msgstr[1] "Load %d more documents"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "Search"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "New and Recent"
 
-#: ../src/mainToolbar.js:201
+#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "Results for \"%s\""
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:167
 msgid "filtered by title"
 msgstr "filtered by title"
 
-#: ../src/mainToolbar.js:205
+#: ../src/mainToolbar.js:169
 msgid "filtered by author"
 msgstr "filtered by author"
 
-#: ../src/mainToolbar.js:218
-#, c-format
-msgid "%d of %d"
-msgstr "%d of %d"
-
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "Click on items to select them"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d selected"
 msgstr[1] "%d selected"
 
-#: ../src/mainWindow.js:252
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
+msgid "Done"
+msgstr "Done"
+
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "Back"
+
+#: ../src/mainToolbar.js:244
+msgid "Select Items"
+msgstr "Select Items"
+
+#: ../src/mainWindow.js:204
 msgid "translator-credits"
 msgstr "Bruce Cowan <bruce@bcowan.me.uk>"
 
-#: ../src/mainWindow.js:253
-msgid "GNOME Documents"
-msgstr "GNOME Documents"
-
-#: ../src/mainWindow.js:254
+#: ../src/mainWindow.js:206
 msgid "A document manager application"
 msgstr "A document manager application"
 
-#: ../src/notifications.js:85
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Printing \"%s\": %s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "Category"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Your documents are being indexed"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:210
-#: ../src/sources.js:94
-msgid "All"
-msgstr "All"
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Some documents might not be available during this process"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "Favourites"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "Properties"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "Shared with you"
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "Title"
 
-#: ../src/searchbar.js:138
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "Author"
+
+#. Source item
+#: ../src/properties.js:95
+msgid "Source"
+msgstr "Source"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "Date Modified"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "Date Created"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
 msgid "Type"
 msgstr "Type"
 
-#: ../src/searchbar.js:143
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "Category"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "All"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "Favourites"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "Shared with you"
+
+#: ../src/searchbar.js:140
 msgid "Collections"
 msgstr "Collections"
 
-#: ../src/searchbar.js:147
+#: ../src/searchbar.js:144
 msgid "PDF Documents"
 msgstr "PDF Documents"
 
-#: ../src/searchbar.js:150
+#: ../src/searchbar.js:148
 msgid "Presentations"
 msgstr "Presentations"
 
-#: ../src/searchbar.js:153
+#: ../src/searchbar.js:151
 msgid "Spreadsheets"
 msgstr "Spreadsheets"
 
-#: ../src/searchbar.js:156
+#: ../src/searchbar.js:154
 msgid "Text Documents"
 msgstr "Text Documents"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:207
+#: ../src/searchbar.js:220
 msgid "Match"
 msgstr "Match"
 
-#: ../src/searchbar.js:212
-msgid "Title"
-msgstr "Title"
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "Print"
 
-#: ../src/searchbar.js:214
-msgid "Author"
-msgstr "Author"
-
-#: ../src/selections.js:735
-msgid "Organize"
-msgstr "Organise"
-
-#: ../src/selections.js:742
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Delete"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "Organise"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:842 ../src/view.js:69
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "Open with %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:845 ../src/view.js:72
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Open"
 
-#: ../src/selections.js:858 ../src/view.js:82
-msgid "Remove from favorites"
-msgstr "Remove from favourites"
-
-#: ../src/selections.js:862 ../src/view.js:82
-msgid "Add to favorites"
-msgstr "Add to favourites"
-
-#: ../src/shellSearchProvider.js:285
+#: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
 msgstr "Untitled Document"
 
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "Sources"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "Loading…"
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "Load %d more document"
+msgstr[1] "Load %d more documents"
 
-#: ../src/view.js:198
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Yesterday"
 
-#: ../src/view.js:200
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d day ago"
 msgstr[1] "%d days ago"
 
-#: ../src/view.js:204
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Last week"
 
-#: ../src/view.js:206
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d week ago"
 msgstr[1] "%d weeks ago"
 
-#: ../src/view.js:210
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Last month"
 
-#: ../src/view.js:212
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d month ago"
 msgstr[1] "%d months ago"
 
-#: ../src/view.js:216
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Last year"
 
-#: ../src/view.js:218
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d year ago"
 msgstr[1] "%d years ago"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "Grid"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "List"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "Fullscreen"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "About Documents"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Quit"
+msgstr "Quit"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "Print…"
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "Zoom In"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "Zoom Out"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "Rotate Left"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "Rotate Right"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Select All"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Select None"
+
+#~ msgid "The active source filter"
+#~ msgstr "The active source filter"
+
+#~ msgid "The last active source filter"
+#~ msgstr "The last active source filter"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "Unable to fetch the list of documents"
+
+#~ msgid "%d of %d"
+#~ msgstr "%d of %d"
+
+#~ msgid "GNOME Documents"
+#~ msgstr "GNOME Documents"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "Remove from favourites"
+
+#~ msgid "Add to favorites"
+#~ msgstr "Add to favourites"
 
 #~ msgid "Enable list view"
 #~ msgstr "Enable list view"
