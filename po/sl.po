@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-29 04:06+0000\n"
-"PO-Revision-Date: 2012-08-29 09:23+0100\n"
+"POT-Creation-Date: 2012-09-06 16:07+0000\n"
+"PO-Revision-Date: 2012-09-06 21:00+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
@@ -33,7 +33,7 @@ msgstr "Upravljanje, dostop in souporaba dokumentov"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Doc;PDF;Dokumenti;Word;"
+msgstr "Doc;PDF;Dokumenti;Word"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -114,9 +114,21 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Ni mogoče naložiti \"%s\" za predogled"
 
-#: ../src/embed.js:68
+#: ../src/embed.js:74
 msgid "Loading..."
 msgstr "Nalaganje ..."
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "Ni najdenih dokumentov"
+
+#: ../src/embed.js:240
+msgid "You can add your online accounts in"
+msgstr "Spletne račune je mogoče dodati v"
+
+#: ../src/embed.js:241
+msgid "System Settings"
+msgstr "Sistemske nastavitve"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -160,16 +172,16 @@ msgstr[1] "%d izbran"
 msgstr[2] "%d izbrana"
 msgstr[3] "%d izbrani"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:208
 #: ../src/properties.js:58
 msgid "Done"
 msgstr "Končano"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "Nazaj"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
@@ -181,10 +193,18 @@ msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 msgid "A document manager application"
 msgstr "Program za upravljanje z dokumenti"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Tiskanje \"%s\": %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "Iz podatkov datotek se pripravlja kazalo"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "Nekateri dokumenti med opravilom lahko niso na voljo"
 
 #. Properties dialog heading
 #: ../src/properties.js:73
@@ -309,11 +329,11 @@ msgstr[1] "Naloži še %d dokument"
 msgstr[2] "Naloži še %d dokumenta"
 msgstr[3] "Naloži še %d dokumente"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -322,11 +342,11 @@ msgstr[1] "%d dan nazaj"
 msgstr[2] "%d dneva nazaj"
 msgstr[3] "%d dni nazaj"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "Prejšnji teden"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -335,11 +355,11 @@ msgstr[1] "%d teden nazaj"
 msgstr[2] "%d tedna nazaj"
 msgstr[3] "%d tedne nazaj"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "Prejšnji mesec"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -348,11 +368,11 @@ msgstr[1] "%d mesec nazaj"
 msgstr[2] "%d meseca nazaj"
 msgstr[3] "%d mesece nazaj"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "Lansko leto"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -400,6 +420,14 @@ msgstr "Zavrti levo"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "Zavrti desno"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Izberi vse"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Odstrani izbor"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "Odstrani iz priljubljenih"
