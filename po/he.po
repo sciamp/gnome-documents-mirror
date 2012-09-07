@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-08-15 07:53+0300\n"
-"PO-Revision-Date: 2012-08-15 07:53+0200\n"
+"POT-Creation-Date: 2012-09-07 16:31+0300\n"
+"PO-Revision-Date: 2012-09-07 16:32+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -67,51 +67,67 @@ msgstr "Window maximized"
 msgid "Window maximized state"
 msgstr "Window maximized state"
 
-#: ../src/documents.js:650
+#: ../src/documents.js:640
 #: ../src/sources.js:95
 msgid "Local"
 msgstr "מקומי"
 
 #. overridden
-#: ../src/documents.js:703
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:704
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:768
-#: ../src/documents.js:907
+#: ../src/documents.js:758
+#: ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "גיליון אלקטרוני"
 
-#: ../src/documents.js:770
-#: ../src/documents.js:909
+#: ../src/documents.js:760
+#: ../src/documents.js:859
 msgid "Presentation"
 msgstr "מצגת"
 
-#: ../src/documents.js:772
-#: ../src/documents.js:911
+#: ../src/documents.js:762
+#: ../src/documents.js:861
 msgid "Collection"
 msgstr "אוסף"
 
-#: ../src/documents.js:774
-#: ../src/documents.js:913
+#: ../src/documents.js:764
+#: ../src/documents.js:863
 msgid "Document"
 msgstr "מסמך"
 
 #. overridden
-#: ../src/documents.js:841
-#: ../src/documents.js:842
+#: ../src/documents.js:791
+#: ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1025
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "לא ניתן לטעון את ”%s“ לתצוגה מקדימה"
+
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "בטעינה..."
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "לא נמצאו מסמכים"
+
+#: ../src/embed.js:240
+msgid "You can add your online accounts in"
+msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת"
+
+#: ../src/embed.js:241
+msgid "System Settings"
+msgstr "הגדרות מערכת"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -154,16 +170,16 @@ msgstr[0] "נבחר אחד"
 msgstr[1] "נבחרו %d"
 msgstr[2] "נבחרו 2"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:208
 #: ../src/properties.js:58
 msgid "Done"
 msgstr "בוצע"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "חזרה"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
@@ -175,14 +191,22 @@ msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 msgid "A document manager application"
 msgstr "יישום לניהול מסמכים"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "מתבצעת הדפסה של „%s“:‏ %s"
 
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "המסמכים שלך נשמרים באינדקס"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "יתכן שחלק מהמסמכים לא יהיו זמינים במשך תהליך זה"
+
 #. Properties dialog heading
 #: ../src/properties.js:73
-#: ../src/selections.js:774
+#: ../src/selections.js:792
 msgid "Properties"
 msgstr "מאפיינים"
 
@@ -262,37 +286,29 @@ msgstr "מסמכי טקסט"
 msgid "Match"
 msgstr "התאמה"
 
-#: ../src/selections.js:780
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "הדפסה"
 
-#: ../src/selections.js:795
-msgid "Organize"
-msgstr "ארגון"
-
-#: ../src/selections.js:802
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "מחיקה"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "ארגון"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:894
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:897
+#: ../src/selections.js:876
 #: ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "פתיחה"
-
-#: ../src/selections.js:906
-msgid "Remove from favorites"
-msgstr "הסרה מהמועדפים"
-
-#: ../src/selections.js:910
-msgid "Add to favorites"
-msgstr "הוספה למועדפים"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -302,11 +318,7 @@ msgstr "מסמך ללא שם"
 msgid "Sources"
 msgstr "מקורות"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "בטעינה..."
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
@@ -314,11 +326,11 @@ msgstr[0] "טעינת מסמך נוסף"
 msgstr[1] "טעינת %d מסמכים נוספים"
 msgstr[2] "טעינת 2 מסמכים נוספים"
 
-#: ../src/view.js:270
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/view.js:272
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -326,11 +338,11 @@ msgstr[0] "אתמול"
 msgstr[1] "לפני %d ימים"
 msgstr[2] "שלשום"
 
-#: ../src/view.js:276
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "שבוע שעבר"
 
-#: ../src/view.js:278
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -338,11 +350,11 @@ msgstr[0] "לפני שבוע"
 msgstr[1] "לפני %d שבועות"
 msgstr[2] "לפני שבועיים"
 
-#: ../src/view.js:282
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "בחודש שעבר"
 
-#: ../src/view.js:284
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -350,11 +362,11 @@ msgstr[0] "לפני חודש"
 msgstr[1] "לפני %d חודשים"
 msgstr[2] "לפני חודשיים"
 
-#: ../src/view.js:288
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "שנה שעברה"
 
-#: ../src/view.js:290
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -401,6 +413,20 @@ msgstr "הטיה לשמאל"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "הטיה לימין"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "בחירת הכול"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "ביטול הבחירה"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "הסרה מהמועדפים"
+
+#~ msgid "Add to favorites"
+#~ msgstr "הוספה למועדפים"
 
 #~ msgid "Unable to fetch the list of documents"
 #~ msgstr "לא ניתן לקבל את רשימת המסמכים"
