@@ -7,10 +7,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-21 16:02+0000\n"
-"PO-Revision-Date: 2012-08-16 13:35+0530\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-08-30 02:39+0000\n"
+"PO-Revision-Date: 2012-09-11 20:53+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: as_IN <kde-i18n-doc@kde.org>\n"
 "Language: \n"
@@ -106,6 +106,23 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr " \"%s\" ক পূৰ্বদৰ্শনৰ বাবে ল'ড কৰিবলে অক্ষম"
 
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "ল'ড কৰা হৈছে..."
+
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "কোনো দস্তাবেজ পোৱা নগল"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "আপুনি আপোনাৰ অনলাইন একাওন্টসমূহ যোগ কৰিব পাৰিব"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "চিস্টেম সংহতিসমূহ"
+
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "দস্তাবেজ ল'ড কৰিবলে অক্ষম"
@@ -147,15 +164,15 @@ msgid_plural "%d selected"
 msgstr[0] "%d নিৰ্বাচন কৰা হৈছে"
 msgstr[1] "%d নিৰ্বাচন কৰা হৈছে"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "কৰা হল"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "পিছলৈ"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "বস্তুবোৰ বাছক"
 
@@ -167,10 +184,18 @@ msgstr "নীলমদ্যুতি গোস্বামী (ngoswami@redhat
 msgid "A document manager application"
 msgstr "এটা দস্তাবেজ ব্যৱস্থাপক এপ্লিকেচন"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "\"%s\" প্ৰিন্ট কৰা হৈছে: %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "আপোনাৰ দস্তাবেজসমূহ সূচীত কৰা হৈছে"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "এই প্ৰক্ৰিয়াৰ সময়ত কিছুমান দস্তাবেজ উপলব্ধ নাথাকিব পাৰে"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
@@ -279,10 +304,6 @@ msgstr "শীৰ্ষকবিহিন দস্তাবেজ"
 msgid "Sources"
 msgstr "উৎসসমূহ"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "ল'ড কৰা হৈছে..."
-
 #: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
@@ -290,44 +311,44 @@ msgid_plural "Load %d more documents"
 msgstr[0] "%d অধিক দস্তাবেজ ল'ড কৰক"
 msgstr[1] "%d অধিক দস্তাবেজসমূহ ল'ড কৰক"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "যোৱাকালী"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d দিন আগত"
 msgstr[1] "%d দিন আগত"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "যোৱা সপ্তাহ"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d সপ্তাহ আগত"
 msgstr[1] "%d সপ্তাহসমূহ আগত"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "যোৱা মাহ"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d মাহ আগত"
 msgstr[1] "%d মাহ আগত"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "যোৱা বছৰ"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -373,6 +394,16 @@ msgstr "বাঁওফালে ঘুৰাওক"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "সোঁফালে ঘুৰাওক"
+
+#: ../src/resources/selection-menu.ui.h:1
+#| msgid "Select Items"
+msgid "Select All"
+msgstr "সকলো বাছক"
+
+#: ../src/resources/selection-menu.ui.h:2
+#| msgid "Select Items"
+msgid "Select None"
+msgstr "কোনোটো নাবাছিব"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "পছন্দৰ পৰা আতৰাওক"
