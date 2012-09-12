@@ -218,7 +218,7 @@ const OverviewToolbar = new Lang.Class({
                                                Lang.bind(this, this._setToolbarTitle));
     },
 
-    _onActiveCollectionChanged: function() {
+    _checkCollectionBackButton: function() {
         let item = Global.collectionManager.getActiveItem();
 
         if (item && !this._collBackButton) {
@@ -232,12 +232,16 @@ const OverviewToolbar = new Lang.Class({
             this._collBackButton.destroy();
             this._collBackButton = null;
         }
+    },
 
+    _onActiveCollectionChanged: function() {
+        this._checkCollectionBackButton();
         this._setToolbarTitle();
         Global.application.change_action_state('search', GLib.Variant.new('b', false));
     },
 
     _populateForOverview: function() {
+        this._checkCollectionBackButton();
         this.addSearchButton();
 
         let selectionButton =
