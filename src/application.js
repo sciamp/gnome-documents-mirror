@@ -92,6 +92,16 @@ const Application = new Lang.Class({
         this._mainWindow.showAbout();
     },
 
+    _onActionHelp: function() {
+        try {
+            Gtk.show_uri(this._mainWindow.window.get_screen(),
+                         'help:gnome-help/documents',
+                         Gtk.get_current_event_time());
+        } catch (e) {
+            log('Unable to display help: ' + e.message);
+        }
+    },
+
     _onActionFullscreen: function() {
         Global.modeController.toggleFullscreen();
     },
@@ -124,6 +134,8 @@ const Application = new Lang.Class({
               accel: '<Primary>q' },
             { name: 'about',
               callback: this._onActionAbout },
+            { name: 'help',
+              callback: this._onActionHelp },
             { name: 'fullscreen',
               callback: this._onActionFullscreen,
               create_hook: this._fullscreenCreateHook,
