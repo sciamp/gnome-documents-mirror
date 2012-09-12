@@ -4,14 +4,15 @@
 # Nishio Futoshi <fut_nis@d3.dion.ne.jp>, 2011.
 # Hideki Yamane <henrich@debian.org>, 2011.
 # Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012.
+# Noriko Mizumoto <noriko@fedoraproject.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-21 16:16+0000\n"
-"PO-Revision-Date: 2012-08-21 21:52+0900\n"
-"Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
+"POT-Creation-Date: 2012-09-11 15:25+0000\n"
+"PO-Revision-Date: 2012-09-12 11:25+0000\n"
+"Last-Translator: Noriko Mizumoto <noriko@fedoraproject.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -19,6 +20,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-DamnedLies-Scope: partial\n"
+"X-Generator: Lokalize 1.0\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -106,9 +108,21 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "プレビュー状態で %s を開けませんでした"
 
-#: ../src/embed.js:68
+#: ../src/embed.js:74
 msgid "Loading..."
 msgstr "読み込み中..."
+
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "ドキュメントが見つかりません"
+
+#: ../src/embed.js:240
+msgid "You can add your online accounts in"
+msgstr "オンラインのアカウントを追加できます"
+
+#: ../src/embed.js:241
+msgid "System Settings"
+msgstr "システム設定"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -149,15 +163,15 @@ msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d 件選択"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "完了"
 
-#: ../src/mainToolbar.js:221
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "戻る"
 
-#: ../src/mainToolbar.js:239
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "アイテムを選択"
 
@@ -169,12 +183,20 @@ msgstr ""
 
 #: ../src/mainWindow.js:206
 msgid "A document manager application"
-msgstr "ドキュメント管理アプリーション"
+msgstr "ドキュメント管理アプリケーション"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "\"%s\" を印刷中: %s"
+
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "ドキュメントのインデックスを作成中です"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "この処理中は、ドキュメントにより利用できない場合があります。"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
@@ -289,41 +311,41 @@ msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "%d 個のドキュメントをロードします"
 
-#: ../src/view.js:271
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "昨日"
 
-#: ../src/view.js:273
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 日前"
 
-#: ../src/view.js:277
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "先週"
 
-#: ../src/view.js:279
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d 週間前"
 
-#: ../src/view.js:283
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "先月"
 
-#: ../src/view.js:285
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d か月前"
 
-#: ../src/view.js:289
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "昨年"
 
-#: ../src/view.js:291
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -343,7 +365,7 @@ msgstr "フルスクリーン"
 
 #: ../src/resources/app-menu.ui.h:5
 msgid "About Documents"
-msgstr "このアプリーションについて"
+msgstr "このアプリケーションについて"
 
 #: ../src/resources/app-menu.ui.h:6
 msgid "Quit"
@@ -368,6 +390,14 @@ msgstr "左回転"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "右回転"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "すべて選択"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "何も選択しない"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "お気に入りから削除する"
