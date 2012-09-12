@@ -14,20 +14,24 @@
       <item>
         <attribute name="action">app.zoom-in</attribute>
         <attribute name="label" translatable="yes">Zoom In</attribute>
+        <attribute name="accel">&lt;Primary&gt;plus</attribute>
       </item>
       <item>
         <attribute name="action">app.zoom-out</attribute>
         <attribute name="label" translatable="yes">Zoom Out</attribute>
+        <attribute name="accel">&lt;Primary&gt;minus</attribute>
       </item>
     </section>
     <section>
       <item>
         <attribute name="action">app.rotate-left</attribute>
         <attribute name="label" translatable="yes">Rotate Left</attribute>
+        <attribute name="accel">&lt;Primary&gt;Left</attribute>
       </item>
       <item>
         <attribute name="action">app.rotate-right</attribute>
         <attribute name="label" translatable="yes">Rotate Right</attribute>
+        <attribute name="accel">&lt;Primary&gt;Right</attribute>
       </item>
     </section>
   </menu>
