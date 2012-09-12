@@ -8,10 +8,10 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-14 22:20+0000\n"
-"PO-Revision-Date: 2012-08-16 11:00+0530\n"
+"POT-Creation-Date: 2012-08-30 02:39+0000\n"
+"PO-Revision-Date: 2012-09-12 17:02+0530\n"
 "Last-Translator: Sandeep Shedmake <sshedmak@redhat.com>\n"
-"Language-Team: Marathi <mr@li.org>\n"
+"Language-Team: Marathi <maajhe-sanganak@freelists.org>\n"
 "Language: mr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,45 +65,62 @@ msgstr "पटल मोठे करा"
 msgid "Window maximized state"
 msgstr "पटल मोठे केल्याचे स्तर"
 
-#: ../src/documents.js:650 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "स्थानीय"
 
 #. overridden
-#: ../src/documents.js:703
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "गूगल डॉक्स"
 
-#: ../src/documents.js:704
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "गूगल"
 
-#: ../src/documents.js:768 ../src/documents.js:907
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "स्प्रेडशीट"
 
-#: ../src/documents.js:770 ../src/documents.js:909
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "प्रस्तुतीकरण"
 
-#: ../src/documents.js:772 ../src/documents.js:911
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "गोलाकार"
 
-#: ../src/documents.js:774 ../src/documents.js:913
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "दस्तऐवज"
 
 #. overridden
-#: ../src/documents.js:841 ../src/documents.js:842
+#: ../src/documents.js:791 ../src/documents.js:792
 msgid "Skydrive"
 msgstr "स्कायड्राइव्ह"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1025
+#: ../src/documents.js:972
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "पूर्वावलोकनकरीता \"%s\" लोड करणे अशक्य"
+
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "लोड करत आहे..."
+
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "दस्तऐवज आढळले नाही"
+
+#: ../src/embed.js:226
+msgid "You can add your online accounts in"
+msgstr "तुम्ही ऑनलाइन खाते समाविष्ट करू शकता"
+
+#: ../src/embed.js:227
+msgid "System Settings"
+msgstr "प्रणाली सेटिंग्स्"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -145,15 +162,15 @@ msgid_plural "%d selected"
 msgstr[0] "%d निवडले"
 msgstr[1] "%d निवडले"
 
-#: ../src/mainToolbar.js:203 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "पूर्ण झाले"
 
-#: ../src/mainToolbar.js:220
+#: ../src/mainToolbar.js:226
 msgid "Back"
 msgstr "मागे"
 
-#: ../src/mainToolbar.js:238
+#: ../src/mainToolbar.js:244
 msgid "Select Items"
 msgstr "घटके नीवडा"
 
@@ -165,13 +182,21 @@ msgstr "संदिप शेडमाके <sshedmak@redhat.com>, 2012"
 msgid "A document manager application"
 msgstr "दस्तऐवज व्यवस्थापक ॲप्लिकेशन"
 
-#: ../src/notifications.js:84
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "\"%s\": %s ची छपाई करत आहे"
 
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "तुमचे दस्तऐवज इंडेक्स् केले जात आहे"
+
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "ह्या प्रोसेसवेळी काहिक दस्तऐवज कदाचित अनुपलब्ध राहतील"
+
 #. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:774
+#: ../src/properties.js:73 ../src/selections.js:792
 msgid "Properties"
 msgstr " गुणधर्म"
 
@@ -186,7 +211,6 @@ msgstr "लेखक"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "स्रोत"
 
@@ -247,36 +271,28 @@ msgstr "मजकूर दस्तऐवज"
 msgid "Match"
 msgstr "मॅच"
 
-#: ../src/selections.js:780
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "छपाई"
 
-#: ../src/selections.js:795
-msgid "Organize"
-msgstr "व्यवस्थापित करा"
-
-#: ../src/selections.js:802
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "नष्ट करा"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "व्यवस्थापित करा"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:894
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "%s सह उघडा"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:897 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "उघडा"
-
-#: ../src/selections.js:906
-msgid "Remove from favorites"
-msgstr "पसंतीतून काढून टाकतो"
-
-#: ../src/selections.js:910
-msgid "Add to favorites"
-msgstr "पंसतीमध्ये समाविष्ट करा"
 
 #: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
@@ -286,55 +302,51 @@ msgstr "विनाशीर्षक दस्तऐवज"
 msgid "Sources"
 msgstr "सोअर्सेस्"
 
-#: ../src/spinnerBox.js:56
-msgid "Loading..."
-msgstr "लोड करत आहे..."
-
-#: ../src/view.js:78
+#: ../src/view.js:79
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "%d दस्तऐवज लोड करा"
 msgstr[1] "%d दस्तऐवज लोड करा"
 
-#: ../src/view.js:270
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "काल"
 
-#: ../src/view.js:272
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d दिवस अगोदर"
 msgstr[1] "%d दिवस अगोदर"
 
-#: ../src/view.js:276
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "शेवटचा सप्ताह"
 
-#: ../src/view.js:278
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d सप्ताह अगोदर"
 msgstr[1] "%d सप्ताह अगोदर"
 
-#: ../src/view.js:282
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "शेटवचा महिना"
 
-#: ../src/view.js:284
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d महिना अगोदर"
 msgstr[1] "%d महिना अगोदर"
 
-#: ../src/view.js:288
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "शेवटचा वर्ष"
 
-#: ../src/view.js:290
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -380,6 +392,22 @@ msgstr "डावीकडे फिरवा"
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate Right"
 msgstr "उजवीकडे फिरवा"
+
+#: ../src/resources/selection-menu.ui.h:1
+#| msgid "Select Items"
+msgid "Select All"
+msgstr "सर्व नीवडा"
+
+#: ../src/resources/selection-menu.ui.h:2
+#| msgid "Select Items"
+msgid "Select None"
+msgstr "काहिच नीवडू नका"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "पसंतीतून काढून टाकतो"
+
+#~ msgid "Add to favorites"
+#~ msgstr "पंसतीमध्ये समाविष्ट करा"
 
 #~ msgid "The active source filter"
 #~ msgstr "सक्रीय सोअर्स फिल्टर"
