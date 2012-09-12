@@ -881,6 +881,10 @@ const DocumentManager = new Lang.Class({
         this._activeDocModelIds = [];
         this._loaderCancellable = null;
 
+        // a stack containing the collections which were used to
+        // navigate to the active document or collection
+        this._collectionPath = [];
+
         Global.changeMonitor.connect('changes-pending',
                                      Lang.bind(this, this._onChangesPending));
     },
@@ -998,6 +1002,7 @@ const DocumentManager = new Lang.Class({
             return;
 
         if (doc.collection) {
+            this._collectionPath.push(Global.collectionManager.getActiveItem());
             Global.collectionManager.setActiveItem(doc);
             return;
         }
@@ -1008,6 +1013,11 @@ const DocumentManager = new Lang.Class({
         this._loaderCancellable = new Gio.Cancellable();
         doc.load(this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
         this.emit('load-started', doc);
+    },
+
+    activatePreviousCollection: function() {
+        this._clearActiveDocModel();
+        Global.collectionManager.setActiveItem(this._collectionPath.pop());
     },
 
     _clearActiveDocModel: function() {

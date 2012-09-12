@@ -226,7 +226,7 @@ const OverviewToolbar = new Lang.Class({
                 this.widget.add_button('go-previous-symbolic', _("Back"), true);
             this._collBackButton.connect('clicked', Lang.bind(this,
                 function() {
-                    Global.collectionManager.setActiveItem(null);
+                    Global.documentManager.activatePreviousCollection();
                 }));
         } else if (!item && this._collBackButton) {
             this._collBackButton.destroy();
