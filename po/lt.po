@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-02 15:56+0300\n"
+"POT-Creation-Date: 2012-09-13 18:43+0000\n"
+"PO-Revision-Date: 2012-09-13 22:45+0300\n"
 "Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
 "Language-Team: Lietuvių <>\n"
 "Language: \n"
@@ -106,7 +106,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Nepavyksta įkelti „%s“ peržiūrai"
@@ -116,15 +116,14 @@ msgid "Loading..."
 msgstr "Įkeliama..."
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "Nerasta dokumentų"
 
-#: ../src/embed.js:226
+#: ../src/embed.js:240
 msgid "You can add your online accounts in"
 msgstr "Kur galite pridėti internetines paskyras"
 
-#: ../src/embed.js:227
+#: ../src/embed.js:241
 msgid "System Settings"
 msgstr "Sistemos nustatymai"
 
@@ -178,7 +177,7 @@ msgstr "Atlikta"
 msgid "Back"
 msgstr "Grįžti"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Pasirinkite elementus"
 
@@ -392,6 +391,10 @@ msgid "About Documents"
 msgstr "Apie dokumentus"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Žinynas"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Išeiti"
 
@@ -416,12 +419,10 @@ msgid "Rotate Right"
 msgstr "Pasukti į dešinę"
 
 #: ../src/resources/selection-menu.ui.h:1
-#| msgid "Select Items"
 msgid "Select All"
 msgstr "Pasirinkti visus"
 
 #: ../src/resources/selection-menu.ui.h:2
-#| msgid "Select Items"
 msgid "Select None"
 msgstr "Nepasirinkti nieko"
 
