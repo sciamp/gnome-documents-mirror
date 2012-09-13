@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-03 23:02+0200\n"
-"PO-Revision-Date: 2012-09-03 23:03+0200\n"
+"POT-Creation-Date: 2012-09-13 21:38+0200\n"
+"PO-Revision-Date: 2012-09-13 21:39+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -104,7 +104,7 @@ msgid "Skydrive"
 msgstr "SkyDrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Nie można wczytać \"%s\" dla podglądu"
@@ -117,11 +117,11 @@ msgstr "Wczytywanie..."
 msgid "No Documents Found"
 msgstr "Nie odnaleziono żadnych dokumentów"
 
-#: ../src/embed.js:226
+#: ../src/embed.js:240
 msgid "You can add your online accounts in"
 msgstr "Można dodać konta online w"
 
-#: ../src/embed.js:227
+#: ../src/embed.js:241
 msgid "System Settings"
 msgstr "Ustawieniach systemu"
 
@@ -176,7 +176,7 @@ msgstr "Ukończone"
 msgid "Back"
 msgstr "Wstecz"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Zaznacz elementy"
 
@@ -383,6 +383,10 @@ msgid "About Documents"
 msgstr "O menedżerze dokumentów"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Pomoc"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Zakończ"
 
