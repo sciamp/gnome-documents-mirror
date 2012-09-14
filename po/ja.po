@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-11 15:25+0000\n"
-"PO-Revision-Date: 2012-09-12 11:25+0000\n"
-"Last-Translator: Noriko Mizumoto <noriko@fedoraproject.org>\n"
+"POT-Creation-Date: 2012-09-14 15:44+0000\n"
+"PO-Revision-Date: 2012-09-15 01:24+0900\n"
+"Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-DamnedLies-Scope: partial\n"
-"X-Generator: Lokalize 1.0\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -103,7 +102,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "プレビュー状態で %s を開けませんでした"
@@ -116,11 +115,16 @@ msgstr "読み込み中..."
 msgid "No Documents Found"
 msgstr "ドキュメントが見つかりません"
 
-#: ../src/embed.js:240
-msgid "You can add your online accounts in"
-msgstr "オンラインのアカウントを追加できます"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "%sでオンラインアカウントを追加できます"
 
-#: ../src/embed.js:241
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "システム設定"
 
@@ -171,7 +175,7 @@ msgstr "完了"
 msgid "Back"
 msgstr "戻る"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "アイテムを選択"
 
@@ -368,6 +372,10 @@ msgid "About Documents"
 msgstr "このアプリケーションについて"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "ヘルプ"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "終了"
 
