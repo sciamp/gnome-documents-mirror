@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-05 08:21+0200\n"
+"POT-Creation-Date: 2012-09-13 18:43+0000\n"
+"PO-Revision-Date: 2012-09-14 06:17+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -100,7 +100,7 @@ msgid "Skydrive"
 msgstr "Скајдрајв"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Не могу да учитам „%s“ за преглед"
@@ -110,15 +110,14 @@ msgid "Loading..."
 msgstr "Учитавам..."
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "Нема пронађених докумената"
 
-#: ../src/embed.js:226
+#: ../src/embed.js:240
 msgid "You can add your online accounts in"
 msgstr "Можете да додате ваше мрежне налоге"
 
-#: ../src/embed.js:227
+#: ../src/embed.js:241
 msgid "System Settings"
 msgstr "Подешавања система"
 
@@ -172,7 +171,7 @@ msgstr "Обављено"
 msgid "Back"
 msgstr "Назад"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Изаберите ставке"
 
@@ -382,6 +381,10 @@ msgid "About Documents"
 msgstr "О документима"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Помоћ"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Изађи"
 
@@ -406,12 +409,10 @@ msgid "Rotate Right"
 msgstr "Окрени на десно"
 
 #: ../src/resources/selection-menu.ui.h:1
-#| msgid "Select Items"
 msgid "Select All"
 msgstr "Изабери све"
 
 #: ../src/resources/selection-menu.ui.h:2
-#| msgid "Select Items"
 msgid "Select None"
 msgstr "Поништи избор"
 
