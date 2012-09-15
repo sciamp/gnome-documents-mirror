@@ -5,15 +5,16 @@
 # Gnome 2012-03 Finnish translation sprint participants:
 # Jiri Grönroos
 # Niklas Laxström
+# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-08 19:48+0300\n"
+"POT-Creation-Date: 2012-09-13 18:43+0000\n"
+"PO-Revision-Date: 2012-09-13 22:31+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
-"Language-Team: Finnish <>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -103,7 +104,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Kohteen \"%s\" lataus esikatselua varten epäonnistui"
@@ -113,15 +114,14 @@ msgid "Loading..."
 msgstr "Ladataan..."
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "Asiakirja ei löytynyt"
 
-#: ../src/embed.js:226
+#: ../src/embed.js:240
 msgid "You can add your online accounts in"
 msgstr "Voit lisätä verkkotilisi"
 
-#: ../src/embed.js:227
+#: ../src/embed.js:241
 msgid "System Settings"
 msgstr "järjestelmäasetuksissa"
 
@@ -173,7 +173,7 @@ msgstr "Valmis"
 msgid "Back"
 msgstr "Takaisin"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Valitse kohteet"
 
@@ -216,7 +216,6 @@ msgstr "Tekijä"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "Lähde"
 
@@ -376,6 +375,10 @@ msgid "About Documents"
 msgstr "Tietoja asiakirjoista"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Ohje"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Lopeta"
 
