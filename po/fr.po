@@ -13,8 +13,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-07 13:33+0000\n"
-"PO-Revision-Date: 2012-09-10 08:43+0200\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-15 17:47+0200\n"
 "Last-Translator: Alain Lojewski <allomervan@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: \n"
@@ -105,7 +105,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Impossible de charger « %s » pour l'aperçu"
@@ -118,11 +118,16 @@ msgstr "Chargement en cours..."
 msgid "No Documents Found"
 msgstr "Aucun document trouvé"
 
-#: ../src/embed.js:240
-msgid "You can add your online accounts in"
-msgstr "Vous pouvez ajouter vos comptes en ligne dans"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "Vous pouvez ajouter vos comptes en ligne dans %s"
 
-#: ../src/embed.js:241
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "Paramètres système"
 
@@ -175,7 +180,7 @@ msgstr "Terminé"
 msgid "Back"
 msgstr "Précédent"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Sélectionner les éléments"
 
@@ -382,6 +387,10 @@ msgid "About Documents"
 msgstr "À propos de Documents"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Aide"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Quitter"
 
