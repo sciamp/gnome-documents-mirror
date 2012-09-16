@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-05 20:02+0800\n"
-"PO-Revision-Date: 2012-09-05 20:02+0800\n"
+"POT-Creation-Date: 2012-09-16 12:26+0800\n"
+"PO-Revision-Date: 2012-09-16 12:27+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: \n"
@@ -16,6 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.3\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -98,7 +99,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "無法載入「%s」以預覽"
@@ -111,11 +112,16 @@ msgstr "正在載入..."
 msgid "No Documents Found"
 msgstr "找不到文件"
 
-#: ../src/embed.js:240
-msgid "You can add your online accounts in"
-msgstr "你可以將網上帳號加入"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "你可以在 %s 加入你的網上帳號"
 
-#: ../src/embed.js:241
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "系統設定值"
 
@@ -166,7 +172,7 @@ msgstr "完成"
 msgid "Back"
 msgstr "返回"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "選擇項目"
 
@@ -363,6 +369,10 @@ msgid "About Documents"
 msgstr "關於文件"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "求助"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "結束"
 
