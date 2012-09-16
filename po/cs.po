@@ -8,11 +8,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-09 10:20+0200\n"
-"Last-Translator: Marek Černocký <marek@manet.cz>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-16 18:41+0100\n"
+"Last-Translator: Adam Matoušek <adamatousek@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +19,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../data/gnome-documents.desktop.in.in.h:1
+#: ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "Dokumenty"
@@ -66,7 +66,8 @@ msgstr "Maximalizace okna"
 msgid "Window maximized state"
 msgstr "Stav maximalizace okna."
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:640
+#: ../src/sources.js:95
 msgid "Local"
 msgstr "Místní"
 
@@ -79,29 +80,34 @@ msgstr "Dokumenty Google"
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:758
+#: ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "Sešit s tabulkami"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:760
+#: ../src/documents.js:859
 msgid "Presentation"
 msgstr "Prezentace"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:762
+#: ../src/documents.js:861
 msgid "Collection"
 msgstr "Sbírka"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:764
+#: ../src/documents.js:863
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:791
+#: ../src/documents.js:792
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Nelze načíst „%s“ pro náhled"
@@ -114,13 +120,19 @@ msgstr "Načítá se…"
 msgid "No Documents Found"
 msgstr "Nenalezen žádný dokument"
 
-#: ../src/embed.js:226
-msgid "You can add your online accounts in"
-msgstr "Můžete přidat on-line účty, které máte v"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+#| msgid "You can add your online accounts in"
+msgid "You can add your online accounts in %s"
+msgstr "Své účty on-line můžete přidat v %s"
 
-#: ../src/embed.js:227
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
-msgstr "Nastavení systému"
+msgstr "Nastaveních systému"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -163,7 +175,8 @@ msgstr[0] "%d vybrán"
 msgstr[1] "%d vybrány"
 msgstr[2] "%d vybráno"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#: ../src/mainToolbar.js:208
+#: ../src/properties.js:58
 msgid "Done"
 msgstr "Hotovo"
 
@@ -171,7 +184,7 @@ msgstr "Hotovo"
 msgid "Back"
 msgstr "Zpět"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Vybrat položky"
 
@@ -179,7 +192,7 @@ msgstr "Vybrat položky"
 msgid "translator-credits"
 msgstr ""
 "Marek Černocký <marek@manet.cz>\n"
-"Adam Matoušek <adydas95@gmail.com>"
+"Adam Matoušek <adamatousek@gmail.com>"
 
 #: ../src/mainWindow.js:206
 msgid "A document manager application"
@@ -199,16 +212,19 @@ msgid "Some documents might not be available during this process"
 msgstr "Některé dokumenty nemusí být během tohoto procesu dostupné"
 
 #. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/properties.js:73
+#: ../src/selections.js:792
 msgid "Properties"
 msgstr "Vlastnosti"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#: ../src/properties.js:81
+#: ../src/searchbar.js:225
 msgid "Title"
 msgstr "Název"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#: ../src/properties.js:88
+#: ../src/searchbar.js:227
 msgid "Author"
 msgstr "Autor"
 
@@ -227,7 +243,8 @@ msgid "Date Created"
 msgstr "Datum vytvoření"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#: ../src/properties.js:115
+#: ../src/searchbar.js:135
 msgid "Type"
 msgstr "Typ"
 
@@ -235,7 +252,9 @@ msgstr "Typ"
 msgid "Category"
 msgstr "Kategorie"
 
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/searchbar.js:88
+#: ../src/searchbar.js:138
+#: ../src/searchbar.js:223
 #: ../src/sources.js:89
 msgid "All"
 msgstr "Vše"
@@ -293,7 +312,8 @@ msgid "Open with %s"
 msgstr "Otevřít pomocí %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:876
+#: ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Otevřít"
 
@@ -378,6 +398,10 @@ msgid "About Documents"
 msgstr "O Dokumentech"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Nápověda"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Ukončit"
 
