@@ -88,9 +88,9 @@ const QueryBuilder = new Lang.Class({
             downloadsURI = '';
 
         let filter =
-            ('((fn:starts-with (nie:url(?urn), "%s")) || ' +
-             ' (fn:starts-with (nie:url(?urn), "%s")) || ' +
-             ' (fn:starts-with (nie:url(?urn), "%s")) || ' +
+            ('((fn:contains (nie:url(?urn), "%s")) || ' +
+             ' (fn:contains (nie:url(?urn), "%s")) || ' +
+             ' (fn:contains (nie:url(?urn), "%s")) || ' +
              ' (fn:starts-with (nao:identifier(?urn), "gd:collection:local:")))').format(desktopURI, documentsURI, downloadsURI);
 
         return filter;
