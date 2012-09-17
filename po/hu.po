@@ -6,10 +6,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-04 13:15+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-09-17 23:09+0200\n"
+"PO-Revision-Date: 2012-09-17 23:10+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng at gnome dot hu>\n"
 "Language-Team: Hungarian <gnome-hu-list at gnome dot org>\n"
 "Language: hu\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -100,7 +99,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "A(z) „%s” nem tölthető be az előnézetből"
@@ -110,17 +109,21 @@ msgid "Loading..."
 msgstr "Betöltés…"
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "Nincsenek dokumentumok"
 
-#: ../src/embed.js:226
-msgid "You can add your online accounts in"
-msgstr "Felveheti online fiókjait"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "Felveheti online fiókjait a %s"
 
-#: ../src/embed.js:227
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
-msgstr "a Rendszerbeállításokban"
+msgstr "Rendszerbeállításokban"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
@@ -170,7 +173,7 @@ msgstr "Kész"
 msgid "Back"
 msgstr "Vissza"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Válasszon elemeket"
 
@@ -193,8 +196,7 @@ msgstr "Dokumentumai indexelése folyamatban"
 
 #: ../src/notifications.js:155
 msgid "Some documents might not be available during this process"
-msgstr ""
-"Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
+msgstr "Egyes dokumentumok lehet, hogy nem lesznek elérhetők ezen folyamat alatt"
 
 #. Properties dialog heading
 #: ../src/properties.js:73 ../src/selections.js:792
@@ -212,7 +214,6 @@ msgstr "Szerző"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "Forrás"
 
@@ -372,6 +373,10 @@ msgid "About Documents"
 msgstr "A Dokumentumok névjegye"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Súgó"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Kilépés"
 
@@ -403,26 +408,3 @@ msgstr "Összes kijelölése"
 msgid "Select None"
 msgstr "Kijelölés megszüntetése"
 
-#~ msgid "The active source filter"
-#~ msgstr "Az aktív forrásszűrő"
-
-#~ msgid "The last active source filter"
-#~ msgstr "Az utoljára aktív forrásszűrő"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "Nem kérhető le a dokumentumok listája"
-
-#~ msgid "%d of %d"
-#~ msgstr "%d / %d"
-
-#~ msgid "GNOME Documents"
-#~ msgstr "GNOME Dokumentumok"
-
-#~ msgid "Remove from favorites"
-#~ msgstr "Eltávolítás a Kedvencek közül"
-
-#~ msgid "Add to favorites"
-#~ msgstr "Hozzáadás a Kedvencekhez"
-
-#~ msgid "Enable list view"
-#~ msgstr "Listanézet engedélyezése"
