@@ -1,3 +1,16 @@
+3.5.92 - "Commuter's Delight"
+=============================
+
+- Add user documentation, and a Help item to the application menu
+  (Julita Inca, Michael Hill)
+- Work around UTF-8 collation Tracker bug, fixes empty overview in certain
+  languages
+- Fix back button failing to display when going back to a collection from
+  the preview (Volker Sobek)
+- Fix collection back navigation for nested collections (Volker Sobek)
+- Fix accelerator labels not showing up in toolbar menus
+- Misc string fixes
+
 3.5.91 - "Whiteberry"
 ====================
 
