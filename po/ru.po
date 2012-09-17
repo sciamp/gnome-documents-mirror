@@ -7,15 +7,16 @@
 # Yuri Kozlov <yuray@komyakino.ru>, 2012.
 # Alexsey Nadtochey <irbis4lan@yandex.com>, 2012.
 # Yuri Myasoedov <omerta13@yandex.ru>, 2011, 2012.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-01 21:18+0000\n"
-"PO-Revision-Date: 2012-09-02 09:33+0400\n"
-"Last-Translator: Yuri Kozlov <yuray@komyakino.ru>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-17 16:40+0400\n"
+"Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
+"Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -105,7 +106,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Не удалось загрузить «%s» для просмотра"
@@ -118,11 +119,17 @@ msgstr "Загрузка…"
 msgid "No Documents Found"
 msgstr "Нет документов"
 
-#: ../src/embed.js:226
-msgid "You can add your online accounts in"
-msgstr "Вы можете добавить учётные записи в"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+#| msgid "You can add your online accounts in"
+msgid "You can add your online accounts in %s"
+msgstr "Вы можете добавить сетевые учётные записи в %s"
 
-#: ../src/embed.js:227
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "Системные параметры"
 
@@ -175,7 +182,7 @@ msgstr "Выполнено"
 msgid "Back"
 msgstr "Назад"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Выбрать элементы"
 
@@ -380,6 +387,10 @@ msgid "About Documents"
 msgstr "О приложении"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Справка"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "Закончить"
 
