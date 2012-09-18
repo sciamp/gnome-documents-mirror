@@ -1,24 +1,28 @@
 # Malayalam translation for gnome-documents.
 # Copyright (C) 2012 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Jishnu Mohan <jishnu7@gmail.com>, 2012.
 #
+# Jishnu Mohan <jishnu7@gmail.com>, 2012.
+# Ani Peter <apeter@redhat.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-02-20 13:52+0000\n"
-"PO-Revision-Date: 2012-02-20 13:52+0000\n"
-"Last-Translator: Jishnu Mohan <jishnu7@gmail.com>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
+"cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-18 23:13+0000\n"
+"Last-Translator: Ani Peter <apeter@redhat.com>\n"
 "Language-Team: Malayalam <discuss@lists.smc.org.in>\n"
+"Language: ml\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-DamnedLies-Scope: partial\n"
+"X-Generator: Lokalize 1.0\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:53
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "ഗ്രന്ഥങ്ങള്‍"
 
@@ -26,183 +30,369 @@ msgstr "ഗ്രന്ഥങ്ങള്‍"
 msgid "Access, manage and share documents"
 msgstr "ആധാരങ്ങലിലേയ്ക്ക് പ്രവേശിക്കുക, കൈകാര്യംചെയ്യുക, പങ്കിടുക"
 
-#: ../src/application.js:119
-msgid "Fullscreen"
-msgstr "സ്ക്രീന്‍ പരമാവധി വലിപ്പത്തില്‍"
+#: ../data/gnome-documents.desktop.in.in.h:3
+#| msgid "PDF Documents"
+msgid "Docs;PDF;Document;"
+msgstr "Docs;PDF;Document;"
 
-#: ../src/application.js:120
-msgid "Quit"
-msgstr "പുറത്ത് കടക്കുക"
-
-#: ../src/application.js:123
-msgid "Grid"
-msgstr "കള്ളി"
-
-#: ../src/application.js:124
-msgid "List"
-msgstr "നാമാവലി"
-
-#: ../src/documents.js:618 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "പ്രാദേശികം"
 
 #. overridden
-#: ../src/documents.js:681
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "ഗൂഗിള്‍ ഡോക്സ്"
 
-#: ../src/documents.js:682
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "ഗൂഗിള്‍"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "സ്പ്രെഡ്ഷീറ്റ്"
 
-#: ../src/documents.js:753
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "അവതരണം"
 
-#: ../src/documents.js:755
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "ശേഖരം"
 
-#: ../src/documents.js:757
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
-msgstr "ഗ്രന്ഥം"
+msgstr "രേഖ"
+
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "സ്കൈഡ്രൈവ്"
 
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "\"%s\" മുന്‍കാഴ്ചയ്ക്കായി ലഭ്യമാക്കാന്‍ സാധിച്ചില്ല"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "ഗ്രന്ഥങ്ങളുടെ പട്ടിക കൊണ്ടുവരാന്‍ സാധിച്ചില്ല"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "എടുത്തുകൊണ്ടിരിക്കുന്നു..."
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:210
-msgid "Done"
-msgstr "പൂര്‍ത്തിയാക്കി"
+#: ../src/embed.js:220
+#| msgid "Documents"
+msgid "No Documents Found"
+msgstr "രേഖകള്‍ ലഭ്യമായില്ല"
 
-#: ../src/lib/gd-pdf-loader.c:207
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "നിങ്ങളുടെ ഓണ്‍ലൈന്‍ അക്കൌണ്ട് നിങ്ങള്‍ക്കു് %s-ല്‍ ചേര്‍ക്കാം"
+
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
+msgid "System Settings"
+msgstr "സിസ്റ്റം സജ്ജീകരണങ്ങള്‍"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "ഗ്രന്ഥം ലഭ്യമാക്കാന്‍ സാധിച്ചില്ല"
 
-#: ../src/lib/gd-pdf-loader.c:488
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "\"unoconv\" കണ്ടുപിടിക്കാന്‍ കഴിഞ്ഞില്ല, ദയവായി LibreOffice ഇന്‍സ്റ്റാളേഷന്‍ പരിശോധിക്കുക"
+msgstr ""
+"\"unoconv\" കണ്ടുപിടിക്കാന്‍ കഴിഞ്ഞില്ല, ദയവായി LibreOffice ഇന്‍സ്റ്റാളേഷന്‍ പരിശോധിക്കുക"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "%d ഗ്രന്ഥം കൂടി ലഭ്യമാക്കുക"
-msgstr[1] "%d ഗ്രന്ഥങ്ങള്‍ കൂടി ലഭ്യമാക്കുക"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "തെരയുക"
 
-#: ../src/mainToolbar.js:118
-msgid "Click on items to select them"
-msgstr "ഇനം തിരഞ്ഞെടുക്കുവാനായി അതാത് ഇനത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
-
-#: ../src/mainToolbar.js:120
-#, c-format
-msgid "%d selected"
-msgstr "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
-
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "പുതിയതും അടുത്തകാലത്ത് ഉപയോഗിച്ചതും"
 
-#: ../src/mainToolbar.js:187
+#: ../src/mainToolbar.js:165
 #, c-format
-msgid "(%d of %d)"
-msgstr "(%2$d ല്‍ %1$d)"
+msgid "Results for \"%s\""
+msgstr "\"%s\"-നുള്ള ഫലങ്ങള്‍"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "വിഭാഗം"
+#: ../src/mainToolbar.js:167
+msgid "filtered by title"
+msgstr "തലക്കെട്ടനുസരിച്ചു് തിരിയ്ക്കുന്നു"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:208
-#: ../src/sources.js:94
-msgid "All"
-msgstr "എല്ലാം"
+#: ../src/mainToolbar.js:169
+msgid "filtered by author"
+msgstr "രചയിതാവനുസരിച്ചു് തിരിയ്ക്കുന്നു"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "ഇഷ്ടമുള്ളവ"
+#: ../src/mainToolbar.js:176
+msgid "Click on items to select them"
+msgstr "ഇനം തിരഞ്ഞെടുക്കുവാനായി അതാത് ഇനത്തില്‍ ക്ലിക്ക് ചെയ്യുക"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "താങ്കളുമായി പങ്കിട്ടവ"
+#: ../src/mainToolbar.js:178
+#, c-format
+#| msgid "%d selected"
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
+msgstr[1] "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
 
-#: ../src/searchbar.js:138
-msgid "Type"
-msgstr "ഇനം"
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
+msgid "Done"
+msgstr "പൂര്‍ത്തിയാക്കി"
 
-#: ../src/searchbar.js:143
-msgid "Collections"
-msgstr "ശേഖരങ്ങള്‍"
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "പുറകോട്ട്"
 
-#: ../src/searchbar.js:147
-msgid "PDF Documents"
-msgstr "പിഡിഎഫ് ഗ്രന്ഥങ്ങള്‍"
+#: ../src/mainToolbar.js:248
+msgid "Select Items"
+msgstr "വസ്തുക്കള്‍ തെരഞ്ഞെടുക്കുക"
 
-#: ../src/searchbar.js:150
-msgid "Presentations"
-msgstr "അവതരണങ്ങള്‍"
+#: ../src/mainWindow.js:204
+msgid "translator-credits"
+msgstr "അനി പീറ്റര്‍ <peter.ani@gmail.com>, ജിഷ്ണു മോഹന്‍  <jishnu7@gmail.com>"
 
-#: ../src/searchbar.js:153
-msgid "Spreadsheets"
-msgstr "സ്പ്രെഡ്ഷീറ്റുകള്‍"
+#: ../src/mainWindow.js:206
+msgid "A document manager application"
+msgstr "ഒരു ഡോക്യുമെന്റ് മാനേജര്‍ പ്രയോഗം"
 
-#: ../src/searchbar.js:156
-msgid "Text Documents"
-msgstr "ടെക്സ്റ്റ് ഗ്രന്ഥങ്ങള്‍"
+#: ../src/notifications.js:86
+#, c-format
+msgid "Printing \"%s\": %s"
+msgstr "\"%s\" പ്രിന്റ് ചെയ്യുന്നു: %s"
 
-#: ../src/searchbar.js:205
-msgid "Match"
-msgstr "പൊരുത്തം"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "നിങ്ങളുടെ രേഖകള്‍ക്കു് സൂചിക നല്‍കുന്നു"
 
-#: ../src/searchbar.js:210
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "ഈ പ്രക്രിയില്‍ ചില രേഖകള്‍ ഒരു പക്ഷേ ലഭ്യമാവില്ല"
+
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "വിശേഷതകള്‍"
+
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
 msgid "Title"
 msgstr "ശീര്‍ഷകം"
 
-#: ../src/searchbar.js:212
+#: ../src/properties.js:88 ../src/searchbar.js:227
 msgid "Author"
 msgstr "രചയിതാവ്"
 
-#: ../src/selections.js:663
-msgid "Organize"
-msgstr "ക്രമീകരിക്കുക"
+#. Source item
+#: ../src/properties.js:95
+#| msgid "Sources"
+msgid "Source"
+msgstr "ശ്രോതസ്സ്"
 
-#: ../src/selections.js:670
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "മാറ്റം വരുത്തിയതു്"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "തയ്യാറാക്കിയതു്"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
+msgid "Type"
+msgstr "ഇനം"
+
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "വിഭാഗം"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "എല്ലാം"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "ഇഷ്ടമുള്ളവ"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "താങ്കളുമായി പങ്കിട്ടവ"
+
+#: ../src/searchbar.js:140
+msgid "Collections"
+msgstr "ശേഖരങ്ങള്‍"
+
+#: ../src/searchbar.js:144
+msgid "PDF Documents"
+msgstr "പിഡിഎഫ് ഗ്രന്ഥങ്ങള്‍"
+
+#: ../src/searchbar.js:148
+msgid "Presentations"
+msgstr "അവതരണങ്ങള്‍"
+
+#: ../src/searchbar.js:151
+msgid "Spreadsheets"
+msgstr "സ്പ്രെഡ്ഷീറ്റുകള്‍"
+
+#: ../src/searchbar.js:154
+msgid "Text Documents"
+msgstr "ടെക്സ്റ്റ് ഗ്രന്ഥങ്ങള്‍"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/searchbar.js:220
+msgid "Match"
+msgstr "പൊരുത്തം"
+
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "പ്രിന്റ് ചെയ്യുക"
+
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "നീക്കം ചെയ്യുക"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "ക്രമീകരിക്കുക"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:761 ../src/view.js:67
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "%s ഉപയോഗിച്ച് തുറക്കുക"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:764 ../src/view.js:70
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "തുറക്കുക"
 
-#: ../src/selections.js:777 ../src/view.js:80
-msgid "Remove from favorites"
-msgstr "ഇഷ്ടപ്പെട്ടവയില്‍ നിന്നും നീക്കം ചെയ്യുക"
+#: ../src/shellSearchProvider.js:281
+#| msgid "Text Documents"
+msgid "Untitled Document"
+msgstr "പേരിടാത്ത രേഖ"
 
-#: ../src/selections.js:781 ../src/view.js:80
-msgid "Add to favorites"
-msgstr "ഇഷ്ടപ്പെട്ടവയിലേയ്ക്ക് ചേര്‍ക്കുക"
-
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "ശ്രോതസ്സ്"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "എടുത്തുകൊണ്ടിരിക്കുന്നു..."
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "%d രേഖ കൂടി ലഭ്യമാക്കുക"
+msgstr[1] "%d രേഖകള്‍ കൂടി ലഭ്യമാക്കുക"
+
+#: ../src/view.js:283
+msgid "Yesterday"
+msgstr "ഇന്നലെ"
+
+#: ../src/view.js:285
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d ദിവസങ്ങള്‍ മുമ്പു്"
+msgstr[1] ""
+
+#: ../src/view.js:289
+msgid "Last week"
+msgstr "കഴിഞ്ഞ ആഴ്ച"
+
+#: ../src/view.js:291
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d ആഴ്ച മുമ്പു്"
+msgstr[1] "%d ആഴ്ചകള്‍ മുമ്പു്"
+
+#: ../src/view.js:295
+msgid "Last month"
+msgstr "കഴിഞ്ഞ മാസം"
+
+#: ../src/view.js:297
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d മാസം മുമ്പു്"
+msgstr[1] "%d മാസങ്ങള്‍ മുമ്പു്"
+
+#: ../src/view.js:301
+msgid "Last year"
+msgstr "കഴിഞ്ഞ വര്‍ഷം"
+
+#: ../src/view.js:303
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] " %d വര്‍ഷം മുമ്പു്"
+msgstr[1] "%d വര്‍ഷങ്ങള്‍ മുമ്പു്"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "കള്ളി"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "നാമാവലി"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "സ്ക്രീന്‍ പരമാവധി വലിപ്പത്തില്‍"
+
+#: ../src/resources/app-menu.ui.h:5
+#| msgid "Text Documents"
+msgid "About Documents"
+msgstr "രേഖങ്ങളെപ്പറ്റി"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "സഹായം"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "പുറത്ത് കടക്കുക"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "പ്രിന്റ് ചെയ്യുക..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "ചെറുതാക്കുക"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "വലുതാക്കുക"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "ഇടത്തേക്കു് തിരിയ്ക്കുക"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "വലത്തേക്കു് തിരിയ്ക്കുക"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "എല്ലാ തെരഞ്ഞെടുക്കുക"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "ഒന്നും തെരഞ്ഞെടുക്കേണ്ട"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "ഗ്രന്ഥങ്ങളുടെ പട്ടിക കൊണ്ടുവരാന്‍ സാധിച്ചില്ല"
+
+#~ msgid "(%d of %d)"
+#~ msgstr "(%2$d ല്‍ %1$d)"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "ഇഷ്ടപ്പെട്ടവയില്‍ നിന്നും നീക്കം ചെയ്യുക"
+
+#~ msgid "Add to favorites"
+#~ msgstr "ഇഷ്ടപ്പെട്ടവയിലേയ്ക്ക് ചേര്‍ക്കുക"
