@@ -8,17 +8,19 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-05 22:21+0000\n"
-"PO-Revision-Date: 2012-03-19 15:26+0530\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-18 11:54+0530\n"
 "Last-Translator: \n"
 "Language-Team: gu_IN <kde-i18n-doc@kde.org>\n"
+"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:54
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "દસ્તાવેજો"
 
@@ -27,11 +29,11 @@ msgid "Access, manage and share documents"
 msgstr "દસ્તાવેજોને વાપરો, સંચાલિત અને વહેંચો"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
-#| msgid "Document"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;દસ્તાવેજ;"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:1 ../src/application.js:128
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
 msgid "View as"
 msgstr "આ રીતે જુઓ"
 
@@ -40,317 +42,398 @@ msgid "View as type"
 msgstr "પ્રકાર તરીકે જુઓ"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:3
-msgid "The active source filter"
-msgstr "સક્રિય સ્ત્રોત ફિલ્ટર"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:4
-msgid "The last active source filter"
-msgstr "છેલ્લે સક્રિય સ્ત્રોત ફિલ્ટર"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window size"
 msgstr "વિન્ડો માપ"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:6
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
 msgstr "વિન્ડો માપ (પહોળાઇ અને ઊંચાઇ)."
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:7
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window position"
 msgstr "વિન્ડો જગ્યા"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:8
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
 msgid "Window position (x and y)."
 msgstr "વિન્ડો જગ્યા (x અને y)."
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:9
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
 msgid "Window maximized"
 msgstr "મહત્તમ થયેલ વિન્ડો"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:10
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
 msgid "Window maximized state"
 msgstr "વિન્ડો મહત્તમ થયેલ સ્થિતિ"
 
-#: ../src/application.js:126
-msgid "Grid"
-msgstr "જાળી"
-
-#: ../src/application.js:127
-#| msgid "List view"
-msgid "List"
-msgstr "યાદી"
-
-#: ../src/application.js:131
-msgid "Fullscreen"
-msgstr "પૂર્ણસ્ક્રીન"
-
-#: ../src/application.js:134
-#| msgid "Documents"
-msgid "About Documents"
-msgstr "દસ્તાવેજો વિશે"
-
-#: ../src/application.js:135
-msgid "Quit"
-msgstr "બહાર નીકળો"
-
-#: ../src/documents.js:618 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "સ્થાનિક"
 
 #. overridden
-#: ../src/documents.js:681
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google દસ્તાવેજો"
 
-#: ../src/documents.js:682
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "સ્પ્રેડશીટ"
 
-#: ../src/documents.js:753
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "પ્રસ્તુતિ"
 
-#: ../src/documents.js:755
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "સંગ્રહ"
 
-#: ../src/documents.js:757
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "દસ્તાવેજ"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "સ્કાયડ્રાઇવ"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "પૂર્વદર્શન માટે \"%s\" ને લાવવાનું અસમર્થ"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "દસ્તાવેજોની યાદીને લાવવાનું અસમર્થ"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "લાવી રહ્યા છે..."
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:269
-msgid "Done"
-msgstr "પૂર્ણ થયુ"
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "દસ્તાવેજો મળ્યા નથી"
 
-#: ../src/lib/gd-pdf-loader.c:208
-#| msgid "Unable to fetch the list of documents"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "તમે %s માં તમારુ ઓનલાઇન ખાતુ ઉમેરી શકો છો"
+
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
+msgid "System Settings"
+msgstr "સિસ્ટમ સુયોજનો"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "દસ્તાવેજને લાવવાનું અસમર્થ"
 
-#: ../src/lib/gd-pdf-loader.c:489
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr ""
-"\"unoconv\" ને શોધી શકાતુ નથી, મહેરબાની કરીને તમારા LibreOffice સ્થાપનને "
-"ચકાસો"
+"\"unoconv\" ને શોધી શકાતુ નથી, મહેરબાની કરીને તમારા LibreOffice સ્થાપનને ચકાસો"
 
-#: ../src/loadMore.js:70
-#, c-format
-#| msgid "Load %d more documents"
-#| msgid_plural "Load %d more documents"
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "%d વધારે દસ્તાવેજને લાવો"
-msgstr[1] "%d વધારે દસ્તાવેજોને લાવો"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "શોધો"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "નવું અને તાજેતરનું"
 
-#: ../src/mainToolbar.js:201
+#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "\"%s\" માટે પરિણામો"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:167
 msgid "filtered by title"
 msgstr "શીર્ષક દ્દારા ફિલ્ટર થયેલ છે"
 
-#: ../src/mainToolbar.js:205
+#: ../src/mainToolbar.js:169
 msgid "filtered by author"
 msgstr "લેખક દ્દારા ફિલ્ટર થયેલ છે"
 
-#: ../src/mainToolbar.js:218
-#, c-format
-#| msgid "(%d of %d)"
-msgid "%d of %d"
-msgstr "%d નું %d"
-
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "તેઓને પસંદ કરવા માટે વસ્તુઓ પર ક્લિક કરો"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d પસંદ થયેલ છે"
 msgstr[1] "%d પસંદ થયેલ છે"
 
-#: ../src/mainWindow.js:254
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
+msgid "Done"
+msgstr "પૂર્ણ થયુ"
+
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "પાછળ"
+
+#: ../src/mainToolbar.js:248
+msgid "Select Items"
+msgstr "વસ્તુઓને પસંદ કરો"
+
+#: ../src/mainWindow.js:204
 msgid "translator-credits"
 msgstr "શ્ર્વેતા કોઠારી <swkothar@redhat.com>"
 
-#: ../src/mainWindow.js:255
-#| msgid "Documents"
-msgid "GNOME Documents"
-msgstr "GNOME દસ્તાવેજો"
-
-#: ../src/mainWindow.js:256
+#: ../src/mainWindow.js:206
 msgid "A document manager application"
 msgstr "દસ્તાવેજ સંચાલક કાર્યક્રમ"
 
-#: ../src/notifications.js:85
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "\"%s\" છાપી રહ્યા છે: %s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "વર્ગ"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "તમારાં દસ્તાવેજો અનુક્રમિત થયેલ છે"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:210
-#: ../src/sources.js:94
-msgid "All"
-msgstr "બધા"
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "અમુક દસ્તાવેજો આ પ્રક્રિયા દરમ્યાન ઉપલબ્ધ હોઇ શકે નહિં"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "પસંદીદા"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "ગુણધર્મો"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "તમારી સાથે વહેંચાયેલ છે"
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "શીર્ષક"
 
-#: ../src/searchbar.js:138
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "લેખક"
+
+#. Source item
+#: ../src/properties.js:95
+#| msgid "Sources"
+msgid "Source"
+msgstr "સ્ત્રોત"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "બદલેલ તારીખ"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "બનાવેલ તારીખ"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
 msgid "Type"
 msgstr "પ્રકાર"
 
-#: ../src/searchbar.js:143
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "વર્ગ"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "બધા"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "પસંદીદા"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "તમારી સાથે વહેંચાયેલ છે"
+
+#: ../src/searchbar.js:140
 msgid "Collections"
 msgstr "સંગ્રહ"
 
-#: ../src/searchbar.js:147
-#| msgid "Documents"
+#: ../src/searchbar.js:144
 msgid "PDF Documents"
 msgstr "PDF દસ્તાવેજો"
 
-#: ../src/searchbar.js:150
-#| msgid "Presentation"
+#: ../src/searchbar.js:148
 msgid "Presentations"
 msgstr "રજૂઆત"
 
-#: ../src/searchbar.js:153
-#| msgid "Spreadsheet"
+#: ../src/searchbar.js:151
 msgid "Spreadsheets"
 msgstr "સ્પ્રેડશીટ"
 
-#: ../src/searchbar.js:156
-#| msgid "Documents"
+#: ../src/searchbar.js:154
 msgid "Text Documents"
 msgstr "લખાણ દસ્તાવેજો"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:207
+#: ../src/searchbar.js:220
 msgid "Match"
 msgstr "બંધબેસતુ"
 
-#: ../src/searchbar.js:212
-msgid "Title"
-msgstr "શીર્ષક"
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "છાપો"
 
-#: ../src/searchbar.js:214
-msgid "Author"
-msgstr "લેખક"
-
-#: ../src/selections.js:698
-msgid "Organize"
-msgstr "સંચાલિત કરો"
-
-#: ../src/selections.js:705
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "કાઢી નાંખો"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "સંચાલિત કરો"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:808 ../src/view.js:69
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "%s સાથે ખોલો"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:811 ../src/view.js:72
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "ખોલો"
 
-#: ../src/selections.js:824 ../src/view.js:82
-msgid "Remove from favorites"
-msgstr "પસંદીદા માંથી દૂર કરો"
-
-#: ../src/selections.js:828 ../src/view.js:82
-msgid "Add to favorites"
-msgstr "પસંદીદામાં ઉમેરો"
-
-#: ../src/shellSearchProvider.js:332
-#| msgid "Document"
+#: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
 msgstr "શીર્ષક ન થયેલ દસ્તાવેજ"
 
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "સ્ત્રોતો"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "લાવી રહ્યા છે..."
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "%d વધારે દસ્તાવેજને લાવો"
+msgstr[1] "%d વધારે દસ્તાવેજોને લાવો"
 
-#: ../src/view.js:196
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "ગઇકાલે"
 
-#: ../src/view.js:198
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d દિવસ અગાઉ"
 msgstr[1] "%d દિવસો અગાઉ"
 
-#: ../src/view.js:202
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "ગયું અઠવાડિયું"
 
-#: ../src/view.js:204
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d અઠવાડિયા અગાઉ"
 msgstr[1] "%d અઠવાડિયા અગાઉ"
 
-#: ../src/view.js:208
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "છેલ્લો મહિનો"
 
-#: ../src/view.js:210
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d મહિના અગાઉ"
 msgstr[1] "%d મહિના અગાઉ"
 
-#: ../src/view.js:214
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "છેલ્લુ વર્ષ"
 
-#: ../src/view.js:216
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d વર્ષ અગાઉ"
 msgstr[1] "%d વર્ષ અગાઉ"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "જાળી"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "યાદી"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "પૂર્ણસ્ક્રીન"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "દસ્તાવેજો વિશે"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "મદદ"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "બહાર નીકળો"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "છાપો..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "મોટુ કરો"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "નાનું કરો"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "ડાબે ફેરવો"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "જમણે ફેરવો"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "બધું પસંદ કરો"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "કંઇ પસંદ કરો નહિં"
+
+#~ msgid "The active source filter"
+#~ msgstr "સક્રિય સ્ત્રોત ફિલ્ટર"
+
+#~ msgid "The last active source filter"
+#~ msgstr "છેલ્લે સક્રિય સ્ત્રોત ફિલ્ટર"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "દસ્તાવેજોની યાદીને લાવવાનું અસમર્થ"
+
+#~| msgid "(%d of %d)"
+#~ msgid "%d of %d"
+#~ msgstr "%d નું %d"
+
+#~| msgid "Documents"
+#~ msgid "GNOME Documents"
+#~ msgstr "GNOME દસ્તાવેજો"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "પસંદીદા માંથી દૂર કરો"
+
+#~ msgid "Add to favorites"
+#~ msgstr "પસંદીદામાં ઉમેરો"
 
 #~ msgid "Enable list view"
 #~ msgstr "યાદી દૃશ્ય સક્રિય કરો"
