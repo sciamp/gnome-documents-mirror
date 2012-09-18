@@ -296,8 +296,8 @@ msgstr "ഇന്നലെ"
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
-msgstr[0] "%d ദിവസങ്ങള്‍ മുമ്പു്"
-msgstr[1] ""
+msgstr[0] "%d ദിവസം മുമ്പു്"
+msgstr[1] "%d ദിവസങ്ങള്‍ മുമ്പു്"
 
 #: ../src/view.js:289
 msgid "Last week"
