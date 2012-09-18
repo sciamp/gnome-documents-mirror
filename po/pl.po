@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-14 17:25+0200\n"
-"PO-Revision-Date: 2012-09-14 17:27+0200\n"
+"POT-Creation-Date: 2012-09-18 16:18+0200\n"
+"PO-Revision-Date: 2012-09-18 16:21+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -107,7 +107,7 @@ msgstr "SkyDrive"
 #: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
-msgstr "Nie można wczytać \"%s\" dla podglądu"
+msgstr "Nie można wczytać \"%s\" do podglądu"
 
 #: ../src/embed.js:74
 msgid "Loading..."
@@ -175,7 +175,7 @@ msgstr[2] "Zaznaczono: %d"
 
 #: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
-msgstr "Ukończone"
+msgstr "Gotowe"
 
 #: ../src/mainToolbar.js:226
 msgid "Back"
