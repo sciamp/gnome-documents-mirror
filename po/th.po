@@ -1,225 +1,425 @@
 # Thai translation for gnome-documents.
-# Copyright (C) 2011 Free Software Foundation, Inc.
+# Copyright (C) 2011-2012 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-documents package.
-# Akom Chotiphantawanon <knight2000@gmail.com>, 2011.
 # Unticha Pramgoed <unticha@gmail.com>, 2011.
+# Akom Chotiphantawanon <knight2000@gmail.com>, 2011-2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2011-11-23 19:35+0000\n"
-"PO-Revision-Date: 2011-11-25 08:56+0700\n"
+"POT-Creation-Date: 2012-09-18 06:25+0000\n"
+"PO-Revision-Date: 2012-09-19 10:02+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-msgid "Access, manage and share documents"
-msgstr "เข้าถึง จัดการ และแบ่งปันเอกสาร"
-
-#: ../data/gnome-documents.desktop.in.in.h:2 ../src/mainWindow.js:52
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "เอกสาร"
 
+#: ../data/gnome-documents.desktop.in.in.h:2
+msgid "Access, manage and share documents"
+msgstr "เข้าถึง จัดการ และแบ่งปันเอกสาร"
+
+#: ../data/gnome-documents.desktop.in.in.h:3
+msgid "Docs;PDF;Document;"
+msgstr "Docs;PDF;เอกสาร;"
+
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
-msgid "Enable list view"
-msgstr "เปิดใช้งานมุมมองรายชื่อ"
+#: ../src/resources/app-menu.ui.h:1
+msgid "View as"
+msgstr "มุมมอง"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:2
-msgid "List view"
-msgstr "มุมมองรายการ"
+msgid "View as type"
+msgstr "ชนิดของมุมมอง"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:3
-msgid "The active source filter"
-msgstr "ตัวกรองแหล่งที่ใช้งาน"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:4
-msgid "The last active source filter"
-msgstr "ตัวกรองแหล่งล่าสุดที่ใช้งาน"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:5
-msgid "Window maximized"
-msgstr "หน้าต่างขยายแผ่อยู่"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:6
-msgid "Window maximized state"
-msgstr "สถานะการขยายแผ่หน้าต่าง"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:7
-msgid "Window position"
-msgstr "ตำแหน่งหน้าต่าง"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:8
-msgid "Window position (x and y)."
-msgstr "ตำแหน่งของหน้าต่าง (x และ y)"
-
-#: ../data/org.gnome.documents.gschema.xml.in.h:9
 msgid "Window size"
 msgstr "ขนาดหน้าต่าง"
 
-#: ../data/org.gnome.documents.gschema.xml.in.h:10
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
 msgstr "ขนาดของหน้าต่าง (ความกว้างและความสูง)"
 
-#: ../src/documents.js:618 ../src/sources.js:100
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "ตำแหน่งหน้าต่าง"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "ตำแหน่งของหน้าต่าง (x และ y)"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr "หน้าต่างขยายแผ่อยู่"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr "สถานะการขยายแผ่หน้าต่าง"
+
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "ในเครื่อง"
 
 #. overridden
-#: ../src/documents.js:681
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:682
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "ตารางคำนวณ"
 
-#: ../src/documents.js:753
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "งานนำเสนอ"
 
-#: ../src/documents.js:755
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "ชุดเอกสาร"
 
-#: ../src/documents.js:757
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "เอกสาร"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "ไม่สามารถโหลด \"%s\" เพื่อแสดงตัวอย่าง"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "ไม่สามารถดึงข้อมูลรายชื่อเอกสาร"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "กำลังโหลด..."
 
-#: ../src/lib/gd-pdf-loader.c:207
+#: ../src/embed.js:220
+msgid "No Documents Found"
+msgstr "ไม่พบเอกสาร"
+
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "คุณสามารถเพิ่มบัญชีออนไลน์ของคุณได้ใน %s"
+
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
+msgid "System Settings"
+msgstr "ตั้งค่าระบบ"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "ไม่สามารถโหลดเอกสาร"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "โหลดเอกสารเพิ่มอีก %d ฉบับ"
+#: ../src/lib/gd-pdf-loader.c:673
+msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+msgstr "หา \"unoconv\" ไม่พบ กรุณาตรวจสอบการติดตั้ง LibreOffice ของคุณ"
 
-#: ../src/mainToolbar.js:179
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "ค้นหา"
+
+#: ../src/mainToolbar.js:158
+msgid "New and Recent"
+msgstr "ใหม่และล่าสุด"
+
+#: ../src/mainToolbar.js:165
+#, c-format
+msgid "Results for \"%s\""
+msgstr "ผลการค้นหาสำหรับ \"%s\""
+
+#: ../src/mainToolbar.js:167
+msgid "filtered by title"
+msgstr "กรองด้วยชื่อ"
+
+#: ../src/mainToolbar.js:169
+msgid "filtered by author"
+msgstr "กรองด้วยผู้เขียน"
+
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "คลิกที่รายการเพื่อเลือก"
 
-#: ../src/mainToolbar.js:181
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
-msgstr "เลือกอยู่ %d รายการ"
+msgid_plural "%d selected"
+msgstr[0] "เลือกอยู่ %d รายการ"
 
-#: ../src/mainToolbar.js:208
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
 msgid "Done"
 msgstr "เสร็จ"
 
-#: ../src/mainToolbar.js:334
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "ถอยกลับ"
+
+#: ../src/mainToolbar.js:248
+msgid "Select Items"
+msgstr "เลือกรายการ"
+
+#: ../src/mainWindow.js:204
+msgid "translator-credits"
+msgstr "Akom Chotiphantawanon <knight2000@gmail.com>"
+
+#: ../src/mainWindow.js:206
+msgid "A document manager application"
+msgstr "โปรแกรมจัดการเอกสาร"
+
+#: ../src/notifications.js:86
 #, c-format
-msgid "(%d of %d)"
-msgstr "(%d จาก %d)"
+msgid "Printing \"%s\": %s"
+msgstr "กำลังพิมพ์ \"%s\": %s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "หมวดหมู่"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "กำลังทำดัชนีเอกสารของคุณ"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:204
-#: ../src/sources.js:94
-msgid "All"
-msgstr "ทั้งหมด"
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "อาจไม่สามารถใช้เอกสารบางฉบับได้ในระหว่างกระบวนการนี้"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "รายการโปรด"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "คุณสมบัติ"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "แบ่งปันกับคุณ"
-
-#: ../src/searchbar.js:138
-msgid "Type"
-msgstr "ชนิด"
-
-#: ../src/searchbar.js:143
-msgid "Collections"
-msgstr "ชุดเอกสาร"
-
-#: ../src/searchbar.js:147
-msgid "PDF Documents"
-msgstr "เอกสาร PDF"
-
-#: ../src/searchbar.js:150
-msgid "Presentations"
-msgstr "งานนำเสนอ"
-
-#: ../src/searchbar.js:153
-msgid "Spreadsheets"
-msgstr "ตารางคำนวณ"
-
-#: ../src/searchbar.js:156
-msgid "Text Documents"
-msgstr "เอกสารข้อเขียน"
-
-#: ../src/searchbar.js:201
-msgid "Match"
-msgstr "ตรวจหา"
-
-#: ../src/searchbar.js:206
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
-#: ../src/searchbar.js:208
+#: ../src/properties.js:88 ../src/searchbar.js:227
 msgid "Author"
 msgstr "ผู้เขียน"
 
-#: ../src/selections.js:658
-msgid "Organize"
-msgstr "จัดระเบียบ"
+#. Source item
+#: ../src/properties.js:95
+msgid "Source"
+msgstr "แหล่ง"
 
-#: ../src/selections.js:665
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "วันที่แก้ไข"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "วันที่สร้าง"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
+msgid "Type"
+msgstr "ชนิด"
+
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "ทั้งหมด"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "รายการโปรด"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "แบ่งปันกับคุณ"
+
+#: ../src/searchbar.js:140
+msgid "Collections"
+msgstr "ชุดเอกสาร"
+
+#: ../src/searchbar.js:144
+msgid "PDF Documents"
+msgstr "เอกสาร PDF"
+
+#: ../src/searchbar.js:148
+msgid "Presentations"
+msgstr "งานนำเสนอ"
+
+#: ../src/searchbar.js:151
+msgid "Spreadsheets"
+msgstr "ตารางคำนวณ"
+
+#: ../src/searchbar.js:154
+msgid "Text Documents"
+msgstr "เอกสารข้อเขียน"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/searchbar.js:220
+msgid "Match"
+msgstr "ตรวจหา"
+
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "พิมพ์"
+
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "ลบ"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "จัดระเบียบ"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:756 ../src/view.js:66
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "เปิดด้วย %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:759 ../src/view.js:69
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "เปิด"
 
-#: ../src/selections.js:772 ../src/view.js:79
-msgid "Remove from favorites"
-msgstr "ลบออกจากรายการโปรด"
+#: ../src/shellSearchProvider.js:281
+msgid "Untitled Document"
+msgstr "เอกสารไม่มีชื่อ"
 
-#: ../src/selections.js:776 ../src/view.js:79
-msgid "Add to favorites"
-msgstr "เพิ่มในรายการโปรด"
-
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "แหล่ง"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "กำลังโหลด..."
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "โหลดเอกสารเพิ่มอีก %d ฉบับ"
 
-#~ msgid "New and Recent"
-#~ msgstr "ใหม่และล่าสุด"
+#: ../src/view.js:283
+msgid "Yesterday"
+msgstr "เมื่อวาน"
+
+#: ../src/view.js:285
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d วันที่แล้ว"
+
+#: ../src/view.js:289
+msgid "Last week"
+msgstr "สัปดาห์ที่แล้ว"
+
+#: ../src/view.js:291
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d สัปดาห์ที่แล้ว"
+
+#: ../src/view.js:295
+msgid "Last month"
+msgstr "เดือนที่แล้ว"
+
+#: ../src/view.js:297
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d เดือนที่แล้ว"
+
+#: ../src/view.js:301
+msgid "Last year"
+msgstr "ปีที่แล้ว"
+
+#: ../src/view.js:303
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d ปีที่แล้ว"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "แถวตาราง"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "รายชื่อ"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "เต็มจอ"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "เกี่ยวกับโปรแกรมเอกสาร"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "วิธีใช้"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "ออก"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "พิมพ์..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "แสดงขยาย"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "แสดงย่อ"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "หมุนซ้าย"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "หมุนขวา"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "เลือกทั้งหมด"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "ล้างการเลือก"
+
+#~ msgid "Enable list view"
+#~ msgstr "เปิดใช้งานมุมมองรายชื่อ"
+
+#~ msgid "The active source filter"
+#~ msgstr "ตัวกรองแหล่งที่ใช้งาน"
+
+#~ msgid "The last active source filter"
+#~ msgstr "ตัวกรองแหล่งล่าสุดที่ใช้งาน"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "ไม่สามารถดึงข้อมูลรายชื่อเอกสาร"
+
+#~ msgid "(%d of %d)"
+#~ msgstr "(%d จาก %d)"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "ลบออกจากรายการโปรด"
+
+#~ msgid "Add to favorites"
+#~ msgstr "เพิ่มในรายการโปรด"
