@@ -3,24 +3,26 @@
 # This file is distributed under the same license as the gnome-documents package.
 #
 # chandan kumar <chandankumar.093047@gmail.com>, 2012.
+# rajesh <rajeshkajha@yahoo.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-03-21 06:03+0000\n"
-"PO-Revision-Date: 2012-03-21 20:23+0530\n"
-"Last-Translator: chandankumar(ciypro) <chandankumar.093047@gmail.com>\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-20 15:36+0530\n"
+"Last-Translator: rajesh <rajeshkajha@yahoo.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
+"Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-DamnedLies-Scope: partial\n"
-"Language: hi\n"
 "X-Generator: Lokalize 1.2\n"
+"X-DamnedLies-Scope: partial\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:54
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
 msgid "Documents"
 msgstr "दस्तावेज़"
 
@@ -32,270 +34,363 @@ msgstr "दस्तावेज का अभिगम, प्रबंधन �
 msgid "Docs;PDF;Document;"
 msgstr "डॉक्स;पीडीएफ;दस्तावेज़;"
 
-#: ../src/application.js:129
-msgid "Grid"
-msgstr "जाली"
-
-#: ../src/application.js:130
-msgid "List"
-msgstr "सूची"
-
-#: ../src/application.js:134
-msgid "Fullscreen"
-msgstr "पूर्णस्क्रीन"
-
-#: ../src/application.js:137
-msgid "About Documents"
-msgstr "दस्तावेज़ के बारें में "
-
-#: ../src/application.js:138
-msgid "Quit"
-msgstr "बाहर जाएँ"
-
-#: ../src/documents.js:619 ../src/sources.js:100
+#: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
 msgstr "स्थानीय"
 
 #. overridden
-#: ../src/documents.js:675
+#: ../src/documents.js:693
 msgid "Google Docs"
 msgstr "गूगल डॉक्स"
 
-#: ../src/documents.js:676
+#: ../src/documents.js:694
 msgid "Google"
 msgstr "गूगल"
 
-#: ../src/documents.js:745
+#: ../src/documents.js:758 ../src/documents.js:857
 msgid "Spreadsheet"
 msgstr "स्प्रेडशीट"
 
-#: ../src/documents.js:747
+#: ../src/documents.js:760 ../src/documents.js:859
 msgid "Presentation"
 msgstr "प्रस्तुतीकरण"
 
-#: ../src/documents.js:749
+#: ../src/documents.js:762 ../src/documents.js:861
 msgid "Collection"
 msgstr "संग्रह"
 
-#: ../src/documents.js:751
+#: ../src/documents.js:764 ../src/documents.js:863
 msgid "Document"
 msgstr "दस्तावेज़"
 
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
 #. Translators: %s is the title of a document
-#: ../src/error.js:37
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "पूर्वावलोकन के लिए \"%s\" लोड करने में असमर्थ"
 
-#: ../src/error.js:49
-msgid "Unable to fetch the list of documents"
-msgstr "दस्तावेजों की सूची लाने में असमर्थ"
+#: ../src/embed.js:74
+msgid "Loading..."
+msgstr "लोड किया जा रहा है..."
 
-#. right section
-#: ../src/lib/gd-main-toolbar.c:269
-msgid "Done"
-msgstr "सम्पन्न"
+#: ../src/embed.js:220
+#| msgid "About Documents"
+msgid "No Documents Found"
+msgstr "कोई दस्तावेज़ नहीं मिला"
 
-#: ../src/lib/gd-pdf-loader.c:208
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "आप ऑनलाइन खाता %s जोड़ सकते हैं"
+
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
+msgid "System Settings"
+msgstr "तंत्र सेटिंग्स"
+
+#: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
 msgstr "दस्तावेज लोड करने में अक्षम"
 
-#: ../src/lib/gd-pdf-loader.c:489
+#: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 msgstr "\"unoconv\" नहीं मिला, कृपया अपने LibreOffice अधिष्ठापन को जांचें"
 
-#: ../src/loadMore.js:70
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "%d से अधिक दस्तावेज़ लोड करें"
-msgstr[1] "%d से अधिक दस्तावेजों लोड करें"
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "खोजें"
 
-#: ../src/mainToolbar.js:194
+#: ../src/mainToolbar.js:158
 msgid "New and Recent"
 msgstr "नया और हालिया"
 
-#: ../src/mainToolbar.js:201
+#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "परिणाम \"%s\" के लिये"
 
-#: ../src/mainToolbar.js:203
+#: ../src/mainToolbar.js:167
 msgid "filtered by title"
 msgstr "शीर्षक के आधार पर फ़िल्टर करें"
 
-#: ../src/mainToolbar.js:205
+#: ../src/mainToolbar.js:169
 msgid "filtered by author"
 msgstr "लेखक के आधार पर फ़िल्टर करें"
 
-#: ../src/mainToolbar.js:218
-#, c-format
-msgid "%d of %d"
-msgstr "%d का %d"
-
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "मदों पर क्लिक कर उन्हें चुनें"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "/%d चयनित"
 msgstr[1] "/%d चयनित"
 
-#: ../src/mainWindow.js:252
+#: ../src/mainToolbar.js:208 ../src/properties.js:58
+msgid "Done"
+msgstr "सम्पन्न"
+
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "पीछे"
+
+#: ../src/mainToolbar.js:248
+msgid "Select Items"
+msgstr "मद चुनें"
+
+#: ../src/mainWindow.js:204
 msgid "translator-credits"
 msgstr "चंदन कुमार (chandankumar.093047@gmail.com) "
 
-#: ../src/mainWindow.js:253
-msgid "GNOME Documents"
-msgstr "GNOME दस्तावेज़"
-
-#: ../src/mainWindow.js:254
+#: ../src/mainWindow.js:206
 msgid "A document manager application"
 msgstr "दस्तावेज़ प्रबंधक अनुप्रयोग"
 
-#: ../src/notifications.js:85
+#: ../src/notifications.js:86
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "मुद्रण \"%s\": %s"
 
-#: ../src/searchbar.js:86
-msgid "Category"
-msgstr "श्रेणी"
+#: ../src/notifications.js:151
+msgid "Your documents are being indexed"
+msgstr "आपका दस्तावेज़ संसूचित किया जा रहा है"
 
-#: ../src/searchbar.js:91 ../src/searchbar.js:141 ../src/searchbar.js:210
-#: ../src/sources.js:94
-msgid "All"
-msgstr "सभी"
+#: ../src/notifications.js:155
+msgid "Some documents might not be available during this process"
+msgstr "इस प्रक्रिया के दौरान कुछ दस्तावेज़ उपलब्ध नहीं भी हो सकता है"
 
-#: ../src/searchbar.js:97
-msgid "Favorites"
-msgstr "पसंदीदा"
+#. Properties dialog heading
+#: ../src/properties.js:73 ../src/selections.js:792
+msgid "Properties"
+msgstr "गुण"
 
-#: ../src/searchbar.js:102
-msgid "Shared with you"
-msgstr "आप के साथ साझा"
+#. Title item
+#: ../src/properties.js:81 ../src/searchbar.js:225
+msgid "Title"
+msgstr "शीर्षक"
 
-#: ../src/searchbar.js:138
+#: ../src/properties.js:88 ../src/searchbar.js:227
+msgid "Author"
+msgstr "लेखक"
+
+#. Source item
+#: ../src/properties.js:95
+#| msgid "Sources"
+msgid "Source"
+msgstr "स्रोत"
+
+#. Date Modified item
+#: ../src/properties.js:101
+msgid "Date Modified"
+msgstr "तिथि परिवर्धित"
+
+#: ../src/properties.js:108
+msgid "Date Created"
+msgstr "तिथि निर्मित"
+
+#. Document type item
+#: ../src/properties.js:115 ../src/searchbar.js:135
 msgid "Type"
 msgstr "प्रकार"
 
-#: ../src/searchbar.js:143
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "श्रेणी"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
+#: ../src/sources.js:89
+msgid "All"
+msgstr "सभी"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "पसंदीदा"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "आप के साथ साझा"
+
+#: ../src/searchbar.js:140
 msgid "Collections"
 msgstr "संग्रह"
 
-#: ../src/searchbar.js:147
+#: ../src/searchbar.js:144
 msgid "PDF Documents"
 msgstr "पीडीएफ़ दस्तावेज़"
 
-#: ../src/searchbar.js:150
+#: ../src/searchbar.js:148
 msgid "Presentations"
 msgstr "प्रस्तुतिकरण"
 
-#: ../src/searchbar.js:153
+#: ../src/searchbar.js:151
 msgid "Spreadsheets"
 msgstr "स्प्रेडशीट्स"
 
-#: ../src/searchbar.js:156
+#: ../src/searchbar.js:154
 msgid "Text Documents"
 msgstr "पाठ दस्तावेज़"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:207
+#: ../src/searchbar.js:220
 msgid "Match"
 msgstr "मेल"
 
-#: ../src/searchbar.js:212
-msgid "Title"
-msgstr "शीर्षक"
+#: ../src/selections.js:761
+msgid "Print"
+msgstr "छापें"
 
-#: ../src/searchbar.js:214
-msgid "Author"
-msgstr "लेखक"
-
-#: ../src/selections.js:735
-msgid "Organize"
-msgstr "संगठित करें"
-
-#: ../src/selections.js:742
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "मिटाएँ"
 
+#: ../src/selections.js:784
+msgid "Organize"
+msgstr "संगठित करें"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:842 ../src/view.js:69
+#: ../src/selections.js:873
 #, c-format
 msgid "Open with %s"
 msgstr "%s के साथ खोलें"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:845 ../src/view.js:72
+#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "खोलें"
 
-#: ../src/selections.js:858 ../src/view.js:82
-msgid "Remove from favorites"
-msgstr "मनपसंद से हटाएं"
-
-#: ../src/selections.js:862 ../src/view.js:82
-msgid "Add to favorites"
-msgstr "पसंदीदा में जोड़ें"
-
-#: ../src/shellSearchProvider.js:285
+#: ../src/shellSearchProvider.js:281
 msgid "Untitled Document"
 msgstr "अनाम दस्तावेज़"
 
-#: ../src/sources.js:90
+#: ../src/sources.js:85
 msgid "Sources"
 msgstr "स्रोत"
 
-#: ../src/spinnerBox.js:58
-msgid "Loading..."
-msgstr "लोड किया जा रहा है..."
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "%d से अधिक दस्तावेज़ लोड करें"
+msgstr[1] "%d से अधिक दस्तावेजों लोड करें"
 
-#: ../src/view.js:198
+#: ../src/view.js:283
 msgid "Yesterday"
 msgstr "कल (बीता)"
 
-#: ../src/view.js:200
+#: ../src/view.js:285
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d दिन पहले"
 msgstr[1] "%d दिनों पहले"
 
-#: ../src/view.js:204
+#: ../src/view.js:289
 msgid "Last week"
 msgstr "पिछले सप्ताह"
 
-#: ../src/view.js:206
+#: ../src/view.js:291
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d सप्ताह पहले"
 msgstr[1] "%d सप्ताह पहले"
 
-#: ../src/view.js:210
+#: ../src/view.js:295
 msgid "Last month"
 msgstr "पिछले माह"
 
-#: ../src/view.js:212
+#: ../src/view.js:297
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d महीना पहले"
 msgstr[1] "%d महीने पहले"
 
-#: ../src/view.js:216
+#: ../src/view.js:301
 msgid "Last year"
 msgstr "पिछले साल"
 
-#: ../src/view.js:218
+#: ../src/view.js:303
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d साल पहले"
 msgstr[1] "%d साल पहले"
 
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "जाली"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "सूची"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "पूर्णस्क्रीन"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "दस्तावेज़ के बारें में "
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "मदद"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "बाहर जाएँ"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "छापें..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "बड़ा करें"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "छोटा करें"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "बायाँ घुमाएँ"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "दाहिना घुमाएँ"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "सभी चुनें"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "कुछ नहीं चुनें"
+
+#~ msgid "Unable to fetch the list of documents"
+#~ msgstr "दस्तावेजों की सूची लाने में असमर्थ"
+
+#~ msgid "%d of %d"
+#~ msgstr "%d का %d"
+
+#~ msgid "GNOME Documents"
+#~ msgstr "GNOME दस्तावेज़"
+
+#~ msgid "Remove from favorites"
+#~ msgstr "मनपसंद से हटाएं"
+
+#~ msgid "Add to favorites"
+#~ msgstr "पसंदीदा में जोड़ें"
