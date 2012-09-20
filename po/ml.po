@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug."
 "cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:15+0000\n"
-"PO-Revision-Date: 2012-09-18 23:13+0000\n"
+"POT-Creation-Date: 2012-09-18 17:46+0000\n"
+"PO-Revision-Date: 2012-09-20 22:51+0000\n"
 "Last-Translator: Ani Peter <apeter@redhat.com>\n"
 "Language-Team: Malayalam <discuss@lists.smc.org.in>\n"
 "Language: ml\n"
@@ -31,9 +31,41 @@ msgid "Access, manage and share documents"
 msgstr "ആധാരങ്ങലിലേയ്ക്ക് പ്രവേശിക്കുക, കൈകാര്യംചെയ്യുക, പങ്കിടുക"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
-#| msgid "PDF Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;Document;"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
+msgid "View as"
+msgstr "ഇങ്ങനെ കാണുക"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:2
+msgid "View as type"
+msgstr "തരമായി കാണുക"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:3
+msgid "Window size"
+msgstr "ജാലകത്തിന്റെ വ്യാപ്തി"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
+msgid "Window size (width and height)."
+msgstr "ജാലകത്തിന്റെ വ്യാപ്തി (വീതിയും ഉയരവും)."
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "ജാലകത്തിന്റെ സ്ഥാനം"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "ജാലകത്തിന്റെ സ്ഥാനം (എക്സും വൈയും)"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr "ജാലകം വലുതാക്കിയിരിയ്ക്കുന്നു"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr "ജാലകം വലുതാക്കിയിരിയ്ക്കുന്ന അവസ്ഥ"
 
 #: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
@@ -80,7 +112,6 @@ msgid "Loading..."
 msgstr "എടുത്തുകൊണ്ടിരിക്കുന്നു..."
 
 #: ../src/embed.js:220
-#| msgid "Documents"
 msgid "No Documents Found"
 msgstr "രേഖകള്‍ ലഭ്യമായില്ല"
 
@@ -133,7 +164,6 @@ msgstr "ഇനം തിരഞ്ഞെടുക്കുവാനായി അ�
 
 #: ../src/mainToolbar.js:178
 #, c-format
-#| msgid "%d selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d തിരഞ്ഞെടുത്തിരിക്കുന്നു"
@@ -188,7 +218,6 @@ msgstr "രചയിതാവ്"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "ശ്രോതസ്സ്"
 
@@ -273,7 +302,6 @@ msgid "Open"
 msgstr "തുറക്കുക"
 
 #: ../src/shellSearchProvider.js:281
-#| msgid "Text Documents"
 msgid "Untitled Document"
 msgstr "പേരിടാത്ത രേഖ"
 
@@ -345,7 +373,6 @@ msgid "Fullscreen"
 msgstr "സ്ക്രീന്‍ പരമാവധി വലിപ്പത്തില്‍"
 
 #: ../src/resources/app-menu.ui.h:5
-#| msgid "Text Documents"
 msgid "About Documents"
 msgstr "രേഖങ്ങളെപ്പറ്റി"
 
