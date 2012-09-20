@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-12 17:02+0530\n"
+"POT-Creation-Date: 2012-09-14 15:15+0000\n"
+"PO-Revision-Date: 2012-09-20 11:56+0530\n"
 "Last-Translator: Sandeep Shedmake <sshedmak@redhat.com>\n"
 "Language-Team: Marathi <maajhe-sanganak@freelists.org>\n"
 "Language: mr\n"
@@ -100,7 +100,7 @@ msgid "Skydrive"
 msgstr "स्कायड्राइव्ह"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "पूर्वावलोकनकरीता \"%s\" लोड करणे अशक्य"
@@ -110,15 +110,20 @@ msgid "Loading..."
 msgstr "लोड करत आहे..."
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "दस्तऐवज आढळले नाही"
 
-#: ../src/embed.js:226
-msgid "You can add your online accounts in"
-msgstr "तुम्ही ऑनलाइन खाते समाविष्ट करू शकता"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+#| msgid "You can add your online accounts in"
+msgid "You can add your online accounts in %s"
+msgstr "तुम्ही %s मध्ये ऑनलाइन खाते समाविष्ट करू शकता"
 
-#: ../src/embed.js:227
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "प्रणाली सेटिंग्स्"
 
@@ -170,7 +175,7 @@ msgstr "पूर्ण झाले"
 msgid "Back"
 msgstr "मागे"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "घटके नीवडा"
 
@@ -370,6 +375,10 @@ msgid "About Documents"
 msgstr "दस्तऐवज विषयी"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "मदत"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "बाहेर पडा"
 
@@ -394,12 +403,10 @@ msgid "Rotate Right"
 msgstr "उजवीकडे फिरवा"
 
 #: ../src/resources/selection-menu.ui.h:1
-#| msgid "Select Items"
 msgid "Select All"
 msgstr "सर्व नीवडा"
 
 #: ../src/resources/selection-menu.ui.h:2
-#| msgid "Select Items"
 msgid "Select None"
 msgstr "काहिच नीवडू नका"
 
