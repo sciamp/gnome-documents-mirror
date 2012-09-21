@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:15+0000\n"
-"PO-Revision-Date: 2012-09-20 15:36+0530\n"
-"Last-Translator: rajesh <rajeshkajha@yahoo.com>\n"
+"POT-Creation-Date: 2012-09-20 10:07+0000\n"
+"PO-Revision-Date: 2012-09-21 14:19+0530\n"
+"Last-Translator: chandankumar <chandankumar.093047@gmail.com>\n"
 "Language-Team: Hindi <kde-i18n-doc@kde.org>\n"
 "Language: hi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.4\n"
 "X-DamnedLies-Scope: partial\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
@@ -33,6 +33,39 @@ msgstr "दस्तावेज का अभिगम, प्रबंधन �
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
 msgstr "डॉक्स;पीडीएफ;दस्तावेज़;"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
+msgid "View as"
+msgstr "के रूप में देखें"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:2
+msgid "View as type"
+msgstr " क़िस्म के रूप में देखें"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:3
+msgid "Window size"
+msgstr "विंडो का आकार"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
+msgid "Window size (width and height)."
+msgstr "विंडो का आकार (चौड़ाई और ऊंचाई)."
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "विंडो की स्थिति"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "विंडो की स्थिति (x और y)."
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr "विंडो अधिकतम हुआ"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr "विंडो की अधिकतम स्थिति"
 
 #: ../src/documents.js:640 ../src/sources.js:95
 msgid "Local"
@@ -79,7 +112,6 @@ msgid "Loading..."
 msgstr "लोड किया जा रहा है..."
 
 #: ../src/embed.js:220
-#| msgid "About Documents"
 msgid "No Documents Found"
 msgstr "कोई दस्तावेज़ नहीं मिला"
 
@@ -185,7 +217,6 @@ msgstr "लेखक"
 
 #. Source item
 #: ../src/properties.js:95
-#| msgid "Sources"
 msgid "Source"
 msgstr "स्रोत"
 
