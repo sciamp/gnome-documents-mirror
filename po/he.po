@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-07 16:31+0300\n"
-"PO-Revision-Date: 2012-09-07 16:32+0200\n"
+"POT-Creation-Date: 2012-09-22 15:06+0300\n"
+"PO-Revision-Date: 2012-09-22 15:07+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -108,7 +108,7 @@ msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "לא ניתן לטעון את ”%s“ לתצוגה מקדימה"
@@ -121,11 +121,16 @@ msgstr "בטעינה..."
 msgid "No Documents Found"
 msgstr "לא נמצאו מסמכים"
 
-#: ../src/embed.js:240
-msgid "You can add your online accounts in"
-msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
 
-#: ../src/embed.js:241
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
 msgstr "הגדרות מערכת"
 
@@ -179,7 +184,7 @@ msgstr "בוצע"
 msgid "Back"
 msgstr "חזרה"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
@@ -391,6 +396,10 @@ msgid "About Documents"
 msgstr "על אודות מסמכים"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "עזרה"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "יציאה"
 
