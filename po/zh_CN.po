@@ -2,25 +2,26 @@
 # Copyright (C) 2011 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-documents package.
 # 甘 露 <rhythm.gan@gmail.com>, 2011.
-# YunQiang Su <wzssyqa@gmail.com>, 2011.
 # Wylmer Wang <wantinghard@gmail.com>, 2011.
 # EL8LatSPQ <el8latspq@hotmail.com>, 2012.
 # tuhaihe <1132321739qq@gmail.com>, 2012.
+# YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:15+0000\n"
-"PO-Revision-Date: 2012-09-05 22:28+0800\n"
-"Last-Translator: tuhaihe <1132321739qq@gmail.com>\n"
+"POT-Creation-Date: 2012-09-15 10:46+0000\n"
+"PO-Revision-Date: 2012-09-23 04:21+0800\n"
+"Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bits\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.5\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
 #: ../src/mainWindow.js:205
@@ -119,10 +120,10 @@ msgstr "未发现文档"
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
 #: ../src/embed.js:243
-#, fuzzy, c-format
+#, c-format
 #| msgid "You can add your online accounts in"
 msgid "You can add your online accounts in %s"
-msgstr "您可以在下面位置添加您的在线帐号："
+msgstr "您可以在 %s 中添加您的在线帐号"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
@@ -378,7 +379,7 @@ msgstr "关于文档"
 
 #: ../src/resources/app-menu.ui.h:6
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
