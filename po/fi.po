@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-13 18:43+0000\n"
-"PO-Revision-Date: 2012-09-13 22:31+0300\n"
+"POT-Creation-Date: 2012-09-15 19:53+0000\n"
+"PO-Revision-Date: 2012-09-23 14:26+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos@iki.fi>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
@@ -117,13 +117,19 @@ msgstr "Ladataan..."
 msgid "No Documents Found"
 msgstr "Asiakirja ei löytynyt"
 
-#: ../src/embed.js:240
-msgid "You can add your online accounts in"
-msgstr "Voit lisätä verkkotilisi"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:243
+#, c-format
+#| msgid "You can add your online accounts in"
+msgid "You can add your online accounts in %s"
+msgstr "Voit lisätä verkkotilisi %s"
 
-#: ../src/embed.js:241
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:247
 msgid "System Settings"
-msgstr "järjestelmäasetuksissa"
+msgstr "järjestelmän asetuksissa"
 
 #: ../src/lib/gd-pdf-loader.c:224
 msgid "Unable to load the document"
