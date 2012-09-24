@@ -68,7 +68,6 @@ const SpinnerBox = new Lang.Class({
                                           height_request: _ICON_SIZE,
                                           halign: Gtk.Align.CENTER,
                                           valign: Gtk.Align.CENTER });
-        this._spinner.start();
         this.widget.add(this._spinner);
 
         this._label = new Gtk.Label({ label: '<big><b>' + _("Loading...") + '</b></big>',
@@ -94,6 +93,8 @@ const SpinnerBox = new Lang.Class({
         let parent = this.actor.get_parent();
         parent.set_child_above_sibling(this.actor, null);
 
+        this._spinner.start();
+
         Tweener.addTween(this.actor, { opacity: 255,
                                        time: 0.30,
                                        transition: 'easeOutQuad' });
@@ -108,6 +109,8 @@ const SpinnerBox = new Lang.Class({
                                        onComplete: function () {
                                            let parent = this.actor.get_parent();
                                            parent.set_child_below_sibling(this.actor, null);
+
+                                           this._spinner.stop();
                                        },
                                        onCompleteScope: this });
     },
