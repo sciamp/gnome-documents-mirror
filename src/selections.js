@@ -612,7 +612,8 @@ const OrganizeCollectionDialog = new Lang.Class({
                                        modal: true,
                                        destroy_with_parent: true,
                                        default_width: 400,
-                                       default_height: 250 });
+                                       default_height: 250,
+                                       title: _("Organize") });
 
         this.widget.add_button('gtk-add', OrganizeCollectionDialogResponse.ADD);
         let okButton = this.widget.add_button('gtk-ok', Gtk.ResponseType.OK);
