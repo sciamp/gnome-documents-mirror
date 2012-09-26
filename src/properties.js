@@ -54,6 +54,7 @@ const PropertiesDialog = new Lang.Class({
                                         modal: true,
                                         destroy_with_parent: true,
                                         default_width: 400,
+                                        title: _("Properties"),
                                         hexpand: true });
         this.widget.add_button(_("Done"), Gtk.ResponseType.OK);
 
@@ -68,14 +69,6 @@ const PropertiesDialog = new Lang.Class({
 
         let contentArea = this.widget.get_content_area();
         contentArea.pack_start(grid, true, true, 2);
-
-        // Properties dialog heading
-        let str = '<span size="large"><b>' + _("Properties") + '</b></span>';
-        this._message = new Gtk.Label ({ label: str,
-                                         halign: Gtk.Align.CENTER,
-                                         use_markup: true,
-                                         hexpand: false });
-        grid.attach (this._message, 1, 0, 1, 1);
 
         // Title item
         this._title = new Gtk.Label({ label: _("Title"),
