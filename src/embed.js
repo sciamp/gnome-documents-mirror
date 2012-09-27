@@ -283,6 +283,34 @@ const EmptyResultsBox = new Lang.Class({
     }
 });
 
+const EmbedWidget = new Lang.Class({
+    Name: 'EmbedWidget',
+    Extends: GtkClutter.Embed,
+
+    _init: function() {
+        this.parent({ use_layout_size: true,
+                      can_focus: false });
+    },
+
+    /* We overide all keyboard handling of GtkClutter.Embed, as it interfers
+     * with the key event propagation and thus focus navigation in gtk+.
+     * We also make the embed itself non-focusable, as we want to treat it
+     * like a container of Gtk+ widget rather than an edge widget which gets
+     * keyboard events.
+     * This means we will never get any Clutter key events, but that is
+     * fine, as all our keyboard input is into GtkClutterActors, and clutter
+     * is just used as a nice way of animating and rendering Gtk+ widgets
+     * and some non-active graphical things.
+     */
+    vfunc_key_press_event: function(event) {
+        return false;
+    },
+
+    vfunc_key_release_event: function(event) {
+        return false;
+    }
+});
+
 const Embed = new Lang.Class({
     Name: 'Embed',
 
@@ -290,7 +318,7 @@ const Embed = new Lang.Class({
         this._queryErrorId = 0;
         this._noResultsChangeId = 0;
 
-        this.widget = new GtkClutter.Embed({ use_layout_size: true });
+        this.widget = new EmbedWidget();
         this.widget.show();
 
         // the embed is a vertical ClutterBox
