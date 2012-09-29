@@ -142,6 +142,7 @@ const IndexingNotification = new Lang.Class({
 
         let spinner = new Gtk.Spinner({ width_request: 16,
                                         height_request: 16 });
+        spinner.start();
         this.widget.add(spinner);
 
         let labels = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
