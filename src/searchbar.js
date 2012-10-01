@@ -349,8 +349,46 @@ const Searchbar = new Lang.Class({
         this.widget.destroy();
     },
 
+    _isKeynavEvent: function(event) {
+        let keyval = event.get_keyval()[1];
+
+        if (keyval == Gdk.KEY_Tab ||
+            keyval == Gdk.KEY_KP_Tab ||
+            keyval == Gdk.KEY_Up ||
+            keyval == Gdk.KEY_KP_Up ||
+            keyval == Gdk.KEY_Up ||
+            keyval == Gdk.KEY_Down ||
+            keyval == Gdk.KEY_KP_Down ||
+            keyval == Gdk.KEY_Left ||
+            keyval == Gdk.KEY_KP_Left ||
+            keyval == Gdk.KEY_Right ||
+            keyval == Gdk.KEY_KP_Right ||
+            keyval == Gdk.KEY_Home ||
+            keyval == Gdk.KEY_KP_Home ||
+            keyval == Gdk.KEY_End ||
+            keyval == Gdk.KEY_KP_End ||
+            keyval == Gdk.KEY_Page_Up ||
+            keyval == Gdk.KEY_KP_Page_Up ||
+            keyval == Gdk.KEY_Page_Down ||
+            keyval == Gdk.KEY_KP_Page_Down)
+            return true;
+
+        return false;
+    },
+
+    _isSpaceEvent: function(event) {
+        let keyval = event.get_keyval()[1];
+        return (keyval == Gdk.KEY_space);
+    },
+
     handleEvent: function(event) {
         if (this._in)
+            return false;
+
+        if (this._isKeynavEvent(event))
+            return false;
+
+        if (this._isSpaceEvent(event))
             return false;
 
         if (!this._searchEntry.get_realized())
