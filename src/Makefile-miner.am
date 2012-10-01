@@ -11,6 +11,7 @@ gdminer_source_c = \
 libgdminer_1_0_la_CPPFLAGS = \
     -DG_LOG_DOMAIN=\"Gdminer\" \
     -DG_DISABLE_DEPRECATED \
+    -I$(top_srcdir)/src/lib \
     $(DOCUMENTS_CFLAGS) \
     $(NULL)
 

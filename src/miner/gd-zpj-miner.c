@@ -39,6 +39,8 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   gchar *resource = NULL;
   gchar *date, *identifier;
   const gchar *class = NULL, *id, *name;
+  gboolean resource_exists, mtime_changed;
+  gint64 new_mtime;
 
   id = zpj_skydrive_entry_get_id (entry);
 
@@ -59,20 +61,36 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   resource = gd_miner_tracker_sparql_connection_ensure_resource
     (job->connection,
      job->cancellable, error,
+     &resource_exists,
      job->datasource_urn, identifier,
      "nfo:RemoteDataObject", class, NULL);
 
   if (*error != NULL)
     goto out;
 
-  gd_miner_tracker_sparql_connection_set_triple
-    (job->connection, job->cancellable, error,
-     job->datasource_urn, resource,
-     "nie:dataSource", job->datasource_urn);
+  gd_miner_tracker_update_datasource (job->connection, job->datasource_urn,
+                                      resource_exists, identifier, resource,
+                                      job->cancellable, error);
 
   if (*error != NULL)
     goto out;
 
+  updated_time = zpj_skydrive_entry_get_updated_time (entry);
+  new_mtime = g_date_time_to_unix (updated_time);
+  mtime_changed = gd_miner_tracker_update_mtime (job->connection, new_mtime,
+                                                 resource_exists, identifier, resource,
+                                                 job->cancellable, error);
+
+  if (*error != NULL)
+    goto out;
+
+  /* avoid updating the DB if the entry already exists and has not
+   * been modified since our last run.
+   */
+  if (!mtime_changed)
+    goto out;
+
+  /* the resource changed - just set all the properties again */
   gd_miner_tracker_sparql_connection_insert_or_replace_triple
     (job->connection,
      job->cancellable, error,
@@ -91,6 +109,7 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
       parent_identifier = g_strconcat ("gd:collection:windows-live:skydrive:", parent_id, NULL);
       parent_resource_urn = gd_miner_tracker_sparql_connection_ensure_resource
         (job->connection, job->cancellable, error,
+         NULL,
          job->datasource_urn, parent_identifier,
          "nfo:RemoteDataObject", "nfo:DataContainer", NULL);
       g_free (parent_identifier);
@@ -165,18 +184,6 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
      job->cancellable, error,
      job->datasource_urn, resource,
      "nie:contentCreated", date);
-  g_free (date);
-
-  if (*error != NULL)
-    goto out;
-
-  updated_time = zpj_skydrive_entry_get_updated_time (entry);
-  date = gd_iso8601_from_timestamp (g_date_time_to_unix (updated_time));
-  gd_miner_tracker_sparql_connection_insert_or_replace_triple
-    (job->connection,
-     job->cancellable, error,
-     job->datasource_urn, resource,
-     "nie:contentLastModified", date);
   g_free (date);
 
   if (*error != NULL)

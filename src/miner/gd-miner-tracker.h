@@ -30,6 +30,7 @@ G_BEGIN_DECLS
 gchar *gd_miner_tracker_sparql_connection_ensure_resource (TrackerSparqlConnection *connection,
                                                            GCancellable *cancellable,
                                                            GError **error,
+                                                           gboolean *resource_exists,
                                                            const gchar *graph,
                                                            const gchar *identifier,
                                                            const gchar *class,
@@ -62,6 +63,21 @@ gchar* gd_miner_tracker_utils_ensure_contact_resource (TrackerSparqlConnection *
                                                        GError **error,
                                                        const gchar *email,
                                                        const gchar *fullname);
+
+void gd_miner_tracker_update_datasource (TrackerSparqlConnection  *connection,
+                                         const gchar              *datasource_urn,
+                                         gboolean                  resource_exists,
+                                         const gchar              *identifier,
+                                         const gchar              *resource,
+                                         GCancellable             *cancellable,
+                                         GError                  **error);
+gboolean gd_miner_tracker_update_mtime (TrackerSparqlConnection  *connection,
+                                        gint64                    new_mtime,
+                                        gboolean                  resource_exists,
+                                        const gchar              *identifier,
+                                        const gchar              *resource,
+                                        GCancellable             *cancellable,
+                                        GError                  **error);
 
 G_END_DECLS
 

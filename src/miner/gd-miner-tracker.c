@@ -22,6 +22,7 @@
 #include <glib.h>
 
 #include "gd-miner-tracker.h"
+#include "gd-utils.h"
 
 static gchar *
 _tracker_utils_format_into_graph (const gchar *graph)
@@ -29,10 +30,55 @@ _tracker_utils_format_into_graph (const gchar *graph)
   return (graph != NULL) ? g_strdup_printf ("INTO <%s> ", graph) : g_strdup ("");
 }
 
+static gboolean
+gd_miner_tracker_sparql_connection_get_string_attribute (TrackerSparqlConnection *connection,
+                                                         GCancellable *cancellable,
+                                                         GError **error,
+                                                         const gchar *resource,
+                                                         const gchar *attribute,
+                                                         gchar **value)
+{
+  GString *select = g_string_new (NULL);
+  TrackerSparqlCursor *cursor;
+  const gchar *string_value = NULL;
+  gboolean res;
+
+  g_string_append_printf (select, "SELECT ?val { ?urn %s ?val . FILTER (?urn IN (<%s>)) }",
+                          attribute, resource);
+  cursor = tracker_sparql_connection_query (connection,
+                                            select->str,
+                                            cancellable, error);
+  g_string_free (select, TRUE);
+
+  if (*error != NULL)
+    goto out;
+
+  res = tracker_sparql_cursor_next (cursor, cancellable, error);
+
+  if (*error != NULL)
+    goto out;
+
+  if (res)
+    {
+      string_value = tracker_sparql_cursor_get_string (cursor, 0, NULL);
+      goto out;
+    }
+
+ out:
+  if (string_value != NULL && value != NULL)
+    *value = g_strdup (string_value);
+  else if (string_value == NULL)
+    res = FALSE;
+
+  g_clear_object (&cursor);
+  return res;
+}
+
 gchar *
 gd_miner_tracker_sparql_connection_ensure_resource (TrackerSparqlConnection *connection,
                                                     GCancellable *cancellable,
                                                     GError **error,
+                                                    gboolean *resource_exists,
                                                     const gchar *graph,
                                                     const gchar *identifier,
                                                     const gchar *class,
@@ -48,6 +94,7 @@ gd_miner_tracker_sparql_connection_ensure_resource (TrackerSparqlConnection *con
   GVariant *insert_res;
   GVariantIter *iter;
   gchar *key = NULL, *val = NULL;
+  gboolean exists = FALSE;
 
   /* build the inner query with all the classes */
   va_start (args, class);
@@ -83,6 +130,7 @@ gd_miner_tracker_sparql_connection_ensure_resource (TrackerSparqlConnection *con
     {
       /* return the found resource */
       retval = g_strdup (tracker_sparql_cursor_get_string (cursor, 0, NULL));
+      exists = TRUE;
       g_debug ("Found resource in the store: %s", retval);
       goto out;
     }
@@ -127,6 +175,9 @@ gd_miner_tracker_sparql_connection_ensure_resource (TrackerSparqlConnection *con
   g_debug ("Created a new resource: %s", retval);
 
  out:
+  if (resource_exists)
+    *resource_exists = exists;
+
   g_clear_object (&cursor);
   return retval;
 }
@@ -331,4 +382,87 @@ gd_miner_tracker_utils_ensure_contact_resource (TrackerSparqlConnection *connect
   g_free (mail_uri);
 
   return retval;
+}
+
+void
+gd_miner_tracker_update_datasource (TrackerSparqlConnection  *connection,
+                                    const gchar              *datasource_urn,
+                                    gboolean                  resource_exists,
+                                    const gchar              *identifier,
+                                    const gchar              *resource,
+                                    GCancellable             *cancellable,
+                                    GError                  **error)
+{
+  gboolean set_datasource;
+
+  /* only set the datasource again if it has changed; this avoids touching the
+   * DB completely if the entry didn't change at all, since we later also check
+   * the mtime. */
+  set_datasource = TRUE;
+  if (resource_exists)
+    {
+      gboolean res;
+      gchar *old_value;
+
+      res = gd_miner_tracker_sparql_connection_get_string_attribute
+        (connection, cancellable, error,
+         resource, "nie:dataSource", &old_value);
+      g_clear_error (error);
+
+      if (res)
+        {
+          res = g_str_equal (old_value, datasource_urn);
+          g_free (old_value);
+        }
+
+      if (res)
+        set_datasource = FALSE;
+    }
+
+  if (set_datasource)
+    gd_miner_tracker_sparql_connection_set_triple
+      (connection, cancellable, error,
+       identifier, resource,
+       "nie:dataSource", datasource_urn);
+}
+
+gboolean
+gd_miner_tracker_update_mtime (TrackerSparqlConnection  *connection,
+                               gint64                    new_mtime,
+                               gboolean                  resource_exists,
+                               const gchar              *identifier,
+                               const gchar              *resource,
+                               GCancellable             *cancellable,
+                               GError                  **error)
+{
+  GTimeVal old_mtime;
+  gboolean res;
+  gchar *old_value;
+  gchar *date;
+
+  if (resource_exists)
+    {
+      res = gd_miner_tracker_sparql_connection_get_string_attribute
+        (connection, cancellable, error,
+         resource, "nie:contentLastModified", &old_value);
+      g_clear_error (error);
+
+      if (res)
+        {
+          res = g_time_val_from_iso8601 (old_value, &old_mtime);
+          g_free (old_value);
+        }
+
+      if (res && (new_mtime == old_mtime.tv_sec))
+        return FALSE;
+    }
+
+  date = gd_iso8601_from_timestamp (new_mtime);
+  gd_miner_tracker_sparql_connection_insert_or_replace_triple
+    (connection, cancellable, error,
+     identifier, resource,
+     "nie:contentLastModified", date);
+  g_free (date);
+
+  return TRUE;
 }

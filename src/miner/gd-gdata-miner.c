@@ -39,6 +39,8 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   gchar *resource = NULL;
   gchar *date, *resource_url, *identifier;
   const gchar *class = NULL;
+  gboolean mtime_changed, resource_exists;
+  gint64 new_mtime;
 
   GList *authors, *l, *parents = NULL;
   GDataAuthor *author;
@@ -86,20 +88,35 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   resource = gd_miner_tracker_sparql_connection_ensure_resource
     (job->connection,
      job->cancellable, error,
+     &resource_exists,
      resource_url, identifier,
      "nfo:RemoteDataObject", class, NULL);
 
   if (*error != NULL)
     goto out;
 
-  gd_miner_tracker_sparql_connection_set_triple
-    (job->connection, job->cancellable, error,
-     identifier, resource,
-     "nie:dataSource", job->datasource_urn);
+  gd_miner_tracker_update_datasource (job->connection, job->datasource_urn,
+                                      resource_exists, identifier, resource,
+                                      job->cancellable, error);
 
   if (*error != NULL)
     goto out;
 
+  new_mtime = gdata_entry_get_updated (entry);
+  mtime_changed = gd_miner_tracker_update_mtime (job->connection, new_mtime,
+                                                 resource_exists, identifier, resource,
+                                                 job->cancellable, error);
+
+  if (*error != NULL)
+    goto out;
+
+  /* avoid updating the DB if the entry already exists and has not
+   * been modified since our last run.
+   */
+  if (!mtime_changed)
+    goto out;
+
+  /* the resource changed - just set all the properties again */
   alternate = gdata_entry_look_up_link (entry, GDATA_LINK_ALTERNATE);
   alternate_uri = gdata_link_get_uri (alternate);
 
@@ -253,17 +270,6 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
      job->cancellable, error,
      identifier, resource,
      "nie:contentCreated", date);
-  g_free (date);
-
-  if (*error != NULL)
-    goto out;
-
-  date = gd_iso8601_from_timestamp (gdata_entry_get_updated (entry));
-  gd_miner_tracker_sparql_connection_insert_or_replace_triple
-    (job->connection,
-     job->cancellable, error,
-     identifier, resource,
-     "nie:contentLastModified", date);
   g_free (date);
 
   if (*error != NULL)
