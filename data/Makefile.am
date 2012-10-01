@@ -34,10 +34,6 @@ gsettingsschema_in_files = org.gnome.documents.gschema.xml.in
 gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 .PRECIOUS: $(gsettings_SCHEMAS)
 
-iconsdir = $(pkgdatadir)/icons
-dist_icons_DATA = \
-    thumbnail-frame.png
-
 @INTLTOOL_XML_NOMERGE_RULE@
 @GSETTINGS_RULES@
 

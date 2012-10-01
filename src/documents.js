@@ -573,8 +573,8 @@ const DocCommon = new Lang.Class({
 
         if (this.thumbnailed) {
             let [ slice, border ] = Utils.getThumbnailFrameBorder();
-            this.pixbuf = GdPrivate.embed_image_in_frame(pixbuf,
-                Path.ICONS_DIR + 'thumbnail-frame.png',
+            this.pixbuf = Gd.embed_image_in_frame(pixbuf,
+                'resource:///org/gnome/documents/thumbnail-frame.png',
                 slice, border);
         } else {
             this.pixbuf = pixbuf;
