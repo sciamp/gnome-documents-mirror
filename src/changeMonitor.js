@@ -21,6 +21,7 @@
 
 const Gio = imports.gi.Gio;
 const Lang = imports.lang;
+const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
 const Global = imports.global;
@@ -48,21 +49,25 @@ const ChangeEventType = {
 
 const _RDF_TYPE = "http://www.w3.org/1999/02/22-rdf-syntax-ns#type";
 
-
 const ChangeEvent = new Lang.Class({
     Name: 'ChangeEvent',
 
-    _init: function(urn, predicate, isDelete) {
-        this.urn = urn;
+    _init: function(urnId, predicateId, isDelete) {
+        this.urnId = urnId;
+        this.predicateId = predicateId;
 
-        if (predicate == _RDF_TYPE) {
-            if (isDelete)
-                this.type = ChangeEventType.DELETED;
-            else
-                this.type = ChangeEventType.CREATED;
-        } else {
+        if (isDelete)
+            this.type = ChangeEventType.DELETED;
+        else
+            this.type = ChangeEventType.CREATED;
+    },
+
+    setResolvedValues: function(urn, predicate) {
+        this.urn = urn;
+        this.predicate = predicate;
+
+        if (predicate != _RDF_TYPE)
             this.type = ChangeEventType.CHANGED;
-        }
     },
 
     merge: function(event) {
@@ -74,12 +79,18 @@ const ChangeEvent = new Lang.Class({
     }
 });
 
+const CHANGE_MONITOR_TIMEOUT = 500; // msecs
+const CHANGE_MONITOR_MAX_ITEMS = 500; // items
+
 const TrackerChangeMonitor = new Lang.Class({
     Name: 'TrackerChangeMonitor',
 
     _init: function() {
-        this._outstandingOps = 0;
-        this._pendingChanges = [];
+        this._pendingChanges = {};
+        this._unresolvedIds = {};
+
+        this._pendingEvents = [];
+        this._pendingEventsId = 0;
 
         this._resourceService = new TrackerResourcesService();
         this._resourceService.connectSignal('GraphUpdated', Lang.bind(this, this._onGraphUpdated));
@@ -88,63 +99,98 @@ const TrackerChangeMonitor = new Lang.Class({
     _onGraphUpdated: function(proxy, senderName, [className, deleteEvents, insertEvents]) {
         deleteEvents.forEach(Lang.bind(this,
             function(event) {
-                this._outstandingOps++;
-                this._updateIterator(event, true);
+                this._addPendingEvent(event, true);
             }));
 
         insertEvents.forEach(Lang.bind(this,
             function(event) {
-                this._outstandingOps++;
-                this._updateIterator(event, false);
+                this._addPendingEvent(event, false);
             }));
     },
 
-    _updateIterator: function(event, isDelete) {
-        // we're only interested in the resource URN, as we will query for
-        // the item properties again, but we still want to compress deletes and inserts
-        Global.connectionQueue.add(
-            ('SELECT tracker:uri(%d) tracker:uri(%d) {}').format(event[1], event[2]),
-            null, Lang.bind(this,
-                function(object, res) {
-                    let cursor = object.query_finish(res);
+    _addPendingEvent: function(event, isDelete) {
+        if (this._pendingEventsId != 0)
+            Mainloop.source_remove(this._pendingEventsId);
 
-                    cursor.next_async(null, Lang.bind(this,
-                        function(object, res) {
-                            let valid = cursor.next_finish(res);
+        this._unresolvedIds[event[1]] = event[1];
+        this._unresolvedIds[event[2]] = event[2];
+        this._pendingEvents.push(new ChangeEvent(event[1], event[2], isDelete));
 
-                            if (valid) {
-                                let subject = cursor.get_string(0)[0];
-                                let predicate = cursor.get_string(1)[0];
-
-                                this._addEvent(subject, predicate, isDelete);
-                            }
-
-                            cursor.close();
-
-                            this._updateCollector();
-                        }));
-                }));
+        if (this._pendingEvents.length >= CHANGE_MONITOR_MAX_ITEMS)
+            this._processEvents();
+        else
+            this._pendingEventsId =
+                Mainloop.timeout_add(CHANGE_MONITOR_TIMEOUT, Lang.bind(this, this._processEvents));
     },
 
-    _addEvent: function(subject, predicate, isDelete) {
-        let event = new ChangeEvent(subject, predicate, isDelete);
-        let oldEvent = this._pendingChanges[subject];
+    _processEvents: function() {
+        let events = this._pendingEvents;
+        let idTable = this._unresolvedIds;
+
+        this._pendingEventsId = 0;
+        this._pendingEvents = [];
+        this._unresolvedIds = {};
+
+        let sparql = 'SELECT';
+        Object.keys(idTable).forEach(Lang.bind(this,
+            function(unresolvedId) {
+                sparql += (' tracker:uri(%d)').format(unresolvedId);
+            }));
+        sparql += ' {}';
+
+        // resolve all the unresolved IDs we got so far
+        Global.connectionQueue.add(sparql, null, Lang.bind(this,
+            function(object, res) {
+                let cursor = object.query_finish(res);
+
+                cursor.next_async(null, Lang.bind(this,
+                    function(object, res) {
+                        let valid = false;
+                        try {
+                            valid = cursor.next_finish(res);
+                        } catch(e) {
+                            log('Unable to resolve item URNs for graph changes ' + e.message);
+                        }
+
+                        if (valid) {
+                            let idx = 0;
+                            Object.keys(idTable).forEach(Lang.bind(this,
+                                function(unresolvedId) {
+                                    idTable[unresolvedId] = cursor.get_string(idx)[0];
+                                    idx++;
+                                }));
+
+                            this._sendEvents(events, idTable);
+                        }
+
+                        cursor.close();
+                    }));
+            }));
+
+        return false;
+    },
+
+    _addEvent: function(event) {
+        let urn = event.urn;
+        let oldEvent = this._pendingChanges[urn];
 
         if (oldEvent != null) {
             oldEvent.merge(event);
-            this._pendingChanges[subject] = oldEvent;
+            this._pendingChanges[urn] = oldEvent;
         } else {
-            this._pendingChanges[subject] = event;
+            this._pendingChanges[urn] = event;
         }
     },
 
-    _updateCollector: function() {
-        this._outstandingOps--;
+    _sendEvents: function(events, idTable) {
+        events.forEach(Lang.bind(this,
+            function(event) {
+                event.setResolvedValues(idTable[event.urnId], idTable[event.predicateId]);
+                this._addEvent(event);
+            }));
 
-        if (this._outstandingOps == 0) {
-            this.emit('changes-pending', this._pendingChanges);
-            this._pendingChanges = {};
-        }
+        this.emit('changes-pending', this._pendingChanges);
+        this._pendingChanges = {};
     }
 });
 Signals.addSignalMethods(TrackerChangeMonitor.prototype);
