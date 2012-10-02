@@ -32,7 +32,6 @@ G_DEFINE_TYPE (GdZpjMiner, gd_zpj_miner, GD_TYPE_MINER)
 static gboolean
 account_miner_job_process_entry (GdAccountMinerJob *job,
                                  ZpjSkydriveEntry *entry,
-                                 gboolean *entry_updated,
                                  GError **error)
 {
   GDateTime *created_time, *updated_time;
@@ -197,9 +196,6 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   if (*error != NULL)
     return FALSE;
 
-  if (entry_updated)
-    *entry_updated = mtime_changed;
-
   return TRUE;
 }
 
@@ -222,31 +218,18 @@ account_miner_job_traverse_folder (GdAccountMinerJob *job,
       ZpjSkydriveEntry *entry = (ZpjSkydriveEntry *) l->data;
       const gchar *id;
 
+      id = zpj_skydrive_entry_get_id (entry);
+
       if (ZPJ_IS_SKYDRIVE_FOLDER (entry))
         {
-          gboolean entry_updated;
-          account_miner_job_process_entry (job, entry, &entry_updated, error);
-
-          if (*error != NULL)
-            goto out;
-
-          if (entry_updated)
-            {
-              id = zpj_skydrive_entry_get_id (entry);
-              account_miner_job_traverse_folder (job, id, error);
-            }
-
+          account_miner_job_traverse_folder (job, id, error);
           if (*error != NULL)
             goto out;
         }
       else if (ZPJ_IS_SKYDRIVE_PHOTO (entry))
-        {
-          continue;
-        }
-      else
-        {
-          account_miner_job_process_entry (job, entry, NULL, error);
-        }
+        continue;
+
+      account_miner_job_process_entry (job, entry, error);
 
       if (*error != NULL)
         {
