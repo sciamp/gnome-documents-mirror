@@ -351,6 +351,7 @@ const Searchbar = new Lang.Class({
 
     _isKeynavEvent: function(event) {
         let keyval = event.get_keyval()[1];
+        let state = event.get_state()[1];
 
         if (keyval == Gdk.KEY_Tab ||
             keyval == Gdk.KEY_KP_Tab ||
@@ -370,7 +371,8 @@ const Searchbar = new Lang.Class({
             keyval == Gdk.KEY_Page_Up ||
             keyval == Gdk.KEY_KP_Page_Up ||
             keyval == Gdk.KEY_Page_Down ||
-            keyval == Gdk.KEY_KP_Page_Down)
+            keyval == Gdk.KEY_KP_Page_Down ||
+            (state & (Gdk.ModifierType.CONTROL_MASK | Gdk.ModifierType.MOD1_MASK) != 0))
             return true;
 
         return false;
