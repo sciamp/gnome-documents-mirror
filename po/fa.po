@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-08-30 02:39+0000\n"
-"PO-Revision-Date: 2012-09-06 20:36+0330\n"
+"POT-Creation-Date: 2012-09-26 16:18+0000\n"
+"PO-Revision-Date: 2012-10-17 11:27+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -100,25 +100,30 @@ msgid "Skydrive"
 msgstr "اسکای‌درایو"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:972
+#: ../src/documents.js:976
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "نمی‌توان «%s» را برای پیش‌نمایش بارگیری کرد"
 
-#: ../src/embed.js:74
+#: ../src/embed.js:73
 msgid "Loading..."
 msgstr "در حال بارگیری..."
 
-#: ../src/embed.js:220
-#| msgid "About Documents"
+#: ../src/embed.js:223
 msgid "No Documents Found"
 msgstr "سندی پیدا نشد"
 
-#: ../src/embed.js:226
-msgid "You can add your online accounts in"
-msgstr "شما می‌توانید حساب‌های آنلاین خود را اضافه کنید در"
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:246
+#, c-format
+#| msgid "You can add your online accounts in"
+msgid "You can add your online accounts in %s"
+msgstr "شما می‌توانید حساب‌های برخط خود را  در %s اضافه کنید"
 
-#: ../src/embed.js:227
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:250
 msgid "System Settings"
 msgstr "تنظیمات سیستم"
 
@@ -162,7 +167,7 @@ msgid_plural "%d selected"
 msgstr[0] "%Id انتخاب شد"
 msgstr[1] "%Id انتخاب شد"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:59
 msgid "Done"
 msgstr "انجام شد"
 
@@ -170,7 +175,7 @@ msgstr "انجام شد"
 msgid "Back"
 msgstr "برگشت"
 
-#: ../src/mainToolbar.js:244
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "انتخاب موارد"
 
@@ -195,37 +200,35 @@ msgstr "سندهای شما درحال فهرست شدن هستند"
 msgid "Some documents might not be available during this process"
 msgstr "تعدادی از سندها ممکن است در حین انجام این پروسه موجود نباشند"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/properties.js:57 ../src/selections.js:793
 msgid "Properties"
 msgstr "ترجیحات"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#: ../src/properties.js:74 ../src/searchbar.js:225
 msgid "Title"
 msgstr "عنوان"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#: ../src/properties.js:81 ../src/searchbar.js:227
 msgid "Author"
 msgstr "نویسنده"
 
 #. Source item
-#: ../src/properties.js:95
-#| msgid "Sources"
+#: ../src/properties.js:88
 msgid "Source"
 msgstr "منبع"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:94
 msgid "Date Modified"
 msgstr "تاریخ تغییر"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:101
 msgid "Date Created"
 msgstr "تاریخ ساخت"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#: ../src/properties.js:108 ../src/searchbar.js:135
 msgid "Type"
 msgstr "نوع"
 
@@ -272,26 +275,26 @@ msgstr "سندهای متنی"
 msgid "Match"
 msgstr "تطابق"
 
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "چاپ..."
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "حذف"
-
-#: ../src/selections.js:784
+#: ../src/selections.js:616 ../src/selections.js:785
 msgid "Organize"
 msgstr "سازماندهی"
 
+#: ../src/selections.js:762
+msgid "Print"
+msgstr "چاپ..."
+
+#: ../src/selections.js:769
+msgid "Delete"
+msgstr "حذف"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
+#: ../src/selections.js:874
 #, c-format
 msgid "Open with %s"
 msgstr "باز کردن با %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "باز کردن"
 
@@ -371,6 +374,10 @@ msgid "About Documents"
 msgstr "درباره‌ی سندها"
 
 #: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "راهنما"
+
+#: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
 msgstr "خروج"
 
