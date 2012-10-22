@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:15+0000\n"
-"PO-Revision-Date: 2012-09-14 19:37+0200\n"
+"POT-Creation-Date: 2012-09-26 16:18+0000\n"
+"PO-Revision-Date: 2012-10-23 02:14+0200\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: team@gnome.gr\n"
 "Language: el\n"
@@ -105,25 +105,24 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Αδυναμία φόρτωσης του \"%s\" για προεπισκόπηση"
 
-#: ../src/embed.js:74
+#: ../src/embed.js:73
 msgid "Loading..."
-msgstr "Γίνεται φόρτωση..."
+msgstr "Φόρτωση..."
 
-#: ../src/embed.js:220
+#: ../src/embed.js:223
 msgid "No Documents Found"
 msgstr "Δε βρέθηκαν έγγραφα"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:246
 #, c-format
-#| msgid "You can add your online accounts in"
 msgid "You can add your online accounts in %s"
 msgstr "Μπορείτε να προσθέσετε διαδικτυακούς λογαριασμούς στις %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:250
 msgid "System Settings"
 msgstr "ρυθμίσεις συστήματος"
 
@@ -169,7 +168,7 @@ msgid_plural "%d selected"
 msgstr[0] "Επιλέχθηκε %d"
 msgstr[1] "Επιλέχθηκαν %d"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:59
 msgid "Done"
 msgstr "Ολοκλήρωση"
 
@@ -179,7 +178,7 @@ msgstr "Πίσω"
 
 #: ../src/mainToolbar.js:248
 msgid "Select Items"
-msgstr "Επιλέξτε αντικείμενα"
+msgstr "Επιλογή αντικειμένων"
 
 #: ../src/mainWindow.js:204
 msgid "translator-credits"
@@ -207,36 +206,35 @@ msgid "Some documents might not be available during this process"
 msgstr ""
 "Μπορεί να μην είναι διαθέσιμα κάποια έγγραφα στη διάρκεια της διαδικασίας"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/properties.js:57 ../src/selections.js:793
 msgid "Properties"
 msgstr "Ιδιότητες"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#: ../src/properties.js:74 ../src/searchbar.js:225
 msgid "Title"
 msgstr "Τίτλος"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#: ../src/properties.js:81 ../src/searchbar.js:227
 msgid "Author"
 msgstr "Συγγραφέας"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:88
 msgid "Source"
 msgstr "Πηγή"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:94
 msgid "Date Modified"
 msgstr "Ημερομηνία τροποποίησης"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:101
 msgid "Date Created"
 msgstr "Ημερομηνία δημιουργίας"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#: ../src/properties.js:108 ../src/searchbar.js:135
 msgid "Type"
 msgstr "Τύπος"
 
@@ -283,26 +281,26 @@ msgstr "Έγγραφα κειμένου"
 msgid "Match"
 msgstr "Ταίριασμα"
 
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "Εκτύπωση"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "Διαγραφή"
-
-#: ../src/selections.js:784
+#: ../src/selections.js:616 ../src/selections.js:785
 msgid "Organize"
 msgstr "Οργάνωση"
 
+#: ../src/selections.js:762
+msgid "Print"
+msgstr "Εκτύπωση"
+
+#: ../src/selections.js:769
+msgid "Delete"
+msgstr "Διαγραφή"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
+#: ../src/selections.js:874
 #, c-format
 msgid "Open with %s"
 msgstr "Άνοιγμα με %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Άνοιγμα"
 
