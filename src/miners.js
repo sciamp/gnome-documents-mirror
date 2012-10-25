@@ -21,6 +21,7 @@
  */
 
 const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
 
 const MinerIface = <interface name="org.gnome.Documents.Miner">
     <method name="RefreshDB" />
@@ -28,14 +29,18 @@ const MinerIface = <interface name="org.gnome.Documents.Miner">
 
 var MinerProxy = Gio.DBusProxy.makeProxyWrapper(MinerIface);
 
-function GDataMiner(iface, path) {
-    return new MinerProxy(Gio.DBus.session,
-                          'org.gnome.Documents.GDataMiner',
-                          '/org/gnome/Documents/GDataMiner');
+function _makeMinerProxy(iface, path) {
+    let miner = new MinerProxy(Gio.DBus.session, iface, path);
+    miner.set_default_timeout(GLib.MAXINT32);
+    return miner;
 }
 
-function ZpjMiner(iface, path) {
-    return new MinerProxy(Gio.DBus.session,
-                          'org.gnome.Documents.ZpjMiner',
-                          '/org/gnome/Documents/ZpjMiner');
+function GDataMiner() {
+    return _makeMinerProxy('org.gnome.Documents.GDataMiner',
+                           '/org/gnome/Documents/GDataMiner');
+}
+
+function ZpjMiner() {
+    return _makeMinerProxy('org.gnome.Documents.ZpjMiner',
+                           '/org/gnome/Documents/ZpjMiner');
 }
