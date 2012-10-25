@@ -25,6 +25,7 @@ const GLib = imports.gi.GLib;
 
 const MinerIface = <interface name="org.gnome.Documents.Miner">
     <method name="RefreshDB" />
+    <property name="DisplayName" type="s" access="read"/>
 </interface>;
 
 var MinerProxy = Gio.DBusProxy.makeProxyWrapper(MinerIface);

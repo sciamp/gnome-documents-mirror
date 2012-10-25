@@ -29,12 +29,16 @@ G_DEFINE_TYPE (GdMiner, gd_miner, G_TYPE_OBJECT)
 
 struct _GdMinerPrivate {
   GoaClient *client;
+  GError *client_error;
+
   TrackerSparqlConnection *connection;
 
   GCancellable *cancellable;
   GSimpleAsyncResult *result;
 
   GList *pending_jobs;
+
+  gchar *display_name;
 };
 
 static void
@@ -71,13 +75,66 @@ gd_miner_dispose (GObject *object)
   g_clear_object (&self->priv->cancellable);
   g_clear_object (&self->priv->result);
 
+  g_free (self->priv->display_name);
+  g_clear_error (&self->priv->client_error);
+
   G_OBJECT_CLASS (gd_miner_parent_class)->dispose (object);
+}
+
+static void
+gd_miner_init_goa (GdMiner *self)
+{
+  GoaAccount *account;
+  GoaObject *object;
+  const gchar *provider_type;
+  GList *accounts, *l;
+  GdMinerClass *miner_class = GD_MINER_GET_CLASS (self);
+
+  self->priv->client = goa_client_new_sync (NULL, &self->priv->client_error);
+
+  if (self->priv->client_error != NULL)
+    {
+      g_critical ("Unable to create GoaClient: %s - indexing for %s will not work",
+                  self->priv->client_error->message, miner_class->goa_provider_type);
+      return;
+    }
+
+  accounts = goa_client_get_accounts (self->priv->client);
+  for (l = accounts; l != NULL; l = l->next)
+    {
+      object = l->data;
+
+      account = goa_object_peek_account (object);
+      if (account == NULL)
+        continue;
+
+      provider_type = goa_account_get_provider_type (account);
+      if (g_strcmp0 (provider_type, miner_class->goa_provider_type) == 0)
+        {
+          g_free (self->priv->display_name);
+          self->priv->display_name = goa_account_dup_provider_name (account);
+          break;
+        }
+    }
+
+  g_list_free_full (accounts, g_object_unref);
+}
+
+static void
+gd_miner_constructed (GObject *obj)
+{
+  GdMiner *self = GD_MINER (obj);
+
+  G_OBJECT_CLASS (gd_miner_parent_class)->constructed (obj);
+
+  gd_miner_init_goa (self);
 }
 
 static void
 gd_miner_init (GdMiner *self)
 {
   self->priv = G_TYPE_INSTANCE_GET_PRIVATE (self, GD_TYPE_MINER, GdMinerPrivate);
+  self->priv->display_name = g_strdup ("");
 }
 
 static void
@@ -85,6 +142,7 @@ gd_miner_class_init (GdMinerClass *klass)
 {
   GObjectClass *oclass = G_OBJECT_CLASS (klass);
 
+  oclass->constructed = gd_miner_constructed;
   oclass->dispose = gd_miner_dispose;
 
   g_type_class_add_private (klass, sizeof (GdMinerPrivate));
@@ -552,11 +610,8 @@ gd_miner_cleanup_old_accounts (GdMiner *self,
 }
 
 static void
-client_ready_cb (GObject *source,
-                 GAsyncResult *res,
-                 gpointer user_data)
+gd_miner_refresh_db_real (GdMiner *self)
 {
-  GdMiner *self = user_data;
   GoaDocuments *documents;
   GoaAccount *account;
   GoaObject *object;
@@ -564,14 +619,6 @@ client_ready_cb (GObject *source,
   GError *error = NULL;
   GList *accounts, *doc_objects, *acc_objects, *l;
   GdMinerClass *miner_class = GD_MINER_GET_CLASS (self);
-
-  self->priv->client = goa_client_new_finish (res, &error);
-
-  if (error != NULL)
-    {
-      gd_miner_complete_error (self, error);
-      return;
-    }
 
   doc_objects = NULL;
   acc_objects = NULL;
@@ -619,7 +666,13 @@ sparql_connection_ready_cb (GObject *object,
       return;
     }
 
-  goa_client_new (self->priv->cancellable, client_ready_cb, self);
+  gd_miner_refresh_db_real (self);
+}
+
+const gchar *
+gd_miner_get_display_name (GdMiner *self)
+{
+  return self->priv->display_name;
 }
 
 void
@@ -628,6 +681,12 @@ gd_miner_refresh_db_async (GdMiner *self,
                            GAsyncReadyCallback callback,
                            gpointer user_data)
 {
+  if (self->priv->client_error != NULL)
+    {
+      gd_miner_complete_error (self, self->priv->client_error);
+      return;
+    }
+
   self->priv->result =
     g_simple_async_result_new (G_OBJECT (self),
                                callback, user_data,

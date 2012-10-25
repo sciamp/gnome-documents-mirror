@@ -33,6 +33,7 @@ static const gchar introspection_xml[] =
   "  <interface name='org.gnome.Documents.Miner'>"
   "    <method name='RefreshDB'>"
   "    </method>"
+  "    <property name='DisplayName' type='s' access='read'/>"
   "  </interface>"
   "</node>";
 
@@ -42,6 +43,7 @@ static GMainLoop *loop = NULL;
 static guint name_owner_id = 0;
 static guint autoquit_id = 0;
 static gboolean refreshing = FALSE;
+static GdMiner *miner = NULL;
 
 static gboolean
 autoquit_timeout_cb (gpointer _unused)
@@ -118,8 +120,6 @@ miner_refresh_db_ready_cb (GObject *source,
 static void
 handle_refresh_db (GDBusMethodInvocation *invocation)
 {
-  GdMiner *miner;
-
   ensure_autoquit_off ();
 
   /* if we're refreshing already, compress with the current request */
@@ -128,7 +128,6 @@ handle_refresh_db (GDBusMethodInvocation *invocation)
 
   refreshing = TRUE;
   cancellable = g_cancellable_new ();
-  miner = g_object_new (MINER_TYPE, NULL);
 
   gd_miner_refresh_db_async (miner, cancellable,
                              miner_refresh_db_ready_cb, invocation);
@@ -152,10 +151,33 @@ handle_method_call (GDBusConnection       *connection,
     g_assert_not_reached ();
 }
 
+static GVariant *
+handle_get_display_name ()
+{
+  return g_variant_new_string (gd_miner_get_display_name (miner));
+}
+
+static GVariant *
+handle_get_property (GDBusConnection       *connection,
+                     const gchar           *sender,
+                     const gchar           *object_path,
+                     const gchar           *interface_name,
+                     const gchar           *property_name,
+                     GError               **error,
+                     gpointer               user_data)
+{
+  if (g_strcmp0 (property_name, "DisplayName") == 0)
+    return handle_get_display_name ();
+
+  g_assert_not_reached ();
+
+  return NULL;
+}
+
 static const GDBusInterfaceVTable interface_vtable =
 {
   handle_method_call,
-  NULL, /* get_property */
+  handle_get_property,
   NULL, /* set_property */
 };
 
@@ -185,6 +207,7 @@ on_bus_acquired (GDBusConnection *connection,
       _exit (1);
     }
 
+  miner = g_object_new (MINER_TYPE, NULL);
   g_debug ("Object exported on the session bus");
 }
 

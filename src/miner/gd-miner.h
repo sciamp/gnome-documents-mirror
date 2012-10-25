@@ -83,6 +83,8 @@ struct _GdMinerClass
 
 GType gd_miner_get_type (void);
 
+const gchar * gd_miner_get_display_name (GdMiner *self);
+
 void gd_miner_refresh_db_async (GdMiner *self,
                                 GCancellable *cancellable,
                                 GAsyncReadyCallback callback,
