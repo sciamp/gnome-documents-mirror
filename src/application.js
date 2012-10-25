@@ -21,6 +21,7 @@
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
+const Signals = imports.signals;
 const Gettext = imports.gettext;
 const _ = imports.gettext.gettext;
 
@@ -59,6 +60,8 @@ const Application = new Lang.Class({
     Extends: Gtk.Application,
 
     _init: function() {
+        this.minersRunning = [];
+
         Gettext.bindtextdomain('gnome-documents', Path.LOCALE_DIR);
         Gettext.textdomain('gnome-documents');
         GLib.set_prgname('gnome-documents');
@@ -224,8 +227,17 @@ const Application = new Lang.Class({
         if (env)
             return false;
 
+        this.minersRunning.push(miner);
+        this.emit('miners-changed', this.minersRunning);
+
         miner.RefreshDBRemote(Lang.bind(this,
             function(res, error) {
+                this.minersRunning = this.minersRunning.filter(
+                    function(element) {
+                        return element != miner;
+                    });
+                this.emit('miners-changed', this.minersRunning);
+
                 if (error) {
                     log('Error updating the cache: ' + error.toString());
                     return;
@@ -343,3 +355,4 @@ const Application = new Lang.Class({
         return 0;
     }
 });
+Signals.addSignalMethods(Application.prototype);

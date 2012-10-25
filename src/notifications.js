@@ -21,6 +21,7 @@
 
 const Clutter = imports.gi.Clutter;
 const Gd = imports.gi.Gd;
+const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const GtkClutter = imports.gi.GtkClutter;
@@ -31,6 +32,7 @@ const Global = imports.global;
 const Utils = imports.utils;
 
 const Lang = imports.lang;
+const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
 const PrintNotification = new Lang.Class({
@@ -93,48 +95,86 @@ const PrintNotification = new Lang.Class({
     }
 });
 
+const REMOTE_MINER_TIMEOUT = 10; // seconds
+const TRACKER_MINER_FILES_NAME = 'org.freedesktop.Tracker1.Miner.Files';
+
 const IndexingNotification = new Lang.Class({
     Name: 'IndexingNotification',
 
     _init: function() {
+        this._closed = false;
+        this._timeoutId = 0;
+
         try {
             this._manager = TrackerMiner.MinerManager.new_full(false);
+            this._manager.connect('miner-progress', Lang.bind(this, this._checkNotification));
         } catch(e) {
             log('Unable to create a TrackerMinerManager, indexing progress ' +
                 'notification won\'t work: ' + e.message);
             return;
         }
 
-        this._minerFiles = 'org.freedesktop.Tracker1.Miner.Files';
-        this.widget = null;
-        this._manuallyClosed = false;
-
-        this._manager.connect('miner-progress', Lang.bind(this, this._checkNotification));
-        this._checkNotification();
+        Global.application.connect('miners-changed', Lang.bind(this, this._checkNotification));
+        Mainloop.idle_add(Lang.bind(this,
+            function() {
+                this._checkNotification();
+                return false;
+            }));
     },
 
     _checkNotification: function() {
-        let running = this._manager.get_running();
+        let isIndexingLocal = false;
+        let isIndexingRemote = false;
 
-        if (running.indexOf(this._minerFiles) != -1) {
-            let [res, status, progress, time] = this._manager.get_status(this._minerFiles);
+        if (this._manager) {
+            let running = this._manager.get_running();
+            if (running.indexOf(TRACKER_MINER_FILES_NAME) != -1) {
+                let [res, status, progress, time] = this._manager.get_status(TRACKER_MINER_FILES_NAME);
 
-            if (progress < 1) {
-                this._displayNotification();
-            } else {
-                this._manuallyClosed = false;
-                this._destroyNotification();
+                if (progress < 1)
+                    isIndexingLocal = true;
             }
+        }
+
+        if (Global.application.minersRunning.length > 0)
+            isIndexingRemote = true;
+
+        if (isIndexingLocal) {
+            this._display(_("Your documents are being indexed"),
+                          _("Some documents might not be available during this process"));
+        } else if (isIndexingRemote) {
+            this._removeTimeout();
+            this._timeoutId = Mainloop.timeout_add_seconds(REMOTE_MINER_TIMEOUT, Lang.bind(this, this._onTimeoutExpired));
+        } else {
+            this._destroy(false);
         }
     },
 
-    _displayNotification: function() {
-        if (this.widget)
-            return;
+    _onTimeoutExpired: function() {
+        this._timeoutId = 0;
 
-        if (this._manuallyClosed)
-            return;
+        let primary = null;
 
+        if (Global.application.minersRunning.length == 1) {
+            let miner = Global.application.minersRunning[0];
+            primary = _("Fetching documents from %s").format(miner.DisplayName);
+        } else {
+            primary = _("Fetching documents from online accounts");
+        }
+
+        this._display(primary, null);
+
+        return false;
+    },
+
+    _removeTimeout: function() {
+        if (this._timeoutId != 0) {
+            Mainloop.source_remove(this._timeoutId);
+            this._timeoutId = 0;
+        }
+    },
+
+    _buildWidget: function() {
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL,
                                      margin_left: 12,
                                      margin_right: 12,
@@ -149,14 +189,12 @@ const IndexingNotification = new Lang.Class({
                                     row_spacing: 3 });
         this.widget.add(labels);
 
-        let primary = new Gtk.Label({ label: _("Your documents are being indexed"),
-                                      halign: Gtk.Align.START });
-        labels.add(primary);
+        this._primaryLabel = new Gtk.Label({ halign: Gtk.Align.START });
+        labels.add(this._primaryLabel);
 
-        let secondary = new Gtk.Label({ label: _("Some documents might not be available during this process"),
-                                        halign: Gtk.Align.START });
-        secondary.get_style_context().add_class('dim-label');
-        labels.add(secondary);
+        this._secondaryLabel = new Gtk.Label({ halign: Gtk.Align.START });
+        this._secondaryLabel.get_style_context().add_class('dim-label');
+        labels.add(this._secondaryLabel);
 
         let close = new Gtk.Button({ child: new Gtk.Image({ icon_name: 'window-close-symbolic',
                                                             pixel_size: 16,
@@ -165,19 +203,46 @@ const IndexingNotification = new Lang.Class({
                                      valign: Gtk.Align.CENTER });
         close.connect('clicked', Lang.bind(this,
             function() {
-                this._manuallyClosed = true;
-                this._destroyNotification();
+                this._destroy(true);
             }));
         this.widget.add(close);
 
         Global.notificationManager.addNotification(this);
     },
 
-    _destroyNotification: function() {
+    _update: function(primaryText, secondaryText) {
+        this._primaryLabel.label = primaryText;
+        this._secondaryLabel.label = secondaryText;
+
+        if (secondaryText) {
+            this._primaryLabel.vexpand = false;
+            this._secondaryLabel.show();
+        } else {
+            this._primaryLabel.vexpand = true;
+            this._secondaryLabel.hide();
+        }
+    },
+
+    _display: function(primaryText, secondaryText) {
+        if (this._closed) {
+            return;
+        }
+
+        if (!this.widget)
+            this._buildWidget();
+
+        this._update(primaryText, secondaryText);
+    },
+
+    _destroy: function(closed) {
+        this._removeTimeout();
+
         if (this.widget) {
             this.widget.destroy();
             this.widget = null;
         }
+
+        this._closed = closed;
     }
 });
 
@@ -191,32 +256,33 @@ const NotificationManager = new Lang.Class({
                                     row_spacing: 6 });
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 0,
                                             x_align: Clutter.ActorAlign.CENTER,
                                             y_align: Clutter.ActorAlign.START,
-                                            y_expand: true });
+                                            y_expand: true,
+                                            visible: false });
         Utils.alphaGtkWidget(this.actor.get_widget());
 
         this.widget.add(this._grid);
-        this._grid.show();
+        this.widget.show_all();
+
+        // add indexing monitor notification
+        this._indexingNotification = new IndexingNotification();
     },
 
     addNotification: function(notification) {
-        this._activeNotification = notification;
         this._grid.add(notification.widget);
 
         notification.widget.show_all();
-        this.widget.show();
-        this.actor.opacity = 255;
-
         notification.widget.connect('destroy', Lang.bind(this, this._onWidgetDestroy));
+
+        this.actor.show();
     },
 
     _onWidgetDestroy: function() {
         let children = this._grid.get_children();
 
         if (children.length == 0)
-            this.widget.hide();
+            this.actor.hide();
     }
 });
 Signals.addSignalMethods(NotificationManager.prototype);
