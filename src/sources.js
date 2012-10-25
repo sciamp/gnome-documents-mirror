@@ -132,5 +132,26 @@ const SourceManager = new Lang.Class({
             });
 
         return hasOnline;
+    },
+
+    hasProviderType: function(providerType) {
+        let found = false;
+        this.forEachItem(Lang.bind(this,
+            function(source) {
+                if (!source.object)
+                    return;
+
+                let account = source.object.get_account();
+                if (!account)
+                    return;
+
+                if (found)
+                    return;
+
+                if (account.provider_type == providerType)
+                    found = true;
+            }));
+
+        return found;
     }
 });

@@ -240,6 +240,35 @@ const Application = new Lang.Class({
         return false;
     },
 
+    _refreshMiners: function() {
+        if (Global.sourceManager.hasProviderType('google')) {
+            try {
+                // startup a refresh of the gdocs cache
+                this._refreshMinerNow(this.gdataMiner);
+            } catch (e) {
+                log('Unable to start GData miner: ' + e.message);
+            }
+        }
+
+        if (Global.sourceManager.hasProviderType('windows_live')) {
+            try {
+                // startup a refresh of the skydrive cache
+                this._refreshMinerNow(this.zpjMiner);
+            } catch (e) {
+                log('Unable to start Zpj miner: ' + e.message);
+            }
+        }
+    },
+
+    _initMiners: function() {
+        this.gdataMiner = new Miners.GDataMiner();
+        this.zpjMiner = new Miners.ZpjMiner();
+        this._refreshMiners();
+
+        Global.sourceManager.connect('item-added', Lang.bind(this, this._refreshMiners));
+        Global.sourceManager.connect('item-removed', Lang.bind(this, this._refreshMiners));
+    },
+
     vfunc_startup: function() {
         this.parent();
         String.prototype.format = Format.format;
@@ -277,18 +306,7 @@ const Application = new Lang.Class({
         Global.modeController = new WindowMode.ModeController();
         Global.notificationManager = new Notifications.NotificationManager();
 
-        try {
-          // startup a refresh of the gdocs cache
-          let gdataMiner = new Miners.GDataMiner();
-          this._refreshMinerNow(gdataMiner);
-
-          // startup a refresh of the skydrive cache
-          let zpjMiner = new Miners.ZpjMiner();
-          this._refreshMinerNow(zpjMiner);
-        } catch (e) {
-	  log('Unable to start miners: ' + e.message);
-        }
-
+        this._initMiners();
         this._initActions();
         this._initAppMenu();
         this._mainWindow = new MainWindow.MainWindow(this);
