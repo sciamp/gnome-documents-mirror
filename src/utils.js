@@ -30,6 +30,7 @@ const Documents = imports.documents;
 const Global = imports.global;
 
 const Lang = imports.lang;
+const Signals = imports.signals;
 
 const _ICON_VIEW_SIZE = 128;
 const _LIST_VIEW_SIZE = 48;
@@ -116,4 +117,11 @@ function debug(str) {
 
     if (debugEnabled)
         log('DEBUG: ' + str);
+}
+
+function addJSSignalMethods(proto) {
+    proto.connectJS = Signals._connect;
+    proto.disconnectJS = Signals._disconnect;
+    proto.emitJS = Signals._emit;
+    proto.disconnectAllJS = Signals._disconnectAll;
 }

@@ -228,7 +228,7 @@ const Application = new Lang.Class({
             return false;
 
         this.minersRunning.push(miner);
-        this.emit('miners-changed', this.minersRunning);
+        this.emitJS('miners-changed', this.minersRunning);
 
         miner.RefreshDBRemote(Lang.bind(this,
             function(res, error) {
@@ -236,7 +236,7 @@ const Application = new Lang.Class({
                     function(element) {
                         return element != miner;
                     });
-                this.emit('miners-changed', this.minersRunning);
+                this.emitJS('miners-changed', this.minersRunning);
 
                 if (error) {
                     log('Error updating the cache: ' + error.toString());
@@ -355,4 +355,4 @@ const Application = new Lang.Class({
         return 0;
     }
 });
-Signals.addSignalMethods(Application.prototype);
+Utils.addJSSignalMethods(Application.prototype);
