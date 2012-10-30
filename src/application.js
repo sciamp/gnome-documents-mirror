@@ -331,6 +331,8 @@ const Application = new Lang.Class({
     vfunc_command_line: function(commandLine) {
         let args = commandLine.get_arguments();
         if (args.length) {
+            Global.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+
             let urn = args[0]; // gjs eats argv[0]
             let doc = Global.documentManager.getItemById(args[0]);
             if (doc) {

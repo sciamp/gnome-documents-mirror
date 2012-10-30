@@ -401,9 +401,12 @@ const PreviewToolbar = new Lang.Class({
     },
 
     _setToolbarTitle: function() {
-        let doc = Global.documentManager.getActiveItem();
-        let primary = doc.name;
+        let primary = null;
         let detail = null;
+        let doc = Global.documentManager.getActiveItem();
+
+        if (doc)
+            primary = doc.name;
 
         if (this._model) {
             let curPage, totPages;
