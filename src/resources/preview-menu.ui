@@ -8,6 +8,7 @@
       <item>
         <attribute name="action">app.print-current</attribute>
         <attribute name="label" translatable="yes">Print...</attribute>
+        <attribute name="accel">&lt;Primary&gt;p</attribute>
       </item>
     </section>
     <section>
