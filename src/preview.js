@@ -373,6 +373,7 @@ const PreviewToolbar = new Lang.Class({
         let previewMenu = this._getPreviewMenu();
         let menuButton = this.widget.add_menu('emblem-system-symbolic', null, false);
         menuButton.set_menu_model(previewMenu);
+        menuButton.set_action_name('app.gear-menu');
 
         this._setToolbarTitle();
         this.widget.show_all();

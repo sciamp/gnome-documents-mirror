@@ -125,7 +125,7 @@ const Application = new Lang.Class({
             doc.print(this._mainWindow.window);
     },
 
-    _onActionSearch: function(action) {
+    _onActionToggle: function(action) {
         let state = action.get_state();
         action.change_state(GLib.Variant.new('b', !state.get_boolean()));
     },
@@ -145,6 +145,11 @@ const Application = new Lang.Class({
               create_hook: this._fullscreenCreateHook,
               accel: 'F11',
               window_mode: WindowMode.WindowMode.PREVIEW },
+            { name: 'gear-menu',
+              callback: this._onActionToggle,
+              state: GLib.Variant.new('b', false),
+              accel: 'F10',
+              window_mode: WindowMode.WindowMode.PREVIEW },
             { name: 'view-as',
               callback: this._onActionViewAs,
               create_hook: this._viewAsCreateHook,
@@ -158,7 +163,7 @@ const Application = new Lang.Class({
               callback: this._onActionPrintCurrent,
               window_mode: WindowMode.WindowMode.PREVIEW },
             { name: 'search',
-              callback: this._onActionSearch,
+              callback: this._onActionToggle,
               state: GLib.Variant.new('b', false),
               accel: '<Primary>f' },
             { name: 'find-next', accel: '<Primary>g',
