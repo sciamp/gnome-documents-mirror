@@ -535,15 +535,9 @@ const OverviewSearchbar = new Lang.Class({
     },
 
     createSearchWidgets: function() {
-        this._searchContainer = new Gd.MarginContainer({ min_margin: 64,
-                                                         max_margin: 128 });
-        this._box = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
-        this._searchContainer.add(this._box);
-
         // create the search entry
-        this._searchEntry = new Gd.TaggedEntry({ width_request: 260,
-                                                 no_show_all: true,
-                                                 hexpand: true });
+        this._searchEntry = new Gd.TaggedEntry({ width_request: 500,
+                                                 no_show_all: true });
         this._searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
         this._searchEntry.set_text(Global.searchController.getString());
@@ -564,9 +558,12 @@ const OverviewSearchbar = new Lang.Class({
                 this._dropdownButton.set_active(false);
             }));
 
-        this._box.add(this._searchEntry);
-        this._box.add(this._dropdownButton);
-        this._box.show_all();
+        this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                              halign: Gtk.Align.CENTER });
+
+        this._searchContainer.add(this._searchEntry);
+        this._searchContainer.add(this._dropdownButton);
+        this._searchContainer.show_all();
     },
 
     entryChanged: function() {

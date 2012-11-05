@@ -450,9 +450,10 @@ const PreviewSearchbar = new Lang.Class({
 
     createSearchWidgets: function() {
         this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
-                                              spacing: 6 });
+                                              spacing: 6,
+                                              halign: Gtk.Align.CENTER});
 
-        this._searchEntry = new Gtk.SearchEntry({ hexpand: true });
+        this._searchEntry = new Gtk.SearchEntry({ width_request: 500 });
         this._searchEntry.connect('activate', Lang.bind(this,
             function() {
                 Global.application.activate_action('find-next', null);
