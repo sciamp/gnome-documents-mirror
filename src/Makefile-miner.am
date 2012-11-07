@@ -17,6 +17,7 @@ libgdminer_1_0_la_CPPFLAGS = \
 
 libgdminer_1_0_la_LIBADD = \
     $(DOCUMENTS_LIBS) \
+    libgdprivate-1.0.la  \
     $(NULL)
 
 libgdminer_1_0_la_LDFLAGS = \
