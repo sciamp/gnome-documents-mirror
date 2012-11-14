@@ -71,6 +71,8 @@ const PropertiesDialog = new Lang.Class({
         contentArea.pack_start(grid, true, true, 2);
 
         // Title item
+        // Translators: "Title" is the label next to the document title
+        // in the properties dialog
         this._title = new Gtk.Label({ label: _("Title"),
                                       halign: Gtk.Align.END });
         this._title.get_style_context ().add_class('dim-label');
@@ -78,6 +80,8 @@ const PropertiesDialog = new Lang.Class({
 
         // Author item
         if (doc.author) {
+            // Translators: "Author" is the label next to the document author
+            // in the properties dialog
             this._author = new Gtk.Label({ label: _("Author"),
                                            halign: Gtk.Align.END });
             this._author.get_style_context ().add_class('dim-label');
@@ -105,6 +109,8 @@ const PropertiesDialog = new Lang.Class({
         }
 
         // Document type item
+        // Translators: "Type" is the label next to the document type
+        // (PDF, spreadsheet, ...) in the properties dialog
         this._docType = new Gtk.Label({ label: _("Type"),
                                         halign: Gtk.Align.END });
         this._docType.get_style_context ().add_class('dim-label');

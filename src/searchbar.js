@@ -132,6 +132,8 @@ const SearchTypeManager = new Lang.Class({
     Extends: Manager.BaseManager,
 
     _init: function() {
+        // Translators: "Type" refers to a search filter on the document type
+        // (PDF, spreadsheet, ...)
         this.parent(_("Type"));
 
         this.addItem(new SearchType({ id: 'all',
@@ -222,8 +224,10 @@ const SearchMatchManager = new Lang.Class({
         this.addItem(new SearchMatch({ id: SearchMatchStock.ALL,
                                        name: _("All") }));
         this.addItem(new SearchMatch({ id: SearchMatchStock.TITLE,
+        //Translators: "Title" refers to "Match Title" when searching
                                        name: _("Title") }));
         this.addItem(new SearchMatch({ id: SearchMatchStock.AUTHOR,
+        //Translators: "Author" refers to "Match Author" when searching
                                        name: _("Author") }));
 
         this.setActiveItemById(SearchMatchStock.ALL);
