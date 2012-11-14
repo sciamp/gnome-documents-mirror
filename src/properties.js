@@ -133,6 +133,7 @@ const PropertiesDialog = new Lang.Class({
                             this._titleEntryTimeout = 0;
                             let newTitle = this._titleEntry.get_text();
                             TrackerUtils.setEditedName(newTitle, docId, null);
+                            return false;
                         }));
                 }));
         } else {
