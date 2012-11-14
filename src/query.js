@@ -65,69 +65,53 @@ const QueryBuilder = new Lang.Class({
 
     buildFilterLocal: function() {
         let path;
-        let desktopURI;
-        let downloadsURI;
-        let documentsURI;
+        let filters = [];
 
         path = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DESKTOP);
         if (path)
-            desktopURI = Gio.file_new_for_path(path).get_uri();
-        else
-            desktopURI = '';
+            filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(Gio.file_new_for_path(path).get_uri()));
 
         path = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOCUMENTS);
         if (path)
-            documentsURI = Gio.file_new_for_path(path).get_uri();
-        else
-            documentsURI = '';
+            filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(Gio.file_new_for_path(path).get_uri()));
 
         path = GLib.get_user_special_dir(GLib.UserDirectory.DIRECTORY_DOWNLOAD);
         if (path)
-            downloadsURI = Gio.file_new_for_path(path).get_uri();
-        else
-            downloadsURI = '';
+            filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(Gio.file_new_for_path(path).get_uri()));
 
-        let filter =
-            ('((fn:contains (nie:url(?urn), "%s")) || ' +
-             ' (fn:contains (nie:url(?urn), "%s")) || ' +
-             ' (fn:contains (nie:url(?urn), "%s")) || ' +
-             ' (fn:starts-with (nao:identifier(?urn), "gd:collection:local:")))').format(desktopURI, documentsURI, downloadsURI);
+        filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
 
-        return filter;
+        return '(' + filters.join(' || ') + ')';
     },
 
     buildFilterNotLocal: function() {
-        let sparql = '(';
+        if (Global.sourceManager.getItemsCount() == 0)
+            return '(false)';
+
         let sources = Global.sourceManager.getItems();
+        let filters = [];
 
         for (idx in sources) {
             let source = sources[idx];
             if (!source.builtin)
-                sparql += source.getFilter() + ' || ';
+                filters.push(source.getFilter());
         }
 
-        sparql += 'false)';
-
-        return sparql;
+        return '(' + filters.join(' || ') + ')';
     },
 
     _buildFilterString: function(currentType) {
-        let sparql = 'FILTER (';
+        let filters = [];
 
-        sparql += Global.searchMatchManager.getFilter();
-        sparql += ' && ';
-        sparql += Global.sourceManager.getFilter();
-        sparql += ' && ';
-        sparql += Global.searchCategoryManager.getFilter();
+        filters.push(Global.searchMatchManager.getFilter());
+        filters.push(Global.sourceManager.getFilter());
+        filters.push(Global.searchCategoryManager.getFilter());
 
         if (currentType) {
-            sparql += ' && ';
-            sparql += currentType.getFilter();
+            filters.push(currentType.getFilter());
         }
 
-        sparql += ')';
-
-        return sparql;
+        return 'FILTER (' + filters.join(' && ') + ')';
     },
 
     _buildOptional: function() {

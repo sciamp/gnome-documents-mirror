@@ -57,14 +57,18 @@ const Source = new Lang.Class({
     },
 
     getFilter: function() {
-        if (this.id == SourceStock.LOCAL)
-            return Global.queryBuilder.buildFilterLocal();
+        let filters = [];
 
-        if (this.id == SourceStock.ALL)
-            return '(' + Global.queryBuilder.buildFilterLocal() + ' || '
-                    + Global.queryBuilder.buildFilterNotLocal() + ')';
+        if (this.id == SourceStock.LOCAL) {
+            filters.push(Global.queryBuilder.buildFilterLocal());
+        } else if (this.id == SourceStock.ALL) {
+            filters.push(Global.queryBuilder.buildFilterLocal());
+            filters.push(Global.queryBuilder.buildFilterNotLocal());
+        } else {
+            filters.push(this._buildFilterResource());
+        }
 
-        return this._buildFilterResource();
+        return '(' + filters.join(' || ') + ')';
     },
 
     _buildFilterResource: function() {
