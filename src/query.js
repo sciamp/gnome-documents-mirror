@@ -123,9 +123,6 @@ const QueryBuilder = new Lang.Class({
     },
 
     buildFilterNotLocal: function() {
-        if (Global.sourceManager.getItemsCount() == 0)
-            return '(false)';
-
         let sources = Global.sourceManager.getItems();
         let filters = [];
 
@@ -134,6 +131,9 @@ const QueryBuilder = new Lang.Class({
             if (!source.builtin)
                 filters.push(source.getFilter());
         }
+
+        if (filters.length == 0)
+            filters.push('false');
 
         return '(' + filters.join(' || ') + ')';
     },
