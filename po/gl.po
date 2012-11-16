@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-15 01:43+0200\n"
-"PO-Revision-Date: 2012-09-15 01:44+0200\n"
+"POT-Creation-Date: 2012-11-16 18:46+0100\n"
+"PO-Revision-Date: 2012-11-16 18:47+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.0\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
@@ -68,7 +68,7 @@ msgstr "Xanela maximizada"
 msgid "Window maximized state"
 msgstr "Estado de xanela maximizada"
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:640 ../src/sources.js:99
 msgid "Local"
 msgstr "Locais"
 
@@ -108,24 +108,24 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
 
-#: ../src/embed.js:74
+#: ../src/embed.js:73
 msgid "Loading..."
 msgstr "Cargando…"
 
-#: ../src/embed.js:220
+#: ../src/embed.js:223
 msgid "No Documents Found"
 msgstr "Non se atoparon documentos"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:246
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Pode engadir as súas contas en liña en %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:250
 msgid "System Settings"
 msgstr "Preferencias do sistema"
 
@@ -170,7 +170,7 @@ msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#: ../src/mainToolbar.js:208 ../src/properties.js:59
 msgid "Done"
 msgstr "Feito"
 
@@ -195,49 +195,67 @@ msgstr ""
 msgid "A document manager application"
 msgstr "Un aplicativo para xestionar documentos"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:88
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Imprimindo «%s»: %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "Estanse indexando os seus documentos"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "Algúns documentos poderían non estar dispoñíbeis durante este proceso"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/notifications.js:160
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Obtendo os documentos desde %s"
+
+#: ../src/notifications.js:162
+msgid "Fetching documents from online accounts"
+msgstr "Obtendo os documentos das contas en liña"
+
+#: ../src/properties.js:57 ../src/selections.js:793
 msgid "Properties"
 msgstr "Propiedades"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:76 ../src/searchbar.js:228
 msgid "Title"
 msgstr "Título"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:85 ../src/searchbar.js:231
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:92
 msgid "Source"
 msgstr "Fonte"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:98
 msgid "Date Modified"
 msgstr "Data de modificación"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:105
 msgid "Date Created"
 msgstr "Data de creación"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:114 ../src/searchbar.js:137
 msgid "Type"
 msgstr "Tipo"
 
@@ -245,8 +263,8 @@ msgstr "Tipo"
 msgid "Category"
 msgstr "Categoría"
 
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
-#: ../src/sources.js:89
+#: ../src/searchbar.js:88 ../src/searchbar.js:140 ../src/searchbar.js:225
+#: ../src/sources.js:93
 msgid "All"
 msgstr "Todos"
 
@@ -258,52 +276,52 @@ msgstr "Marcadores"
 msgid "Shared with you"
 msgstr "Compartidos con vostede"
 
-#: ../src/searchbar.js:140
+#: ../src/searchbar.js:142
 msgid "Collections"
 msgstr "Coleccións"
 
-#: ../src/searchbar.js:144
+#: ../src/searchbar.js:146
 msgid "PDF Documents"
 msgstr "Documentos PDF"
 
-#: ../src/searchbar.js:148
+#: ../src/searchbar.js:150
 msgid "Presentations"
 msgstr "Presentacións"
 
-#: ../src/searchbar.js:151
+#: ../src/searchbar.js:153
 msgid "Spreadsheets"
 msgstr "Follas de cálculo"
 
-#: ../src/searchbar.js:154
+#: ../src/searchbar.js:156
 msgid "Text Documents"
 msgstr "Documentos de texto"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
+#: ../src/searchbar.js:222
 msgid "Match"
 msgstr "Coincidir"
 
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "Imprimir"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "Eliminar"
-
-#: ../src/selections.js:784
+#: ../src/selections.js:616 ../src/selections.js:785
 msgid "Organize"
 msgstr "Organizar"
 
+#: ../src/selections.js:762
+msgid "Print"
+msgstr "Imprimir"
+
+#: ../src/selections.js:769
+msgid "Delete"
+msgstr "Eliminar"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
+#: ../src/selections.js:874
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
+#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
 msgid "Open"
 msgstr "Abrir"
 
@@ -311,55 +329,55 @@ msgstr "Abrir"
 msgid "Untitled Document"
 msgstr "Documento sen título"
 
-#: ../src/sources.js:85
+#: ../src/sources.js:89
 msgid "Sources"
 msgstr "Fontes"
 
-#: ../src/view.js:79
+#: ../src/view.js:78
 #, c-format
 msgid "Load %d more document"
 msgid_plural "Load %d more documents"
 msgstr[0] "Cargar %d documento máis"
 msgstr[1] "Cargar %d documentos máis"
 
-#: ../src/view.js:283
+#: ../src/view.js:282
 msgid "Yesterday"
 msgstr "Onte"
 
-#: ../src/view.js:285
+#: ../src/view.js:284
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "fai %d día"
 msgstr[1] "fai %d días"
 
-#: ../src/view.js:289
+#: ../src/view.js:288
 msgid "Last week"
 msgstr "Última semana"
 
-#: ../src/view.js:291
+#: ../src/view.js:290
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "fai %d semana"
 msgstr[1] "fai %d semanas"
 
-#: ../src/view.js:295
+#: ../src/view.js:294
 msgid "Last month"
 msgstr "Último mes"
 
-#: ../src/view.js:297
+#: ../src/view.js:296
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "fai %d mes"
 msgstr[1] "fai %d meses"
 
-#: ../src/view.js:301
+#: ../src/view.js:300
 msgid "Last year"
 msgstr "Último ano"
 
-#: ../src/view.js:303
+#: ../src/view.js:302
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -391,7 +409,7 @@ msgid "Quit"
 msgstr "Saír"
 
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
+msgid "Print…"
 msgstr "Imprimir…"
 
 #: ../src/resources/preview-menu.ui.h:3
@@ -417,6 +435,9 @@ msgstr "Seleccionar todos"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Deseleccionar todos"
+
+#~ msgid "Print..."
+#~ msgstr "Imprimir…"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "Quitar dos marcadores"
