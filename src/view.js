@@ -48,10 +48,29 @@ const LoadMoreButton = new Lang.Class({
             this._controller.connect('item-count-changed',
                                      Lang.bind(this, this._onItemCountChanged));
 
-        this.widget = new Gtk.Button({ no_show_all: true });
+        let child = new Gtk.Grid({ column_spacing: 10,
+                                   hexpand: true,
+                                   halign: Gtk.Align.CENTER,
+                                   visible: true });
+
+        this._spinner = new Gtk.Spinner({ halign: Gtk.Align.CENTER,
+                                          no_show_all: true });
+        this._spinner.set_size_request(16, 16);
+        child.add(this._spinner);
+
+        this._label = new Gtk.Label({ label: _("Load More"),
+                                      visible: true });
+        child.add(this._label);
+
+        this.widget = new Gtk.Button({ no_show_all: true,
+                                       child: child });
         this.widget.get_style_context().add_class('documents-load-more');
         this.widget.connect('clicked', Lang.bind(this,
             function() {
+                this._label.label = _("Loading...");
+                this._spinner.show();
+                this._spinner.start();
+
                 this._controller.increaseOffset();
             }));
 
@@ -65,20 +84,14 @@ const LoadMoreButton = new Lang.Class({
 
     _onItemCountChanged: function() {
         let remainingDocs = this._controller.getRemainingDocs();
-        let offsetStep = this._controller.getOffsetStep();
+        let visible = !(remainingDocs <= 0 || this._block);
+        this.widget.set_visible(visible);
 
-        if (remainingDocs <= 0 || this._block) {
-            this.widget.hide();
-            return;
+        if (!visible) {
+            this._label.label = _("Load More");
+            this._spinner.stop();
+            this._spinner.hide();
         }
-
-        if (remainingDocs > offsetStep)
-            remainingDocs = offsetStep;
-
-        this.widget.label = Gettext.ngettext("Load %d more document",
-                                             "Load %d more documents",
-                                             remainingDocs).format(remainingDocs);
-        this.widget.show();
     },
 
     setBlock: function(block) {
