@@ -488,6 +488,7 @@ const PreviewSearchbar = new Lang.Class({
     show: function() {
         this.parent();
 
+        this._searchEntry.select_region(0, -1);
         this._previewView.view.find_set_highlight_search(true);
         this._previewView.startSearch(this._searchEntry.get_text());
     },
