@@ -45,6 +45,7 @@ const Manager = imports.manager;
 const Miners = imports.miners;
 const Notifications = imports.notifications;
 const Path = imports.path;
+const Properties = imports.properties;
 const Query = imports.query;
 const Selections = imports.selections;
 const Sources = imports.sources;
@@ -120,7 +121,7 @@ const Application = new Lang.Class({
     },
 
     _onActionPrintCurrent: function() {
-        let doc = Global.documentManager.getActiveItem();;
+        let doc = Global.documentManager.getActiveItem();
         if (doc)
             doc.print(this._mainWindow.window);
     },
@@ -128,6 +129,18 @@ const Application = new Lang.Class({
     _onActionToggle: function(action) {
         let state = action.get_state();
         action.change_state(GLib.Variant.new('b', !state.get_boolean()));
+    },
+
+    _onActionProperties: function() {
+        let doc = Global.documentManager.getActiveItem();
+        if (!doc)
+            return;
+
+        let dialog = new Properties.PropertiesDialog(doc.id);
+        dialog.widget.connect('response', Lang.bind(this,
+            function(widget, response) {
+                widget.destroy();
+            }));
     },
 
     _initActions: function() {
@@ -183,7 +196,10 @@ const Application = new Lang.Class({
             { name: 'select-all', accel: '<Primary>a',
               window_mode: WindowMode.WindowMode.OVERVIEW },
             { name: 'select-none',
-              window_mode: WindowMode.WindowMode.OVERVIEW }
+              window_mode: WindowMode.WindowMode.OVERVIEW },
+            { name: 'properties',
+              callback: this._onActionProperties,
+              window_mode: WindowMode.WindowMode.PREVIEW }
         ];
 
         actionEntries.forEach(Lang.bind(this,
