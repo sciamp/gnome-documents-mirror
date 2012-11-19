@@ -1,3 +1,20 @@
+3.7.2 - "Death and Resurrection Show"
+=====================================
+
+- Query results from extra Tracker locations added by the user
+- Use a better label for the Load More button
+- Add a Properties entry to the preview gear menu
+- Pre-select find text in the preview searchbar
+- Fix a bug where two search bars would appear after leaving fullscreen
+- Don't flicker overview when launching a preview from the search provider
+- Don't start GOA miners for account types we don't have
+- Add keyboard accelerators for help, print and the gear menu (Jeremy Bicha)
+- Add support for keyboard navigation and item activation
+- Performance improvements when new files are added to the store
+- Performance improvements when refreshing remote documents provider sources
+- Fix detail label not ellipsizing in the main toolbar
+- Fix window titles for Organize and Properties dialogs
+
 3.6.0 - "Talk to Me"
 ====================
 
