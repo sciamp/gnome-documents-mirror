@@ -310,7 +310,7 @@ const PreviewFullscreen = new Lang.Class({
         this._filter.stop();
 
         this._thumbBar.actor.destroy();
-        this._fsToolbar.widget.destroy();
+        this._fsToolbar.actor.destroy();
     },
 
     _show: function() {
