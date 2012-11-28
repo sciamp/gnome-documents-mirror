@@ -313,61 +313,6 @@ const PreviewThumbnails = new Lang.Class({
     }
 });
 
-const PreviewFullscreen = new Lang.Class({
-    Name: 'PreviewFullscreen',
-
-    _init: function(previewView, layout, parentActor) {
-        this._motionTimeoutId = 0;
-
-        let model = previewView.getModel();
-
-        this._filter = new GdPrivate.FullscreenFilter();
-        this._filter.connect('motion-event', Lang.bind(this, this._fullscreenMotionHandler));
-        this._filter.start();
-    },
-
-    destroy: function() {
-        if (this._motionTimeoutId != 0) {
-            Mainloop.source_remove(this._motionTimeoutId);
-            this._motionTimeoutId = 0;
-        }
-
-        this._filter.stop();
-
-        this._fsToolbar.actor.destroy();
-    },
-
-    _show: function() {
-        this._fsToolbar.show();
-    },
-
-    _hide: function() {
-        this._fsToolbar.hide();
-    },
-
-    _fullscreenMotionHandler: function() {
-        if (!Application.modeController.getFullscreen())
-            return;
-
-        // if we were idle fade in the toolbar, otherwise reset
-        // the timeout
-        if (this._motionTimeoutId == 0) {
-            this._show();
-        } else {
-            Mainloop.source_remove(this._motionTimeoutId);
-        }
-
-        this._motionTimeoutId = Mainloop.timeout_add_seconds
-            (_FULLSCREEN_TOOLBAR_TIMEOUT, Lang.bind(this,
-                function() {
-                    this._motionTimeoutId = 0;
-                    this._hide();
-
-                    return false;
-            }));
-    }
-});
-
 const PreviewToolbar = new Lang.Class({
     Name: 'PreviewToolbar',
     Extends: MainToolbar.MainToolbar,

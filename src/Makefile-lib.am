@@ -8,7 +8,6 @@ gdprivate_cflags = \
 
 gdprivate_source_h = \
     lib/gd-utils.h \
-    lib/gd-fullscreen-filter.h \
     lib/gd-metadata.h \
     lib/gd-pdf-loader.h \
     lib/gd-sidebar-thumbnails.h \
@@ -17,7 +16,6 @@ gdprivate_source_h = \
 
 gdprivate_source_c = \
     lib/gd-utils.c \
-    lib/gd-fullscreen-filter.c \
     lib/gd-metadata.c \
     lib/gd-pdf-loader.c \
     lib/gd-sidebar-thumbnails.c \
