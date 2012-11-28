@@ -374,7 +374,7 @@ const Embed = new Lang.Class({
         this._view = new View.ViewContainer();
         this._viewPage = this._notebook.append_page(this._view.widget, null);
 
-        this._preview = new Preview.PreviewView();
+        this._preview = new Preview.PreviewView(this._overlayLayout);
         this._previewPage = this._notebook.append_page(this._preview.widget, null);
 
         Application.modeController.connect('window-mode-changed',

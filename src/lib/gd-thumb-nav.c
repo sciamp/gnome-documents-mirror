@@ -359,8 +359,6 @@ gd_thumb_nav_init (GdThumbNav *nav)
 			  nav);
 
 	priv->sw = gtk_scrolled_window_new (NULL, NULL);
-	gtk_scrolled_window_set_shadow_type (GTK_SCROLLED_WINDOW (priv->sw),
-					     GTK_SHADOW_IN);
         gtk_box_pack_start (GTK_BOX (nav), priv->sw, TRUE, TRUE, 0);
 
 	g_signal_connect (priv->sw,

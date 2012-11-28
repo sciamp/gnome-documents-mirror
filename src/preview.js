@@ -35,6 +35,7 @@ const Application = imports.application;
 const Tweener = imports.util.tweener;
 const MainToolbar = imports.mainToolbar;
 const Searchbar = imports.searchbar;
+const Utils = imports.utils;
 const View = imports.view;
 
 const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
@@ -42,7 +43,7 @@ const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 const PreviewView = new Lang.Class({
     Name: 'PreviewView',
 
-    _init: function() {
+    _init: function(overlayLayout) {
         this._model = null;
         this._jobFind = null;
 
@@ -52,6 +53,12 @@ const PreviewView = new Lang.Class({
         this.widget.get_style_context().add_class('documents-scrolledwin');
 
         this._createView();
+
+        // create thumb bar
+        this._thumbBar = new PreviewThumbnails(this._model);
+        overlayLayout.add(this._thumbBar.actor,
+            Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
+
         this.widget.show_all();
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
@@ -182,14 +189,18 @@ const PreviewView = new Lang.Class({
         if (this._model == model)
             return;
 
-        if (this.view)
+        if (this.view) {
             this.view.destroy();
+            this._thumbBar.hide();
+        }
 
         this._model = model;
 
         if (this._model) {
             this._createView();
             this.view.set_model(this._model);
+            this._thumbBar.view.model = model;
+            this._thumbBar.show();
         }
     },
 
@@ -206,8 +217,10 @@ const PreviewThumbnails = new Lang.Class({
                                                       visible: true });
         this.widget = new GdPrivate.ThumbNav({ thumbview: this.view,
                                                show_buttons: false });
+        this.widget.get_style_context().add_class('osd');
         this.actor = new GtkClutter.Actor({ contents: this.widget,
                                             opacity: 0 });
+        Utils.alphaGtkWidget(this.actor.get_widget());
 
         this.widget.show();
     },
@@ -245,11 +258,6 @@ const PreviewFullscreen = new Lang.Class({
         this._filter.connect('motion-event', Lang.bind(this, this._fullscreenMotionHandler));
         this._filter.start();
 
-        // create thumb bar
-        this._thumbBar = new PreviewThumbnails(model);
-        layout.add(this._thumbBar.actor,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
-
         // create toolbar
         this._fsToolbar = new PreviewFullscreenToolbar(previewView);
         this._fsToolbar.setModel(model);
@@ -283,18 +291,15 @@ const PreviewFullscreen = new Lang.Class({
 
         this._filter.stop();
 
-        this._thumbBar.actor.destroy();
         this._fsToolbar.actor.destroy();
     },
 
     _show: function() {
         this._fsToolbar.show();
-        this._thumbBar.show();
     },
 
     _hide: function() {
         this._fsToolbar.hide();
-        this._thumbBar.hide();
     },
 
     _fullscreenMotionHandler: function() {
