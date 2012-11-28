@@ -464,11 +464,13 @@ const PreviewFullscreenToolbar = new Lang.Class({
         this.parent(previewView);
 
         this.actor.visible = false;
+        this.widget.sensitive = false;
         this.actor.y = -(this.widget.get_preferred_height()[1]);
     },
 
     show: function() {
         this.actor.show();
+        this.widget.sensitive = true;
         Tweener.addTween(this.actor,
                          { y: 0,
                            time: 0.20,
@@ -482,6 +484,7 @@ const PreviewFullscreenToolbar = new Lang.Class({
                            transition: 'easeOutQuad',
                            onComplete: function() {
                                this.actor.hide();
+                               this.widget.sensitive = false;
                            },
                            onCompleteScope: this });
     }
