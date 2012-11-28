@@ -403,25 +403,12 @@ const PreviewToolbar = new Lang.Class({
 
     _setToolbarTitle: function() {
         let primary = null;
-        let detail = null;
         let doc = Application.documentManager.getActiveItem();
 
         if (doc)
             primary = doc.name;
 
-        if (this._model) {
-            let curPage, totPages;
-
-            curPage = this._model.get_page();
-            totPages = this._model.get_document().get_n_pages();
-
-            detail = _("%d of %d").format(curPage + 1, totPages);
-        }
-
-        if (detail)
-            detail = '(' + detail + ')';
-
-        this.widget.set_labels(primary, detail);
+        this.widget.set_labels(primary, null);
     },
 
     setModel: function(model) {
@@ -429,11 +416,6 @@ const PreviewToolbar = new Lang.Class({
             return;
 
         this._model = model;
-        this._model.connect('page-changed', Lang.bind(this,
-            function() {
-                this._setToolbarTitle();
-            }));
-
         this._setToolbarTitle();
     }
 });
