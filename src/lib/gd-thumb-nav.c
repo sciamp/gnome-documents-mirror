@@ -286,8 +286,6 @@ gd_thumb_nav_constructed (GObject *object)
 	if (priv->thumbview != NULL) {
 		gtk_container_add (GTK_CONTAINER (priv->sw), priv->thumbview);
 		gtk_widget_show_all (priv->sw);
-		gd_sidebar_thumbnails_set_item_height (GD_SIDEBAR_THUMBNAILS (priv->thumbview),
-						       115);
 
 		gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (priv->sw),
 						GTK_POLICY_AUTOMATIC,

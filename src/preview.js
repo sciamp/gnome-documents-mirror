@@ -202,12 +202,14 @@ const PreviewThumbnails = new Lang.Class({
     Name: 'PreviewThumbnails',
 
     _init: function(model) {
-        this.view = new GdPrivate.SidebarThumbnails({ model: model });
-        this.widget = new GdPrivate.ThumbNav({ thumbview: this.view });
+        this.view = new GdPrivate.SidebarThumbnails({ model: model,
+                                                      visible: true });
+        this.widget = new GdPrivate.ThumbNav({ thumbview: this.view,
+                                               show_buttons: false });
         this.actor = new GtkClutter.Actor({ contents: this.widget,
                                             opacity: 0 });
 
-        this.widget.show_all();
+        this.widget.show();
     },
 
     show: function() {
@@ -245,36 +247,8 @@ const PreviewFullscreen = new Lang.Class({
 
         // create thumb bar
         this._thumbBar = new PreviewThumbnails(model);
-
         layout.add(this._thumbBar.actor,
-            Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
-
-        let widthConstraint =
-            new Clutter.BindConstraint({ source: parentActor,
-                                         coordinate: Clutter.BindCoordinate.WIDTH,
-                                         offset: - 300 });
-        this._thumbBar.actor.add_constraint(widthConstraint);
-        this._thumbBar.actor.connect('notify::width', Lang.bind(this,
-            function() {
-                let width = parentActor.width;
-                let offset = 300;
-
-                if (width > 1000)
-                    offset += (width - 1000);
-                else if (width < 600)
-                    offset -= (600 - width);
-
-                widthConstraint.offset = - offset;
-            }));
-
-        this._thumbBar.actor.add_constraint(
-            new Clutter.AlignConstraint({ align_axis: Clutter.AlignAxis.X_AXIS,
-                                          source: parentActor,
-                                          factor: 0.50 }));
-        this._thumbBar.actor.add_constraint(
-            new Clutter.AlignConstraint({ align_axis: Clutter.AlignAxis.Y_AXIS,
-                                          source: parentActor,
-                                          factor: 0.95 }));
+            Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
 
         // create toolbar
         this._fsToolbar = new PreviewFullscreenToolbar(previewView);

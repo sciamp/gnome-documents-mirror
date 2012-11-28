@@ -33,7 +33,7 @@
 
 #include "gd-sidebar-thumbnails.h"
 
-#define THUMBNAIL_WIDTH 100
+#define THUMBNAIL_WIDTH 96
 
 typedef struct _EvThumbsSize
 {
@@ -301,8 +301,8 @@ gd_sidebar_thumbnails_constructed (GObject *object)
 	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (self), cell, FALSE);
 	g_object_set (cell,
 	              "follow-state", FALSE,
-	              "height", 100,
-	              "width", 115,
+	              "height", 96,
+	              "width", 96,
 	              "yalign", 0.5,
 	              "xalign", 0.5,
 	              NULL);
