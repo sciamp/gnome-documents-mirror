@@ -49,6 +49,9 @@ const PreviewView = new Lang.Class({
         this._controlsVisible = false;
         this._selectionChanged = false;
 
+        Application.modeController.connect('fullscreen-changed',
+            Lang.bind(this, this._onFullscreenChanged));
+
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
                                                shadow_type: Gtk.ShadowType.IN });
@@ -68,6 +71,12 @@ const PreviewView = new Lang.Class({
             function() {
                 this._selectionChanged = true;
             }));
+
+        // create fullscreen toolbar (hidden by default)
+        this._fsToolbar = new PreviewFullscreenToolbar(this);
+        this._fsToolbar.setModel(this._model);
+        overlayLayout.add(this._fsToolbar.actor,
+            Clutter.BinAlignment.FILL, Clutter.BinAlignment.START);
 
         this.widget.show_all();
 
@@ -123,10 +132,23 @@ const PreviewView = new Lang.Class({
 
     _flipControlsState: function() {
         this._controlsVisible = !this._controlsVisible;
-        if (this._controlsVisible)
+        if (this._controlsVisible) {
+            if (Application.modeController.getFullscreen())
+                this._fsToolbar.show();
             this._thumbBar.show();
-        else
+        } else {
+            this._fsToolbar.hide();
             this._thumbBar.hide();
+        }
+    },
+
+    _onFullscreenChanged: function() {
+        let fullscreen = Application.modeController.getFullscreen();
+
+        if (fullscreen && this._controlsVisible)
+            this._fsToolbar.show();
+        else if (!fullscreen)
+            this._fsToolbar.hide();
     },
 
     _onKeyPressEvent: function(widget, event) {
@@ -235,6 +257,7 @@ const PreviewView = new Lang.Class({
         if (this.view) {
             this.view.destroy();
             this._thumbBar.hide();
+            this._fsToolbar.hide();
         }
 
         this._model = model;
@@ -243,6 +266,7 @@ const PreviewView = new Lang.Class({
             this._createView();
             this.view.set_model(this._model);
             this._thumbBar.view.model = model;
+            this._fsToolbar.setModel(model);
         }
     },
 
@@ -261,6 +285,7 @@ const PreviewThumbnails = new Lang.Class({
                                                show_buttons: false });
         this.widget.get_style_context().add_class('osd');
         this.actor = new GtkClutter.Actor({ contents: this.widget,
+                                            visible: false,
                                             opacity: 0 });
         Utils.alphaGtkWidget(this.actor.get_widget());
 
@@ -299,30 +324,6 @@ const PreviewFullscreen = new Lang.Class({
         this._filter = new GdPrivate.FullscreenFilter();
         this._filter.connect('motion-event', Lang.bind(this, this._fullscreenMotionHandler));
         this._filter.start();
-
-        // create toolbar
-        this._fsToolbar = new PreviewFullscreenToolbar(previewView);
-        this._fsToolbar.setModel(model);
-
-        layout.add(this._fsToolbar.actor,
-            Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
-
-        let vScrollbar = previewView.widget.get_vscrollbar();
-
-        let sizeConstraint = new Clutter.BindConstraint
-            ({ coordinate: Clutter.BindCoordinate.WIDTH,
-               source: parentActor,
-               offset: (vScrollbar.get_visible() ?
-                        (- (vScrollbar.get_preferred_width()[1])) : 0 ) });
-
-        // update the constraint size when the scrollbar changes visibility
-        vScrollbar.connect('notify::visible',
-            function() {
-                sizeConstraint.offset = (vScrollbar.get_visible() ?
-                                         (- (vScrollbar.get_preferred_width()[1])) : 0 );
-            });
-
-        this._fsToolbar.actor.add_constraint(sizeConstraint);
     },
 
     destroy: function() {
@@ -517,10 +518,12 @@ const PreviewFullscreenToolbar = new Lang.Class({
     _init: function(previewView) {
         this.parent(previewView);
 
+        this.actor.visible = false;
         this.actor.y = -(this.widget.get_preferred_height()[1]);
     },
 
     show: function() {
+        this.actor.show();
         Tweener.addTween(this.actor,
                          { y: 0,
                            time: 0.20,
@@ -531,6 +534,10 @@ const PreviewFullscreenToolbar = new Lang.Class({
         Tweener.addTween(this.actor,
                          { y: -(this.widget.get_preferred_height()[1]),
                            time: 0.20,
-                           transition: 'easeOutQuad' });
+                           transition: 'easeOutQuad',
+                           onComplete: function() {
+                               this.actor.hide();
+                           },
+                           onCompleteScope: this });
     }
 });

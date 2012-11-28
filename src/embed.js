@@ -448,13 +448,6 @@ const Embed = new Lang.Class({
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {
-        if (fullscreen) {
-            this._previewFullscreen = new Preview.PreviewFullscreen(this._preview, this._overlayLayout, this._contentsActor);
-        } else {
-            this._previewFullscreen.destroy();
-            this._previewFullscreen = null;
-        }
-
         Gtk.Settings.get_default().gtk_application_prefer_dark_theme = fullscreen;
         this._toolbar.widget.visible = !fullscreen;
     },
