@@ -46,11 +46,17 @@ const PreviewView = new Lang.Class({
     _init: function(overlayLayout) {
         this._model = null;
         this._jobFind = null;
+        this._controlsVisible = false;
+        this._selectionChanged = false;
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
                                                shadow_type: Gtk.ShadowType.IN });
         this.widget.get_style_context().add_class('documents-scrolledwin');
+        this.widget.get_hscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
+        this.widget.get_vscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
+        this.widget.get_hadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
+        this.widget.get_vadjustment().connect('value-changed', Lang.bind(this, this._onAdjustmentChanged));
 
         this._createView();
 
@@ -58,6 +64,10 @@ const PreviewView = new Lang.Class({
         this._thumbBar = new PreviewThumbnails(this._model);
         overlayLayout.add(this._thumbBar.actor,
             Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
+        this._thumbBar.view.connect('selection-changed', Lang.bind(this,
+            function() {
+                this._selectionChanged = true;
+            }));
 
         this.widget.show_all();
 
@@ -105,8 +115,18 @@ const PreviewView = new Lang.Class({
 
         this.view.connect('button-press-event',
                             Lang.bind(this, this._onButtonPressEvent));
+        this.view.connect('button-release-event',
+                            Lang.bind(this, this._onButtonReleaseEvent));
         this.view.connect('key-press-event',
                             Lang.bind(this, this._onKeyPressEvent));
+    },
+
+    _flipControlsState: function() {
+        this._controlsVisible = !this._controlsVisible;
+        if (this._controlsVisible)
+            this._thumbBar.show();
+        else
+            this._thumbBar.hide();
     },
 
     _onKeyPressEvent: function(widget, event) {
@@ -149,6 +169,29 @@ const PreviewView = new Lang.Class({
         }
 
         return false;
+    },
+
+    _onButtonReleaseEvent: function(widget, event) {
+        let button = event.get_button()[1];
+        let clickCount = event.get_click_count()[1];
+
+        if (button == 1 && clickCount == 1)
+            this._flipControlsState();
+
+        return false;
+    },
+
+    _onScrollbarClick: function() {
+        if (this._controlsVisible)
+            this._flipControlsState();
+
+        return false;
+    },
+
+    _onAdjustmentChanged: function() {
+        if (this._controlsVisible && !this._selectionChanged)
+            this._flipControlsState();
+        this._selectionChanged = false;
     },
 
     _changeRotation: function(offset) {
@@ -200,7 +243,6 @@ const PreviewView = new Lang.Class({
             this._createView();
             this.view.set_model(this._model);
             this._thumbBar.view.model = model;
-            this._thumbBar.show();
         }
     },
 
