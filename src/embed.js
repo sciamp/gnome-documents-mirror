@@ -362,18 +362,6 @@ const Embed = new Lang.Class({
         this._viewLayout.add(this._noResults.actor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
         this._noResults.actor.lower_bottom();
 
-        // also pack a white background to use for spotlights between window modes
-        this._background =
-            new Clutter.Rectangle({ color: new Clutter.Color ({ red: 255,
-                                                                blue: 255,
-                                                                green: 255,
-                                                                alpha: 255 }),
-                                    x_align: Clutter.ActorAlign.FILL,
-                                    x_expand: true,
-                                    y_align: Clutter.ActorAlign.FILL,
-                                    y_expand: true });
-        this._viewActor.insert_child_below(this._background, null);
-
         // create the OSD toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar(this._contentsActor);
         this._overlayLayout.add(this._selectionToolbar.actor,
@@ -471,31 +459,11 @@ const Embed = new Lang.Class({
         this._toolbar.widget.visible = !fullscreen;
     },
 
-    _moveOutBackground: function() {
-        Tweener.addTween(this._background, { opacity: 0,
-                                             time: 0.20,
-                                             transition: 'easeInQuad',
-                                             onComplete: function() {
-                                                 this._viewActor.set_child_below_sibling(this._background, null);
-                                             },
-                                             onCompleteScope: this });
-    },
-
-    _windowModeChangeFlash: function() {
-        // fade from white when returning to the view anyway
-        this._viewActor.set_child_above_sibling(this._background, null);
-        this._background.opacity = 255;
-        this._moveOutBackground();
-    },
-
     _onWindowModeChanged: function(object, newMode, oldMode) {
         if (newMode == WindowMode.WindowMode.OVERVIEW)
             this._prepareForOverview();
         else
             this._prepareForPreview();
-
-        if (oldMode != WindowMode.WindowMode.NONE)
-            this._windowModeChangeFlash();
     },
 
     _onActiveItemChanged: function(manager, doc) {
