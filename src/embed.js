@@ -484,7 +484,6 @@ const Embed = new Lang.Class({
         this._preview.widget.grab_focus();
 
         this._spinnerBox.moveOut();
-        Application.modeController.setCanFullscreen(true);
     },
 
     _onLoadError: function(manager, doc, message, exception) {

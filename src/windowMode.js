@@ -19,8 +19,12 @@
  *
  */
 
+const Gdk = imports.gi.Gdk;
+
 const Lang = imports.lang;
 const Signals = imports.signals;
+
+const Application = imports.application;
 
 const WindowMode = {
     NONE: 0,
@@ -43,11 +47,19 @@ const ModeController = new Lang.Class({
         if (oldMode == mode)
             return;
 
-        if (mode == WindowMode.OVERVIEW)
-            this.setCanFullscreen(false);
-
+        this.setCanFullscreen(mode == WindowMode.PREVIEW);
         this._mode = mode;
+
         this.emit('window-mode-changed', this._mode, oldMode);
+
+        if (mode == WindowMode.PREVIEW) {
+            let window = Application.application.get_active_window();
+            let gdkWindow = window.get_window();
+            let windowState = gdkWindow.get_state();
+
+            if (windowState & Gdk.WindowState.MAXIMIZED)
+                this.setFullscreen(true);
+        }
     },
 
     getWindowMode: function() {
