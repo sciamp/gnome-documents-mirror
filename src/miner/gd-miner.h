@@ -25,7 +25,6 @@
 #ifndef __GD_MINER_H__
 #define __GD_MINER_H__
 
-#include <libtracker-miner/tracker-miner.h>
 #include <glib-object.h>
 #define GOA_API_IS_SUBJECT_TO_CHANGE
 #include <goa/goa.h>
