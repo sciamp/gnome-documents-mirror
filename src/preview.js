@@ -46,6 +46,7 @@ const PreviewView = new Lang.Class({
     _init: function(overlayLayout) {
         this._model = null;
         this._jobFind = null;
+        this._controlsFlipId = 0;
         this._controlsVisible = false;
         this._selectionChanged = false;
 
@@ -122,8 +123,6 @@ const PreviewView = new Lang.Class({
         this.widget.add(this.view);
         this.view.show();
 
-        this.view.connect('button-press-event',
-                            Lang.bind(this, this._onButtonPressEvent));
         this.view.connect('button-release-event',
                             Lang.bind(this, this._onButtonReleaseEvent));
         this.view.connect('key-press-event',
@@ -131,7 +130,9 @@ const PreviewView = new Lang.Class({
     },
 
     _flipControlsState: function() {
+        this._controlsFlipId = 0;
         this._controlsVisible = !this._controlsVisible;
+
         if (this._controlsVisible) {
             if (Application.modeController.getFullscreen())
                 this._fsToolbar.show();
@@ -140,6 +141,8 @@ const PreviewView = new Lang.Class({
             this._fsToolbar.hide();
             this._thumbBar.hide();
         }
+
+        return false;
     },
 
     _onFullscreenChanged: function() {
@@ -181,24 +184,31 @@ const PreviewView = new Lang.Class({
         return false;
      },
 
-    _onButtonPressEvent: function(widget, event) {
-        let button = event.get_button()[1];
-        let clickCount = event.get_click_count()[1];
+     _cancelControlsFlip: function() {
+         if (this._controlsFlipId != 0) {
+             Mainloop.source_remove(this._controlsFlipId);
+             this._controlsFlipId = 0;
+         }
+     },
 
-        if (button == 1 && clickCount == 2) {
-            Application.modeController.toggleFullscreen();
-            return true;
-        }
+     _ensureControlsFlip: function() {
+         if (this._controlsFlipId)
+             return;
 
-        return false;
-    },
+         let settings = Gtk.Settings.get_default();
+         let doubleClick = settings.gtk_double_click_time;
+
+         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsState));
+     },
 
     _onButtonReleaseEvent: function(widget, event) {
         let button = event.get_button()[1];
         let clickCount = event.get_click_count()[1];
 
         if (button == 1 && clickCount == 1)
-            this._flipControlsState();
+            this._ensureControlsFlip();
+        else
+            this._cancelControlsFlip();
 
         return false;
     },
