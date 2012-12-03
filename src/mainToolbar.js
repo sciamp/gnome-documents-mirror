@@ -149,8 +149,6 @@ const OverviewToolbar = new Lang.Class({
 
                     if (searchType.id != 'all')
                         primary = searchType.name;
-                    else
-                        primary = _("New and Recent");
 
                     if (searchSource.id != 'all')
                         detail = searchSource.name;
