@@ -30,6 +30,7 @@ const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
+const Signals = imports.signals;
 
 const Application = imports.application;
 const Tweener = imports.util.tweener;
@@ -274,6 +275,7 @@ const PreviewView = new Lang.Class({
         // FIXME: ev_job_find_get_results() returns a GList **
         // and thus is not introspectable
         GdPrivate.ev_view_find_changed(this.view, job, page);
+        this.emit('search-changed', job.has_results());
     },
 
     setModel: function(model) {
@@ -300,6 +302,7 @@ const PreviewView = new Lang.Class({
         return this._model;
     }
 });
+Signals.addSignalMethods(PreviewView.prototype);
 
 const PreviewThumbnails = new Lang.Class({
     Name: 'PreviewThumbnails',
@@ -419,6 +422,7 @@ const PreviewSearchbar = new Lang.Class({
 
     _init: function(previewView) {
         this._previewView = previewView;
+        this._previewView.connect('search-changed', Lang.bind(this, this._onSearchChanged));
         this._lastText = '';
 
         this.parent();
@@ -441,19 +445,28 @@ const PreviewSearchbar = new Lang.Class({
         controlsBox.get_style_context().add_class('raised');
         this._searchContainer.add(controlsBox);
 
-        let prev = new Gtk.Button({ action_name: 'app.find-prev' });
-        prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
-                                       icon_size: Gtk.IconSize.MENU,
-                                       margin: 2 }));
-        prev.set_tooltip_text(_("Find Previous"));
-        controlsBox.add(prev);
+        this._prev = new Gtk.Button({ action_name: 'app.find-prev' });
+        this._prev.set_image(new Gtk.Image({ icon_name: 'go-up-symbolic',
+                                             icon_size: Gtk.IconSize.MENU,
+                                             margin: 2 }));
+        this._prev.set_tooltip_text(_("Find Previous"));
+        controlsBox.add(this._prev);
 
-        let next = new Gtk.Button({ action_name: 'app.find-next' });
-        next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
-                                       icon_size: Gtk.IconSize.MENU,
-                                       margin: 2 }));
-        next.set_tooltip_text(_("Find Next"));
-        controlsBox.add(next);
+        this._next = new Gtk.Button({ action_name: 'app.find-next' });
+        this._next.set_image(new Gtk.Image({ icon_name: 'go-down-symbolic',
+                                             icon_size: Gtk.IconSize.MENU,
+                                             margin: 2 }));
+        this._next.set_tooltip_text(_("Find Next"));
+        controlsBox.add(this._next);
+
+        this._onSearchChanged(this._previewView, false);
+    },
+
+    _onSearchChanged: function(view, hasResults) {
+        let findPrev = Application.application.lookup_action('find-prev');
+        let findNext = Application.application.lookup_action('find-next');
+        findPrev.enabled = hasResults;
+        findNext.enabled = hasResults;
     },
 
     entryChanged: function() {
