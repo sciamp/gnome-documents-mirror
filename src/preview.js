@@ -445,6 +445,7 @@ const PreviewSearchbar = new Lang.Class({
     _init: function(previewView) {
         this.parent();
 
+        this._lastText = '';
         this._previewView = previewView;
     },
 
@@ -488,15 +489,21 @@ const PreviewSearchbar = new Lang.Class({
     show: function() {
         this.parent();
 
-        this._searchEntry.select_region(0, -1);
+        if (!this._searchEntry.get_text()) {
+            this._searchEntry.set_text(this._lastText);
+            this._searchEntry.select_region(0, -1);
+        }
+
+        this._lastText = '';
         this._previewView.view.find_set_highlight_search(true);
         this._previewView.startSearch(this._searchEntry.get_text());
     },
 
     hide: function() {
-        this.parent();
-
         this._previewView.view.find_set_highlight_search(false);
+        this._lastText = this._searchEntry.get_text();
+
+        this.parent();
     }
 });
 
