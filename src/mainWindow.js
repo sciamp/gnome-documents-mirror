@@ -157,8 +157,18 @@ const MainWindow = new Lang.Class({
         let fullscreen = Application.modeController.getFullscreen();
         let direction = this.window.get_direction();
 
-        if ((fullscreen && keyval == Gdk.KEY_Escape) ||
-            ((state & Gdk.ModifierType.MOD1_MASK) != 0 &&
+        if (keyval == Gdk.KEY_Escape) {
+            let preview = this._embed.getPreview();
+
+            if (preview.controlsVisible)
+                preview.controlsVisible = false;
+            else if (fullscreen)
+                Application.documentManager.setActiveItem(null);
+
+            return false;
+        }
+
+        if (((state & Gdk.ModifierType.MOD1_MASK) != 0 &&
              (direction == Gtk.TextDirection.LTR && keyval == Gdk.KEY_Left) ||
              (direction == Gtk.TextDirection.RTL && keyval == Gdk.KEY_Right)) ||
             keyval == Gdk.KEY_Back) {

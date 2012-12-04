@@ -530,5 +530,9 @@ const Embed = new Lang.Class({
 
     getMainToolbar: function() {
         return this._toolbar;
+    },
+
+    getPreview: function() {
+        return this._preview;
     }
 });

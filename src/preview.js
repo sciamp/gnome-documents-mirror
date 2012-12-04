@@ -129,9 +129,11 @@ const PreviewView = new Lang.Class({
                             Lang.bind(this, this._onKeyPressEvent));
     },
 
-    _flipControlsState: function() {
-        this._controlsFlipId = 0;
-        this._controlsVisible = !this._controlsVisible;
+    _updateControls: function(visible) {
+        if (this._controlsVisible == visible)
+            return;
+
+        this._controlsVisible = visible;
 
         if (this._controlsVisible) {
             if (Application.modeController.getFullscreen())
@@ -141,6 +143,12 @@ const PreviewView = new Lang.Class({
             this._fsToolbar.hide();
             this._thumbBar.hide();
         }
+    },
+
+    _flipControlsState: function() {
+        this._controlsFlipId = 0;
+        let visible = !this._controlsVisible;
+        this._updateControls(visible);
 
         return false;
     },
@@ -229,6 +237,14 @@ const PreviewView = new Lang.Class({
     _changeRotation: function(offset) {
         let rotation = this._model.get_rotation();
         this._model.set_rotation(rotation + offset);
+    },
+
+    get controlsVisible() {
+        return this._controlsVisible;
+    },
+
+    set controlsVisible(visible) {
+        this._updateControls(visible);
     },
 
     startSearch: function(str) {
