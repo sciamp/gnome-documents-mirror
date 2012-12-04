@@ -528,7 +528,7 @@ const Embed = new Lang.Class({
         this._errorBox.moveIn();
     },
 
-    getMainToolbar: function(event) {
+    getMainToolbar: function() {
         return this._toolbar;
     }
 });
