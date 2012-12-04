@@ -540,8 +540,7 @@ const OverviewSearchbar = new Lang.Class({
 
     createSearchWidgets: function() {
         // create the search entry
-        this._searchEntry = new Gd.TaggedEntry({ width_request: 500,
-                                                 no_show_all: true });
+        this._searchEntry = new Gd.TaggedEntry({ width_request: 500 });
         this._searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
         this._searchEntry.set_text(Global.searchController.getString());
