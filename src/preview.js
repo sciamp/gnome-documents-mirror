@@ -475,21 +475,21 @@ const PreviewFullscreenToolbar = new Lang.Class({
 
         this.actor.visible = false;
         this.widget.sensitive = false;
-        this.actor.y = -(this.widget.get_preferred_height()[1]);
+        this.actor.translation_y = -(this.widget.get_preferred_height()[1]);
     },
 
     show: function() {
         this.actor.show();
         this.widget.sensitive = true;
         Tweener.addTween(this.actor,
-                         { y: 0,
+                         { translation_y: 0,
                            time: 0.20,
                            transition: 'easeInQuad' });
     },
 
     hide: function() {
         Tweener.addTween(this.actor,
-                         { y: -(this.widget.get_preferred_height()[1]),
+                         { translation_y: -(this.widget.get_preferred_height()[1]),
                            time: 0.20,
                            transition: 'easeOutQuad',
                            onComplete: function() {
