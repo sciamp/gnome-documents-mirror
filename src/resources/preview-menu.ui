@@ -26,12 +26,12 @@
     <section>
       <item>
         <attribute name="action">app.rotate-left</attribute>
-        <attribute name="label" translatable="yes">Rotate Left</attribute>
+        <attribute name="label" translatable="yes">Rotate ↶</attribute>
         <attribute name="accel">&lt;Primary&gt;Left</attribute>
       </item>
       <item>
         <attribute name="action">app.rotate-right</attribute>
-        <attribute name="label" translatable="yes">Rotate Right</attribute>
+        <attribute name="label" translatable="yes">Rotate ↷</attribute>
         <attribute name="accel">&lt;Primary&gt;Right</attribute>
       </item>
     </section>
