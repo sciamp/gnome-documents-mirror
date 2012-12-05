@@ -25,6 +25,15 @@ const Signals = imports.signals;
 const Gettext = imports.gettext;
 const _ = imports.gettext.gettext;
 
+// Import versions go here
+imports.gi.versions.GtkClutter = '1.0';
+imports.gi.versions.GdPrivate = '1.0';
+imports.gi.versions.Gd = '1.0';
+imports.gi.versions.Tracker = '0.14';
+imports.gi.versions.TrackerMiner = '0.14';
+imports.gi.versions.EvinceDocument = '3.0';
+imports.gi.versions.Goa = '1.0';
+
 const GtkClutter = imports.gi.GtkClutter;
 const EvDoc = imports.gi.EvinceDocument;
 const Gdk = imports.gi.Gdk;
