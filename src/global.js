@@ -55,6 +55,7 @@ function initSearch() {
     searchController = new Searchbar.SearchController();
 
     offsetController = new OffsetController.OffsetController();
-    queryBuilder = new Query.QueryBuilder();
     connectionQueue = new TrackerController.TrackerConnectionQueue();
+
+    queryBuilder = new Query.QueryBuilder(this);
 };
