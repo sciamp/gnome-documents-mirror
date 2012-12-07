@@ -54,6 +54,7 @@ const BaseManager = new Lang.Class({
     },
 
     addItem: function(item) {
+        item._manager = this;
         this._items[item.id] = item;
         this.emit('item-added', item);
     },
@@ -96,6 +97,7 @@ const BaseManager = new Lang.Class({
         if (item) {
             delete this._items[id];
             this.emit('item-removed', item);
+            item._manager = null;
         }
     },
 
