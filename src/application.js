@@ -340,6 +340,7 @@ const Application = new Lang.Class({
             return;
         }
 
+        Global.connectionQueue = new TrackerController.TrackerConnectionQueue();
         Global.initSearch();
 
         Global.changeMonitor = new ChangeMonitor.TrackerChangeMonitor();
