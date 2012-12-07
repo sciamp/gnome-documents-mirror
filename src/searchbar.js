@@ -69,7 +69,7 @@ const SearchCategory = new Lang.Class({
     getFilter: function() {
         // require to be not local
         if (this.id == SearchCategoryStock.SHARED)
-            return Global.queryBuilder.buildFilterNotLocal();
+            return Global.sourceManager.getFilterNotLocal();
 
         return '(true)';
     }

@@ -47,8 +47,6 @@ const QueryFlags = {
 };
 
 const LOCAL_COLLECTIONS_IDENTIFIER = 'gd:collection:local:';
-const TRACKER_SCHEMA = 'org.freedesktop.Tracker.Miner.Files';
-const TRACKER_KEY_RECURSIVE_DIRECTORIES = 'index-recursive-directories';
 
 const Query = new Lang.Class({
     Name: 'Query',
@@ -63,79 +61,6 @@ const QueryBuilder = new Lang.Class({
     Name: 'QueryBuilder',
 
     _init: function() {
-    },
-
-    _getTrackerLocations: function() {
-        let settings = new Gio.Settings({ schema: TRACKER_SCHEMA });
-        let locations = settings.get_strv(TRACKER_KEY_RECURSIVE_DIRECTORIES);
-        let files = [];
-
-        locations.forEach(Lang.bind(this,
-            function(location) {
-                // ignore special XDG placeholders, since we handle those internally
-                if (location[0] == '&' || location[0] == '$')
-                    return;
-
-                let trackerFile = Gio.file_new_for_commandline_arg(location);
-
-                // also ignore XDG locations if they are present with their full path
-                for (let idx = 0; idx < GLib.UserDirectory.N_DIRECTORIES; idx++) {
-                    let file = Gio.file_new_for_path(GLib.get_user_special_dir(idx));
-                    if (trackerFile.equal(file))
-                        return;
-                }
-
-                files.push(trackerFile);
-            }));
-
-        return files;
-    },
-
-    _getBuiltinLocations: function() {
-        let files = [];
-        let xdgDirs = [GLib.UserDirectory.DIRECTORY_DESKTOP,
-                       GLib.UserDirectory.DIRECTORY_DOCUMENTS,
-                       GLib.UserDirectory.DIRECTORY_DOWNLOAD];
-
-        xdgDirs.forEach(Lang.bind(this,
-            function(dir) {
-                let path = GLib.get_user_special_dir(dir);
-                if (path)
-                    files.push(Gio.file_new_for_path(path));
-            }));
-
-        return files;
-    },
-
-    buildFilterLocal: function() {
-        let locations = this._getBuiltinLocations();
-        locations = locations.concat(this._getTrackerLocations());
-
-        let filters = [];
-        locations.forEach(Lang.bind(this,
-            function(location) {
-                filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
-            }));
-
-        filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
-
-        return '(' + filters.join(' || ') + ')';
-    },
-
-    buildFilterNotLocal: function() {
-        let sources = Global.sourceManager.getItems();
-        let filters = [];
-
-        for (idx in sources) {
-            let source = sources[idx];
-            if (!source.builtin)
-                filters.push(source.getFilter());
-        }
-
-        if (filters.length == 0)
-            filters.push('false');
-
-        return '(' + filters.join(' || ') + ')';
     },
 
     _buildFilterString: function(currentType) {

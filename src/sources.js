@@ -22,7 +22,7 @@
 const Lang = imports.lang;
 
 const Gio = imports.gi.Gio;
-const Goa = imports.gi.Goa;
+const GLib = imports.gi.GLib;
 const _ = imports.gettext.gettext;
 
 const Global = imports.global;
@@ -31,7 +31,10 @@ const Manager = imports.manager;
 const SourceStock = {
     ALL: 'all',
     LOCAL: 'local'
-}
+};
+
+const TRACKER_SCHEMA = 'org.freedesktop.Tracker.Miner.Files';
+const TRACKER_KEY_RECURSIVE_DIRECTORIES = 'index-recursive-directories';
 
 const Source = new Lang.Class({
     Name: 'Source',
@@ -56,14 +59,71 @@ const Source = new Lang.Class({
         this.builtin = params.builtin;
     },
 
+    _getTrackerLocations: function() {
+        let settings = new Gio.Settings({ schema: TRACKER_SCHEMA });
+        let locations = settings.get_strv(TRACKER_KEY_RECURSIVE_DIRECTORIES);
+        let files = [];
+
+        locations.forEach(Lang.bind(this,
+            function(location) {
+                // ignore special XDG placeholders, since we handle those internally
+                if (location[0] == '&' || location[0] == '$')
+                    return;
+
+                let trackerFile = Gio.file_new_for_commandline_arg(location);
+
+                // also ignore XDG locations if they are present with their full path
+                for (let idx = 0; idx < GLib.UserDirectory.N_DIRECTORIES; idx++) {
+                    let file = Gio.file_new_for_path(GLib.get_user_special_dir(idx));
+                    if (trackerFile.equal(file))
+                        return;
+                }
+
+                files.push(trackerFile);
+            }));
+
+        return files;
+    },
+
+    _getBuiltinLocations: function() {
+        let files = [];
+        let xdgDirs = [GLib.UserDirectory.DIRECTORY_DESKTOP,
+                       GLib.UserDirectory.DIRECTORY_DOCUMENTS,
+                       GLib.UserDirectory.DIRECTORY_DOWNLOAD];
+
+        xdgDirs.forEach(Lang.bind(this,
+            function(dir) {
+                let path = GLib.get_user_special_dir(dir);
+                if (path)
+                    files.push(Gio.file_new_for_path(path));
+            }));
+
+        return files;
+    },
+
+    _buildFilterLocal: function() {
+        let locations = this._getBuiltinLocations();
+        locations = locations.concat(this._getTrackerLocations());
+
+        let filters = [];
+        locations.forEach(Lang.bind(this,
+            function(location) {
+                filters.push('(fn:contains (nie:url(?urn), "%s"))'.format(location.get_uri()));
+            }));
+
+        filters.push('(fn:starts-with (nao:identifier(?urn), "gd:collection:local:"))');
+
+        return '(' + filters.join(' || ') + ')';
+    },
+
     getFilter: function() {
         let filters = [];
 
         if (this.id == SourceStock.LOCAL) {
-            filters.push(Global.queryBuilder.buildFilterLocal());
+            filters.push(this._buildFilterLocal());
         } else if (this.id == SourceStock.ALL) {
-            filters.push(Global.queryBuilder.buildFilterLocal());
-            filters.push(Global.queryBuilder.buildFilterNotLocal());
+            filters.push(this._buildFilterLocal());
+            filters.push(this._manager.getFilterNotLocal());
         } else {
             filters.push(this._buildFilterResource());
         }
@@ -125,6 +185,22 @@ const SourceManager = new Lang.Class({
             }));
 
         this.processNewItems(newItems);
+    },
+
+    getFilterNotLocal: function() {
+        let sources = this.getItems();
+        let filters = [];
+
+        for (idx in sources) {
+            let source = sources[idx];
+            if (!source.builtin)
+                filters.push(source.getFilter());
+        }
+
+        if (filters.length == 0)
+            filters.push('false');
+
+        return '(' + filters.join(' || ') + ')';
     },
 
     hasOnlineSources: function() {
