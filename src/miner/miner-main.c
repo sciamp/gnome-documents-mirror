@@ -48,7 +48,7 @@ static GdMiner *miner = NULL;
 static gboolean
 autoquit_timeout_cb (gpointer _unused)
 {
-  g_debug ("Timeout reached, quitting...");
+  g_debug ("Timeout reached, quitting…");
 
   autoquit_id = 0;
   g_main_loop_quit (loop);

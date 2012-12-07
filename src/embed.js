@@ -69,7 +69,7 @@ const SpinnerBox = new Lang.Class({
                                           valign: Gtk.Align.CENTER });
         this.widget.add(this._spinner);
 
-        this._label = new Gtk.Label({ label: '<big><b>' + _("Loading...") + '</b></big>',
+        this._label = new Gtk.Label({ label: '<big><b>' + _("Loading…") + '</b></big>',
                                       use_markup: true,
                                       halign: Gtk.Align.CENTER,
                                       valign: Gtk.Align.CENTER });

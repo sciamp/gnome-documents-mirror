@@ -67,7 +67,7 @@ const LoadMoreButton = new Lang.Class({
         this.widget.get_style_context().add_class('documents-load-more');
         this.widget.connect('clicked', Lang.bind(this,
             function() {
-                this._label.label = _("Loading...");
+                this._label.label = _("Loading…");
                 this._spinner.show();
                 this._spinner.start();
 
