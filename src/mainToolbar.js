@@ -33,7 +33,7 @@ const _ = imports.gettext.gettext;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
-const Global = imports.global;
+const Application = imports.application;
 const Searchbar = imports.searchbar;
 const Tweener = imports.util.tweener;
 
@@ -88,21 +88,16 @@ const OverviewToolbar = new Lang.Class({
         this.parent();
 
         // setup listeners to mode changes that affect the toolbar layout
-        this._searchStringId =
-            Global.searchController.connect('search-string-changed',
-                                            Lang.bind(this, this._setToolbarTitle));
-        this._searchTypeId =
-            Global.searchTypeManager.connect('active-changed',
-                                             Lang.bind(this, this._setToolbarTitle));
-        this._searchMatchId =
-            Global.searchMatchManager.connect('active-changed',
-                                              Lang.bind(this, this._setToolbarTitle));
-        this._searchSourceId =
-            Global.sourceManager.connect('active-changed',
-                                         Lang.bind(this, this._setToolbarTitle));
-        this._selectionModeId =
-            Global.selectionController.connect('selection-mode-changed',
-                                               Lang.bind(this, this._resetToolbarMode));
+        this._searchStringId = Application.searchController.connect('search-string-changed',
+            Lang.bind(this, this._setToolbarTitle));
+        this._searchTypeId = Application.searchTypeManager.connect('active-changed',
+            Lang.bind(this, this._setToolbarTitle));
+        this._searchMatchId = Application.searchMatchManager.connect('active-changed',
+            Lang.bind(this, this._setToolbarTitle));
+        this._searchSourceId = Application.sourceManager.connect('active-changed',
+            Lang.bind(this, this._setToolbarTitle));
+        this._selectionModeId = Application.selectionController.connect('selection-mode-changed',
+            Lang.bind(this, this._resetToolbarMode));
         this._resetToolbarMode();
 
         this.widget.connect('destroy', Lang.bind(this,
@@ -110,35 +105,35 @@ const OverviewToolbar = new Lang.Class({
                 this._clearStateData();
 
                 if (this._selectionModeId != 0) {
-                    Global.selectionController.disconnect(this._selectionModeId);
+                    Application.selectionController.disconnect(this._selectionModeId);
                     this._selectionModeId = 0;
                 }
 
                 if (this._searchStringId != 0) {
-                    Global.searchController.disconnect(this._searchStringId);
+                    Application.searchController.disconnect(this._searchStringId);
                     this._searchStringId = 0;
                 }
 
                 if (this._searchTypeId != 0) {
-                    Global.searchTypeManager.disconnect(this._searchTypeId);
+                    Application.searchTypeManager.disconnect(this._searchTypeId);
                     this._searchTypeId = 0;
                 }
 
                 if (this._searchMatchId != 0) {
-                    Global.searchMatchManager.disconnect(this._searchMatchId);
+                    Application.searchMatchManager.disconnect(this._searchMatchId);
                     this._searchMatchId = 0;
                 }
 
                 if (this._searchSourceId != 0) {
-                    Global.sourceManager.disconnect(this._searchSourceId);
+                    Application.sourceManager.disconnect(this._searchSourceId);
                     this._searchSourceId = 0;
                 }
             }));
     },
 
     _setToolbarTitle: function() {
-        let selectionMode = Global.selectionController.getSelectionMode();
-        let activeCollection = Global.collectionManager.getActiveItem();
+        let selectionMode = Application.selectionController.getSelectionMode();
+        let activeCollection = Application.collectionManager.getActiveItem();
         let primary = null;
         let detail = null;
 
@@ -146,11 +141,11 @@ const OverviewToolbar = new Lang.Class({
             if (activeCollection) {
                 primary = activeCollection.name;
             } else {
-                let string = Global.searchController.getString();
+                let string = Application.searchController.getString();
 
                 if (string == '') {
-                    let searchType = Global.searchTypeManager.getActiveItem();
-                    let searchSource = Global.sourceManager.getActiveItem();
+                    let searchType = Application.searchTypeManager.getActiveItem();
+                    let searchSource = Application.sourceManager.getActiveItem();
 
                     if (searchType.id != 'all')
                         primary = searchType.name;
@@ -160,7 +155,7 @@ const OverviewToolbar = new Lang.Class({
                     if (searchSource.id != 'all')
                         detail = searchSource.name;
                 } else {
-                    let searchMatch = Global.searchMatchManager.getActiveItem();
+                    let searchMatch = Application.searchMatchManager.getActiveItem();
 
                     primary = _("Results for \"%s\"").format(string);
                     if (searchMatch.id == 'title')
@@ -170,7 +165,7 @@ const OverviewToolbar = new Lang.Class({
                 }
             }
         } else {
-            let length = Global.selectionController.getSelection().length;
+            let length = Application.selectionController.getSelection().length;
 
             if (length == 0)
                 detail = _("Click on items to select them");
@@ -209,24 +204,24 @@ const OverviewToolbar = new Lang.Class({
         selectionButton.get_style_context().add_class('suggested-action');
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
-                Global.selectionController.setSelectionMode(false);
+                Application.selectionController.setSelectionMode(false);
             }));
 
         // connect to selection changes while in this mode
         this._selectionChangedId =
-            Global.selectionController.connect('selection-changed',
+            Application.selectionController.connect('selection-changed',
                                                Lang.bind(this, this._setToolbarTitle));
     },
 
     _checkCollectionBackButton: function() {
-        let item = Global.collectionManager.getActiveItem();
+        let item = Application.collectionManager.getActiveItem();
 
         if (item && !this._collBackButton) {
             this._collBackButton =
                 this.widget.add_button('go-previous-symbolic', _("Back"), true);
             this._collBackButton.connect('clicked', Lang.bind(this,
                 function() {
-                    Global.documentManager.activatePreviousCollection();
+                    Application.documentManager.activatePreviousCollection();
                 }));
         } else if (!item && this._collBackButton) {
             this._collBackButton.destroy();
@@ -237,7 +232,7 @@ const OverviewToolbar = new Lang.Class({
     _onActiveCollectionChanged: function() {
         this._checkCollectionBackButton();
         this._setToolbarTitle();
-        Global.application.change_action_state('search', GLib.Variant.new('b', false));
+        Application.application.change_action_state('search', GLib.Variant.new('b', false));
     },
 
     _populateForOverview: function() {
@@ -248,12 +243,12 @@ const OverviewToolbar = new Lang.Class({
             this.widget.add_button('object-select-symbolic', _("Select Items"), false);
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
-                Global.selectionController.setSelectionMode(true);
+                Application.selectionController.setSelectionMode(true);
             }));
 
         // connect to active collection changes while in this mode
         this._collectionId =
-            Global.collectionManager.connect('active-changed',
+            Application.collectionManager.connect('active-changed',
                                              Lang.bind(this, this._onActiveCollectionChanged));
     },
 
@@ -262,12 +257,12 @@ const OverviewToolbar = new Lang.Class({
         this.widget.set_labels_menu(null);
 
         if (this._collectionId != 0) {
-            Global.collectionManager.disconnect(this._collectionId);
+            Application.collectionManager.disconnect(this._collectionId);
             this._collectionId = 0;
         }
 
         if (this._selectionChangedId != 0) {
-            Global.selectionController.disconnect(this._selectionChangedId);
+            Application.selectionController.disconnect(this._selectionChangedId);
             this._selectionChangedId = 0;
         }
     },
@@ -283,7 +278,7 @@ const OverviewToolbar = new Lang.Class({
     _resetToolbarMode: function() {
         this._clearToolbar();
 
-        let selectionMode = Global.selectionController.getSelectionMode();
+        let selectionMode = Application.selectionController.getSelectionMode();
         if (selectionMode)
             this._populateForSelectionMode();
         else
@@ -292,8 +287,8 @@ const OverviewToolbar = new Lang.Class({
         this._setToolbarTitle();
         this.widget.show_all();
 
-        if (Global.searchController.getString() != '')
-            Global.application.change_action_state('search', GLib.Variant.new('b', true));
+        if (Application.searchController.getString() != '')
+            Application.application.change_action_state('search', GLib.Variant.new('b', true));
     },
 
     createSearchbar: function() {

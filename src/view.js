@@ -31,8 +31,8 @@ const _ = imports.gettext.gettext;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
+const Application = imports.application;
 const Documents = imports.documents;
-const Global = imports.global;
 const TrackerUtils = imports.trackerUtils;
 const WindowMode = imports.windowMode;
 const Utils = imports.utils;
@@ -43,7 +43,7 @@ const LoadMoreButton = new Lang.Class({
     _init: function() {
         this._block = false;
 
-        this._controller = Global.offsetController;
+        this._controller = Application.offsetController;
         this._controllerId =
             this._controller.connect('item-count-changed',
                                      Lang.bind(this, this._onItemCountChanged));
@@ -118,15 +118,15 @@ const ViewModel = new Lang.Class({
         this.model.set_sort_column_id(Gd.MainColumns.MTIME,
                                       Gtk.SortType.DESCENDING);
 
-        Global.documentManager.connect('item-added',
+        Application.documentManager.connect('item-added',
             Lang.bind(this, this._onItemAdded));
-        Global.documentManager.connect('item-removed',
+        Application.documentManager.connect('item-removed',
             Lang.bind(this, this._onItemRemoved));
-        Global.documentManager.connect('clear',
+        Application.documentManager.connect('clear',
             Lang.bind(this, this._onClear));
 
         // populate with the intial items
-        let items = Global.documentManager.getItems();
+        let items = Application.documentManager.getItems();
         for (let idx in items) {
             this._onItemAdded(null, items[idx]);
         }
@@ -203,45 +203,42 @@ const ViewContainer = new Lang.Class({
                             Lang.bind(this, this._onViewSelectionChanged));
 
         // connect to settings change for list/grid view
-        this._viewSettingsId =
-            Global.settings.connect('changed::view-as',
-                                    Lang.bind(this, this._updateTypeForSettings));
+        this._viewSettingsId = Application.settings.connect('changed::view-as',
+            Lang.bind(this, this._updateTypeForSettings));
         this._updateTypeForSettings();
 
         // setup selection controller => view
-        this._selectionModeId =
-            Global.selectionController.connect('selection-mode-changed',
-                                               Lang.bind(this, this._onSelectionModeChanged));
+        this._selectionModeId = Application.selectionController.connect('selection-mode-changed',
+            Lang.bind(this, this._onSelectionModeChanged));
         this._onSelectionModeChanged();
 
-        Global.modeController.connect('window-mode-changed',
-                                      Lang.bind(this, this._onWindowModeChanged));
+        Application.modeController.connect('window-mode-changed',
+            Lang.bind(this, this._onWindowModeChanged));
         this._onWindowModeChanged();
 
-        let selectAll = Global.application.lookup_action('select-all');
+        let selectAll = Application.application.lookup_action('select-all');
         selectAll.connect('activate', Lang.bind(this,
             function() {
                 this.view.select_all();
             }));
 
-        let selectNone = Global.application.lookup_action('select-none');
+        let selectNone = Application.application.lookup_action('select-none');
         selectNone.connect('activate', Lang.bind(this,
             function() {
                 this.view.unselect_all();
             }));
 
-        this._queryId =
-            Global.trackerController.connect('query-status-changed',
-                                             Lang.bind(this, this._onQueryStatusChanged));
+        this._queryId = Application.trackerController.connect('query-status-changed',
+            Lang.bind(this, this._onQueryStatusChanged));
         // ensure the tracker controller is started
-        Global.trackerController.start();
+        Application.trackerController.start();
 
         // this will create the model if we're done querying
         this._onQueryStatusChanged();
     },
 
     _updateTypeForSettings: function() {
-        let viewType = Global.settings.get_enum('view-as');
+        let viewType = Application.settings.get_enum('view-as');
         this.view.set_view_type(viewType);
 
         if (viewType == Gd.MainViewType.LIST)
@@ -257,7 +254,7 @@ const ViewContainer = new Lang.Class({
         listWidget.add_renderer(typeRenderer, Lang.bind(this,
             function(col, cell, model, iter) {
                 let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Global.documentManager.getItemById(id);
+                let doc = Application.documentManager.getItemById(id);
 
                 typeRenderer.text = doc.typeDescription;
             }));
@@ -268,7 +265,7 @@ const ViewContainer = new Lang.Class({
         listWidget.add_renderer(whereRenderer, Lang.bind(this,
             function(col, cell, model, iter) {
                 let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Global.documentManager.getItemById(id);
+                let doc = Application.documentManager.getItemById(id);
 
                 whereRenderer.text = doc.sourceName;
             }));
@@ -278,7 +275,7 @@ const ViewContainer = new Lang.Class({
         listWidget.add_renderer(dateRenderer, Lang.bind(this,
             function(col, cell, model, iter) {
                 let id = model.get_value(iter, Gd.MainColumns.ID);
-                let doc = Global.documentManager.getItemById(id);
+                let doc = Application.documentManager.getItemById(id);
                 let DAY = 86400000000;
 
                 let now = GLib.DateTime.new_now_local();
@@ -320,26 +317,26 @@ const ViewContainer = new Lang.Class({
     },
 
     _onSelectionModeRequest: function() {
-        Global.selectionController.setSelectionMode(true);
+        Application.selectionController.setSelectionMode(true);
     },
 
     _onItemActivated: function(widget, id, path) {
-        Global.documentManager.setActiveItemById(id);
+        Application.documentManager.setActiveItemById(id);
     },
 
     _onQueryStatusChanged: function() {
-        let status = Global.trackerController.getQueryStatus();
+        let status = Application.trackerController.getQueryStatus();
 
         if (!status) {
             // setup a model if we're not querying
             this.view.set_model(this._model.model);
 
             // unfreeze selection
-            Global.selectionController.freezeSelection(false);
+            Application.selectionController.freezeSelection(false);
             this._updateSelection();
         } else {
             // save the last selection
-            Global.selectionController.freezeSelection(true);
+            Application.selectionController.freezeSelection(true);
 
             // if we're querying, clear the model from the view,
             // so that we don't uselessly refresh the rows
@@ -348,7 +345,7 @@ const ViewContainer = new Lang.Class({
     },
 
     _updateSelection: function() {
-        let selected = Global.selectionController.getSelection();
+        let selected = Application.selectionController.getSelection();
         let newSelection = [];
 
         if (!selected.length)
@@ -377,11 +374,11 @@ const ViewContainer = new Lang.Class({
                 return false;
             }));
 
-        Global.selectionController.setSelection(newSelection);
+        Application.selectionController.setSelection(newSelection);
     },
 
     _onSelectionModeChanged: function() {
-        let selectionMode = Global.selectionController.getSelectionMode();
+        let selectionMode = Application.selectionController.getSelectionMode();
         this.view.set_selection_mode(selectionMode);
     },
 
@@ -389,11 +386,11 @@ const ViewContainer = new Lang.Class({
         // update the selection on the controller when the view signals a change
         let selectedURNs = Utils.getURNsFromPaths(this.view.get_selection(),
                                                   this._model.model);
-        Global.selectionController.setSelection(selectedURNs);
+        Application.selectionController.setSelection(selectedURNs);
     },
 
     _onWindowModeChanged: function() {
-        let mode = Global.modeController.getWindowMode();
+        let mode = Application.modeController.getWindowMode();
         if (mode == WindowMode.WindowMode.OVERVIEW)
             this._connectView();
         else

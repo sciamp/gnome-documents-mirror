@@ -24,8 +24,8 @@ const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
 
+const Application = imports.application;
 const Documents = imports.documents;
-const Global = imports.global;
 const Mainloop = imports.mainloop;
 const TrackerUtils = imports.trackerUtils;
 
@@ -37,7 +37,7 @@ const PropertiesDialog = new Lang.Class({
     Name: 'PropertiesDialog',
 
     _init: function(urn) {
-        let doc = Global.documentManager.getItemById(urn);
+        let doc = Application.documentManager.getItemById(urn);
 
         let dateModified = GLib.DateTime.new_from_unix_local(doc.mtime);
         let dateModifiedString = dateModified.format('%c');
@@ -48,7 +48,7 @@ const PropertiesDialog = new Lang.Class({
             dateCreatedString = dateCreated.format('%c');
         }
 
-        let toplevel = Global.application.get_windows()[0];
+        let toplevel = Application.application.get_windows()[0];
         this.widget = new Gtk.Dialog ({ resizable: false,
                                         transient_for: toplevel,
                                         modal: true,

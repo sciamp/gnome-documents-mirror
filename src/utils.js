@@ -27,7 +27,7 @@ const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 
 const Documents = imports.documents;
-const Global = imports.global;
+const Application = imports.application;
 
 const Lang = imports.lang;
 const Signals = imports.signals;
@@ -39,7 +39,7 @@ let debugInit = false;
 let debugEnabled = false;
 
 function getIconSize() {
-    let viewType = Global.settings.get_enum('view-as');
+    let viewType = Application.settings.get_enum('view-as');
 
     if (viewType == Gd.MainViewType.LIST)
         return _LIST_VIEW_SIZE;
@@ -48,7 +48,7 @@ function getIconSize() {
 }
 
 function getThumbnailFrameBorder() {
-    let viewType = Global.settings.get_enum('view-as');
+    let viewType = Application.settings.get_enum('view-as');
     let slice = new Gtk.Border();
     let border = null;
 

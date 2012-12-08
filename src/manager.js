@@ -31,13 +31,15 @@ const Signals = imports.signals;
 const BaseManager = new Lang.Class({
     Name: 'BaseManager',
 
-    _init: function(title) {
+    _init: function(title, context) {
         this._items = {};
         this._activeItem = null;
         this._title = null;
 
         if (title)
             this._title = title;
+
+        this.context = context;
     },
 
     getTitle: function() {

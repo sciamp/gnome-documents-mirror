@@ -22,7 +22,7 @@
 const Lang = imports.lang;
 const Signals = imports.signals;
 
-const Global = imports.global;
+const Application = imports.application;
 const Query = imports.query;
 const Utils = imports.utils;
 
@@ -85,13 +85,13 @@ const TrackerConnectionQueue = new Lang.Class({
         this._running = true;
 
         if (params.queryType == QueryType.SELECT)
-            Global.connection.query_async(params.query, params.cancellable,
+            Application.connection.query_async(params.query, params.cancellable,
                                           Lang.bind(this, this._queueCollector, params));
         else if (params.queryType == QueryType.UPDATE)
-            Global.connection.update_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
+            Application.connection.update_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
                                            Lang.bind(this, this._queueCollector, params));
         else if (params.queryType == QueryType.UPDATE_BLANK)
-            Global.connection.update_blank_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
+            Application.connection.update_blank_async(params.query, GLib.PRIORITY_DEFAULT, params.cancellable,
                                                  Lang.bind(this, this._queueCollector, params));
     },
 
@@ -121,18 +121,18 @@ const TrackerController = new Lang.Class({
         // useful for debugging
         this._lastQueryTime = 0;
 
-        Global.sourceManager.connect('item-added', Lang.bind(this, this._onSourceAddedRemoved));
-        Global.sourceManager.connect('item-removed', Lang.bind(this, this._onSourceAddedRemoved));
-        Global.sourceManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
+        Application.sourceManager.connect('item-added', Lang.bind(this, this._onSourceAddedRemoved));
+        Application.sourceManager.connect('item-removed', Lang.bind(this, this._onSourceAddedRemoved));
+        Application.sourceManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
 
-        Global.offsetController.connect('offset-changed', Lang.bind(this, this._performCurrentQuery));
+        Application.offsetController.connect('offset-changed', Lang.bind(this, this._performCurrentQuery));
 
-        Global.collectionManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
-        Global.searchController.connect('search-string-changed', Lang.bind(this, this._refreshForObject));
-        Global.searchCategoryManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
-        Global.searchTypeManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
+        Application.collectionManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
+        Application.searchController.connect('search-string-changed', Lang.bind(this, this._refreshForObject));
+        Application.searchCategoryManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
+        Application.searchTypeManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
 
-        Global.searchMatchManager.connect('active-changed', Lang.bind(this, this._onSearchMatchChanged));
+        Application.searchMatchManager.connect('active-changed', Lang.bind(this, this._onSearchMatchChanged));
     },
 
     _setQueryStatus: function(status) {
@@ -169,7 +169,7 @@ const TrackerController = new Lang.Class({
         if (exception)
             this._onQueryError(exception);
         else
-            Global.offsetController.resetItemCount();
+            Application.offsetController.resetItemCount();
 
         if (this._queryQueued) {
             this._queryQueued = false;
@@ -195,7 +195,7 @@ const TrackerController = new Lang.Class({
 
         Utils.debug('Query Cursor: '
                     + (GLib.get_monotonic_time() - this._lastQueryTime) / 1000000);
-        Global.documentManager.addDocumentFromCursor(cursor);
+        Application.documentManager.addDocumentFromCursor(cursor);
         cursor.next_async(this._cancellable, Lang.bind(this, this._onCursorNext));
     },
 
@@ -212,18 +212,18 @@ const TrackerController = new Lang.Class({
     },
 
     _performCurrentQuery: function() {
-        this._currentQuery = Global.queryBuilder.buildGlobalQuery();
+        this._currentQuery = Application.queryBuilder.buildGlobalQuery();
         this._cancellable.reset();
 
-        Global.connectionQueue.add(this._currentQuery.sparql,
-                                   this._cancellable, Lang.bind(this, this._onQueryExecuted));
+        Application.connectionQueue.add(this._currentQuery.sparql,
+                                        this._cancellable, Lang.bind(this, this._onQueryExecuted));
     },
 
     _refreshInternal: function(flags) {
         this._isStarted = true;
 
         if (flags & RefreshFlags.RESET_OFFSET)
-            Global.offsetController.resetOffset();
+            Application.offsetController.resetOffset();
 
         if (this.getQueryStatus()) {
             this._cancellable.cancel();
@@ -234,7 +234,7 @@ const TrackerController = new Lang.Class({
         }
 
         this._setQueryStatus(true);
-        Global.documentManager.clear();
+        Application.documentManager.clear();
 
         this._performCurrentQuery();
     },
@@ -246,7 +246,7 @@ const TrackerController = new Lang.Class({
     _onSearchMatchChanged: function() {
         // when the "match" search setting changes, refresh only if
         // the search string is not empty
-        if (Global.searchController.getString() != '')
+        if (Application.searchController.getString() != '')
             this._refreshInternal(RefreshFlags.RESET_OFFSET);
     },
 

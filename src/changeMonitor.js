@@ -24,7 +24,7 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
-const Global = imports.global;
+const Application = imports.application;
 
 const TrackerResourcesServiceIface = <interface name='org.freedesktop.Tracker1.Resources'>
     <signal name="GraphUpdated">
@@ -139,7 +139,7 @@ const TrackerChangeMonitor = new Lang.Class({
         sparql += ' {}';
 
         // resolve all the unresolved IDs we got so far
-        Global.connectionQueue.add(sparql, null, Lang.bind(this,
+        Application.connectionQueue.add(sparql, null, Lang.bind(this,
             function(object, res) {
                 let cursor = object.query_finish(res);
 

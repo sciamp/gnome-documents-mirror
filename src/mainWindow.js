@@ -28,9 +28,9 @@ const GtkClutter = imports.gi.GtkClutter;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
+const Application = imports.application;
 const Config = imports.config;
 const Embed = imports.embed;
-const Global = imports.global;
 const Selections = imports.selections;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
@@ -51,7 +51,7 @@ const MainWindow = new Lang.Class({
 						  title: _("Documents") });
 
         // apply the last saved window size and position
-        let size = Global.settings.get_value('window-size');
+        let size = Application.settings.get_value('window-size');
         if (size.n_children() == 2) {
             let width = size.get_child_value(0);
             let height = size.get_child_value(1);
@@ -60,7 +60,7 @@ const MainWindow = new Lang.Class({
                                          height.get_int32());
         }
 
-        let position = Global.settings.get_value('window-position');
+        let position = Application.settings.get_value('window-position');
         if (position.n_children() == 2) {
             let x = position.get_child_value(0);
             let y = position.get_child_value(1);
@@ -69,7 +69,7 @@ const MainWindow = new Lang.Class({
                              y.get_int32());
         }
 
-        if (Global.settings.get_boolean('window-maximized'))
+        if (Application.settings.get_boolean('window-maximized'))
             this.window.maximize();
 
         this.window.connect('delete-event',
@@ -81,8 +81,8 @@ const MainWindow = new Lang.Class({
         this.window.connect('window-state-event',
                             Lang.bind(this, this._onWindowStateEvent));
 
-        Global.modeController.connect('fullscreen-changed',
-                                      Lang.bind(this, this._onFullscreenChanged));
+        this._fsId = Application.modeController.connect('fullscreen-changed',
+            Lang.bind(this, this._onFullscreenChanged));
 
         this._embed = new Embed.Embed();
         this.window.add(this._embed.widget);
@@ -98,15 +98,15 @@ const MainWindow = new Lang.Class({
         // GLib.Variant.new() can handle arrays just fine
         let size = this.window.get_size();
         let variant = GLib.Variant.new ('ai', size);
-        Global.settings.set_value('window-size', variant);
+        Application.settings.set_value('window-size', variant);
 
         let position = this.window.get_position();
         variant = GLib.Variant.new ('ai', position);
-        Global.settings.set_value('window-position', variant);
+        Application.settings.set_value('window-position', variant);
     },
 
     _onConfigureEvent: function(widget, event) {
-        if (Global.modeController.getFullscreen())
+        if (Application.modeController.getFullscreen())
             return;
 
         if (this._configureId != 0) {
@@ -129,7 +129,7 @@ const MainWindow = new Lang.Class({
             return;
 
         let maximized = (state & Gdk.WindowState.MAXIMIZED);
-        Global.settings.set_boolean('window-maximized', maximized);
+        Application.settings.set_boolean('window-maximized', maximized);
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {
@@ -145,7 +145,7 @@ const MainWindow = new Lang.Class({
         if (toolbar.handleEvent(event))
             return true;
 
-        if (Global.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW)
+        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW)
             return this._handleKeyPreview(event);
         else
             return this._handleKeyOverview(event);
@@ -154,7 +154,7 @@ const MainWindow = new Lang.Class({
     _handleKeyPreview: function(event) {
         let keyval = event.get_keyval()[1];
         let state = event.get_state()[1];
-        let fullscreen = Global.modeController.getFullscreen();
+        let fullscreen = Application.modeController.getFullscreen();
         let direction = this.window.get_direction();
 
         if ((fullscreen && keyval == Gdk.KEY_Escape) ||
@@ -162,7 +162,7 @@ const MainWindow = new Lang.Class({
              (direction == Gtk.TextDirection.LTR && keyval == Gdk.KEY_Left) ||
              (direction == Gtk.TextDirection.RTL && keyval == Gdk.KEY_Right)) ||
             keyval == Gdk.KEY_Back) {
-            Global.documentManager.setActiveItem(null);
+            Application.documentManager.setActiveItem(null);
             return true;
         }
 
@@ -172,9 +172,9 @@ const MainWindow = new Lang.Class({
     _handleKeyOverview: function(event) {
         let keyval = event.get_keyval()[1];
 
-        if (Global.selectionController.getSelectionMode() &&
+        if (Application.selectionController.getSelectionMode() &&
             keyval == Gdk.KEY_Escape) {
-            Global.selectionController.setSelectionMode(false);
+            Application.selectionController.setSelectionMode(false);
             return true;
         }
 

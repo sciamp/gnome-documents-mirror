@@ -34,65 +34,15 @@ const _ = imports.gettext.gettext;
 const Lang = imports.lang;
 const Signals = imports.signals;
 
+const Application = imports.application;
 const ChangeMonitor = imports.changeMonitor;
-const Global = imports.global;
 const Manager = imports.manager;
 const Notifications = imports.notifications;
 const Path = imports.path;
 const Query = imports.query;
-const Searchbar = imports.searchbar;
+const Search = imports.search;
 const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
-
-const SingleItemJob = new Lang.Class({
-    Name: 'SingleItemJob',
-
-    _init: function(urn) {
-        this._urn = urn;
-        this._cursor = null;
-    },
-
-    run: function(flags, callback) {
-        this._callback = callback;
-
-        let query = Global.queryBuilder.buildSingleQuery(flags, this._urn);
-        Global.connectionQueue.add(query.sparql, null, Lang.bind(this,
-            function(object, res) {
-                try {
-                    let cursor = object.query_finish(res);
-                    cursor.next_async(null, Lang.bind(this, this._onCursorNext));
-                } catch (e) {
-                    log('Unable to query single item ' + e.toString());
-                    this._emitCallback();
-                }
-            }));
-    },
-
-    _onCursorNext: function(cursor, res) {
-        let valid = false;
-
-        try {
-            valid = cursor.next_finish(res);
-        } catch (e) {
-            log('Unable to query single item ' + e.toString());
-        }
-
-        if (!valid) {
-            cursor.close();
-            this._emitCallback();
-
-            return;
-        }
-
-        this._cursor = cursor;
-        this._emitCallback();
-        cursor.close();
-    },
-
-    _emitCallback: function() {
-        this._callback(this._cursor);
-    }
-});
 
 const DeleteItemJob = new Lang.Class({
     Name: 'DeleteItemJob',
@@ -105,8 +55,8 @@ const DeleteItemJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let query = Global.queryBuilder.buildDeleteResourceQuery(this._urn);
-        Global.connectionQueue.update(query.sparql, null, Lang.bind(this,
+        let query = Application.queryBuilder.buildDeleteResourceQuery(this._urn);
+        Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 try {
                     object.update_finish(res);
@@ -140,8 +90,8 @@ const CollectionIconWatcher = new Lang.Class({
     _start: function() {
         this._clear();
 
-        let query = Global.queryBuilder.buildCollectionIconQuery(this._collection.id);
-        Global.connectionQueue.add(query.sparql, null, Lang.bind(this,
+        let query = Application.queryBuilder.buildCollectionIconQuery(this._collection.id);
+        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 let cursor = null;
                 try {
@@ -188,7 +138,7 @@ const CollectionIconWatcher = new Lang.Class({
 
         this._urns.forEach(Lang.bind(this,
             function(urn) {
-                let doc = Global.documentManager.getItemById(urn);
+                let doc = Application.documentManager.getItemById(urn);
                 if (doc)
                     this._docs.push(doc);
                 else
@@ -203,11 +153,11 @@ const CollectionIconWatcher = new Lang.Class({
 
         toQuery.forEach(Lang.bind(this,
             function(urn) {
-                let job = new SingleItemJob(urn);
+                let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
                 job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
                     function(cursor) {
                         if (cursor) {
-                            let doc = Global.documentManager.createDocumentFromCursor(cursor);
+                            let doc = Application.documentManager.createDocumentFromCursor(cursor);
                             this._docs.push(doc);
                         }
 
@@ -297,15 +247,15 @@ const DocCommon = new Lang.Class({
         this.populateFromCursor(cursor);
 
         this._refreshIconId =
-            Global.settings.connect('changed::view-as',
-                                    Lang.bind(this, this.refreshIcon));
+            Application.settings.connect('changed::view-as',
+                                         Lang.bind(this, this.refreshIcon));
         this._filterId =
-            Global.searchCategoryManager.connect('active-changed',
-                                                 Lang.bind(this, this.refreshIcon));
+            Application.searchCategoryManager.connect('active-changed',
+                                                      Lang.bind(this, this.refreshIcon));
     },
 
     refresh: function() {
-        let job = new SingleItemJob(this.id);
+        let job = new TrackerUtils.SingleItemJob(this.id, Application.queryBuilder);
         job.run(Query.QueryFlags.NONE, Lang.bind(this,
             function(cursor) {
                 if (!cursor)
@@ -541,11 +491,11 @@ const DocCommon = new Lang.Class({
         // save the pixbuf before modifications, to use in collection icons
         this.pristinePixbuf = pixbuf;
 
-        activeItem = Global.searchCategoryManager.getActiveItem();
+        activeItem = Application.searchCategoryManager.getActiveItem();
 
         if (this.shared &&
             (!activeItem ||
-             (activeItem.id != Searchbar.SearchCategoryStock.SHARED)))
+             (activeItem.id != Search.SearchCategoryStock.SHARED)))
             emblemIcons.push(this._createSymbolicEmblem('emblem-shared'));
 
         if (emblemIcons.length > 0) {
@@ -589,8 +539,8 @@ const DocCommon = new Lang.Class({
             this._collectionIconWatcher = null;
         }
 
-        Global.settings.disconnect(this._refreshIconId);
-        Global.searchCategoryManager.disconnect(this._filterId);
+        Application.settings.disconnect(this._refreshIconId);
+        Application.searchCategoryManager.disconnect(this._filterId);
     },
 
     open: function(screen, timestamp) {
@@ -695,7 +645,7 @@ const GoogleDocument = new Lang.Class({
     },
 
     _createGDataEntry: function(cancellable, callback) {
-        let source = Global.sourceManager.getItemById(this.resourceUrn);
+        let source = Application.sourceManager.getItemById(this.resourceUrn);
 
         let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
         let service = new GData.DocumentsService({ authorizer: authorizer });
@@ -793,7 +743,7 @@ const SkydriveDocument = new Lang.Class({
     },
 
     _createZpjEntry: function(cancellable, callback) {
-        let source = Global.sourceManager.getItemById(this.resourceUrn);
+        let source = Application.sourceManager.getItemById(this.resourceUrn);
 
         let authorizer = new Zpj.GoaAuthorizer({ goa_object: source.object });
         let service = new Zpj.Skydrive({ authorizer: authorizer });
@@ -885,8 +835,8 @@ const DocumentManager = new Lang.Class({
         // navigate to the active document or collection
         this._collectionPath = [];
 
-        Global.changeMonitor.connect('changes-pending',
-                                     Lang.bind(this, this._onChangesPending));
+        Application.changeMonitor.connect('changes-pending',
+                                          Lang.bind(this, this._onChangesPending));
     },
 
     _onChangesPending: function(monitor, changes) {
@@ -908,14 +858,14 @@ const DocumentManager = new Lang.Class({
                     this.removeItemById(changeEvent.urn);
 
                     if (doc.collection)
-                        Global.collectionManager.removeItemById(changeEvent.urn);
+                        Application.collectionManager.removeItemById(changeEvent.urn);
                 }
             }
         }
     },
 
     _onDocumentCreated: function(urn) {
-        let job = new SingleItemJob(urn);
+        let job = new TrackerUtils.SingleItemJob(urn, Application.queryBuilder);
         job.run(Query.QueryFlags.NONE, Lang.bind(this,
             function(cursor) {
                 if (!cursor)
@@ -954,7 +904,7 @@ const DocumentManager = new Lang.Class({
         this.addItem(doc);
 
         if (doc.collection)
-            Global.collectionManager.addItem(doc);
+            Application.collectionManager.addItem(doc);
 
         return doc;
     },
@@ -1002,8 +952,8 @@ const DocumentManager = new Lang.Class({
             return;
 
         if (doc.collection) {
-            this._collectionPath.push(Global.collectionManager.getActiveItem());
-            Global.collectionManager.setActiveItem(doc);
+            this._collectionPath.push(Application.collectionManager.getActiveItem());
+            Application.collectionManager.setActiveItem(doc);
             return;
         }
 
@@ -1017,7 +967,7 @@ const DocumentManager = new Lang.Class({
 
     activatePreviousCollection: function() {
         this._clearActiveDocModel();
-        Global.collectionManager.setActiveItem(this._collectionPath.pop());
+        Application.collectionManager.setActiveItem(this._collectionPath.pop());
     },
 
     _clearActiveDocModel: function() {

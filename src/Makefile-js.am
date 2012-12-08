@@ -4,21 +4,19 @@ dist_js_DATA = \
     changeMonitor.js \
     documents.js \
     embed.js \
-    global.js \
     main.js \
     mainToolbar.js \
     mainWindow.js \
     manager.js \
     miners.js \
     notifications.js \
-    offsetController.js \
     preview.js \
     properties.js\
     query.js \
+    search.js \
     searchbar.js \
     selections.js \
     shellSearchProvider.js \
-    sources.js \
     trackerController.js \
     trackerUtils.js \
     utils.js \

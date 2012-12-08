@@ -31,7 +31,7 @@ const _ = imports.gettext.gettext;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 
-const Global = imports.global;
+const Application = imports.application;
 const Tweener = imports.util.tweener;
 const MainToolbar = imports.mainToolbar;
 const Searchbar = imports.searchbar;
@@ -54,37 +54,37 @@ const PreviewView = new Lang.Class({
         this._createView();
         this.widget.show_all();
 
-        this._zoomIn = Global.application.lookup_action('zoom-in');
+        this._zoomIn = Application.application.lookup_action('zoom-in');
         this._zoomIn.connect('activate', Lang.bind(this,
             function() {
                 this._model.set_sizing_mode(EvView.SizingMode.FREE);
                 this.view.zoom_in();
             }));
 
-        this._zoomOut = Global.application.lookup_action('zoom-out');
+        this._zoomOut = Application.application.lookup_action('zoom-out');
         this._zoomOut.connect('activate', Lang.bind(this,
             function() {
                 this._model.set_sizing_mode(EvView.SizingMode.FREE);
                 this.view.zoom_out();
             }));
 
-        this._findPrev = Global.application.lookup_action('find-prev');
+        this._findPrev = Application.application.lookup_action('find-prev');
         this._findPrev.connect('activate', Lang.bind(this,
             function() {
                 this.view.find_previous();
             }));
-        this._findNext = Global.application.lookup_action('find-next');
+        this._findNext = Application.application.lookup_action('find-next');
         this._findNext.connect('activate', Lang.bind(this,
             function() {
                 this.view.find_next();
             }));
 
-        let rotLeft = Global.application.lookup_action('rotate-left');
+        let rotLeft = Application.application.lookup_action('rotate-left');
         rotLeft.connect('activate', Lang.bind(this,
             function() {
                 this._changeRotation(-90);
             }));
-        let rotRight = Global.application.lookup_action('rotate-right');
+        let rotRight = Application.application.lookup_action('rotate-right');
         rotRight.connect('activate', Lang.bind(this,
             function() {
                 this._changeRotation(90);
@@ -137,7 +137,7 @@ const PreviewView = new Lang.Class({
         let clickCount = event.get_click_count()[1];
 
         if (button == 1 && clickCount == 2) {
-            Global.modeController.toggleFullscreen();
+            Application.modeController.toggleFullscreen();
             return true;
         }
 
@@ -324,7 +324,7 @@ const PreviewFullscreen = new Lang.Class({
     },
 
     _fullscreenMotionHandler: function() {
-        if (!Global.modeController.getFullscreen())
+        if (!Application.modeController.getFullscreen())
             return;
 
         // if we were idle fade in the toolbar, otherwise reset
@@ -363,7 +363,7 @@ const PreviewToolbar = new Lang.Class({
             this.widget.add_button(iconName, _("Back"), true);
         backButton.connect('clicked', Lang.bind(this,
             function() {
-                Global.documentManager.setActiveItem(null);
+                Application.documentManager.setActiveItem(null);
             }));
 
         // search button, on the right of the toolbar
@@ -384,7 +384,7 @@ const PreviewToolbar = new Lang.Class({
         builder.add_from_resource('/org/gnome/documents/preview-menu.ui');
         let menu = builder.get_object('preview-menu');
 
-        let doc = Global.documentManager.getActiveItem();
+        let doc = Application.documentManager.getActiveItem();
         if (doc && doc.defaultAppName) {
             let section = builder.get_object('open-section');
             section.remove(0);
@@ -404,7 +404,7 @@ const PreviewToolbar = new Lang.Class({
     _setToolbarTitle: function() {
         let primary = null;
         let detail = null;
-        let doc = Global.documentManager.getActiveItem();
+        let doc = Application.documentManager.getActiveItem();
 
         if (doc)
             primary = doc.name;
@@ -457,7 +457,7 @@ const PreviewSearchbar = new Lang.Class({
         this._searchEntry = new Gtk.SearchEntry({ width_request: 500 });
         this._searchEntry.connect('activate', Lang.bind(this,
             function() {
-                Global.application.activate_action('find-next', null);
+                Application.application.activate_action('find-next', null);
             }));
         this._searchContainer.add(this._searchEntry);
 

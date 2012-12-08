@@ -1,7 +1,7 @@
 [Desktop Entry]
 _Name=Documents
 _Comment=Access, manage and share documents
-Exec=gnome-documents %U
+Exec=gnome-documents
 Icon=gnome-documents
 Terminal=false
 Type=Application

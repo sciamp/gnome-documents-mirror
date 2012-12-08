@@ -20,13 +20,14 @@
  */
 
 const GLib = imports.gi.GLib;
+const Lang = imports.lang;
 
-const Global = imports.global;
+const Application = imports.application;
 
 function setEditedName(newTitle, docId, callback) {
     let sparql = ('INSERT OR REPLACE { <%s> nie:title \"%s\" }'.format(docId, newTitle));
 
-    Global.connectionQueue.update(sparql, null,
+    Application.connectionQueue.update(sparql, null,
         function(object, res) {
             try {
                 object.update_finish(res);
@@ -39,3 +40,54 @@ function setEditedName(newTitle, docId, callback) {
         });
 
 }
+
+const SingleItemJob = new Lang.Class({
+    Name: 'SingleItemJob',
+
+    _init: function(urn, queryBuilder) {
+        this._urn = urn;
+        this._cursor = null;
+        this._builder = queryBuilder;
+    },
+
+    run: function(flags, callback) {
+        this._callback = callback;
+
+        let query = this._builder.buildSingleQuery(flags, this._urn);
+        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
+            function(object, res) {
+                try {
+                    let cursor = object.query_finish(res);
+                    cursor.next_async(null, Lang.bind(this, this._onCursorNext));
+                } catch (e) {
+                    log('Unable to query single item ' + e.message);
+                    this._emitCallback();
+                }
+            }));
+    },
+
+    _onCursorNext: function(cursor, res) {
+        let valid = false;
+
+        try {
+            valid = cursor.next_finish(res);
+        } catch (e) {
+            log('Unable to query single item ' + e.message);
+        }
+
+        if (!valid) {
+            cursor.close();
+            this._emitCallback();
+
+            return;
+        }
+
+        this._cursor = cursor;
+        this._emitCallback();
+        cursor.close();
+    },
+
+    _emitCallback: function() {
+        this._callback(this._cursor);
+    }
+});

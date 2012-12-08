@@ -20,8 +20,7 @@
  */
 
 const Lang = imports.lang;
-const Mainloop = imports.mainloop;
-const Gettext = imports.gettext;
+const Signals = imports.signals;
 
 const GdPrivate = imports.gi.GdPrivate;
 const GdkPixbuf = imports.gi.GdkPixbuf;
@@ -31,15 +30,22 @@ const Gtk = imports.gi.Gtk;
 const GLib = imports.gi.GLib;
 const Tracker = imports.gi.Tracker;
 
-const Documents = imports.documents;
+const Application = imports.application;
 const Format = imports.format;
-const Global = imports.global;
 const Path = imports.path;
 const Query = imports.query;
+const Search = imports.search;
+const TrackerUtils = imports.trackerUtils;
 const Utils = imports.utils;
 
-const MAINLOOP_ID = "documents-search-provider";
-const AUTOQUIT_TIMEOUT = 120;
+let collectionManager = null;
+let offsetController = null;
+let queryBuilder = null;
+let searchCategoryManager = null;
+let searchMatchManager = null;
+let searchTypeManager = null;
+let searchController = null;
+let sourceManager = null;
 
 const SEARCH_PROVIDER_IFACE = 'org.gnome.Shell.SearchProvider';
 const SEARCH_PROVIDER_NAME  = 'org.gnome.Documents.SearchProvider';
@@ -126,8 +132,8 @@ const CreateCollectionIconJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let query = Global.queryBuilder.buildCollectionIconQuery(this._id);
-        Global.connectionQueue.add(query.sparql, null, Lang.bind(this,
+        let query = queryBuilder.buildCollectionIconQuery(this._id);
+        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 let cursor = null;
 
@@ -201,7 +207,7 @@ const CreateCollectionIconJob = new Lang.Class({
 
         this._itemIds.forEach(Lang.bind(this,
             function(itemId) {
-                let job = new Documents.SingleItemJob(itemId);
+                let job = new TrackerUtils.SingleItemJob(itemId, queryBuilder);
                 this._itemJobs++;
                 job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
                     function(cursor) {
@@ -258,7 +264,7 @@ const FetchMetasJob = new Lang.Class({
 
         this._ids.forEach(Lang.bind(this,
             function(id) {
-                let single = new Documents.SingleItemJob(id);
+                let single = new TrackerUtils.SingleItemJob(id, queryBuilder);
                 single.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
                     function(cursor) {
                         let title =    cursor.get_string(Query.QueryColumns.TITLE)[0];
@@ -304,10 +310,10 @@ const FetchIdsJob = new Lang.Class({
     run: function(callback, cancellable) {
         this._callback = callback;
         this._cancellable = cancellable;
-        Global.searchController.setString(this._terms.join(' ').toLowerCase());
+        searchController.setString(this._terms.join(' ').toLowerCase());
 
-        let query = Global.queryBuilder.buildGlobalQuery();
-        Global.connectionQueue.add(query.sparql, this._cancellable, Lang.bind(this,
+        let query = queryBuilder.buildGlobalQuery();
+        Application.connectionQueue.add(query.sparql, this._cancellable, Lang.bind(this,
             function(object, res) {
                 let cursor = null;
 
@@ -347,71 +353,23 @@ const ShellSearchProvider = new Lang.Class({
     Name: 'ShellSearchProvider',
 
     _init: function() {
+        Application.application.hold();
         Gio.DBus.own_name(Gio.BusType.SESSION,
                           SEARCH_PROVIDER_NAME,
                           Gio.BusNameOwnerFlags.NONE,
                           Lang.bind(this, this._onBusAcquired),
-                          Lang.bind(this, this._onNameAcquired),
-                          Lang.bind(this, this._onNameLost));
+                          null, null);
 
         this._cache = {};
-        this._initReal();
-
-        this._timeoutId = 0;
         this._cancellable = new Gio.Cancellable();
+
+        Search.initSearch(imports.shellSearchProvider);
     },
 
     _onBusAcquired: function() {
         let dbusImpl = Gio.DBusExportedObject.wrapJSObject(SearchProviderIface, this);
         dbusImpl.export(Gio.DBus.session, SEARCH_PROVIDER_PATH);
-    },
-
-    _onNameAcquired: function() {
-        this._resetTimeout();
-    },
-
-    _onNameLost: function() {
-        this.quit();
-    },
-
-    _initReal: function() {
-        String.prototype.format = Format.format;
-
-        Gtk.init(null, null);
-
-        Global.application = this;
-        Global.settings = new Gio.Settings({ schema: 'org.gnome.documents' });
-
-        // connect to tracker
-        try {
-            Global.connection = Tracker.SparqlConnection.get(null);
-        } catch (e) {
-            log('Unable to connect to the tracker database: ' + e.toString());
-            this.quit();
-        }
-
-        try {
-            Global.goaClient = Goa.Client.new_sync(null);
-        } catch (e) {
-            log('Unable to create the GOA client: ' + e.toString());
-            this.quit();
-        }
-
-        Global.initSearch();
-    },
-
-    _resetTimeout: function() {
-        if (this._timeoutId) {
-            Mainloop.source_remove(this._timeoutId);
-            this._timeoutId = 0;
-        }
-
-        if (GLib.getenv('DOCUMENTS_SEARCH_PROVIDER_PERSIST'))
-            return;
-
-        this._timeoutId = Mainloop.timeout_add_seconds(AUTOQUIT_TIMEOUT,
-                                                       Lang.bind(this,
-                                                                 this.quit));
+        Application.application.release();
     },
 
     _returnMetasFromCache: function(ids, invocation) {
@@ -435,12 +393,14 @@ const ShellSearchProvider = new Lang.Class({
 
             metas.push(meta);
         }
+
+        Application.application.release();
         invocation.return_value(GLib.Variant.new('(aa{sv})', [ metas ]));
     },
 
     GetInitialResultSetAsync: function(params, invocation) {
         let terms = params[0];
-        this._resetTimeout();
+        Application.application.hold();
 
         this._cancellable.cancel();
         this._cancellable.reset();
@@ -448,13 +408,14 @@ const ShellSearchProvider = new Lang.Class({
         let job = new FetchIdsJob(terms);
         job.run(Lang.bind(this,
             function(ids) {
+                Application.application.release();
                 invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
             }), this._cancellable);
     },
 
     GetSubsearchResultSetAsync: function(params, invocation) {
         let [previousResults, terms] = params;
-        this._resetTimeout();
+        Application.application.hold();
 
         this._cancellable.cancel();
         this._cancellable.reset();
@@ -462,13 +423,14 @@ const ShellSearchProvider = new Lang.Class({
         let job = new FetchIdsJob(terms);
         job.run(Lang.bind(this,
             function(ids) {
+                Application.application.release();
                 invocation.return_value(GLib.Variant.new('(as)', [ ids ]));
             }), this._cancellable);
     },
 
     GetResultMetasAsync: function(params, invocation) {
         let ids = params[0];
-        this._resetTimeout();
+        Application.application.hold();
 
         let toFetch = ids.filter(Lang.bind(this,
             function(id) {
@@ -493,28 +455,7 @@ const ShellSearchProvider = new Lang.Class({
     },
 
     ActivateResult: function(id) {
-        let app = Gio.DesktopAppInfo.new('gnome-documents.desktop');
-        if (!app)
-            return;
-
-        try {
-            if (!app.launch_uris([id], null))
-                log('Activating result "' + id + '" failed');
-        } catch(e) {
-            log('Activating result "' + id + '" failed - ' + e);
-        }
-    },
-
-    quit: function() {
-        Mainloop.quit(MAINLOOP_ID);
-    },
-
-    run: function() {
-        Mainloop.run(MAINLOOP_ID);
+        this.emit('activate-result', id);
     }
 });
-
-function start() {
-    let searchProvider = new ShellSearchProvider();
-    searchProvider.run();
-}
+Signals.addSignalMethods(ShellSearchProvider.prototype);

@@ -30,8 +30,8 @@ const GtkClutter = imports.gi.GtkClutter;
 const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
 
+const Application = imports.application;
 const Documents = imports.documents;
-const Global = imports.global;
 const Manager = imports.manager;
 const Notifications = imports.notifications;
 const Properties = imports.properties;
@@ -56,8 +56,8 @@ const FetchCollectionsJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let query = Global.queryBuilder.buildFetchCollectionsQuery(this._urn);
-        Global.connectionQueue.add(query.sparql, null, Lang.bind(this,
+        let query = Application.queryBuilder.buildFetchCollectionsQuery(this._urn);
+        Application.connectionQueue.add(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 let cursor = null;
 
@@ -118,7 +118,7 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let urns = Global.selectionController.getSelection();
+        let urns = Application.selectionController.getSelection();
         urns.forEach(Lang.bind(this,
             function(urn) {
                 let job = new FetchCollectionsJob(urn);
@@ -138,7 +138,7 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
 
     _emitCallback: function() {
         let collectionState = {};
-        let collections = Global.collectionManager.getItems();
+        let collections = Application.collectionManager.getItems();
 
         // for all the registered collections...
         for (collIdx in collections) {
@@ -152,14 +152,14 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
             // collection itself, hide this if it's the same collection.
             if (Object.keys(this._collectionsForItems).length == 1) {
                 let itemIdx = Object.keys(this._collectionsForItems)[0];
-                let item = Global.documentManager.getItemById(itemIdx);
+                let item = Application.documentManager.getItemById(itemIdx);
 
                 if (item.id == collection.id)
                     hidden = true;
             }
 
             for (itemIdx in this._collectionsForItems) {
-                let item = Global.documentManager.getItemById(itemIdx);
+                let item = Application.documentManager.getItemById(itemIdx);
                 let collectionsForItem = this._collectionsForItems[itemIdx];
 
                 // if one of the selected items is part of this collection...
@@ -205,8 +205,8 @@ const UpdateMtimeJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let query = Global.queryBuilder.buildUpdateMtimeQuery(this._urn);
-        Global.connectionQueue.update(query.sparql, null, Lang.bind(this,
+        let query = Application.queryBuilder.buildUpdateMtimeQuery(this._urn);
+        Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 try {
                     object.update_finish(res);
@@ -233,18 +233,18 @@ const SetCollectionForSelectionJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let urns = Global.selectionController.getSelection();
+        let urns = Application.selectionController.getSelection();
         urns.forEach(Lang.bind(this,
             function(urn) {
                 // never add a collection to itself!!
                 if (urn == this._collectionUrn)
                     return;
 
-                let query = Global.queryBuilder.buildSetCollectionQuery(urn,
+                let query = Application.queryBuilder.buildSetCollectionQuery(urn,
                     this._collectionUrn, this._setting);
                 this._runningJobs++;
 
-                Global.connectionQueue.update(query.sparql, null, Lang.bind(this,
+                Application.connectionQueue.update(query.sparql, null, Lang.bind(this,
                     function(object, res) {
                         try {
                             object.update_finish(res);
@@ -284,8 +284,8 @@ const CreateCollectionJob = new Lang.Class({
     run: function(callback) {
         this._callback = callback;
 
-        let query = Global.queryBuilder.buildCreateCollectionQuery(this._name);
-        Global.connectionQueue.updateBlank(query.sparql, null, Lang.bind(this,
+        let query = Application.queryBuilder.buildCreateCollectionQuery(this._name);
+        Application.connectionQueue.updateBlank(query.sparql, null, Lang.bind(this,
             function(object, res) {
                 let variant = null;
                 try {
@@ -326,12 +326,10 @@ const OrganizeCollectionModel = new Lang.Class({
               GObject.TYPE_INT ]);
         this._placeholderRef = null;
 
-        this._collAddedId =
-            Global.collectionManager.connect('item-added',
-                                             Lang.bind(this, this._onCollectionAdded));
-        this._collRemovedId =
-            Global.collectionManager.connect('item-removed',
-                                             Lang.bind(this, this._onCollectionRemoved));
+        this._collAddedId = Application.collectionManager.connect('item-added',
+            Lang.bind(this, this._onCollectionAdded));
+        this._collRemovedId = Application.collectionManager.connect('item-removed',
+            Lang.bind(this, this._onCollectionRemoved));
 
         // populate the model
         let job = new FetchCollectionStateForSelectionJob();
@@ -363,7 +361,7 @@ const OrganizeCollectionModel = new Lang.Class({
         this.removePlaceholder();
 
         for (idx in collectionState) {
-            let item = Global.collectionManager.getItemById(idx);
+            let item = Application.collectionManager.getItemById(idx);
 
             if ((collectionState[item.id] & OrganizeCollectionState.HIDDEN) != 0)
                 continue;
@@ -440,12 +438,12 @@ const OrganizeCollectionModel = new Lang.Class({
 
     destroy: function() {
         if (this._collAddedId != 0) {
-            Global.collectionManager.disconnect(this._collAddedId);
+            Application.collectionManager.disconnect(this._collAddedId);
             this._collAddedId = 0;
         }
 
         if (this._collRemovedId != 0) {
-            Global.collectionManager.disconnect(this._collRemovedId);
+            Application.collectionManager.disconnect(this._collRemovedId);
             this._collRemovedId = 0;
         }
     }
@@ -574,10 +572,10 @@ const OrganizeCollectionView = new Lang.Class({
 
     _detailCellFunc: function(col, cell, model, iter) {
         let id = model.get_value(iter, OrganizeModelColumns.ID);
-        let item = Global.collectionManager.getItemById(id);
+        let item = Application.collectionManager.getItemById(id);
 
         if (item && item.identifier.indexOf(Query.LOCAL_COLLECTIONS_IDENTIFIER) == -1) {
-            cell.text = Global.sourceManager.getItemById(item.resourceUrn).name;
+            cell.text = Application.sourceManager.getItemById(item.resourceUrn).name;
             cell.visible = true;
         } else {
             cell.text = '';
@@ -660,8 +658,8 @@ const SelectionController = new Lang.Class({
         this._selection = [];
         this._selectionMode = false;
 
-        Global.documentManager.connect('item-removed',
-                                       Lang.bind(this, this._onDocumentRemoved));
+        Application.documentManager.connect('item-removed',
+            Lang.bind(this, this._onDocumentRemoved));
     },
 
     _onDocumentRemoved: function(manager, item) {
@@ -796,10 +794,10 @@ const SelectionToolbar = new Lang.Class({
 
         this.widget.show_all();
 
-        Global.selectionController.connect('selection-mode-changed',
-                                           Lang.bind(this, this._onSelectionModeChanged));
-        Global.selectionController.connect('selection-changed',
-                                           Lang.bind(this, this._onSelectionChanged));
+        Application.selectionController.connect('selection-mode-changed',
+            Lang.bind(this, this._onSelectionModeChanged));
+        Application.selectionController.connect('selection-changed',
+            Lang.bind(this, this._onSelectionChanged));
     },
 
     _onSelectionModeChanged: function(controller, mode) {
@@ -810,10 +808,10 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _onSelectionChanged: function() {
-        if (!Global.selectionController.getSelectionMode())
+        if (!Application.selectionController.getSelectionMode())
             return;
 
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
         this._setItemListeners(selection);
 
         if (selection.length > 0) {
@@ -833,7 +831,7 @@ const SelectionToolbar = new Lang.Class({
 
         selection.forEach(Lang.bind(this,
             function(urn) {
-                let doc = Global.documentManager.getItemById(urn);
+                let doc = Application.documentManager.getItemById(urn);
                 let id = doc.connect('info-updated', Lang.bind(this, this._setItemVisibility));
                 this._itemListeners[id] = doc;
             }));
@@ -848,10 +846,10 @@ const SelectionToolbar = new Lang.Class({
 
         this._insideRefresh = true;
 
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
         selection.forEach(Lang.bind(this,
             function(urn) {
-                let doc = Global.documentManager.getItemById(urn);
+                let doc = Application.documentManager.getItemById(urn);
 
                 if ((doc.defaultAppName) &&
                     (apps.indexOf(doc.defaultAppName) == -1))
@@ -904,27 +902,27 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _onToolbarOpen: function(widget) {
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
 
         selection.forEach(Lang.bind(this,
             function(urn) {
-                let doc = Global.documentManager.getItemById(urn);
+                let doc = Application.documentManager.getItemById(urn);
                 doc.open(widget.get_screen(), Gtk.get_current_event_time());
             }));
     },
 
     _onToolbarTrash: function(widget) {
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
 
         selection.forEach(Lang.bind(this,
             function(urn) {
-                let doc = Global.documentManager.getItemById(urn);
+                let doc = Application.documentManager.getItemById(urn);
                 doc.trash();
             }));
     },
 
     _onToolbarProperties: function(widget) {
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
         let dialog = new Properties.PropertiesDialog(selection[0]);
         this._fadeOut();
 
@@ -936,12 +934,12 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _onToolbarPrint: function(widget) {
-        let selection = Global.selectionController.getSelection();
+        let selection = Application.selectionController.getSelection();
 
         if (selection.length != 1)
             return;
 
-        let doc = Global.documentManager.getItemById(selection[0]);
+        let doc = Application.documentManager.getItemById(selection[0]);
         doc.print(this.widget.get_toplevel());
     },
 

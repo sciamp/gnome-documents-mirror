@@ -23,11 +23,10 @@ const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Tweener = imports.util.tweener;
 
-const Global = imports.global;
+const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Notifications = imports.notifications;
 const Preview = imports.preview;
-const Searchbar = imports.searchbar;
 const Selections = imports.selections;
 const View = imports.view;
 const WindowMode = imports.windowMode;
@@ -227,7 +226,7 @@ const EmptyResultsBox = new Lang.Class({
                                          vexpand: true });
         this._labelsGrid.add(titleLabel);
 
-        if (Global.sourceManager.hasOnlineSources()) {
+        if (Application.sourceManager.hasOnlineSources()) {
             titleLabel.valign = Gtk.Align.CENTER;
         } else {
             titleLabel.valign = Gtk.Align.START;
@@ -381,7 +380,7 @@ const Embed = new Lang.Class({
             Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
 
         // pack the OSD notification actor
-        this._viewActor.add_child(Global.notificationManager.actor);
+        this._viewActor.add_child(Application.notificationManager.actor);
 
         // now create the actual content widgets
         this._view = new View.ViewContainer();
@@ -390,32 +389,37 @@ const Embed = new Lang.Class({
         this._preview = new Preview.PreviewView();
         this._previewPage = this._notebook.append_page(this._preview.widget, null);
 
-        Global.modeController.connect('window-mode-changed',
-                                      Lang.bind(this, this._onWindowModeChanged));
-        Global.modeController.connect('fullscreen-changed',
-                                      Lang.bind(this, this._onFullscreenChanged));
-        Global.trackerController.connect('query-status-changed',
-                                         Lang.bind(this, this._onQueryStatusChanged));
-        Global.trackerController.connect('query-error',
-                                         Lang.bind(this, this._onQueryError));
+        Application.modeController.connect('window-mode-changed',
+                                           Lang.bind(this, this._onWindowModeChanged));
 
-        Global.offsetController.connect('item-count-changed',
+        Application.modeController.connect('fullscreen-changed',
+                                           Lang.bind(this, this._onFullscreenChanged));
+        Application.trackerController.connect('query-status-changed',
+                                              Lang.bind(this, this._onQueryStatusChanged));
+        Application.trackerController.connect('query-error',
+                                              Lang.bind(this, this._onQueryError));
+
+        Application.offsetController.connect('item-count-changed',
                                         Lang.bind(this, this._onItemCountChanged));
 
-        Global.documentManager.connect('active-changed',
-                                       Lang.bind(this, this._onActiveItemChanged));
-        Global.documentManager.connect('load-started',
-                                       Lang.bind(this, this._onLoadStarted));
-        Global.documentManager.connect('load-finished',
-                                       Lang.bind(this, this._onLoadFinished));
-        Global.documentManager.connect('load-error',
-                                       Lang.bind(this, this._onLoadError));
+        Application.documentManager.connect('active-changed',
+                                            Lang.bind(this, this._onActiveItemChanged));
+        Application.documentManager.connect('load-started',
+                                            Lang.bind(this, this._onLoadStarted));
+        Application.documentManager.connect('load-finished',
+                                            Lang.bind(this, this._onLoadFinished));
+        Application.documentManager.connect('load-error',
+                                            Lang.bind(this, this._onLoadError));
 
         this._onQueryStatusChanged();
+
+        let windowMode = Application.modeController.getWindowMode();
+        if (windowMode != WindowMode.WindowMode.NONE)
+            this._onWindowModeChanged(Application.modeController, windowMode, WindowMode.WindowMode.NONE);
     },
 
     _onQueryStatusChanged: function() {
-        let queryStatus = Global.trackerController.getQueryStatus();
+        let queryStatus = Application.trackerController.getQueryStatus();
 
         if (queryStatus) {
             this._errorBox.moveOut();
@@ -427,7 +431,7 @@ const Embed = new Lang.Class({
 
     _hideNoResultsPage: function() {
         if (this._noResultsChangeId != 0) {
-            Global.changeMonitor.disconnect(this._noResultsChangeId);
+            Application.changeMonitor.disconnect(this._noResultsChangeId);
             this._noResultsChangeId = 0;
         }
 
@@ -435,12 +439,12 @@ const Embed = new Lang.Class({
     },
 
     _onItemCountChanged: function() {
-        let itemCount = Global.offsetController.getItemCount();
+        let itemCount = Application.offsetController.getItemCount();
 
         if (itemCount == 0) {
             // also listen to changes-pending while in this mode
             this._noResultsChangeId =
-                Global.changeMonitor.connect('changes-pending', Lang.bind(this,
+                Application.changeMonitor.connect('changes-pending', Lang.bind(this,
                     function() {
                         this._hideNoResultsPage();
                     }));
@@ -498,12 +502,12 @@ const Embed = new Lang.Class({
         let newMode = WindowMode.WindowMode.OVERVIEW;
 
         if (doc) {
-            let collection = Global.collectionManager.getItemById(doc.id);
+            let collection = Application.collectionManager.getItemById(doc.id);
             if (!collection)
                 newMode = WindowMode.WindowMode.PREVIEW;
         }
 
-        Global.modeController.setWindowMode(newMode);
+        Application.modeController.setWindowMode(newMode);
     },
 
     _onLoadStarted: function() {
@@ -518,7 +522,7 @@ const Embed = new Lang.Class({
         this._preview.widget.grab_focus();
 
         this._spinnerBox.moveOut();
-        Global.modeController.setCanFullscreen(true);
+        Application.modeController.setCanFullscreen(true);
     },
 
     _onLoadError: function(manager, doc, message, exception) {

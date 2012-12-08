@@ -28,7 +28,7 @@ const GtkClutter = imports.gi.GtkClutter;
 const TrackerMiner = imports.gi.TrackerMiner;
 const _ = imports.gettext.gettext;
 
-const Global = imports.global;
+const Application = imports.application;
 const Utils = imports.utils;
 
 const Lang = imports.lang;
@@ -75,7 +75,7 @@ const PrintNotification = new Lang.Class({
                 this.widget.destroy();
             }));
 
-        Global.notificationManager.addNotification(this);
+        Application.notificationManager.addNotification(this);
     },
 
     _onPrintStatus: function() {
@@ -114,7 +114,7 @@ const IndexingNotification = new Lang.Class({
             return;
         }
 
-        Global.application.connectJS('miners-changed', Lang.bind(this, this._checkNotification));
+        Application.application.connectJS('miners-changed', Lang.bind(this, this._checkNotification));
         Mainloop.idle_add(Lang.bind(this,
             function() {
                 this._checkNotification();
@@ -136,7 +136,7 @@ const IndexingNotification = new Lang.Class({
             }
         }
 
-        if (Global.application.minersRunning.length > 0)
+        if (Application.application.minersRunning.length > 0)
             isIndexingRemote = true;
 
         if (isIndexingLocal) {
@@ -155,8 +155,8 @@ const IndexingNotification = new Lang.Class({
 
         let primary = null;
 
-        if (Global.application.minersRunning.length == 1) {
-            let miner = Global.application.minersRunning[0];
+        if (Application.application.minersRunning.length == 1) {
+            let miner = Application.application.minersRunning[0];
             primary = _("Fetching documents from %s").format(miner.DisplayName);
         } else {
             primary = _("Fetching documents from online accounts");
@@ -207,7 +207,7 @@ const IndexingNotification = new Lang.Class({
             }));
         this.widget.add(close);
 
-        Global.notificationManager.addNotification(this);
+        Application.notificationManager.addNotification(this);
     },
 
     _update: function(primaryText, secondaryText) {
