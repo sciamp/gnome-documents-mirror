@@ -47,7 +47,7 @@ let searchTypeManager = null;
 let searchController = null;
 let sourceManager = null;
 
-const SEARCH_PROVIDER_IFACE = 'org.gnome.Shell.SearchProvider';
+const SEARCH_PROVIDER_IFACE = 'org.gnome.Shell.SearchProvider2';
 const SEARCH_PROVIDER_NAME  = 'org.gnome.Documents.SearchProvider';
 const SEARCH_PROVIDER_PATH  = '/org/gnome/Documents/SearchProvider';
 
@@ -69,6 +69,12 @@ const SearchProviderIface = <interface name={SEARCH_PROVIDER_IFACE}>
 </method>
 <method name = "ActivateResult">
   <arg type="s" direction="in" />
+  <arg type="as" direction="in" />
+  <arg type="u" direction="in" />
+</method>
+<method name = "LaunchSearch">
+  <arg type="as" direction="in" />
+  <arg type="u" direction="in" />
 </method>
 </interface>;
 
@@ -454,8 +460,12 @@ const ShellSearchProvider = new Lang.Class({
         }
     },
 
-    ActivateResult: function(id) {
-        this.emit('activate-result', id);
+    ActivateResult: function(id, terms, timestamp) {
+        this.emit('activate-result', id, terms);
+    },
+
+    LaunchSearch: function(terms, timestamp) {
+        this.emit('launch-search', terms);
     }
 });
 Signals.addSignalMethods(ShellSearchProvider.prototype);

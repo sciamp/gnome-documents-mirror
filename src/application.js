@@ -315,6 +315,7 @@ const Application = new Lang.Class({
         connectionQueue = new TrackerController.TrackerConnectionQueue();
         this._searchProvider = new ShellSearchProvider.ShellSearchProvider();
         this._searchProvider.connect('activate-result', Lang.bind(this, this._onActivateResult));
+        this._searchProvider.connect('launch-search', Lang.bind(this, this._onLaunchSearch));
 
         // now init application components
         Search.initSearch(imports.application);
@@ -431,7 +432,7 @@ const Application = new Lang.Class({
         notificationManager = null;
     },
 
-    _onActivateResult: function(provider, urn) {
+    _onActivateResult: function(provider, urn, terms) {
         this._createWindow();
         modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
         this.activate();
@@ -450,6 +451,15 @@ const Application = new Lang.Class({
                     documentManager.setActiveItem(doc);
                 }));
         }
+    },
+
+    _onLaunchSearch: function(provider, terms) {
+        this._createWindow();
+        modeController.setWindowMode(WindowMode.WindowMode.OVERVIEW);
+        searchController.setString(terms.join(' '));
+        this.change_action_state('search', GLib.Variant.new('b', true));
+
+        this.activate();
     }
 });
 Utils.addJSSignalMethods(Application.prototype);
