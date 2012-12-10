@@ -90,20 +90,32 @@ const Searchbar = new Lang.Class({
             }));
 
         // connect to the search action state for visibility
-        let searchStateId = Application.application.connect('action-state-changed::search', Lang.bind(this,
-            function(source, actionName, state) {
-                if (state.get_boolean())
-                    this.show();
-                else
-                    this.hide();
+        let searchStateId = Application.application.connect('action-state-changed::search',
+            Lang.bind(this, this._onActionStateChanged));
+        this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
+
+        // connect to search string changes in the controller
+        this._searchEntry.text = Application.searchController.getString();
+        let searchChangedId = Application.searchController.connect('search-string-changed', Lang.bind(this,
+            function(controller, string) {
+                this._searchEntry.text = string;
             }));
+
         this.widget.connect('destroy', Lang.bind(this,
             function() {
+                Application.searchController.disconnect(searchChangedId);
                 Application.application.disconnect(searchStateId);
                 Application.application.change_action_state('search', GLib.Variant.new('b', false));
             }));
 
         this.widget.show_all();
+    },
+
+    _onActionStateChanged: function(source, actionName, state) {
+        if (state.get_boolean())
+            this.show();
+        else
+            this.hide();
     },
 
     createSearchWidgets: function() {
