@@ -443,10 +443,10 @@ const PreviewSearchbar = new Lang.Class({
     Extends: Searchbar.Searchbar,
 
     _init: function(previewView) {
-        this.parent();
-
-        this._lastText = '';
         this._previewView = previewView;
+        this._lastText = '';
+
+        this.parent();
     },
 
     createSearchWidgets: function() {
