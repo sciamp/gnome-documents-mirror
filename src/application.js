@@ -232,7 +232,8 @@ const Application = new Lang.Class({
         this.minersRunning.push(miner);
         this.emitJS('miners-changed', this.minersRunning);
 
-        miner.RefreshDBRemote(Lang.bind(this,
+        miner._cancellable = new Gio.Cancellable();
+        miner.RefreshDBRemote(miner._cancellable, Lang.bind(this,
             function(res, error) {
                 this.minersRunning = this.minersRunning.filter(
                     function(element) {
@@ -274,13 +275,28 @@ const Application = new Lang.Class({
         }
     },
 
-    _initMiners: function() {
-        this.gdataMiner = new Miners.GDataMiner();
-        this.zpjMiner = new Miners.ZpjMiner();
+    _startMiners: function() {
         this._refreshMiners();
 
-        sourceManager.connect('item-added', Lang.bind(this, this._refreshMiners));
-        sourceManager.connect('item-removed', Lang.bind(this, this._refreshMiners));
+        this._sourceAddedId = sourceManager.connect('item-added', Lang.bind(this, this._refreshMiners));
+        this._sourceRemovedId = sourceManager.connect('item-removed', Lang.bind(this, this._refreshMiners));
+    },
+
+    _stopMiners: function() {
+        if (this._sourceAddedId != 0) {
+            sourceManager.disconnect(this._sourceAddedId);
+            this._sourceAddedId = 0;
+        }
+
+        if (this._sourceRemovedId != 0) {
+            sourceManager.disconnect(this._sourceRemovedId);
+            this._sourceRemovedId = 0;
+        }
+
+        this.minersRunning.forEach(Lang.bind(this,
+            function(miner) {
+                miner._cancellable.cancel();
+            }));
     },
 
     vfunc_startup: function() {
@@ -385,7 +401,9 @@ const Application = new Lang.Class({
               window_mode: WindowMode.WindowMode.PREVIEW }
         ];
 
-        this._initMiners();
+        this.gdataMiner = new Miners.GDataMiner();
+        this.zpjMiner = new Miners.ZpjMiner();
+
         this._initActions();
         this._initAppMenu();
     },
@@ -397,6 +415,10 @@ const Application = new Lang.Class({
         notificationManager = new Notifications.NotificationManager();
         this._connectActionsToMode();
         this._mainWindow = new MainWindow.MainWindow(this);
+        this._mainWindow.window.connect('destroy', Lang.bind(this, this._onWindowDestroy));
+
+        // start miners
+        this._startMiners();
     },
 
     vfunc_activate: function() {
@@ -414,8 +436,7 @@ const Application = new Lang.Class({
         return 0;
     },
 
-    vfunc_window_removed: function(window) {
-        this.parent(window);
+    _onWindowDestroy: function(window) {
         this._mainWindow = null;
 
         // clean up signals
@@ -430,6 +451,9 @@ const Application = new Lang.Class({
         modeController.setWindowMode(WindowMode.WindowMode.NONE);
         selectionController.setSelection(null);
         notificationManager = null;
+
+        // stop miners
+        this._stopMiners();
     },
 
     _onActivateResult: function(provider, urn, terms) {
