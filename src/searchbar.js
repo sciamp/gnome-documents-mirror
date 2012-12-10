@@ -211,7 +211,8 @@ const Searchbar = new Lang.Class({
                                        transition: 'easeOutQuad',
                                        onComplete: function() {
                                            this._in = true;
-                                           Gd.entry_focus_hack(this._searchEntry, eventDevice);
+                                           if (eventDevice)
+                                               Gd.entry_focus_hack(this._searchEntry, eventDevice);
                                        },
                                        onCompleteScope: this });
     },
