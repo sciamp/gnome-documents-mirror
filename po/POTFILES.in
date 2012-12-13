@@ -9,11 +9,11 @@ src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
 src/properties.js
-src/searchbar.js
-src/selections.js
-src/shellSearchProvider.js
-src/sources.js
-src/view.js
 [type: gettext/glade]src/resources/app-menu.ui
 [type: gettext/glade]src/resources/preview-menu.ui
 [type: gettext/glade]src/resources/selection-menu.ui
+src/searchbar.js
+src/search.js
+src/selections.js
+src/shellSearchProvider.js
+src/view.js
