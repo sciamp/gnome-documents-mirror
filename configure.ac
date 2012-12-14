@@ -70,13 +70,13 @@ PKG_CHECK_MODULES(DOCUMENTS,
                   gobject-introspection-1.0 >= $GOBJECT_INTROSPECTION_MIN_VERSION
                   gtk+-3.0 >= $GTK_MIN_VERSION
                   gnome-desktop-3.0
-                  tracker-sparql-0.14 >= $TRACKER_MIN_VERSION
+                  tracker-sparql-0.15 >= $TRACKER_MIN_VERSION
                   goa-1.0 >= $GOA_MIN_VERSION
                   libgdata >= $GDATA_MIN_VERSION
                   zapojit-0.0 >= $ZAPOJIT_MIN_VERSION)
 
 PKG_CHECK_MODULES(MINER,
-                  tracker-sparql-0.14 >= $TRACKER_MIN_VERSION
+                  tracker-sparql-0.15 >= $TRACKER_MIN_VERSION
                   glib-2.0 >= $GLIB_MIN_VERSION
                   gio-2.0 >= $GLIB_MIN_VERSION
                   goa-1.0 >= $GOA_MIN_VERSION
