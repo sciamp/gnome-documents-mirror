@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-11-19 22:21+0000\n"
-"PO-Revision-Date: 2012-11-23 15:25+0530\n"
+"POT-Creation-Date: 2012-12-13 18:08+0000\n"
+"PO-Revision-Date: 2012-12-14 19:25+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
-"Language-Team: as_IN <kde-i18n-doc@kde.org>\n"
+"Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
 "Language: as_IN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../src/mainWindow.js:215
 msgid "Documents"
 msgstr "দস্তাবেজসমূহ"
 
@@ -66,64 +66,65 @@ msgstr "উইন্ডো সৰ্বাধিক আকাৰ"
 msgid "Window maximized state"
 msgstr "উইন্ডো সৰ্বাধিক অৱস্থা"
 
-#: ../src/documents.js:640 ../src/sources.js:99
+#: ../src/documents.js:590 ../src/search.js:407
 msgid "Local"
 msgstr "স্থানীয়"
 
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:643
 msgid "Google Docs"
 msgstr "Google দস্তাবেজসমূহ"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:644
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:708 ../src/documents.js:807
 msgid "Spreadsheet"
 msgstr "স্প্ৰেডশ্বিট"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:710 ../src/documents.js:809
 msgid "Presentation"
 msgstr "পৰিৱেশন"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:712 ../src/documents.js:811
 msgid "Collection"
 msgstr "সংগ্ৰহ"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:714 ../src/documents.js:813
 msgid "Document"
 msgstr "দস্তাবেজ"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:741 ../src/documents.js:742
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:926
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr " \"%s\" ক পূৰ্বদৰ্শনৰ বাবে ল'ড কৰিবলে অক্ষম"
 
-#: ../src/embed.js:73 ../src/view.js:70
-msgid "Loading..."
-msgstr "ল'ড কৰা হৈছে..."
+#: ../src/embed.js:72 ../src/view.js:70
+#| msgid "Loading..."
+msgid "Loading…"
+msgstr "ল'ড কৰা হৈছে…"
 
-#: ../src/embed.js:223
+#: ../src/embed.js:222
 msgid "No Documents Found"
 msgstr "কোনো দস্তাবেজ পোৱা নগল"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:246
+#: ../src/embed.js:245
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "আপুনি আপোনাৰ অনলাইন একাওন্টসমূহ %s ত যোগ কৰিব পাৰিব"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:250
+#: ../src/embed.js:249
 msgid "System Settings"
 msgstr "চিস্টেম সংহতিসমূহ"
 
@@ -142,50 +143,46 @@ msgid "Search"
 msgstr "সন্ধান কৰক"
 
 #: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "নতুন আৰু শেহতীয়া"
-
-#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "\"%s\" ৰ বাবে ফলাফলসমূহ"
 
-#: ../src/mainToolbar.js:167
+#: ../src/mainToolbar.js:160
 msgid "filtered by title"
 msgstr "শীৰ্ষক দ্বাৰা পৰিস্ৰাৱিত"
 
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:162
 msgid "filtered by author"
 msgstr "লেখক দ্বাৰা পৰিস্ৰাৱিত"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:169
 msgid "Click on items to select them"
 msgstr "বস্তুবোৰ নিৰ্বাচন কৰিবলে সিহতত ক্লিক কৰক"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:171
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d নিৰ্বাচন কৰা হৈছে"
 msgstr[1] "%d নিৰ্বাচন কৰা হৈছে"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:59
+#: ../src/mainToolbar.js:201 ../src/properties.js:59
 msgid "Done"
 msgstr "কৰা হল"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:219
 msgid "Back"
 msgstr "পিছলৈ"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:241
 msgid "Select Items"
 msgstr "বস্তুবোৰ বাছক"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:214
 msgid "translator-credits"
 msgstr "নীলমদ্যুতি গোস্বামী (ngoswami@redhat.com)"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:216
 msgid "A document manager application"
 msgstr "এটা দস্তাবেজ ব্যৱস্থাপক এপ্লিকেচন"
 
@@ -211,8 +208,8 @@ msgstr "%s ৰ পৰা দস্তাবেজসমূহ প্ৰাপ্
 msgid "Fetching documents from online accounts"
 msgstr "অনলাইন একাওন্টসমূহৰ পৰা দস্তাবেজসমূহ প্ৰাপ্ত কৰা হৈছে"
 
-#: ../src/properties.js:57 ../src/selections.js:793
-#: ../src/resources/preview-menu.ui.h:7
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
+#: ../src/selections.js:791
 msgid "Properties"
 msgstr "বৈশিষ্টসমূহ"
 
@@ -220,14 +217,14 @@ msgstr "বৈশিষ্টসমূহ"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/searchbar.js:228
+#: ../src/properties.js:76 ../src/search.js:257
 msgid "Title"
 msgstr "শীৰ্ষক"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/searchbar.js:231
+#: ../src/properties.js:85 ../src/search.js:260
 msgid "Author"
 msgstr "লেখক"
 
@@ -250,131 +247,9 @@ msgstr "সৃষ্টি কৰাৰ তাৰিখ"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/searchbar.js:137
+#: ../src/properties.js:114 ../src/search.js:166
 msgid "Type"
 msgstr "ধৰণ"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "বিভাগ"
-
-#: ../src/searchbar.js:88 ../src/searchbar.js:140 ../src/searchbar.js:225
-#: ../src/sources.js:93
-msgid "All"
-msgstr "সকলো"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "পছন্দৰ"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "আপোনাৰ সৈতে অংশীদাৰী কৰা আছে"
-
-#: ../src/searchbar.js:142
-msgid "Collections"
-msgstr "সংগ্ৰহসমূহ"
-
-#: ../src/searchbar.js:146
-msgid "PDF Documents"
-msgstr "PDF দস্তাবেজসমূহ"
-
-#: ../src/searchbar.js:150
-msgid "Presentations"
-msgstr "পৰিৱেশনসমূহ"
-
-#: ../src/searchbar.js:153
-msgid "Spreadsheets"
-msgstr "স্প্ৰেডশ্বিটসমূহ"
-
-#: ../src/searchbar.js:156
-msgid "Text Documents"
-msgstr "লিখনী দস্তাবেজসমূহ"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:222
-msgid "Match"
-msgstr "মিল"
-
-#: ../src/selections.js:616 ../src/selections.js:785
-msgid "Organize"
-msgstr "সংঘঠিত কৰক"
-
-#: ../src/selections.js:762
-msgid "Print"
-msgstr "প্ৰিন্ট কৰক"
-
-#: ../src/selections.js:769
-msgid "Delete"
-msgstr "মচি পেলাওক"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:874
-#, c-format
-msgid "Open with %s"
-msgstr "%s ৰ সৈতে খোলক"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "খোলক"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "শীৰ্ষকবিহিন দস্তাবেজ"
-
-#: ../src/sources.js:89
-msgid "Sources"
-msgstr "উৎসসমূহ"
-
-#: ../src/view.js:61 ../src/view.js:91
-msgid "Load More"
-msgstr "অধিক ল'ড কৰক"
-
-#: ../src/view.js:295
-msgid "Yesterday"
-msgstr "যোৱাকালী"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d দিন আগত"
-msgstr[1] "%d দিন আগত"
-
-#: ../src/view.js:301
-msgid "Last week"
-msgstr "যোৱা সপ্তাহ"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d সপ্তাহ আগত"
-msgstr[1] "%d সপ্তাহসমূহ আগত"
-
-#: ../src/view.js:307
-msgid "Last month"
-msgstr "যোৱা মাহ"
-
-#: ../src/view.js:309
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d মাহ আগত"
-msgstr[1] "%d মাহ আগত"
-
-#: ../src/view.js:313
-msgid "Last year"
-msgstr "যোৱা বছৰ"
-
-#: ../src/view.js:315
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d বছৰ আগত"
-msgstr[1] "%d বছৰ আগত"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -400,8 +275,12 @@ msgstr "সহায়"
 msgid "Quit"
 msgstr "প্ৰস্থান কৰক"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "খোলক"
+
 #: ../src/resources/preview-menu.ui.h:2
-#| msgid "Print"
 msgid "Print…"
 msgstr "প্ৰিন্ট কৰক..."
 
@@ -428,6 +307,126 @@ msgstr "সকলো বাছক"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "কোনোটো নাবাছিব"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "বিভাগ"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:401
+msgid "All"
+msgstr "সকলো"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "পছন্দৰ"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "আপোনাৰ সৈতে অংশীদাৰী কৰা আছে"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "সংগ্ৰহসমূহ"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "PDF দস্তাবেজসমূহ"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "পৰিৱেশনসমূহ"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "স্প্ৰেডশ্বিটসমূহ"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "লিখনী দস্তাবেজসমূহ"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "মিল"
+
+#: ../src/search.js:397
+msgid "Sources"
+msgstr "উৎসসমূহ"
+
+#: ../src/selections.js:614 ../src/selections.js:783
+msgid "Organize"
+msgstr "সংঘঠিত কৰক"
+
+#: ../src/selections.js:760
+msgid "Print"
+msgstr "প্ৰিন্ট কৰক"
+
+#: ../src/selections.js:767
+msgid "Delete"
+msgstr "মচি পেলাওক"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "%s ৰ সৈতে খোলক"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "শীৰ্ষকবিহিন দস্তাবেজ"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "অধিক ল'ড কৰক"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "যোৱাকালী"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d দিন আগত"
+msgstr[1] "%d দিন আগত"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "যোৱা সপ্তাহ"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d সপ্তাহ আগত"
+msgstr[1] "%d সপ্তাহসমূহ আগত"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "যোৱা মাহ"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d মাহ আগত"
+msgstr[1] "%d মাহ আগত"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "যোৱা বছৰ"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d বছৰ আগত"
+msgstr[1] "%d বছৰ আগত"
+
+#~ msgid "New and Recent"
+#~ msgstr "নতুন আৰু শেহতীয়া"
 
 #~ msgid "Load %d more document"
 #~ msgid_plural "Load %d more documents"
