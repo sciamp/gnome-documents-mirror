@@ -52,9 +52,13 @@ const ModeController = new Lang.Class({
 
         this.emit('window-mode-changed', this._mode, oldMode);
 
-        if (mode == WindowMode.PREVIEW) {
-            let window = Application.application.get_active_window();
-            let gdkWindow = window.get_window();
+        if (mode != WindowMode.PREVIEW)
+            return;
+
+        let window = Application.application.get_active_window();
+        let gdkWindow = window.get_window();
+
+        if (gdkWindow) {
             let windowState = gdkWindow.get_state();
 
             if (windowState & Gdk.WindowState.MAXIMIZED)
