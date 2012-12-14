@@ -461,6 +461,8 @@ const Application = new Lang.Class({
         modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
         this.activate();
 
+        searchController.setString(terms.join(' '));
+
         let doc = documentManager.getItemById(urn);
         if (doc) {
             documentManager.setActiveItem(doc);

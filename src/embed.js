@@ -407,6 +407,10 @@ const Embed = new Lang.Class({
     },
 
     _onQueryStatusChanged: function() {
+        let windowMode = Application.modeController.getWindowMode();
+        if (windowMode != WindowMode.WindowMode.OVERVIEW)
+            return;
+
         let queryStatus = Application.trackerController.getQueryStatus();
 
         if (queryStatus) {
