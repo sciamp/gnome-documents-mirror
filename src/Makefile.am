@@ -60,21 +60,15 @@ typelib_DATA += $(gir_DATA:.gir=.typelib)
 CLEANFILES += $(gir_DATA) $(typelib_DATA)
 
 bin_SCRIPTS = gnome-documents
-noinst_SCRIPTS = gnome-documents-debug
 
 gnome-documents: gnome-documents.in
 	$(AM_V_GEN) $(do_subst) $< > $@
 	chmod +x $@
-gnome-documents-debug: gnome-documents-debug.in
-	$(AM_V_GEN) $(do_subst) $< > $@
-	chmod +x $@
 
 CLEANFILES += \
-    gnome-documents \
-    gnome-documents-debug
+    gnome-documents
 EXTRA_DIST += \
-    gnome-documents.in \
-    gnome-documents-debug.in
+    gnome-documents.in
 
 service_in_files = org.gnome.Documents.SearchProvider.service.in
 
