@@ -1,3 +1,22 @@
+3.7.3 - "The Giant Undertow"
+============================
+
+- Update search provider to org.gnome.Shell.SearchProvider2 interface
+- Perform application search when launched from a shell search and "back"
+  is pressed
+- Show page selector OSD also when not in fullscreen mode
+- Don't use a timeout logic for OSD preview controls, show/hide them on click
+- Don't show document page numbers in toolbar
+- Don't activate fullscreen on double click
+- Use paging instead of a continuous mode to display documents
+- Make find bar buttons insensitive when there are no matches to scroll
+- Remove white flashspot when switching window mode
+- Automatically fullscreen when maximized and a preview is opened
+- Use unicode ellipsis instead of three ASCII periods (Debarshi Ray)
+- Don't show "New and Recent" in the toolbar all the time (William Jon McCann)
+- Set versions for GJS imports (Colin Walters)
+- Simplify launch scripts (Colin Walters)
+
 3.7.2 - "Death and Resurrection Show"
 =====================================
 
