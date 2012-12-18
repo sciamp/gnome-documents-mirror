@@ -7,23 +7,23 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-15 18:28+0000\n"
-"PO-Revision-Date: 2012-09-15 20:43+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-12-17 20:21+0000\n"
+"PO-Revision-Date: 2012-12-18 08:31+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
-"X-Poedit-Country: SLOVENIA\n"
-"X-Poedit-Language: Slovenian\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-#: ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:215
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -33,7 +33,7 @@ msgstr "Upravljanje, dostop in souporaba dokumentov"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Doc;PDF;Dokumenti;Word;"
+msgstr "Doc;PDF;Dokumenti;Word"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -68,70 +68,64 @@ msgstr "Razpeto okno"
 msgid "Window maximized state"
 msgstr "Razpeto glavno okno"
 
-#: ../src/documents.js:640
-#: ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:407
 msgid "Local"
 msgstr "Krajevno"
 
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:643
 msgid "Google Docs"
 msgstr "Google dokumenti"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:644
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758
-#: ../src/documents.js:857
+#: ../src/documents.js:708 ../src/documents.js:807
 msgid "Spreadsheet"
 msgstr "Preglednica"
 
-#: ../src/documents.js:760
-#: ../src/documents.js:859
+#: ../src/documents.js:710 ../src/documents.js:809
 msgid "Presentation"
 msgstr "Predstavitev"
 
-#: ../src/documents.js:762
-#: ../src/documents.js:861
+#: ../src/documents.js:712 ../src/documents.js:811
 msgid "Collection"
 msgstr "Zbirka"
 
-#: ../src/documents.js:764
-#: ../src/documents.js:863
+#: ../src/documents.js:714 ../src/documents.js:813
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:791
-#: ../src/documents.js:792
+#: ../src/documents.js:741 ../src/documents.js:742
 msgid "Skydrive"
 msgstr "Skydrive"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:926
 #, c-format
 msgid "Unable to load \"%s\" for preview"
 msgstr "Ni mogoče naložiti \"%s\" za predogled"
 
-#: ../src/embed.js:74
-msgid "Loading..."
+#: ../src/embed.js:72 ../src/view.js:70
+msgid "Loading…"
 msgstr "Nalaganje ..."
 
-#: ../src/embed.js:220
+#: ../src/embed.js:222
 msgid "No Documents Found"
 msgstr "Ni najdenih dokumentov"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:245
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Spletne račune je mogoče dodati v meniju %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:249
 msgid "System Settings"
 msgstr "Sistemske nastavitve"
 
@@ -141,34 +135,32 @@ msgstr "Dokumenta ni mogoče naložiti"
 
 #: ../src/lib/gd-pdf-loader.c:673
 msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "Ni mogoče najti predmeta \"unoconv\"; preveriti je treba namestitev LibreOffice."
+msgstr ""
+"Ni mogoče najti predmeta \"unoconv\"; preveriti je treba namestitev "
+"LibreOffice."
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
 msgstr "Poišči"
 
 #: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "Novo in nedavno"
-
-#: ../src/mainToolbar.js:165
 #, c-format
 msgid "Results for \"%s\""
 msgstr "Resultati za \"%s\""
 
-#: ../src/mainToolbar.js:167
+#: ../src/mainToolbar.js:160
 msgid "filtered by title"
 msgstr "filtrirano po naslovu"
 
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:162
 msgid "filtered by author"
 msgstr "filtrirano po avtorju"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:169
 msgid "Click on items to select them"
 msgstr "S klikom se predmeti izberejo."
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:171
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -177,214 +169,90 @@ msgstr[1] "%d izbran"
 msgstr[2] "%d izbrana"
 msgstr[3] "%d izbrani"
 
-#: ../src/mainToolbar.js:208
-#: ../src/properties.js:58
+#: ../src/mainToolbar.js:201 ../src/properties.js:59
 msgid "Done"
 msgstr "Končano"
 
-#: ../src/mainToolbar.js:226
+#: ../src/mainToolbar.js:219
 msgid "Back"
 msgstr "Nazaj"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:241
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:214
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:216
 msgid "A document manager application"
 msgstr "Program za upravljanje z dokumenti"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:88
 #, c-format
 msgid "Printing \"%s\": %s"
 msgstr "Tiskanje \"%s\": %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "Iz podatkov datotek se pripravlja kazalo"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "Nekateri dokumenti med opravilom lahko niso na voljo"
 
-#. Properties dialog heading
-#: ../src/properties.js:73
-#: ../src/selections.js:792
+#: ../src/notifications.js:160
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Pridobivanje dokumentov iz %s"
+
+#: ../src/notifications.js:162
+msgid "Fetching documents from online accounts"
+msgstr "Pridobivanje dokumentov iz spletnih računov"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
+#: ../src/selections.js:791
 msgid "Properties"
 msgstr "Lastnosti"
 
 #. Title item
-#: ../src/properties.js:81
-#: ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:76 ../src/search.js:257
 msgid "Title"
 msgstr "Naslov"
 
-#: ../src/properties.js:88
-#: ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:85 ../src/search.js:260
 msgid "Author"
 msgstr "Avtor"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:92
 msgid "Source"
 msgstr "Vir"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:98
 msgid "Date Modified"
 msgstr "Datum spremembe"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:105
 msgid "Date Created"
 msgstr "Datum ustvaritve"
 
 #. Document type item
-#: ../src/properties.js:115
-#: ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:114 ../src/search.js:166
 msgid "Type"
 msgstr "Vrsta"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "Kategorija"
-
-#: ../src/searchbar.js:88
-#: ../src/searchbar.js:138
-#: ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "Vse"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "Priljubljeno"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "V souporabi"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "Zbirke"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "Dokumenti PDF"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "Predstavitve"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "Preglednice"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "Besedilni dokumenti"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "Se sklada"
-
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "Natisni"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "Izbriši"
-
-#: ../src/selections.js:784
-msgid "Organize"
-msgstr "Organiziraj"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
-#, c-format
-msgid "Open with %s"
-msgstr "Odpri z %s"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876
-#: ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "Odpri"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "Neimenovan dokument"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "Viri"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Naloži še %d dokumentov"
-msgstr[1] "Naloži še %d dokument"
-msgstr[2] "Naloži še %d dokumenta"
-msgstr[3] "Naloži še %d dokumente"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "Včeraj"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d dni nazaj"
-msgstr[1] "%d dan nazaj"
-msgstr[2] "%d dneva nazaj"
-msgstr[3] "%d dni nazaj"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "Prejšnji teden"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d tednov nazaj"
-msgstr[1] "%d teden nazaj"
-msgstr[2] "%d tedna nazaj"
-msgstr[3] "%d tedne nazaj"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "Prejšnji mesec"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d mesecev nazaj"
-msgstr[1] "%d mesec nazaj"
-msgstr[2] "%d meseca nazaj"
-msgstr[3] "%d mesece nazaj"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "Lansko leto"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d let nazaj"
-msgstr[1] "%d leto nazaj"
-msgstr[2] "%d leti nazaj"
-msgstr[3] "%d leta nazaj"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -410,8 +278,13 @@ msgstr "Pomoč"
 msgid "Quit"
 msgstr "Končaj"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "Odpri"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
+msgid "Print…"
 msgstr "Natisni ..."
 
 #: ../src/resources/preview-menu.ui.h:3
@@ -437,6 +310,144 @@ msgstr "Izberi vse"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Odstrani izbor"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "Kategorija"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:401
+msgid "All"
+msgstr "Vse"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "Priljubljeno"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "V souporabi"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "Zbirke"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "Dokumenti PDF"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "Predstavitve"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "Preglednice"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "Besedilni dokumenti"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "Se sklada"
+
+#: ../src/search.js:397
+msgid "Sources"
+msgstr "Viri"
+
+#: ../src/selections.js:614 ../src/selections.js:783
+msgid "Organize"
+msgstr "Organiziraj"
+
+#: ../src/selections.js:760
+msgid "Print"
+msgstr "Natisni"
+
+#: ../src/selections.js:767
+msgid "Delete"
+msgstr "Izbriši"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "Odpri z %s"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "Neimenovan dokument"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "Naloži več"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "Včeraj"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dni nazaj"
+msgstr[1] "%d dan nazaj"
+msgstr[2] "%d dneva nazaj"
+msgstr[3] "%d dni nazaj"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "Prejšnji teden"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d tednov nazaj"
+msgstr[1] "%d teden nazaj"
+msgstr[2] "%d tedna nazaj"
+msgstr[3] "%d tedne nazaj"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "Prejšnji mesec"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d mesecev nazaj"
+msgstr[1] "%d mesec nazaj"
+msgstr[2] "%d meseca nazaj"
+msgstr[3] "%d mesece nazaj"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "Lansko leto"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d let nazaj"
+msgstr[1] "%d leto nazaj"
+msgstr[2] "%d leti nazaj"
+msgstr[3] "%d leta nazaj"
+
+#~ msgid "New and Recent"
+#~ msgstr "Novo in nedavno"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "Naloži še %d dokumentov"
+#~ msgstr[1] "Naloži še %d dokument"
+#~ msgstr[2] "Naloži še %d dokumenta"
+#~ msgstr[3] "Naloži še %d dokumente"
+
+#~ msgid "Print..."
+#~ msgstr "Natisni ..."
 
 #~ msgid "Remove from favorites"
 #~ msgstr "Odstrani iz priljubljenih"
