@@ -38,6 +38,8 @@ const WindowMode = imports.windowMode;
 const _ = imports.gettext.gettext;
 
 const _CONFIGURE_ID_TIMEOUT = 100; // msecs
+const _WINDOW_MIN_WIDTH = 600;
+const _WINDOW_MIN_HEIGHT = 500;
 
 const MainWindow = new Lang.Class({
     Name: 'MainWindow',
@@ -46,6 +48,8 @@ const MainWindow = new Lang.Class({
         this._configureId = 0;
 
         this.window = new Gtk.ApplicationWindow({ application: app,
+                                                  width_request: _WINDOW_MIN_WIDTH,
+                                                  height_request: _WINDOW_MIN_HEIGHT,
 						  window_position: Gtk.WindowPosition.CENTER,
                                                   hide_titlebar_when_maximized: true,
 						  title: _("Documents") });
