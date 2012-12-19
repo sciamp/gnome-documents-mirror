@@ -24,6 +24,8 @@
 
 #include <string.h>
 #include <gdata/gdata.h>
+#include <gdk/gdkx.h>
+#include <gtk/gtk.h>
 #include <evince-document.h>
 #include <evince-view.h>
 #include <glib/gstdio.h>
@@ -656,6 +658,66 @@ unoconv_child_watch_cb (GPid pid,
 }
 
 static void
+openoffice_missing_unoconv_ready_cb (GObject *source,
+                                     GAsyncResult *res,
+                                     gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+  GError *error = NULL;
+
+  g_dbus_connection_call_finish (G_DBUS_CONNECTION (source), res, &error);
+  if (error != NULL) {
+    GError *local_error;
+
+    /* can't install unoconv with packagekit - nothing else we can do */
+    g_warning ("unoconv not found, and PackageKit failed to install it with error %s",
+               error->message);
+    local_error = g_error_new_literal (G_IO_ERROR, G_IO_ERROR_NOT_FOUND,
+                                       _("LibreOffice is required to view this document"));
+
+    pdf_load_job_complete_error (job, local_error);
+    g_error_free (error);
+    return;
+  }
+
+  /* now that we have unoconv installed, try again refreshing the cache */
+  pdf_load_job_openoffice_refresh_cache (job);
+}
+
+static void
+pdf_load_job_openoffice_missing_unoconv (PdfLoadJob *job)
+{
+  GApplication *app = g_application_get_default ();
+  GtkWidget *widget = GTK_WIDGET (gtk_application_get_active_window (GTK_APPLICATION (app)));
+  GDBusConnection *connection = g_application_get_dbus_connection (app);
+  guint xid = 0;
+  GdkWindow *gdk_window;
+  const gchar *unoconv_path[2];
+
+  gdk_window = gtk_widget_get_window (widget);
+  if (gdk_window != NULL)
+    xid = GDK_WINDOW_XID (gdk_window);
+
+  unoconv_path[0] = "/usr/bin/unoconv";
+  unoconv_path[1] = NULL;
+
+  g_dbus_connection_call (connection,
+                          "org.freedesktop.PackageKit",
+                          "/org/freedesktop/PackageKit",
+                          "org.freedesktop.PackageKit.Modify",
+                          "InstallProvideFiles",
+                          g_variant_new ("(u^ass)",
+                                         xid,
+                                         unoconv_path,
+                                         "hide-confirm-deps"),
+                          NULL, G_DBUS_CALL_FLAGS_NONE,
+                          G_MAXINT,
+                          job->cancellable,
+                          openoffice_missing_unoconv_ready_cb,
+                          job);
+}
+
+static void
 pdf_load_job_openoffice_refresh_cache (PdfLoadJob *job)
 {
   gchar *doc_path, *cmd, *quoted_path, *unoconv_path;
@@ -668,10 +730,7 @@ pdf_load_job_openoffice_refresh_cache (PdfLoadJob *job)
   unoconv_path = g_find_program_in_path ("unoconv");
   if (unoconv_path == NULL)
     {
-      error = g_error_new_literal (G_IO_ERROR,
-                                   G_IO_ERROR_NOT_FOUND,
-                                   _("Cannot find \"unoconv\", please check your LibreOffice installation"));
-      pdf_load_job_complete_error (job, error);
+      pdf_load_job_openoffice_missing_unoconv (job);
       return;
     }
 
