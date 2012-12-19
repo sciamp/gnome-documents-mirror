@@ -119,11 +119,23 @@ const PreviewView = new Lang.Class({
             }));
     },
 
+    _onCanZoomInChanged: function() {
+        this._zoomIn.enabled = this.view.can_zoom_in;
+    },
+
+    _onCanZoomOutChanged: function() {
+        this._zoomOut.enabled = this.view.can_zoom_out;
+    },
+
     _createView: function() {
         this.view = EvView.View.new();
         this.widget.add(this.view);
         this.view.show();
 
+        this.view.connect('notify::can-zoom-in',
+                          Lang.bind(this, this._onCanZoomInChanged));
+        this.view.connect('notify::can-zoom-out',
+                          Lang.bind(this, this._onCanZoomOutChanged));
         this.view.connect('button-release-event',
                             Lang.bind(this, this._onButtonReleaseEvent));
         this.view.connect('key-press-event',
