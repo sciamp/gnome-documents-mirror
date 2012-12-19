@@ -99,6 +99,7 @@ const Application = new Lang.Class({
         Gettext.bindtextdomain('gnome-documents', Path.LOCALE_DIR);
         Gettext.textdomain('gnome-documents');
         GLib.set_prgname('gnome-documents');
+        GLib.set_application_name(_("Documents"));
 
         this.parent({ application_id: 'org.gnome.Documents',
                       flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
