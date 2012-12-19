@@ -29,8 +29,8 @@ const _ = imports.gettext.gettext;
 imports.gi.versions.GtkClutter = '1.0';
 imports.gi.versions.GdPrivate = '1.0';
 imports.gi.versions.Gd = '1.0';
-imports.gi.versions.Tracker = '0.15';
-imports.gi.versions.TrackerMiner = '0.15';
+imports.gi.versions.Tracker = '0.16';
+imports.gi.versions.TrackerMiner = '0.16';
 imports.gi.versions.EvinceDocument = '3.0';
 imports.gi.versions.Goa = '1.0';
 
