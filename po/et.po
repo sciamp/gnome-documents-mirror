@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-22 20:21+0000\n"
-"PO-Revision-Date: 2012-09-23 15:46+0300\n"
+"POT-Creation-Date: 2012-12-19 15:29+0000\n"
+"PO-Revision-Date: 2012-12-19 17:38+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
@@ -82,8 +82,8 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "\"%s\" pole võimalik eelvaateks laadida"
 
-msgid "Loading..."
-msgstr "Laadimine..."
+msgid "Loading…"
+msgstr "Laadimine…"
 
 msgid "No Documents Found"
 msgstr "Ühtegi dokumenti ei leitud"
@@ -102,14 +102,11 @@ msgstr "süsteemi sätete"
 msgid "Unable to load the document"
 msgstr "Dokumenti pole võimalik laadida"
 
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "Ei leitud programmi \"unoconv\", kontrolli oma LibreOffice paigaldust"
+msgid "LibreOffice is required to view this document"
+msgstr "Selle dokumendi kuvamiseks on vajalik LibreOffice"
 
 msgid "Search"
 msgstr "Otsi"
-
-msgid "New and Recent"
-msgstr "Uued ja hiljutised"
 
 #, c-format
 msgid "Results for \"%s\""
@@ -155,14 +152,26 @@ msgstr "Su dokumendid on indekseerimisel"
 msgid "Some documents might not be available during this process"
 msgstr "Indekseerimise käigus ei pruugi kõik dokumendid olla saadaval"
 
-#. Properties dialog heading
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Dokumentide hankimine serverist %s"
+
+msgid "Fetching documents from online accounts"
+msgstr "Dokumentide hankimine veebikontodest"
+
 msgid "Properties"
 msgstr "Omadused"
 
 #. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
 msgid "Title"
 msgstr "Pealkiri"
 
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
 msgid "Author"
 msgstr "Autor"
 
@@ -178,8 +187,55 @@ msgid "Date Created"
 msgstr "Loomise kuupäev"
 
 #. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
 msgid "Type"
 msgstr "Liik"
+
+msgid "Grid"
+msgstr "Tabel"
+
+msgid "List"
+msgstr "Loend"
+
+msgid "Fullscreen"
+msgstr "Täisekraan"
+
+msgid "About Documents"
+msgstr "Dokumentidest lähemalt"
+
+msgid "Help"
+msgstr "Abi"
+
+msgid "Quit"
+msgstr "Lõpeta"
+
+#. Translators: this is the Open action in a context menu
+msgid "Open"
+msgstr "Ava"
+
+msgid "Print…"
+msgstr "Printimine…"
+
+msgid "Zoom In"
+msgstr "Suurenda"
+
+msgid "Zoom Out"
+msgstr "Vähenda"
+
+msgid "Rotate ↶"
+msgstr "Pööra ↶"
+
+msgid "Rotate ↷"
+msgstr "Pööra ↷"
+
+msgid "Select All"
+msgstr "Vali kõik"
+
+msgid "Select None"
+msgstr "Tühista valik"
 
 msgid "Category"
 msgstr "Kategooria"
@@ -213,35 +269,28 @@ msgstr "Tekstidokumendid"
 msgid "Match"
 msgstr "Vaste"
 
+msgid "Sources"
+msgstr "Allikad"
+
+msgid "Organize"
+msgstr "Korrasta"
+
 msgid "Print"
 msgstr "Prindi"
 
 msgid "Delete"
 msgstr "Kustuta"
 
-msgid "Organize"
-msgstr "Korrasta"
-
 #. Translators: this is the Open action in a context menu
 #, c-format
 msgid "Open with %s"
 msgstr "Ava programmiga %s"
 
-#. Translators: this is the Open action in a context menu
-msgid "Open"
-msgstr "Ava"
-
 msgid "Untitled Document"
 msgstr "Pealkirjata dokument"
 
-msgid "Sources"
-msgstr "Allikad"
-
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Laadi veel %d dokument"
-msgstr[1] "Laadi veel %d dokumenti"
+msgid "Load More"
+msgstr "Laadi juurde"
 
 msgid "Yesterday"
 msgstr "Eile"
@@ -279,44 +328,23 @@ msgid_plural "%d years ago"
 msgstr[0] "%d aasta tagasi"
 msgstr[1] "%d aastat tagasi"
 
-msgid "Grid"
-msgstr "Tabel"
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr ""
+#~ "Ei leitud programmi \"unoconv\", kontrolli oma LibreOffice paigaldust"
 
-msgid "List"
-msgstr "Loend"
+#~ msgid "Rotate Right"
+#~ msgstr "Pööra paremale"
 
-msgid "Fullscreen"
-msgstr "Täisekraan"
+#~ msgid "New and Recent"
+#~ msgstr "Uued ja hiljutised"
 
-msgid "About Documents"
-msgstr "Dokumentidest lähemalt"
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "Laadi veel %d dokument"
+#~ msgstr[1] "Laadi veel %d dokumenti"
 
-msgid "Help"
-msgstr "Abi"
-
-msgid "Quit"
-msgstr "Lõpeta"
-
-msgid "Print..."
-msgstr "Prindi..."
-
-msgid "Zoom In"
-msgstr "Suurenda"
-
-msgid "Zoom Out"
-msgstr "Vähenda"
-
-msgid "Rotate Left"
-msgstr "Pööra vasakule"
-
-msgid "Rotate Right"
-msgstr "Pööra paremale"
-
-msgid "Select All"
-msgstr "Vali kõik"
-
-msgid "Select None"
-msgstr "Tühista valik"
+#~ msgid "Print..."
+#~ msgstr "Prindi..."
 
 #~ msgid "The active source filter"
 #~ msgstr "Aktiivne lähtefilter"
