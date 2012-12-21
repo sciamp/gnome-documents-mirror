@@ -52,7 +52,7 @@ const PreviewView = new Lang.Class({
         this._selectionChanged = false;
 
         Application.modeController.connect('fullscreen-changed',
-            Lang.bind(this, this._onFullscreenChanged));
+            Lang.bind(this, this._syncControlsVisible));
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
@@ -142,12 +142,7 @@ const PreviewView = new Lang.Class({
                             Lang.bind(this, this._onKeyPressEvent));
     },
 
-    _updateControls: function(visible) {
-        if (this._controlsVisible == visible)
-            return;
-
-        this._controlsVisible = visible;
-
+    _syncControlsVisible: function() {
         if (this._controlsVisible) {
             if (Application.modeController.getFullscreen())
                 this._fsToolbar.show();
@@ -156,23 +151,6 @@ const PreviewView = new Lang.Class({
             this._fsToolbar.hide();
             this._thumbBar.hide();
         }
-    },
-
-    _flipControlsState: function() {
-        this._controlsFlipId = 0;
-        let visible = !this._controlsVisible;
-        this._updateControls(visible);
-
-        return false;
-    },
-
-    _onFullscreenChanged: function() {
-        let fullscreen = Application.modeController.getFullscreen();
-
-        if (fullscreen && this._controlsVisible)
-            this._fsToolbar.show();
-        else if (!fullscreen)
-            this._fsToolbar.hide();
     },
 
     _onKeyPressEvent: function(widget, event) {
@@ -205,6 +183,14 @@ const PreviewView = new Lang.Class({
         return false;
      },
 
+    _flipControlsTimeout: function() {
+        this._controlsFlipId = 0;
+        let visible = this.controlsVisible;
+        this.controlsVisible = !visible;
+
+        return false;
+    },
+
      _cancelControlsFlip: function() {
          if (this._controlsFlipId != 0) {
              Mainloop.source_remove(this._controlsFlipId);
@@ -212,14 +198,14 @@ const PreviewView = new Lang.Class({
          }
      },
 
-     _ensureControlsFlip: function() {
+     _queueControlsFlip: function() {
          if (this._controlsFlipId)
              return;
 
          let settings = Gtk.Settings.get_default();
          let doubleClick = settings.gtk_double_click_time;
 
-         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsState));
+         this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsTimeout));
      },
 
     _onButtonReleaseEvent: function(widget, event) {
@@ -227,7 +213,7 @@ const PreviewView = new Lang.Class({
         let clickCount = event.get_click_count()[1];
 
         if (button == 1 && clickCount == 1)
-            this._ensureControlsFlip();
+            this._queueControlsFlip();
         else
             this._cancelControlsFlip();
 
@@ -235,15 +221,13 @@ const PreviewView = new Lang.Class({
     },
 
     _onScrollbarClick: function() {
-        if (this._controlsVisible)
-            this._flipControlsState();
-
+        this.controlsVisible = false;
         return false;
     },
 
     _onAdjustmentChanged: function() {
-        if (this._controlsVisible && !this._selectionChanged)
-            this._flipControlsState();
+        if (!this._selectionChanged)
+            this.controlsVisible = false;
         this._selectionChanged = false;
     },
 
@@ -257,7 +241,14 @@ const PreviewView = new Lang.Class({
     },
 
     set controlsVisible(visible) {
-        this._updateControls(visible);
+        // reset any pending timeout, as we're about to change controls state
+        this._cancelControlsFlip();
+
+        if (this._controlsVisible == visible)
+            return;
+
+        this._controlsVisible = visible;
+        this._syncControlsVisible();
     },
 
     startSearch: function(str) {
@@ -296,8 +287,7 @@ const PreviewView = new Lang.Class({
 
         if (this.view) {
             this.view.destroy();
-            this._thumbBar.hide();
-            this._fsToolbar.hide();
+            this.controlsVisible = false;
         }
 
         this._model = model;
