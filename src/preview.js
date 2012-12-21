@@ -49,7 +49,8 @@ const PreviewView = new Lang.Class({
         this._jobFind = null;
         this._controlsFlipId = 0;
         this._controlsVisible = false;
-        this._selectionChanged = false;
+        this._thumbSelectionChanged = false;
+        this._viewSelectionChanged = false;
 
         Application.modeController.connect('fullscreen-changed',
             Lang.bind(this, this._syncControlsVisible));
@@ -71,7 +72,7 @@ const PreviewView = new Lang.Class({
             Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
         this._thumbBar.view.connect('selection-changed', Lang.bind(this,
             function() {
-                this._selectionChanged = true;
+                this._thumbSelectionChanged = true;
             }));
 
         // create fullscreen toolbar (hidden by default)
@@ -119,6 +120,12 @@ const PreviewView = new Lang.Class({
             }));
     },
 
+    _onViewSelectionChanged: function() {
+        this._viewSelectionChanged = true;
+        if (!this.view.get_has_selection())
+            this._cancelControlsFlip();
+    },
+
     _onCanZoomInChanged: function() {
         this._zoomIn.enabled = this.view.can_zoom_in;
     },
@@ -136,10 +143,14 @@ const PreviewView = new Lang.Class({
                           Lang.bind(this, this._onCanZoomInChanged));
         this.view.connect('notify::can-zoom-out',
                           Lang.bind(this, this._onCanZoomOutChanged));
+        this.view.connect('button-press-event',
+                            Lang.bind(this, this._onButtonPressEvent));
         this.view.connect('button-release-event',
                             Lang.bind(this, this._onButtonReleaseEvent));
         this.view.connect('key-press-event',
                             Lang.bind(this, this._onKeyPressEvent));
+        this.view.connect('selection-changed',
+                            Lang.bind(this, this._onViewSelectionChanged));
     },
 
     _syncControlsVisible: function() {
@@ -208,14 +219,25 @@ const PreviewView = new Lang.Class({
          this._controlsFlipId = Mainloop.timeout_add(doubleClick, Lang.bind(this, this._flipControlsTimeout));
      },
 
+    _onButtonPressEvent: function(widget, event) {
+
+        this._viewSelectionChanged = false;
+
+        return false;
+   },
+
     _onButtonReleaseEvent: function(widget, event) {
         let button = event.get_button()[1];
         let clickCount = event.get_click_count()[1];
 
-        if (button == 1 && clickCount == 1)
+        if (button == 1
+            && clickCount == 1
+            && !this._viewSelectionChanged)
             this._queueControlsFlip();
         else
             this._cancelControlsFlip();
+
+        this._viewSelectionChanged = false;
 
         return false;
     },
@@ -226,9 +248,9 @@ const PreviewView = new Lang.Class({
     },
 
     _onAdjustmentChanged: function() {
-        if (!this._selectionChanged)
+        if (!this._thumbSelectionChanged)
             this.controlsVisible = false;
-        this._selectionChanged = false;
+        this._thumbSelectionChanged = false;
     },
 
     _changeRotation: function(offset) {
