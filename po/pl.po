@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-16 04:03+0100\n"
-"PO-Revision-Date: 2012-12-16 04:04+0100\n"
+"POT-Creation-Date: 2012-12-23 04:20+0100\n"
+"PO-Revision-Date: 2012-12-23 04:21+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -23,8 +23,8 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:215
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
+#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -130,15 +130,13 @@ msgstr "Można dodać konta online w %s"
 msgid "System Settings"
 msgstr "Ustawieniach systemu"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "Nie można wczytać dokumentu"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr ""
-"Nie można odnaleźć programu \"unoconv\", proszę sprawdzić instalację pakietu "
-"LibreOffice"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "Pakiet LibreOffice jest wymagany, aby wyświetlić ten dokument"
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
@@ -181,13 +179,13 @@ msgstr "Wstecz"
 msgid "Select Items"
 msgstr "Zaznacz elementy"
 
-#: ../src/mainWindow.js:214
+#: ../src/mainWindow.js:218
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2011-2012\n"
 "Aviary.pl <gnomepl@aviary.pl>, 2011-2012"
 
-#: ../src/mainWindow.js:216
+#: ../src/mainWindow.js:220
 msgid "A document manager application"
 msgstr "Program do zarządzania dokumentami"
 
@@ -298,12 +296,12 @@ msgid "Zoom Out"
 msgstr "Pomniejsz"
 
 #: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "Obróć w lewo"
+msgid "Rotate ↶"
+msgstr "Obróć ↶"
 
 #: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "Obróć w prawo"
+msgid "Rotate ↷"
+msgstr "Obróć ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
