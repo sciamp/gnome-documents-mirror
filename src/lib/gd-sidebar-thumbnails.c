@@ -301,8 +301,6 @@ gd_sidebar_thumbnails_constructed (GObject *object)
 	gtk_cell_layout_pack_start (GTK_CELL_LAYOUT (self), cell, FALSE);
 	g_object_set (cell,
 	              "follow-state", FALSE,
-	              "height", 96,
-	              "width", 96,
 	              "yalign", 0.5,
 	              "xalign", 0.5,
 	              NULL);
@@ -392,7 +390,7 @@ gd_sidebar_thumbnails_get_loading_icon (GdSidebarThumbnails *self,
 		gboolean inverted_colors;
 
 		inverted_colors = ev_document_model_get_inverted_colors (priv->model);
-		icon = ev_document_misc_get_loading_thumbnail (width, height, inverted_colors);
+		icon = ev_document_misc_render_loading_thumbnail (GTK_WIDGET (self), width, height, inverted_colors);
 		g_hash_table_insert (priv->loading_icons, key, icon);
 	} else {
 		g_free (key);
@@ -496,6 +494,7 @@ add_range (GdSidebarThumbnails *self,
 			job = ev_job_thumbnail_new (priv->document,
 						    page, priv->rotation,
 						    get_scale_for_page (self, page));
+                        ev_job_thumbnail_set_has_frame (EV_JOB_THUMBNAIL (job), FALSE);
 			ev_job_scheduler_push_job (EV_JOB (job), EV_JOB_PRIORITY_HIGH);
 			
 			g_object_set_data_full (G_OBJECT (job), "tree_iter",
@@ -704,16 +703,21 @@ thumbnail_job_completed_callback (EvJobThumbnail      *job,
 {
 	GdSidebarThumbnailsPrivate *priv = self->priv;
 	GtkTreeIter *iter;
+        GdkPixbuf *pixbuf;
+
+        pixbuf = ev_document_misc_render_thumbnail_with_frame (GTK_WIDGET (self), job->thumbnail);
 
 	iter = (GtkTreeIter *) g_object_get_data (G_OBJECT (job), "tree_iter");
 	if (priv->inverted_colors)
-		ev_document_misc_invert_pixbuf (job->thumbnail);
+		ev_document_misc_invert_pixbuf (pixbuf);
 	gtk_list_store_set (priv->list_store,
 			    iter,
-			    COLUMN_PIXBUF, job->thumbnail,
+			    COLUMN_PIXBUF, pixbuf,
 			    COLUMN_THUMBNAIL_SET, TRUE,
 			    COLUMN_JOB, NULL,
 			    -1);
+
+        g_object_unref (pixbuf);
 }
 
 static void
