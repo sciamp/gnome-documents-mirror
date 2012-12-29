@@ -1,0 +1,422 @@
+# Friulian translation for gnome-documents.
+# Copyright (C) 2012 gnome-documents's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-documents package.
+# TmTFx <f.t.public@gmail.com>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-documents gnome-3-6\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2012-12-09 08:45+0000\n"
+"PO-Revision-Date: 2012-12-28 01:51+0100\n"
+"Last-Translator: TmTFx <f.t.public@gmail.com>\n"
+"Language-Team: Friulian <fur@li.org>\n"
+"Language: fur\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
+#: ../src/mainWindow.js:205
+msgid "Documents"
+msgstr "Documents"
+
+#: ../data/gnome-documents.desktop.in.in.h:2
+msgid "Access, manage and share documents"
+msgstr "Acès, ministre e condivît documents"
+
+#: ../data/gnome-documents.desktop.in.in.h:3
+msgid "Docs;PDF;Document;"
+msgstr "Docs;PDF;Document;"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
+msgid "View as"
+msgstr "Viôt come"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:2
+msgid "View as type"
+msgstr "Viôt come gjenar"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:3
+msgid "Window size"
+msgstr "Dimension barcon"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
+msgid "Window size (width and height)."
+msgstr "Dimension barcon (largjece e altece)."
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "Posizion barcon"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "Posizion barcon (x e y)."
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr "Barcon massimizât"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr "Stât massimizât dal barcon"
+
+#: ../src/documents.js:640 ../src/sources.js:95
+msgid "Local"
+msgstr "Locâl"
+
+#. overridden
+#: ../src/documents.js:693
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:694
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:758 ../src/documents.js:857
+msgid "Spreadsheet"
+msgstr "Sfuei di calcul"
+
+#: ../src/documents.js:760 ../src/documents.js:859
+msgid "Presentation"
+msgstr "Presentazion"
+
+#: ../src/documents.js:762 ../src/documents.js:861
+msgid "Collection"
+msgstr "Colezion"
+
+#: ../src/documents.js:764 ../src/documents.js:863
+msgid "Document"
+msgstr "Document"
+
+#. overridden
+#: ../src/documents.js:791 ../src/documents.js:792
+msgid "Skydrive"
+msgstr "Skydrive"
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:976
+#, c-format
+msgid "Unable to load \"%s\" for preview"
+msgstr "Impussibil cjamâ \"%s\" par le anteprime"
+
+#: ../src/embed.js:73
+msgid "Loading..."
+msgstr "Cjariament..."
+
+#: ../src/embed.js:223
+msgid "No Documents Found"
+msgstr "No son stâts cjatâts Documents"
+
+#. Translators: %s here is "System Settings", which is in a separate string
+#. due to markup, and should be translated only in the context of this sentence
+#: ../src/embed.js:246
+#, c-format
+msgid "You can add your online accounts in %s"
+msgstr "Tu puedis giontâ i toi account online in %s"
+
+#. Translators: this should be translated in the context of the
+#. "You can add your online accounts in System Settings" sentence above
+#: ../src/embed.js:250
+msgid "System Settings"
+msgstr "Impostazions di Sisteme"
+
+#: ../src/lib/gd-pdf-loader.c:224
+msgid "Unable to load the document"
+msgstr "Impussibil cjamâ il document"
+
+#: ../src/lib/gd-pdf-loader.c:673
+msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+msgstr ""
+"Impussibil cjatâ \"unoconv\", par plasê controle la tô installazion di "
+"LibreOffice"
+
+#: ../src/mainToolbar.js:73
+msgid "Search"
+msgstr "Cîr"
+
+#: ../src/mainToolbar.js:158
+msgid "New and Recent"
+msgstr "Gnûfs e recents"
+
+#: ../src/mainToolbar.js:165
+#, c-format
+msgid "Results for \"%s\""
+msgstr "Risultâts par \"%s\""
+
+#: ../src/mainToolbar.js:167
+msgid "filtered by title"
+msgstr "filtrât par titul"
+
+#: ../src/mainToolbar.js:169
+msgid "filtered by author"
+msgstr "filtrât par autôr"
+
+#: ../src/mainToolbar.js:176
+msgid "Click on items to select them"
+msgstr "Fâs clic sui elements par selezionaju"
+
+#: ../src/mainToolbar.js:178
+#, c-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d selezionât"
+msgstr[1] "%d selezionâts"
+
+#: ../src/mainToolbar.js:208 ../src/properties.js:59
+msgid "Done"
+msgstr "Fat"
+
+#: ../src/mainToolbar.js:226
+msgid "Back"
+msgstr "Indaûr"
+
+#: ../src/mainToolbar.js:248
+msgid "Select Items"
+msgstr "Selezione Elements"
+
+#: ../src/mainWindow.js:204
+msgid "translator-credits"
+msgstr ""
+
+#: ../src/mainWindow.js:206
+msgid "A document manager application"
+msgstr "Une aplicazion par ministrâ documents"
+
+#: ../src/notifications.js:86
+#, c-format
+msgid "Printing \"%s\": %s"
+msgstr "Stampe di \"%s\": %s"
+
+#: ../src/notifications.js:152
+msgid "Your documents are being indexed"
+msgstr ""
+
+#: ../src/notifications.js:156
+msgid "Some documents might not be available during this process"
+msgstr ""
+"Cualchi document al podares no sedi disponibil intant che chest procès al "
+"matee"
+
+#: ../src/properties.js:57 ../src/selections.js:793
+msgid "Properties"
+msgstr "Proprietâts"
+
+#. Title item
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:76 ../src/searchbar.js:228
+msgid "Title"
+msgstr "Titul"
+
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:85 ../src/searchbar.js:231
+msgid "Author"
+msgstr "Autôr"
+
+#. Source item
+#: ../src/properties.js:92
+msgid "Source"
+msgstr "Sorgint"
+
+#. Date Modified item
+#: ../src/properties.js:98
+msgid "Date Modified"
+msgstr ""
+
+#: ../src/properties.js:105
+msgid "Date Created"
+msgstr ""
+
+#. Document type item
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:114 ../src/searchbar.js:137
+msgid "Type"
+msgstr "Gjenar"
+
+#: ../src/searchbar.js:83
+msgid "Category"
+msgstr "Categorie"
+
+#: ../src/searchbar.js:88 ../src/searchbar.js:140 ../src/searchbar.js:225
+#: ../src/sources.js:89
+msgid "All"
+msgstr "Ducj"
+
+#: ../src/searchbar.js:94
+msgid "Favorites"
+msgstr "Preferîts"
+
+#: ../src/searchbar.js:99
+msgid "Shared with you"
+msgstr "Spartîts cun te"
+
+#: ../src/searchbar.js:142
+msgid "Collections"
+msgstr "Colezions"
+
+#: ../src/searchbar.js:146
+msgid "PDF Documents"
+msgstr "Documents PDF"
+
+#: ../src/searchbar.js:150
+msgid "Presentations"
+msgstr "Presentazions"
+
+#: ../src/searchbar.js:153
+msgid "Spreadsheets"
+msgstr "Sfueis di calcul"
+
+#: ../src/searchbar.js:156
+msgid "Text Documents"
+msgstr "Documents di test"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/searchbar.js:222
+msgid "Match"
+msgstr ""
+
+#: ../src/selections.js:616 ../src/selections.js:785
+msgid "Organize"
+msgstr "Organize"
+
+#: ../src/selections.js:762
+msgid "Print"
+msgstr "Stampe"
+
+#: ../src/selections.js:769
+msgid "Delete"
+msgstr "Scancele"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:874
+#, c-format
+msgid "Open with %s"
+msgstr "Vierç cun %s"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
+msgid "Open"
+msgstr "Vierç"
+
+#: ../src/shellSearchProvider.js:281
+msgid "Untitled Document"
+msgstr "Document cence titul"
+
+#: ../src/sources.js:85
+msgid "Sources"
+msgstr "Sorgints"
+
+#: ../src/view.js:79
+#, c-format
+msgid "Load %d more document"
+msgid_plural "Load %d more documents"
+msgstr[0] "Cjame %d altri document"
+msgstr[1] "Cjame %d altris documents"
+
+#: ../src/view.js:283
+msgid "Yesterday"
+msgstr "Îr"
+
+#: ../src/view.js:285
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d dì indaûr"
+msgstr[1] "%d dîs indaûr"
+
+#: ../src/view.js:289
+msgid "Last week"
+msgstr "Ultime setemane"
+
+#: ../src/view.js:291
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d setemane indaûr"
+msgstr[1] "%d setemanis indaûr"
+
+#: ../src/view.js:295
+msgid "Last month"
+msgstr "Ultin mês"
+
+#: ../src/view.js:297
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d mês indaûr"
+msgstr[1] "%d mês indaûr"
+
+#: ../src/view.js:301
+msgid "Last year"
+msgstr "Ultin an"
+
+#: ../src/view.js:303
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d an indaûr"
+msgstr[1] "%d agns indaûr"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "Gridele"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "Liste"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "A visôr plen"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "Informazions su Documents"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Jutori"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "Jes"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Print..."
+msgstr "Stampe..."
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Zoom In"
+msgstr "Aumente Ingrandiment"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Zoom Out"
+msgstr "Diminuis Ingrandiment"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Rotate Left"
+msgstr "Sgurle a çampe"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Rotate Right"
+msgstr "Sgurle a Diestre"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Selezione Dut"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Selezione Nuje"
