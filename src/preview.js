@@ -49,7 +49,7 @@ const PreviewView = new Lang.Class({
         this._jobFind = null;
         this._controlsFlipId = 0;
         this._controlsVisible = false;
-        this._thumbSelectionChanged = false;
+        this._pageChanged = false;
         this._viewSelectionChanged = false;
 
         Application.modeController.connect('fullscreen-changed',
@@ -66,14 +66,10 @@ const PreviewView = new Lang.Class({
 
         this._createView();
 
-        // create thumb bar
-        this._thumbBar = new PreviewThumbnails(this._model);
-        overlayLayout.add(this._thumbBar.actor,
+        // create page nav bar
+        this._navBar = new PreviewNav(this._model);
+        overlayLayout.add(this._navBar.actor,
             Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
-        this._thumbBar.view.connect('selection-changed', Lang.bind(this,
-            function() {
-                this._thumbSelectionChanged = true;
-            }));
 
         // create fullscreen toolbar (hidden by default)
         this._fsToolbar = new PreviewFullscreenToolbar(this);
@@ -157,10 +153,10 @@ const PreviewView = new Lang.Class({
         if (this._controlsVisible) {
             if (Application.modeController.getFullscreen())
                 this._fsToolbar.show();
-            this._thumbBar.show();
+            this._navBar.show();
         } else {
             this._fsToolbar.hide();
-            this._thumbBar.hide();
+            this._navBar.hide();
         }
     },
 
@@ -248,9 +244,9 @@ const PreviewView = new Lang.Class({
     },
 
     _onAdjustmentChanged: function() {
-        if (!this._thumbSelectionChanged)
+        if (!this._pageChanged)
             this.controlsVisible = false;
-        this._thumbSelectionChanged = false;
+        this._pageChanged = false;
     },
 
     _changeRotation: function(offset) {
@@ -317,8 +313,13 @@ const PreviewView = new Lang.Class({
         if (this._model) {
             this._createView();
             this.view.set_model(this._model);
-            this._thumbBar.view.model = model;
+            this._navBar.widget.document_model = model;
             this._fsToolbar.setModel(model);
+            this._model.connect('page-changed', Lang.bind(this,
+                function() {
+                    this._pageChanged = true;
+                }));
+
         }
     },
 
@@ -328,21 +329,18 @@ const PreviewView = new Lang.Class({
 });
 Signals.addSignalMethods(PreviewView.prototype);
 
-const PreviewThumbnails = new Lang.Class({
-    Name: 'PreviewThumbnails',
+const PreviewNav = new Lang.Class({
+    Name: 'PreviewNav',
 
     _init: function(model) {
-        this.view = new GdPrivate.SidebarThumbnails({ model: model,
-                                                      visible: true });
-        this.widget = new GdPrivate.ThumbNav({ thumbview: this.view,
-                                               show_buttons: false });
+        this.widget = new GdPrivate.NavBar({ document_model: model });
         this.widget.get_style_context().add_class('osd');
         this.actor = new GtkClutter.Actor({ contents: this.widget,
                                             visible: false,
                                             opacity: 0 });
         Utils.alphaGtkWidget(this.actor.get_widget());
 
-        this.widget.show();
+        this.widget.show_all();
     },
 
     show: function() {
