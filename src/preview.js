@@ -35,6 +35,7 @@ const Signals = imports.signals;
 const Application = imports.application;
 const Tweener = imports.util.tweener;
 const MainToolbar = imports.mainToolbar;
+const Places = imports.places;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
 const View = imports.view;
@@ -113,6 +114,16 @@ const PreviewView = new Lang.Class({
         rotRight.connect('activate', Lang.bind(this,
             function() {
                 this._changeRotation(90);
+            }));
+        let showPlaces = Application.application.lookup_action('places');
+        showPlaces.connect('activate', Lang.bind(this, this._showPlaces));
+    },
+
+    _showPlaces: function() {
+        let dialog = new Places.PlacesDialog(this._model);
+        dialog.widget.connect('response', Lang.bind(this,
+            function(widget, response) {
+                widget.destroy();
             }));
     },
 

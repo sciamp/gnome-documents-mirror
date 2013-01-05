@@ -399,6 +399,9 @@ const Application = new Lang.Class({
               window_mode: WindowMode.WindowMode.OVERVIEW },
             { name: 'properties',
               callback: this._onActionProperties,
+              window_mode: WindowMode.WindowMode.PREVIEW },
+            { name: 'places',
+              accel: 'F3',
               window_mode: WindowMode.WindowMode.PREVIEW }
         ];
 
