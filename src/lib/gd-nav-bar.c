@@ -474,7 +474,7 @@ gd_nav_bar_document_changed_cb (EvDocumentModel *model,
         priv->page_start = -1;
         priv->page_end = -1;
 
-        g_object_unref (priv->document);
+        g_clear_object (&priv->document);
         priv->document = document;
         if (priv->document != NULL) {
                 g_object_ref (priv->document);
