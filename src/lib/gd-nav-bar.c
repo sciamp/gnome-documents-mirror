@@ -58,6 +58,7 @@ typedef struct {
 } PreviewItem;
 
 struct _GdNavBarPrivate {
+        GtkWidget *button_area;
         GtkWidget *scale;
         GtkWidget *page_label;
         GtkWidget *preview_window;
@@ -878,6 +879,22 @@ create_preview_window (GdNavBar *self)
         gtk_widget_show_all (box);
 }
 
+/**
+ * gd_nav_bar_get_button_area:
+ * @bar: a #GdNavBar
+ *
+ * Returns the button area of @bar.
+ *
+ * Returns: (transfer none): the button area #GtkBox.
+ **/
+GtkWidget *
+gd_nav_bar_get_button_area (GdNavBar *bar)
+{
+        g_return_val_if_fail (GD_IS_NAV_BAR (bar), NULL);
+
+        return bar->priv->button_area;
+}
+
 static void
 gd_nav_bar_init (GdNavBar *self)
 {
@@ -899,6 +916,12 @@ gd_nav_bar_init (GdNavBar *self)
         gtk_widget_show (inner_box);
         gtk_widget_set_hexpand (GTK_WIDGET (inner_box), TRUE);
         gtk_container_add (GTK_CONTAINER (self), inner_box);
+
+        priv->button_area = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 5);
+        gtk_widget_set_margin_left (priv->button_area, 5);
+        gtk_widget_set_margin_right (priv->button_area, 5);
+        gtk_widget_show (priv->button_area);
+        gtk_box_pack_start (GTK_BOX (inner_box), priv->button_area, FALSE, FALSE, 0);
 
         priv->scale = gtk_scale_new (GTK_ORIENTATION_HORIZONTAL, NULL);
         gtk_scale_set_draw_value (GTK_SCALE (priv->scale), FALSE);

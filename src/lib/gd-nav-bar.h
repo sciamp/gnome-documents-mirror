@@ -52,6 +52,7 @@ struct _GdNavBarClass {
 GType            gd_nav_bar_get_type           (void) G_GNUC_CONST;
 
 GtkWidget       *gd_nav_bar_new                (EvDocumentModel *model);
+GtkWidget       *gd_nav_bar_get_button_area    (GdNavBar        *bar);
 
 G_END_DECLS
 

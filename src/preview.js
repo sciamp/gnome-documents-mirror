@@ -346,6 +346,15 @@ const PreviewNav = new Lang.Class({
     _init: function(model) {
         this.widget = new GdPrivate.NavBar({ document_model: model });
         this.widget.get_style_context().add_class('osd');
+
+        let button = new Gtk.Button({ action_name: 'app.places',
+                                      child: new Gtk.Image({ icon_name: 'view-list-symbolic',
+                                                             pixel_size: 16 }),
+                                      valign: Gtk.Align.CENTER
+                                    });
+        let button_area = this.widget.get_button_area();
+        button_area.pack_start(button, false, false, 0);
+
         this.actor = new GtkClutter.Actor({ contents: this.widget,
                                             visible: false,
                                             opacity: 0 });
