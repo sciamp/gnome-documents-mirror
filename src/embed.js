@@ -483,6 +483,7 @@ const Embed = new Lang.Class({
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
+        docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
         this._toolbar.setModel(docModel);
         this._preview.setModel(docModel);
         this._preview.widget.grab_focus();
