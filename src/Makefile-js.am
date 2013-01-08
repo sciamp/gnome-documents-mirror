@@ -17,6 +17,7 @@ dist_js_DATA = \
     search.js \
     searchbar.js \
     selections.js \
+    sharing.js \
     shellSearchProvider.js \
     trackerController.js \
     trackerUtils.js \

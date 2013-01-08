@@ -36,6 +36,7 @@ const Manager = imports.manager;
 const Notifications = imports.notifications;
 const Properties = imports.properties;
 const Query = imports.query;
+const Sharing = imports.sharing;
 const Tweener = imports.util.tweener;
 const Utils = imports.utils;
 
@@ -792,6 +793,13 @@ const SelectionToolbar = new Lang.Class({
         this._rightBox.add(this._toolbarProperties);
         this._toolbarProperties.connect('clicked', Lang.bind(this, this._onToolbarProperties));
 
+        // share button
+	    this._toolbarShare = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'emblem-shared-symbolic',
+                                                                      pixel_size: 16 })});
+        this._toolbarShare.set_tooltip_text(_("Share"));
+        this._rightBox.add(this._toolbarShare);
+        this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
+
         this.widget.show_all();
 
         Application.selectionController.connect('selection-mode-changed',
@@ -843,6 +851,7 @@ const SelectionToolbar = new Lang.Class({
         let showPrint = true;
         let showProperties = true;
         let showOpen = true;
+        let showShare = true;
 
         this._insideRefresh = true;
 
@@ -854,6 +863,10 @@ const SelectionToolbar = new Lang.Class({
                 if ((doc.defaultAppName) &&
                     (apps.indexOf(doc.defaultAppName) == -1))
                     apps.push(doc.defaultAppName);
+                if ((doc instanceof Documents.LocalDocument) ||
+                    (doc.collection != false) ||
+                    (selection.length > 1))
+                    showShare = false;
 
                 showTrash &= doc.canTrash();
                 showPrint &= !doc.collection;
@@ -880,6 +893,7 @@ const SelectionToolbar = new Lang.Class({
         this._toolbarProperties.set_visible(showProperties);
         this._toolbarTrash.set_visible(showTrash);
         this._toolbarOpen.set_visible(showOpen);
+        this._toolbarShare.set_visible(showShare);
 
         this._insideRefresh = false;
     },
@@ -930,6 +944,19 @@ const SelectionToolbar = new Lang.Class({
             function(widget, response) {
                 dialog.widget.destroy();
                 this._fadeIn();
+            }));
+    },
+
+   _onToolbarShare: function(widget) {
+	    let dialog = new Sharing.SharingDialog();
+        this._fadeOut();
+
+        dialog.widget.connect('response', Lang.bind(this,
+            function(widget, response) {
+                if (response == Gtk.ResponseType.OK) {
+                    dialog.widget.destroy();
+                    this._fadeIn();
+                }
             }));
     },
 
