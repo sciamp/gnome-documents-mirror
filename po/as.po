@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gnome-documents package.
 #
 # ngoswami <ngoswami@redhat.com>, 2011.
-# Nilamdyuti Goswami <ngoswami@redhat.com>, 2011, 2012.
+# Nilamdyuti Goswami <ngoswami@redhat.com>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-19 15:29+0000\n"
-"PO-Revision-Date: 2012-12-20 15:27+0530\n"
+"POT-Creation-Date: 2013-01-09 20:07+0000\n"
+"PO-Revision-Date: 2013-01-11 21:26+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
 "Language: as_IN\n"
@@ -106,7 +106,7 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr " \"%s\" ক পূৰ্বদৰ্শনৰ বাবে ল'ড কৰিবলে অক্ষম"
 
-#: ../src/embed.js:72 ../src/view.js:70
+#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
 msgid "Loading…"
 msgstr "ল'ড কৰা হৈছে…"
 
@@ -127,6 +127,11 @@ msgstr "আপুনি আপোনাৰ অনলাইন একাওন্
 msgid "System Settings"
 msgstr "চিস্টেম সংহতিসমূহ"
 
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "%u ৰ পৃষ্ঠা %u"
+
 #: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "দস্তাবেজ ল'ড কৰিবলে অক্ষম"
@@ -134,6 +139,14 @@ msgstr "দস্তাবেজ ল'ড কৰিবলে অক্ষম"
 #: ../src/lib/gd-pdf-loader.c:676
 msgid "LibreOffice is required to view this document"
 msgstr "এই দস্তাবেজ দৰ্শন কৰিবলে LibreOffice ৰ প্ৰয়োজন"
+
+#: ../src/lib/gd-places-links.c:347
+msgid "No table of contents"
+msgstr "কোনো সমলসমূহৰ টেবুল নাই"
+
+#: ../src/lib/gd-places-links.c:410
+msgid "Contents"
+msgstr "সমলসমূহ"
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
@@ -290,12 +303,10 @@ msgid "Zoom Out"
 msgstr "সৰু কৰি দেখুৱাওক"
 
 #: ../src/resources/preview-menu.ui.h:5
-#| msgid "Rotate Left"
 msgid "Rotate ↶"
 msgstr "ঘুৰাওক ↶"
 
 #: ../src/resources/preview-menu.ui.h:6
-#| msgid "Rotate Left"
 msgid "Rotate ↷"
 msgstr "ঘুৰাওক ↷"
 
