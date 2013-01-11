@@ -94,16 +94,8 @@ const Searchbar = new Lang.Class({
             Lang.bind(this, this._onActionStateChanged));
         this._onActionStateChanged(Application.application, 'search', Application.application.get_action_state('search'));
 
-        // connect to search string changes in the controller
-        this._searchEntry.text = Application.searchController.getString();
-        let searchChangedId = Application.searchController.connect('search-string-changed', Lang.bind(this,
-            function(controller, string) {
-                this._searchEntry.text = string;
-            }));
-
         this.widget.connect('destroy', Lang.bind(this,
             function() {
-                Application.searchController.disconnect(searchChangedId);
                 Application.application.disconnect(searchStateId);
                 Application.application.change_action_state('search', GLib.Variant.new('b', false));
             }));
@@ -327,7 +319,18 @@ const OverviewSearchbar = new Lang.Class({
         this._searchEntry = new Gd.TaggedEntry({ width_request: 500 });
         this._searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
-        this._searchEntry.set_text(Application.searchController.getString());
+
+        // connect to search string changes in the controller
+        this._searchEntry.text = Application.searchController.getString();
+        let searchChangedId = Application.searchController.connect('search-string-changed', Lang.bind(this,
+            function(controller, string) {
+                this._searchEntry.text = string;
+            }));
+
+        this._searchEntry.connect('destroy', Lang.bind(this,
+            function() {
+                Application.searchController.disconnect(searchChangedId);
+            }));
 
         // create the dropdown button
         this._dropdownButton = new Gtk.ToggleButton(
