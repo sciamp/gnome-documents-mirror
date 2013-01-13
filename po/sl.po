@@ -2,15 +2,15 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 #
-# Matej Urbančič <mateju@svn.gnome.org>, 2011 - 2012.
+# Matej Urbančič <mateju@svn.gnome.org>, 2011-2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-17 20:21+0000\n"
-"PO-Revision-Date: 2012-12-18 08:31+0100\n"
+"POT-Creation-Date: 2013-01-11 15:54+0000\n"
+"PO-Revision-Date: 2013-01-13 10:39+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:215
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
+#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -108,7 +108,7 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Ni mogoče naložiti \"%s\" za predogled"
 
-#: ../src/embed.js:72 ../src/view.js:70
+#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
 msgid "Loading…"
 msgstr "Nalaganje ..."
 
@@ -129,15 +129,26 @@ msgstr "Spletne račune je mogoče dodati v meniju %s"
 msgid "System Settings"
 msgstr "Sistemske nastavitve"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Stran %u od %u"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "Dokumenta ni mogoče naložiti"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr ""
-"Ni mogoče najti predmeta \"unoconv\"; preveriti je treba namestitev "
-"LibreOffice."
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "Za ogled tega dokumenta je treba uporabiti program LibreOffice"
+
+#: ../src/lib/gd-places-links.c:347
+msgid "No table of contents"
+msgstr "Ni kazala vsebine"
+
+#: ../src/lib/gd-places-links.c:410
+msgid "Contents"
+msgstr "Vsebina"
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
@@ -181,11 +192,11 @@ msgstr "Nazaj"
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
-#: ../src/mainWindow.js:214
+#: ../src/mainWindow.js:218
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/mainWindow.js:216
+#: ../src/mainWindow.js:220
 msgid "A document manager application"
 msgstr "Program za upravljanje z dokumenti"
 
@@ -296,12 +307,12 @@ msgid "Zoom Out"
 msgstr "Oddalji"
 
 #: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "Zavrti levo"
+msgid "Rotate ↶"
+msgstr "Zavrti ↶"
 
 #: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "Zavrti desno"
+msgid "Rotate ↷"
+msgstr "Zavrti ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -435,6 +446,14 @@ msgstr[0] "%d let nazaj"
 msgstr[1] "%d leto nazaj"
 msgstr[2] "%d leti nazaj"
 msgstr[3] "%d leta nazaj"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr ""
+#~ "Ni mogoče najti predmeta \"unoconv\"; preveriti je treba namestitev "
+#~ "LibreOffice."
+
+#~ msgid "Rotate Right"
+#~ msgstr "Zavrti desno"
 
 #~ msgid "New and Recent"
 #~ msgstr "Novo in nedavno"
