@@ -5,13 +5,13 @@
 # colaborar connosco, podes atopar máis información en http://www.trasno.net
 # Fran Diéguez <frandieguez@gnome.org>, 2011, 2012.
 # Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.
-# Fran Dieguez <frandieguez@gnome.org>, 2012.
+# Fran Dieguez <frandieguez@gnome.org>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-24 20:28+0100\n"
-"PO-Revision-Date: 2012-12-24 20:28+0200\n"
+"POT-Creation-Date: 2013-01-13 16:36+0100\n"
+"PO-Revision-Date: 2013-01-13 16:36+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -108,7 +108,7 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
 
-#: ../src/embed.js:72 ../src/view.js:70
+#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
 msgid "Loading…"
 msgstr "Cargando…"
 
@@ -129,6 +129,11 @@ msgstr "Pode engadir as súas contas en liña en %s"
 msgid "System Settings"
 msgstr "Preferencias do sistema"
 
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Páxina %u de %u"
+
 #: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "Non foi posíbel cargar o documento"
@@ -136,6 +141,14 @@ msgstr "Non foi posíbel cargar o documento"
 #: ../src/lib/gd-pdf-loader.c:676
 msgid "LibreOffice is required to view this document"
 msgstr "Requírese LibreOffice para ver este documento"
+
+#: ../src/lib/gd-places-links.c:347
+msgid "No table of contents"
+msgstr "Non hai táboa de contidos"
+
+#: ../src/lib/gd-places-links.c:410
+msgid "Contents"
+msgstr "Contidos"
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
