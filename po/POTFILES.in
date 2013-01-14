@@ -17,5 +17,6 @@ src/properties.js
 src/searchbar.js
 src/search.js
 src/selections.js
+src/sharing.js
 src/shellSearchProvider.js
 src/view.js
