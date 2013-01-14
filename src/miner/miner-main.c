@@ -236,8 +236,6 @@ int
 main (int argc,
       char **argv)
 {
-  g_type_init ();
-
   ensure_autoquit_on ();
   loop = g_main_loop_new (NULL, FALSE);
 
