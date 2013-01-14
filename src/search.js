@@ -463,24 +463,23 @@ const SourceManager = new Lang.Class({
     },
 
     hasProviderType: function(providerType) {
-        let found = false;
+        let items = this.getForProviderType(providerType);
+        return (items.length > 0);
+    },
+
+    getForProviderType: function(providerType) {
+        let items = [];
         this.forEachItem(Lang.bind(this,
             function(source) {
                 if (!source.object)
                     return;
 
                 let account = source.object.get_account();
-                if (!account)
-                    return;
-
-                if (found)
-                    return;
-
                 if (account.provider_type == providerType)
-                    found = true;
+                    items.push(source);
             }));
 
-        return found;
+        return items;
     }
 });
 

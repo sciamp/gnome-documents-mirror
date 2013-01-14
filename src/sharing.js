@@ -1,6 +1,6 @@
 /*
  * Copyright(c) 2012 Meg Ford
- * Except for Line 530: 
+ * Except for Line 530:
  * JavaScript function to check an email address conforms to RFC822 (http://www.ietf.org/rfc/rfc0822.txt)
  *
  * Version: 0.2
@@ -31,300 +31,301 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const Gd = imports.gi.Gd;
-const GdPrivate = imports.gi.GdPrivate;
 const GData = imports.gi.GData;
-const Gdk = imports.gi.Gdk;
-const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const _ = imports.gettext.gettext;
 
 const Application = imports.application;
-const Documents = imports.documents;
-const Manager = imports.manager;
-const Query = imports.query;
-const Selections = imports.selections;
-const TrackerUtils = imports.trackerUtils;
-const Utils = imports.utils;
-const View = imports.view;
 
 const Lang = imports.lang;
-const Signals = imports.signals;
 
 const SharingDialogColumns = {
     NAME: 0,
     ROLE: 1
 };
 
+const DocumentShareState = {
+    UNKNOWN: 0,
+    PUBLIC: 1,
+    PRIVATE: 2
+};
+
+const DocumentUpdateType = {
+    NONE: 0,
+    ADD_PUBLIC: 1,
+    DELETE_PUBLIC: 2,
+    CHANGE_PUBLIC: 3,
+    DELETE_SHARE_LINK: 4
+};
+
 const SharingDialog = new Lang.Class({
     Name: 'SharingDialog',
 
-    _init: function() {             
+    _init: function() {
         let urn = Application.selectionController.getSelection();
-        let doc = Application.documentManager.getItemById(urn);
-        this.identifier = doc.identifier;
-        this.resourceUrn = doc.resourceUrn;
-        let accountName = "";
-        let allowChanges = false;
-        let docPrivate = "";
-        let entry = null;
-        let errorStr ="";
-        let feed = null;      
-        let newPub = false;
-        let noPermissionText = "";
-        this.pubEdit = false;
-        let rows = 0;
-        let isVisible = true;
-        this.changeEdit = false;
+        this._doc = Application.documentManager.getItemById(urn);
 
+        let source = Application.sourceManager.getItemById(this._doc.resourceUrn);
+        let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
+        this._service = new GData.DocumentsService({ authorizer: authorizer });
+
+        this._entry = null;
+        this._feed = null;
         this._createGDataEntry();
-        let toplevel = Application.application.get_windows()[0];
 
+        this._docShare = DocumentShareState.UNKNOWN;
+        this._pubEdit = false;
+        this._changePermissionVisible = false;
+
+        let toplevel = Application.application.get_windows()[0];
         this.widget = new Gtk.Dialog({ resizable: false,
                                        transient_for: toplevel,
                                        modal: true,
                                        destroy_with_parent: true,
                                        width_request: 335,
-                                       height_request: 200,
                                        margin_top: 5,
                                        title: _("Sharing Settings"),
                                        hexpand: true });
-        this.widget.add_button(_("Done"), Gtk.ResponseType.OK);  // Label for Done button in Sharing dialog
 
-        this.grid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
-                                   column_spacing: 6,
-                                   row_spacing: 6,
-                                   margin_left: 12,
-                                   margin_right: 12,
-                                   margin_bottom: 12 });
-      	let contentArea = this.widget.get_content_area();
-        contentArea.pack_start(this.grid, true, true, 0);
-        
-        this._spinner = new Gtk.Spinner ({ active: true, 
-                                           halign: Gtk.Align.CENTER });
-        this._spinner.set_size_request(86, 86);
-        this._swSpinner = new Gtk.ScrolledWindow({ shadow_type: Gtk.ShadowType.IN,
-                                                   margin_bottom: 3,
-                                                   hexpand: true }); 
-        this._swSpinner.set_size_request(-1, 250);
-        this._swSpinner.add_with_viewport(this._spinner);
-        this.grid.attach(this._swSpinner, 0, 0, 3, 1);
+        // Label for Done button in Sharing dialog
+        this.widget.add_button(_("Done"), Gtk.ResponseType.OK);
 
-        this.sw = new Gtk.ScrolledWindow({ shadow_type: Gtk.ShadowType.IN,
-                                           margin_bottom: 3,
-                                           hexpand: true });
-        
-        this.sw.set_size_request(-1, 250);
-        rows++;
+        let mainGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                      column_spacing: 6,
+                                      row_spacing: 6,
+                                      margin_left: 12,
+                                      margin_right: 12 });
+        let contentArea = this.widget.get_content_area();
+        contentArea.pack_start(mainGrid, true, true, 0);
 
-        this.model = Gtk.ListStore.new(
-            [ GObject.TYPE_STRING,
-              GObject.TYPE_STRING ]);
+        this._scrolledWin = new Gtk.ScrolledWindow({ shadow_type: Gtk.ShadowType.IN,
+                                                     margin_bottom: 3,
+                                                     hexpand: true,
+                                                     vexpand: true,
+                                                     width_request: 250,
+                                                     height_request: 250 });
+        mainGrid.add(this._scrolledWin);
 
-        this.tree = new Gtk.TreeView({ headers_visible: false,
-                                       vexpand: true,
-                                       hexpand: true });
-        this.tree.set_model(this.model);
-        this.tree.show();
-        this.sw.add(this.tree);
+        let spinner = new Gtk.Spinner ({ active: true,
+                                         halign: Gtk.Align.CENTER,
+                                         width_request: 86,
+                                         height_request: 86 });
+        this._scrolledWin.add_with_viewport(spinner);
 
-        this._viewCol = new Gtk.TreeViewColumn();
-        this.tree.append_column(this._viewCol);
+        this._grid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                    hexpand: true,
+                                    vexpand: true,
+                                    column_spacing: 6,
+                                    row_spacing: 6,
+                                    margin_bottom: 12 });
+        mainGrid.add(this._grid);
 
-        // Name column
-        this._rendererText = new Gtk.CellRendererText({ xpad: 6,
-                                                        ypad: 4 });
-        this._viewCol.pack_start(this._rendererText, true);
-        this._viewCol.add_attribute(this._rendererText,
-                                    'text', SharingDialogColumns.NAME);       
-        
-        // Role column
-        this._rendererDetail = new Gd.StyledTextRenderer({ xpad: 16 });
-        this._rendererDetail.add_class('dim-label');
-        this._viewCol.pack_start(this._rendererDetail, false);
-        this._viewCol.add_attribute(this._rendererDetail,
-                                    'text', SharingDialogColumns.ROLE);
-
-        this._docSharing = new Gtk.Label ({ label: '<b>' + _("Document permissions") + '</b>', 
-                                            // Label for widget group for changing document permissions
-                                            halign: Gtk.Align.START,
-                                            use_markup: true,
-                                            hexpand: false });
-        this._docSharing.get_style_context().add_class('dim-label');
-        this.grid.add(this._docSharing);
-        rows++;
-        
-        this.dw = new Gtk.ButtonBox({ orientation: Gtk.Orientation.HORIZONTAL,
-                                      margin_bottom: 3,
-                                      hexpand: false });
-        this.dw.set_layout(Gtk.ButtonBoxStyle.EDGE);
-        this.dw.set_spacing(6);
-        this.docPrivate = docPrivate;
-        this._permissionLabel = this.docPrivate;
-        this._setting = new Gtk.Label({ label: _(this._permissionLabel),
-                                        halign: Gtk.Align.START,
-                                        hexpand: false });
-        this.dw.add(this._setting);
-
-        this._changePermission = new Gtk.Button({ label: _("Change"), 
-                                                  // Label for permission change in Sharing dialog
-                                                  sensitive: false,
-                                                  halign: Gtk.Align.END });
-        this._changePermission.connect("clicked", Lang.bind(this, function() {
-                                                               this._permissionPopUp()
-							    }));
-        this.dw.pack_start(this._changePermission, false, 0, 6);
-        this.grid.attach(this.dw, 0, rows, 3, 1);
-        rows++; 
-
-        this.dpb = new Gtk.ButtonBox({ orientation: Gtk.Orientation.HORIZONTAL,
-                                       hexpand: true });
-        this.dpb.set_layout(Gtk.ButtonBoxStyle.END);
-        this.dpb.set_spacing(0);
-        
-        this.button1 = new Gtk.RadioButton({ label:  _("Private") }); 
-                                             // Label for radiobutton that sets doc permission to private
-        this.button1.connect('clicked', Lang.bind (this, this._setDoc));
-        this.grid.add(this.button1);
-        rows++;
-
-        this.button2 =  new Gtk.RadioButton({ group: this.button1, 
-                                              label: _("Public") });
-                                              // Label for radiobutton that sets doc permission to Public    
-        this.button2.connect('clicked', Lang.bind (this, this._setDoc));
-        this.grid.add(this.button2);
-        rows++;
-        
-        this._check = new Gtk.CheckButton({ label: _("Can edit"),
-                                            // Label for checkbutton that sets doc permission to Can edit 
-                                            sensitive: false,
-                                            margin_left: 25 });
-
-        this._setButtons();
-
-        this.grid.add(this._check);
-
-        this._close = new Gtk.Button({ label: _("Save"),
-                                       margin_left: 50 });  // Label for Save button for document permissions 
-        this._close.connect('clicked', Lang.bind(this,
-            function() {
-                this._close.set_sensitive(false);             
-                this._sendNewDocumentRule();
-            }));
-
-        this.grid.attach(this._close, 1, rows, 2, 1);
-        rows++;
-
-        this._add = new Gtk.Label ({ label: '<b>' +  _("Add people") + '</b>', // Label for widget group used for adding new contacts
+        // Label for widget group for changing document permissions
+        let label = new Gtk.Label ({ label: '<b>' + _("Document permissions") + '</b>',
                                      halign: Gtk.Align.START,
                                      use_markup: true,
                                      hexpand: false });
-        this._add.get_style_context().add_class('dim-label');
-        this.grid.attach(this._add, 0, rows, 1, 1);
-        rows++;
+        this._grid.add(label);
 
-        this._addContact = new Gtk.Entry({ placeholder_text: _("Enter an email address"), // Editable text in entry field
-                                           editable: true,
-                                           hexpand: true,
-                                           halign: Gtk.Align.START });
-        this._addContact.connect('changed', Lang.bind(this,
+        // Label for permission change in Sharing dialog
+        this._changeButton = new Gtk.Button({ label: _("Change"),
+                                              sensitive: false,
+                                              halign: Gtk.Align.END });
+        this._changeButton.connect("clicked", Lang.bind(this, this._onPermissionsButtonClicked));
+        this._grid.attach(this._changeButton, 2, 0, 1, 1);
+
+        let settingBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                       spacing: 24,
+                                       margin_bottom: 6,
+                                       hexpand: true });
+        this._grid.add(settingBox);
+        this._grid.child_set_property(settingBox, 'width', 3);
+
+        // Labels showing the current privacy setting for the document
+        this._setting = new Gtk.Label({ halign: Gtk.Align.START,
+                                        no_show_all: true });
+        settingBox.add(this._setting);
+
+        this._settingDetail = new Gtk.Label({ halign: Gtk.Align.START,
+                                              no_show_all: true });
+        this._settingDetail.get_style_context().add_class('dim-label');
+        settingBox.add(this._settingDetail);
+
+        // Label for radiobutton that sets doc permission to private
+        this._privateRadio = new Gtk.RadioButton({ label: _("Private") });
+        this._grid.add(this._privateRadio);
+
+        this._publicBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
+                                        spacing: 24 });
+        this._grid.add(this._publicBox);
+        this._grid.child_set_property(this._publicBox, 'width', 3);
+
+        // Label for radiobutton that sets doc permission to Public
+        this._publicRadio =  new Gtk.RadioButton({ group: this._privateRadio,
+                                                   label: _("Public") });
+        this._publicBox.add(this._publicRadio);
+
+        // Label for checkbutton that sets doc permission to Can edit
+        this._pubEditCheck = new Gtk.CheckButton({ label: _("Everyone can edit"),
+                                                   sensitive: false,
+                                                   halign: Gtk.Align.START });
+        this._publicBox.add(this._pubEditCheck);
+        this._publicRadio.bind_property('active', this._pubEditCheck, 'sensitive', GObject.BindingFlags.DEFAULT);
+
+        // Label for widget group used for adding new contacts
+        label = new Gtk.Label ({ label: '<b>' +  _("Add people") + '</b>',
+                                 halign: Gtk.Align.START,
+                                 use_markup: true,
+                                 hexpand: false });
+        this._grid.add(label);
+
+        // Editable text in entry field
+        this._contactEntry = new Gtk.Entry({ placeholder_text: _("Enter an email address"),
+                                             no_show_all: true,
+                                             hexpand: true,
+                                             halign: Gtk.Align.START });
+        this._contactEntry.connect('changed', Lang.bind(this,
             function() {
                 let hasText = !!this._isValidEmail();
                 this._saveShare.sensitive = hasText;
                 this._comboBoxText.sensitive = hasText;
             }));
-        this.grid.add(this._addContact);
+        this._grid.add(this._contactEntry);
 
-        this._comboBoxText = new Gtk.ComboBoxText({ sensitive: false });
-        let combo = [_("Can edit"), _("Can view") ]; // Permission setting labels in combobox
+        // Permission setting labels in combobox
+        this._comboBoxText = new Gtk.ComboBoxText({ sensitive: false,
+                                                    no_show_all: true });
+        let combo = [_("Can edit"), _("Can view") ];
         for (let i = 0; i < combo.length; i++)
             this._comboBoxText.append_text(combo[i]);
 
         this._comboBoxText.set_active(0);
-        this.grid.attach_next_to(this._comboBoxText, this._addContact, 1, 1, 1);
+        this._grid.attach_next_to(this._comboBoxText, this._contactEntry, 1, 1, 1);
 
         this._saveShare = new Gtk.Button({ label: _("Add"),
+                                           no_show_all: true,
                                            sensitive: false });
         this._saveShare.connect ('clicked', Lang.bind(this, this._onAddClicked));
-        this.grid.attach_next_to(this._saveShare, this._comboBoxText, 1, 1, 1);
+        this._grid.attach_next_to(this._saveShare, this._comboBoxText, 1, 1, 1);
 
-        this.noPermissionText = noPermissionText;
-        this._noPermissionLabel = this.noPermissionText;       
-        this._noPermission = new Gtk.Label({ label: _(this._noPermissionLabel),
-                                             halign: Gtk.Align.START,
+        this._noPermission = new Gtk.Label({ halign: Gtk.Align.START,
+                                             no_show_all: true,
                                              hexpand: true });
-        this.grid.attach(this._noPermission, 0, rows, 3, 1);
-       
+        this._grid.add(this._noPermission);
+        this._grid.child_set_property(this._noPermission, 'width', 3);
+
         this.widget.show_all();
-        this.isVisible = isVisible;
-        this._docPermissionButtons(this.isVisible);
-        this._addContact.hide();
-        this._comboBoxText.hide();
-        this._saveShare.hide();
+        this._updatePermissionButtons();
     },
 
-    _permissionPopUp: function() { 
-        this.isVisible = false;
-        this._docPermissionButtons(this.isVisible);
+    _ensureTreeview: function() {
+        if (this._model) {
+            this._model.clear();
+            return;
+        }
+
+        this._model = Gtk.ListStore.new([GObject.TYPE_STRING, GObject.TYPE_STRING]);
+        this._treeView = new Gtk.TreeView({ headers_visible: false,
+                                            vexpand: true,
+                                            hexpand: true });
+        this._treeView.set_model(this._model);
+        this._treeView.show();
+
+        let col = new Gtk.TreeViewColumn();
+        this._treeView.append_column(col);
+
+        // Name column
+        let cell = new Gtk.CellRendererText({ xpad: 6,
+                                              ypad: 4 });
+        col.pack_start(cell, true);
+        col.add_attribute(cell, 'text', SharingDialogColumns.NAME);
+
+        // Role column
+        cell = new Gd.StyledTextRenderer({ xpad: 16 });
+        cell.add_class('dim-label');
+        col.pack_start(cell, false);
+        col.add_attribute(cell, 'text', SharingDialogColumns.ROLE);
+
+        let child = this._scrolledWin.get_child();
+        if (child)
+            child.destroy();
+        this._scrolledWin.add(this._treeView);
     },
-    
-    _permissionPopUpDestroy: function() {
-        if (this.changeEdit == false) {
-        if (this.button1.get_active())
-            this.docPrivate = "Private";
-        else
-            this.docPrivate = "Public";
+
+    _onPermissionsButtonClicked: function() {
+        this._changePermissionVisible = !this._changePermissionVisible;
+        if (!this._changePermissionVisible) {
+            this._changeButton.set_sensitive(false);
+            this._sendNewDocumentRule();
+        }
+
+        this._updatePermissionButtons();
+    },
+
+    _permissionChangeFinished: function() {
+        this._changePermissionVisible = false;
+        this._changeButton.set_sensitive(true);
+        this._updatePermissionButtons();
+    },
+
+    _updateSettingString: function() {
+        let primary = '';
+        let detail = '';
+
+        switch (this._docShare) {
+        case DocumentShareState.PUBLIC:
+            primary = _("Public");
+            if (this._pubEdit)
+                detail = _("Everyone can edit");
+            else
+                detail = _("Everyone can read");
+            break;
+        case DocumentShareState.PRIVATE:
+            primary = _("Private");
+            break;
+        default:
+            break;
+        }
+
+        this._setting.label = primary;
+        this._settingDetail.label = detail;
+    },
+
+    _updatePermissionButtons: function() {
+        if (this._changePermissionVisible) {
+            this._changeButton.label = _("Save");
+            this._setting.hide();
+            this._settingDetail.hide();
+
+            this._privateRadio.show();
+            this._pubEditCheck.active = this._pubEdit;
+            this._publicBox.show_all();
+
+            if (this._docShare == DocumentShareState.PUBLIC)
+                this._publicRadio.set_active(true);
+            else if (this._docShare == DocumentShareState.PRIVATE)
+                this._privateRadio.set_active(true);
         } else {
-           this.docPrivate = "";
-        }
-        this._setting.set_text(this.docPrivate);
-        this.isVisible = true;
-        this._docPermissionButtons(this.isVisible);
-        this._close.set_sensitive(true);//what does this do?
-    },
+            this._changeButton.label = _("Change");
+            this._setting.show();
+            this._settingDetail.show();
 
-    _docPermissionButtons: function(isVisible) {
-        this.isVisible = isVisible;
-
-        if (this.isVisible) {
-            this.dw.show();
-            this.button1.hide();
-            this.button2.hide();
-            this._check.hide();
-            this._close.hide();
-        }
-        
-        else {
-            this.dw.hide();
-            this.button1.show();
-            this.button2.show();
-            this._check.show();
-            this._close.show();  
-            if (this.docPrivate == "Public")
-                this.button2.set_active(true);
-            else if (this.docPrivate == "Private")
-                this.button1.set_active(true);            
-            this._setDoc();          
+            this._privateRadio.hide();
+            this._publicBox.hide();
         }
     },
 
     // Get the id of the selected doc from the sourceManager, give auth info to Google, and start the service
     _createGDataEntry: function() {
-        let source = Application.sourceManager.getItemById(this.resourceUrn);
-
-        let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
-        let service = new GData.DocumentsService({ authorizer: authorizer });
         // Query the service for the entry related to the doc
-        service.query_single_entry_async(service.get_primary_authorization_domain(),
-            this.identifier, null, GData.DocumentsText, null, Lang.bind(this,
+        this._service.query_single_entry_async(this._service.get_primary_authorization_domain(),
+            this._doc.identifier, null, GData.DocumentsText, null, Lang.bind(this,
                 function(object, res) {
                     try {
-                        this.entry = object.query_single_entry_finish(res);
-                        this._getGDataEntryRules(this.entry, service);
+                        this._entry = object.query_single_entry_finish(res);
+                        this._refreshEntryACL();
                     } catch (e) {
                         log("Error getting GData Entry " + e.message);
                     }
@@ -332,81 +333,29 @@ const SharingDialog = new Lang.Class({
     },
 
     // Return a feed containing the acl related to the entry
-    _getGDataEntryRules: function(entry, service) {
-        this.entry.get_rules_async(service, null, null, Lang.bind(this,
+    _refreshEntryACL: function() {
+        this._entry.get_rules_async(this._service, null, null, Lang.bind(this,
             function(entry, result) {
                 try {
-                    this.feed = service.query_finish(result);
-                    this._getScopeRulesEntry(this.feed);
+                    this._feed = this._service.query_finish(result);
+                    this._getScopeRulesEntry();
 	        } catch(e) {
                     log("Error getting ACL Feed " + e.message);
 	        }
             }));
     },
 
-    // Get each entry (person) from the feed, and get the scope for each person, and then store the emails and values in an array
-    _getScopeRulesEntry: function(feed) {
-        let entries = this.feed.get_entries();
-        let testValues = [];
-        let values = [];
-        this._getAccountName();
-        
-        entries.forEach(Lang.bind(this,
-            function(entry) {
-                let [type, value] = entry.get_scope();
-                let role = entry.get_role();
+    _getAccountNames: function() {
+        let retval = [];
+        let sources = Application.sourceManager.getForProviderType('google');
 
-                if (value != null) {
-                    values.push({ name: value, role: this._getUserRoleString(role) });
-
-                    if ((this.accountName == value) && (role == 'writer' || role == 'owner'))
-                        this.allowChanges = true;                  
-                } else if (value == null) {
-                    if (role != 'none')
-                        this.docPrivate = "Public"; // Text for document permission label
-                    this._setting.set_text(this.docPrivate); 
-
-                    if (role == 'writer') {
-                        this.pubEdit = true;
-                    } 
-                }
-
-                if(role == 'owner')
-                   this.noPermissionText = value; 
-             }));
-
-        // Set values in the treemodel
-        if (this.changeEdit == false) {
-        values.forEach(Lang.bind (this,
-            function(value) {
-                 let iter = this.model.append();
-                 this.model.set(iter,
-                     [ SharingDialogColumns.NAME,
-                       SharingDialogColumns.ROLE ],
-                     [ value.name, value.role ])
+        sources.forEach(Lang.bind(this,
+            function(source) {
+                let account = source.object.get_account();
+                retval.push(account.identity);
             }));
-         }
 
-        this.grid.attach(this.sw, 0, 0, 3, 1);
-        this.sw.set_visible(false);
-        this._swSpinner.destroy();
-        this.sw.set_visible(true);
-
-        if (this.docPrivate == "")
-            this.docPrivate = "Private"; // Text for document permission label
-        this._setting.set_text(this.docPrivate);  
-
-        if(this.allowChanges) { 
-            this._changePermission.set_sensitive(true);
-            this._noPermission.hide();
-            this._addContact.show();
-            this._comboBoxText.show();
-            this._saveShare.show();
-        } else {
-            this._noPermission.set_text("You can ask " + 
-                                        this.noPermissionText + " for access");
-        }
-
+        return retval;
     },
 
     // Get the roles, and make a new array containing strings that start with capital letters
@@ -423,300 +372,254 @@ const SharingDialog = new Lang.Class({
         return '';
     },
 
+    // Get each entry (person) from the feed, and get the scope for each person, and then store the emails and values in an array
+    _getScopeRulesEntry: function() {
+        let entries = this._feed.get_entries();
+        let accountNames = this._getAccountNames();
+
+        let allowChanges = false;
+        let values = [];
+        let ownerId = null;
+        let pubEdit = false;
+        let docShare = DocumentShareState.PRIVATE;
+
+        entries.forEach(Lang.bind(this,
+            function(entry) {
+                let [type, value] = entry.get_scope();
+                let role = entry.get_role();
+
+                if (value != null) {
+                    values.push({ name: value, role: this._getUserRoleString(role) });
+
+                    if ((accountNames.indexOf(value) != -1) &&
+                        (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER || role == GData.DOCUMENTS_ACCESS_ROLE_OWNER))
+                        allowChanges = true;
+                } else {
+                    if (role != GData.ACCESS_ROLE_NONE)
+                        docShare = DocumentShareState.PUBLIC;
+                    if (role == GData.DOCUMENTS_ACCESS_ROLE_WRITER)
+                        pubEdit = true;
+                }
+
+                if (role == GData.DOCUMENTS_ACCESS_ROLE_OWNER)
+                   ownerId = value;
+             }));
+
+        this._ensureTreeview();
+
+        // Set values in the treemodel
+        values.forEach(Lang.bind (this,
+            function(value) {
+                let iter = this._model.append();
+                this._model.set(iter,
+                    [SharingDialogColumns.NAME, SharingDialogColumns.ROLE],
+                    [value.name, value.role]);
+            }));
+
+        // Propagate new state
+        this._docShare = docShare;
+        this._pubEdit = pubEdit;
+        this._updateSettingString();
+
+        if (allowChanges) {
+            this._changeButton.set_sensitive(true);
+            this._noPermission.hide();
+
+            this._contactEntry.show();
+            this._comboBoxText.show();
+            this._saveShare.show();
+        } else {
+            this._noPermission.show();
+            this._noPermission.set_text(_("You can ask %s for access").format(ownerId));
+        }
+    },
+
+    // Get the role for the new contact from the combobox
+    _getNewContactRule: function() {
+        let activeItem = this._comboBoxText.get_active();
+        let role;
+
+        if (activeItem == 0)
+            role = GData.DOCUMENTS_ACCESS_ROLE_WRITER;
+        else if (activeItem == 1)
+            role = GData.DOCUMENTS_ACCESS_ROLE_READER;
+
+        return new GData.AccessRule({ role: role,
+                                      scope_type: GData.ACCESS_SCOPE_USER,
+                                      scope_value: this._contactEntry.get_text() });
+    },
+
     // Send the new contact and its permissions to Google Docs
     _onAddClicked: function() {
-        let source = Application.sourceManager.getItemById(this.resourceUrn);
+        let accessRule = this._getNewContactRule();
+        let aclLink = this._entry.look_up_link(GData.LINK_ACCESS_CONTROL_LIST);
 
-        let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
-        let service = new GData.DocumentsService({ authorizer: authorizer });
-        let accessRule = new GData.AccessRule();
+        this._contactEntry.set_sensitive(false);
 
-        let newContact = this._getNewContact();
-        accessRule.set_role(newContact.role);
-        accessRule.set_scope(GData.ACCESS_SCOPE_USER, newContact.name);
-
-        let aclLink = this.entry.look_up_link(GData.LINK_ACCESS_CONTROL_LIST);
-
-        service.insert_entry_async(service.get_primary_authorization_domain(),
+        this._service.insert_entry_async(this._service.get_primary_authorization_domain(),
             aclLink.get_uri(), accessRule, null, Lang.bind(this,
                 function(service, res) {
+                    this._contactEntry.set_sensitive(true);
+                    this._contactEntry.set_text('');
+
                     try {
-                        let insertedAccessRule = service.insert_entry_finish(res);
-                        let roleString = this._getUserRoleString(newContact.role);
-                        let iter = this.model.append();
-
-                        this.model.set(iter,
-                        [ SharingDialogColumns.NAME,
-                        SharingDialogColumns.ROLE ],
-                        [ newContact.name,
-                        roleString]);
-
-                        this._addContact.set_text("");
-                        this._addContact.set_placeholder_text("Enter an email address"); // Editable text in entry field      
+                        this._service.insert_entry_finish(res);
+                        this._refreshEntryACL();
                     } catch(e) {
                         log("Error inserting new ACL rule " + e.message);
-                        this.errorStr = "The document was not updated";
-                        this._showErrorDialog(this.errorStr);
+                        this._showErrorDialog(_("The document was not updated"));
 		    }
                 }));
     },
 
-    _sendNewDocumentRule: function() {
-        let source = Application.sourceManager.getItemById(this.resourceUrn);
-
-        let authorizer = new GData.GoaAuthorizer({ goa_object: source.object });
-        let service = new GData.DocumentsService({ authorizer: authorizer });
-
-        let docAccessRule = this._getDocumentPermission();
-        let newDocRole = this._getDocumentRole();
-        let entries = this.feed.get_entries();
-        let values = [];
-        let count = 0;
-        let arrIndex = 0;
-        let flag = "";
-        this.changeEdit = true;
-
-        entries.forEach(Lang.bind(this,
-            function(individualEntry) {
-                let [type, value] = individualEntry.get_scope();
-                let role = individualEntry.get_role();
-
-                if (type == "default") {
-                    arrIndex = count;
-                    
-                    if (docAccessRule == GData.ACCESS_SCOPE_USER)
-                        flag = "deletePub";
-                    else if (newDocRole != role && role != "none")
-                        flag = "changePub";
-                    else if (role == "none")
-                        flag = "deleteLinkToPub";
-                    else 
-                        flag = "doNotSend";                           
-                }
-                count++;  
-            }));
-
-        if (flag == "" && docAccessRule == GData.ACCESS_SCOPE_DEFAULT)
-            flag = "addPub";
- 
-        if (flag != "") {
-      
-            if (flag == "addPub") { 
-            // If we are making the doc public, send a new permission
-                let accessRule = new GData.AccessRule();
-                let aclLink = this.entry.look_up_link(GData.LINK_ACCESS_CONTROL_LIST);
-
-                accessRule.set_scope(docAccessRule, null);
-                accessRule.set_role(newDocRole);
-                service.insert_entry_async(service.get_primary_authorization_domain(),
-                    aclLink.get_uri(), accessRule, null, Lang.bind(this,
-                        function(service, res) {
-                            try {
-                                let insertedAccessRule = service.insert_entry_finish(res);
-                                this._createGDataEntry();
-                               // this._setButtons();
-                            } catch(e) {
-                                log("Error inserting new ACL scope for document " + e.message);
-                                this.errorStr = "The document was not updated";
-                                this._showErrorDialog(this.errorStr);
-		            } 
-                this._permissionPopUpDestroy();                          
-                        }));               
-            }
-             
-            if (flag == "changePub") { 
-            // If we are changing the role, update the entry              
-                let accessRule = entries[arrIndex];
-
-                accessRule.set_role(newDocRole);
-                service.update_entry_async(service.get_primary_authorization_domain(), 
-                    accessRule, null, Lang.bind(this,
-                        function(service, res) {
-                            try {
-                                let updatedAccessRule = service.update_entry_finish(res); 
-                                this._createGDataEntry();
-                               // this._setButtons();
-                            } catch(e) {
-                                log("Error updating ACL scope for document " + e.message);
-                                this.errorStr = "The document was not updated";
-                                this._showErrorDialog(this.errorStr);
-		            }
-                 this._permissionPopUpDestroy();
-                        }));
-            }
-                      
-            if (flag == "deletePub") { 
-            // If we are changing the permission to private, delete the public entry.
-                let accessRule = entries[arrIndex];
-
-                service.delete_entry_async(service.get_primary_authorization_domain(), 
-                    accessRule, null, Lang.bind(this,
-                        function(service, res) {
-                            try {
-                                let afterDeletedAccessRule = service.delete_entry_finish(res);
-                                this._createGDataEntry();
-                            } catch(e) {
-                                log("Error deleting ACL scope for document  " + e.message);
-                                this.errorStr = "The document was not updated";
-                                this._showErrorDialog(this.errorStr);
-		            }
-                                this._permissionPopUpDestroy();
-                        }));
-            }
-
-            if ( flag == "deleteLinkToPub") { 
-            // Workaround if the doc is shared with link: step 1 delete shared with link permission.
-                let accessRule = entries[arrIndex];
-
-                service.delete_entry_async(service.get_primary_authorization_domain(), 
-                    accessRule, null, Lang.bind(this,
-                        function(service, res) {
-                            try {
-                                let afterDeletedAccessRule = service.delete_entry_finish(res);
-                            } catch(e) {
-                                log("Error deleting ACL scope for document  " + e.message);
-                                this.errorStr = "The document was not updated";
-                                this._showErrorDialog(this.errorStr);
-		            }
-                        }));
-            }
-                
-            if (flag == "deleteLinkToPub") {
-            // Workaround if the doc is shared with link: step 2 add the new public permisssion.
-                let newAccessRule = new GData.AccessRule();
-                let aclLink = this.entry.look_up_link(GData.LINK_ACCESS_CONTROL_LIST);
-
-                newAccessRule.set_scope(docAccessRule, null);
-                newAccessRule.set_role(newDocRole);
-                service.insert_entry_async(service.get_primary_authorization_domain(),
-                    aclLink.get_uri(), newAccessRule, null, Lang.bind(this,
-                        function(service, res) {
-                            try {
-                                let insertedAccessRule = service.insert_entry_finish(res);
-                                this._createGDataEntry();
-                            } catch(e) {
-                                log("Error inserting new ACL scope for document " + e.message);
-                                this.errorStr = "The document was not updated";
-                                this._showErrorDialog(this.errorStr);
-		            } 
-                this._permissionPopUpDestroy();                           
-                        }));
-            }
-
-            if (flag == "doNotSend") {
-                this.changeEdit = false;
-                this._permissionPopUpDestroy();
-            } 
-        } else {
-            this.changeEdit = false;
-            this._permissionPopUpDestroy();
-        }  
-    },
-
-    // Get the role for the new contact from the combobox
-    _getNewContact: function() {
-        let activeItem = this._comboBoxText.get_active();
-        let newContact = { name: this._addContact.get_text() };
-
-        if (activeItem == 0)
-            newContact.role = GData.DOCUMENTS_ACCESS_ROLE_WRITER;
-        else if (activeItem == 1)
-            newContact.role = GData.DOCUMENTS_ACCESS_ROLE_READER;
-
-        return newContact;
-    },
-
     // Get the scope from the radiobuttons
-    _getDocumentPermission: function() {
-        let docAccRule = null; 
-     
-        if (this.button1.get_active()) {
-        	this.docAccRule = GData.ACCESS_SCOPE_USER;
-        } else if (this.button2.get_active()) {
-        	this.docAccRule = GData.ACCESS_SCOPE_DEFAULT;   
-        }
+    _getNewScopeType: function() {
+        let scope = GData.ACCESS_SCOPE_USER;
+        if (this._publicRadio.get_active())
+            scope = GData.ACCESS_SCOPE_DEFAULT;
 
-        return this.docAccRule;              
+        return scope;
     },
 
     // Get the role from the checkbox
-    _getDocumentRole: function() {
-        let newDocRole = null;
+    _getNewRole: function() {
+        let role = GData.DOCUMENTS_ACCESS_ROLE_READER;
+        if (this._pubEditCheck.get_active())
+            role = GData.DOCUMENTS_ACCESS_ROLE_WRITER;
 
-        if (this._check.get_active()) 
-            this.newDocRole = GData.DOCUMENTS_ACCESS_ROLE_WRITER;                           
-        else
-            this.newDocRole = GData.DOCUMENTS_ACCESS_ROLE_READER;
-
-        return this.newDocRole;
+        return role;
     },
 
-    // Set the checkbox to the sensitive if the public radiobutton is active
-    _setDoc: function() { 
- 
-        if (this.button2.get_active()) {
-            this._check.set_sensitive(true);
-        } else {
-            this._check.set_active(false);
-            this._check.set_sensitive(false);
-        }   
+    _insertNewPermission: function(scopeType, role) {
+        let aclLink = this._entry.look_up_link(GData.LINK_ACCESS_CONTROL_LIST);
+        let accessRule = new GData.AccessRule({ scope_type: scopeType,
+                                                role: role });
+
+        this._service.insert_entry_async(this._service.get_primary_authorization_domain(),
+            aclLink.get_uri(), accessRule, null, Lang.bind(this,
+                function(service, res) {
+                    try {
+                        service.insert_entry_finish(res);
+                        this._refreshEntryACL();
+                    } catch(e) {
+                        log('Error inserting new ACL scope for document ' + e.message);
+                        this._showErrorDialog(_("The document was not updated"));
+                    }
+
+                    this._permissionChangeFinished();
+                }));
     },
 
-    _setButtons: function() {
+    _sendNewDocumentRule: function() {
+        let newScopeType = this._getNewScopeType();
+        let newRole = this._getNewRole();
+        let entries = this._feed.get_entries();
+        let updateType = DocumentUpdateType.NONE;
+        let idx = 0;
 
-        if (this.pubEdit == false) {
-            this._check.set_active(false);
-        } else {
-            this._check.set_active(true);
+        for (idx = 0; idx < entries.length; idx++) {
+            let entry = entries[idx];
+            let [type, value] = entry.get_scope();
+            let role = entry.get_role();
+
+            if (type != GData.ACCESS_SCOPE_DEFAULT)
+                continue;
+
+            if (newScopeType == GData.ACCESS_SCOPE_USER)
+                updateType = DocumentUpdateType.DELETE_PUBLIC;
+            else if ((role != newRole) && (role != GData.ACCESS_ROLE_NONE))
+                updateType = DocumentUpdateType.CHANGE_PUBLIC;
+            else if (role == GData.ACCESS_ROLE_NONE)
+                updateType = DocumentUpdateType.DELETE_SHARE_LINK;
+
+            break;
         }
-    
-        if (this.docPrivate == "Public" ) {
-            this.button2.set_active(true);
-            this._check.set_sensitive(true);
+
+        if ((updateType == DocumentUpdateType.NONE) && (idx == entries.length)
+            && (newScopeType == GData.ACCESS_SCOPE_DEFAULT))
+            updateType = DocumentUpdateType.ADD_PUBLIC;
+
+        if (updateType == DocumentUpdateType.NONE) {
+            this._permissionChangeFinished();
+            return;
+        }
+
+        if (updateType == DocumentUpdateType.ADD_PUBLIC) {
+            // If we are making the doc public, send a new permission
+            this._insertNewPermission(newScopeType, newRole);
+        } else if (updateType == DocumentUpdateType.CHANGE_PUBLIC) {
+            // If we are changing the role, update the entry
+            let accessRule = entries[idx];
+            accessRule.set_role(newRole);
+
+            this._service.update_entry_async(this._service.get_primary_authorization_domain(),
+                accessRule, null, Lang.bind(this,
+                    function(service, res) {
+                        try {
+                            service.update_entry_finish(res);
+                            this._refreshEntryACL();
+                        } catch(e) {
+                            log('Error updating ACL scope for document ' + e.message);
+                            this._showErrorDialog(_("The document was not updated"));
+                        }
+
+                        this._permissionChangeFinished();
+                    }));
+        } else if (updateType == DocumentUpdateType.DELETE_PUBLIC) {
+            // If we are changing the permission to private, delete the public entry.
+            let accessRule = entries[idx];
+
+            this._service.delete_entry_async(this._service.get_primary_authorization_domain(),
+                accessRule, null, Lang.bind(this,
+                    function(service, res) {
+                        try {
+                            service.delete_entry_finish(res);
+                            this._refreshEntryACL();
+                        } catch(e) {
+                            log('Error deleting ACL scope for document  ' + e.message);
+                            this._showErrorDialog(_("The document was not updated"));
+                        }
+
+                        this._permissionChangeFinished();
+                    }));
+        } else if (updateType == DocumentUpdateType.DELETE_SHARE_LINK) {
+            // Workaround if the doc is shared with link: step 1 delete shared with link permission.
+            let accessRule = entries[idx];
+
+            this._service.delete_entry_async(this._service.get_primary_authorization_domain(),
+                accessRule, null, Lang.bind(this,
+                    function(service, res) {
+                        try {
+                            service.delete_entry_finish(res);
+
+                            // Workaround if the doc is shared with link: step 2 add the new public permisssion.
+                            this._insertNewPermission(newScopeType, newRole);
+                        } catch(e) {
+                            log('Error deleting ACL scope for document ' + e.message);
+                            this._showErrorDialog(_("The document was not updated"));
+                        }
+                    }));
         }
     },
-    
-    _isValidEmail: function() { 
-        let emailString = this._addContact.get_text();
+
+    _isValidEmail: function() {
+        let emailString = this._contactEntry.get_text();
         // Use Ross Kendell's RegEx to check for valid email address
         return /^([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x22([^\x0d\x22\x5c\x80-\xff]|\x5c[\x00-\x7f])*\x22))*\x40([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d)(\x2e([^\x00-\x20\x22\x28\x29\x2c\x2e\x3a-\x3c\x3e\x40\x5b-\x5d\x7f-\xff]+|\x5b([^\x0d\x5b-\x5d\x80-\xff]|\x5c[\x00-\x7f])*\x5d))*$/.test(emailString);
     },
 
-    _getAccountName: function() {
-        // Get the email address for the goa account from dbus
-        let client = Application.goaClient.new_sync(null);
-        let accounts = client.get_accounts();
-        
-        accounts.forEach(Lang.bind(this,
-            function(object) {
-                if (object.get_account()) {
-                    let accountInfo = object.get_account();
-                    /* Since object.get_account() returns the Goa.AccountProxy, 
-                    use the .operator to access the Dbus interface's elements */
-                    let accountType = accountInfo.provider_name;
-                    if(accountType == "Google") // Check that we are getting the identity from the correct account
-                        this.accountName = accountInfo.identity;
-                    else
-                        this.accountName = "noMatch";  
-                }
-            }));  
-    },
-
     _showErrorDialog: function(errorStr) {
-        let msg = this.errorStr;
-        this._errorDialog = new Gtk.MessageDialog ({ transient_for: this.widget,
-                                                     modal: true,
-                                                     destroy_with_parent: true,
-                                                     buttons: Gtk.ButtonsType.OK,
-                                                     message_type: Gtk.MessageType.WARNING,
-                                                     text: msg }); 
+        let errorDialog = new Gtk.MessageDialog ({ transient_for: this.widget,
+                                                   modal: true,
+                                                   destroy_with_parent: true,
+                                                   buttons: Gtk.ButtonsType.OK,
+                                                   message_type: Gtk.MessageType.WARNING,
+                                                   text: errorStr });
 
-        this._errorDialog.connect ('response', Lang.bind(this, this._closeErrorDialog));
-        this._errorDialog.show();
-    },
-    
-    _closeErrorDialog: function() {
-        this._errorDialog.destroy();
+        errorDialog.connect ('response', Lang.bind(this,
+            function() {
+                errorDialog.destroy();
+            }));
+        errorDialog.show();
     }
 });
-
