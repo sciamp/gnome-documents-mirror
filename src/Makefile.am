@@ -41,13 +41,10 @@ include Makefile-lib.am
 include Makefile-miner.am
 include Makefile-js.am
 
-gnome-documents.gresource: gnome-documents.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies $(srcdir)/gnome-documents.gresource.xml)
+resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --generate-dependencies $(srcdir)/gnome-documents.gresource.xml)
+gnome-documents.gresource: gnome-documents.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(srcdir) $<
-EXTRA_DIST += gnome-documents.gresource.xml \
-	resources/app-menu.ui \
-	resources/preview-menu.ui \
-	resources/selection-menu.ui \
-	resources/thumbnail-frame.png
+EXTRA_DIST += gnome-documents.gresource.xml $(resource_files)
 
 resourcedir = $(pkgdatadir)
 resource_DATA = gnome-documents.gresource
