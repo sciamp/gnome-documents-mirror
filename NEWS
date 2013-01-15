@@ -1,3 +1,14 @@
+3.7.4 - "Don Calisto"
+=====================
+
+- Use a new page navigation bar in preview (William Jon McCann)
+- Add a sharing dialog for GDocs (Meg Ford)
+- Use new automatic page sizing and page layout modes (William Jon McCann)
+- Respect zoom limits for preview zoom actions (William Jon McCann)
+- Install unoconv trough PackageKit when missing
+- Fix finding text in page when in fullscreen mode
+- Set a minimum size request for the main window
+
 3.7.3 - "The Giant Undertow"
 ============================
 
