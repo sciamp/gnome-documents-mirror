@@ -57,8 +57,8 @@ const PreviewView = new Lang.Class({
         this._overlayLayout = overlayLayout;
         this._lastSearch = '';
 
-        Application.modeController.connect('fullscreen-changed',
-            Lang.bind(this, this._onFullscreenChanged));
+        Application.modeController.connect('fullscreen-changed', Lang.bind(this,
+            this._onFullscreenChanged));
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
@@ -144,18 +144,18 @@ const PreviewView = new Lang.Class({
         this.widget.add(this.view);
         this.view.show();
 
-        this.view.connect('notify::can-zoom-in',
-                          Lang.bind(this, this._onCanZoomInChanged));
-        this.view.connect('notify::can-zoom-out',
-                          Lang.bind(this, this._onCanZoomOutChanged));
-        this.view.connect('button-press-event',
-                            Lang.bind(this, this._onButtonPressEvent));
-        this.view.connect('button-release-event',
-                            Lang.bind(this, this._onButtonReleaseEvent));
-        this.view.connect('key-press-event',
-                            Lang.bind(this, this._onKeyPressEvent));
-        this.view.connect('selection-changed',
-                            Lang.bind(this, this._onViewSelectionChanged));
+        this.view.connect('notify::can-zoom-in', Lang.bind(this,
+            this._onCanZoomInChanged));
+        this.view.connect('notify::can-zoom-out', Lang.bind(this,
+            this._onCanZoomOutChanged));
+        this.view.connect('button-press-event', Lang.bind(this,
+            this._onButtonPressEvent));
+        this.view.connect('button-release-event', Lang.bind(this,
+            this._onButtonReleaseEvent));
+        this.view.connect('key-press-event', Lang.bind(this,
+            this._onKeyPressEvent));
+        this.view.connect('selection-changed', Lang.bind(this,
+            this._onViewSelectionChanged));
     },
 
     _syncControlsVisible: function() {
