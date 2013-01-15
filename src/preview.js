@@ -55,6 +55,7 @@ const PreviewView = new Lang.Class({
         this._viewSelectionChanged = false;
         this._fsToolbar = null;
         this._overlayLayout = overlayLayout;
+        this._lastSearch = '';
 
         Application.modeController.connect('fullscreen-changed',
             Lang.bind(this, this._onFullscreenChanged));
@@ -315,6 +316,8 @@ const PreviewView = new Lang.Class({
             return;
         }
 
+        this._lastSearch = str;
+
         let evDoc = this._model.get_document();
         this._jobFind = EvView.JobFind.new(evDoc, this._model.get_page(), evDoc.get_n_pages(),
                                            str, false);
@@ -337,6 +340,7 @@ const PreviewView = new Lang.Class({
         if (this.view) {
             this.view.destroy();
             this.controlsVisible = false;
+            this._lastSearch = '';
         }
 
         this._model = model;
@@ -359,6 +363,10 @@ const PreviewView = new Lang.Class({
 
     getFullscreenToolbar: function() {
         return this._fsToolbar;
+    },
+
+    get lastSearch() {
+        return this._lastSearch;
     }
 });
 Signals.addSignalMethods(PreviewView.prototype);
@@ -488,7 +496,6 @@ const PreviewSearchbar = new Lang.Class({
     _init: function(previewView) {
         this._previewView = previewView;
         this._previewView.connect('search-changed', Lang.bind(this, this._onSearchChanged));
-        this._lastText = '';
 
         this.parent();
     },
@@ -543,18 +550,16 @@ const PreviewSearchbar = new Lang.Class({
         this.parent();
 
         if (!this._searchEntry.get_text()) {
-            this._searchEntry.set_text(this._lastText);
+            this._searchEntry.set_text(this._previewView.lastSearch);
             this._searchEntry.select_region(0, -1);
         }
 
-        this._lastText = '';
         this._previewView.view.find_set_highlight_search(true);
         this._previewView.startSearch(this._searchEntry.get_text());
     },
 
     hide: function() {
         this._previewView.view.find_set_highlight_search(false);
-        this._lastText = this._searchEntry.get_text();
 
         this.parent();
     }
