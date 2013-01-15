@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-14 22:51+0000\n"
-"PO-Revision-Date: 2013-01-15 12:45+0100\n"
+"POT-Creation-Date: 2013-01-15 14:48+0000\n"
+"PO-Revision-Date: 2013-01-15 16:36+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -176,7 +176,8 @@ msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/mainToolbar.js:201 ../src/properties.js:59
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Hecho"
 
@@ -386,6 +387,80 @@ msgstr "Compartir"
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
+
+#: ../src/sharing.js:89
+#| msgid "System Settings"
+msgid "Sharing Settings"
+msgstr "Configuración de compartición"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+#| msgid "Documents"
+msgid "Document permissions"
+msgstr "Permisos del documento"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "Cambiar"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "Privado"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "Público"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "Cualquiera puede editar"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "Añadir personas"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "Introducir una dirección de correo-e"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "Puede editar"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "Puede ver"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "Añadir"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "Cualquiera puede leer"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "Guardar"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "Propietario"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "Puede solicitar acceso a %s"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "El documento no se actualizó"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
