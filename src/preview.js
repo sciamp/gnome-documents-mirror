@@ -24,6 +24,7 @@ const EvView = imports.gi.EvinceView;
 const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
+const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const GtkClutter = imports.gi.GtkClutter;
 const _ = imports.gettext.gettext;
@@ -566,8 +567,6 @@ const PreviewFullscreenToolbar = new Lang.Class({
     _init: function(previewView) {
         this.parent(previewView);
 
-        this.actor.visible = false;
-        this.widget.sensitive = false;
         this.actor.translation_y = -(this.widget.get_preferred_height()[1]);
 
         // make controls show when a toolbar action is activated in fullscreen
@@ -604,7 +603,6 @@ const PreviewFullscreenToolbar = new Lang.Class({
 
     show: function() {
         this.actor.show();
-        this.widget.sensitive = true;
         Tweener.addTween(this.actor,
                          { translation_y: 0,
                            time: 0.20,
@@ -616,11 +614,12 @@ const PreviewFullscreenToolbar = new Lang.Class({
                          { translation_y: -(this.widget.get_preferred_height()[1]),
                            time: 0.20,
                            transition: 'easeOutQuad',
-                           onComplete: function() {
-                               this.actor.hide();
-                               this.widget.sensitive = false;
-                           },
-                           onCompleteScope: this });
+                           onComplete: Lang.bind(this,
+                               function() {
+                                   this.actor.hide();
+                                   Application.application.change_action_state('search', GLib.Variant.new('b', false));
+                               })
+                         });
     }
 });
 Signals.addSignalMethods(PreviewFullscreenToolbar.prototype);
