@@ -177,6 +177,11 @@ const PreviewView = new Lang.Class({
             this._fsToolbar.setModel(this._model);
             this._overlayLayout.add(this._fsToolbar.actor,
                 Clutter.BinAlignment.FILL, Clutter.BinAlignment.START);
+
+            this._fsToolbar.connect('show-controls', Lang.bind(this,
+                function() {
+                    this.controlsVisible = true;
+                }));
         } else {
             this._fsToolbar.actor.destroy();
             this._fsToolbar = null;
@@ -564,6 +569,37 @@ const PreviewFullscreenToolbar = new Lang.Class({
         this.actor.visible = false;
         this.widget.sensitive = false;
         this.actor.translation_y = -(this.widget.get_preferred_height()[1]);
+
+        // make controls show when a toolbar action is activated in fullscreen
+        let actionNames = ['gear-menu', 'search'];
+        let signalIds = [];
+
+        actionNames.forEach(Lang.bind(this,
+            function(actionName) {
+                let signalName = 'action-state-changed::' + actionName;
+                let signalId = Application.application.connect(signalName, Lang.bind(this,
+                    function(actionGroup, actionName, value) {
+                        let state = value.get_boolean();
+                        if (state)
+                            this.emit('show-controls');
+                    }));
+
+                signalIds.push(signalId);
+            }));
+
+        this.widget.connect('destroy', Lang.bind(this,
+            function() {
+                signalIds.forEach(
+                    function(signalId) {
+                        Application.application.disconnect(signalId);
+                    });
+            }));
+    },
+
+    handleEvent: function(event) {
+        let res = this.parent(event);
+        if (res)
+            this.emit('search-event-handled');
     },
 
     show: function() {
@@ -587,3 +623,4 @@ const PreviewFullscreenToolbar = new Lang.Class({
                            onCompleteScope: this });
     }
 });
+Signals.addSignalMethods(PreviewFullscreenToolbar.prototype);
