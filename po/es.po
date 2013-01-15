@@ -2,15 +2,15 @@
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
 # Jorge González <jorgegonz@svn.gnome.org>, 2011.
-# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012.
+# Daniel Mustieles <daniel.mustieles@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-19 15:29+0000\n"
-"PO-Revision-Date: 2012-12-20 11:05+0100\n"
+"POT-Creation-Date: 2013-01-14 22:51+0000\n"
+"PO-Revision-Date: 2013-01-15 12:45+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -106,8 +106,7 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "No se pudo cargar «%s» para su vista previa"
 
-#: ../src/embed.js:72 ../src/view.js:70
-#| msgid "Loading..."
+#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
 msgid "Loading…"
 msgstr "Cargando…"
 
@@ -128,6 +127,11 @@ msgstr "Puede añadir sus cuentas en línea en %s"
 msgid "System Settings"
 msgstr "Configuración del sistema"
 
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Página %u de %u"
+
 #: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "No se pudo cargar el documento"
@@ -135,6 +139,14 @@ msgstr "No se pudo cargar el documento"
 #: ../src/lib/gd-pdf-loader.c:676
 msgid "LibreOffice is required to view this document"
 msgstr "Se necesita LibreOffice para ver este documento"
+
+#: ../src/lib/gd-places-links.c:347
+msgid "No table of contents"
+msgstr "No hay tabla de contenido"
+
+#: ../src/lib/gd-places-links.c:410
+msgid "Contents"
+msgstr "Contenido"
 
 #: ../src/mainToolbar.js:73
 msgid "Search"
@@ -207,7 +219,7 @@ msgid "Fetching documents from online accounts"
 msgstr "Obteniendo documentos de cuentas en línea"
 
 #: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
-#: ../src/selections.js:791
+#: ../src/selections.js:792
 msgid "Properties"
 msgstr "Propiedades"
 
@@ -274,12 +286,11 @@ msgid "Quit"
 msgstr "Salir"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
 msgid "Open"
 msgstr "Abrir"
 
 #: ../src/resources/preview-menu.ui.h:2
-#| msgid "Print"
 msgid "Print…"
 msgstr "Imprimir…"
 
@@ -292,12 +303,10 @@ msgid "Zoom Out"
 msgstr "Reducir"
 
 #: ../src/resources/preview-menu.ui.h:5
-#| msgid "Rotate Left"
 msgid "Rotate ↶"
 msgstr "Rotar ↶"
 
 #: ../src/resources/preview-menu.ui.h:6
-#| msgid "Rotate Left"
 msgid "Rotate ↷"
 msgstr "Rotar ↷"
 
@@ -356,20 +365,24 @@ msgstr "Coincidencia"
 msgid "Sources"
 msgstr "Fuentes"
 
-#: ../src/selections.js:614 ../src/selections.js:783
+#: ../src/selections.js:615 ../src/selections.js:784
 msgid "Organize"
 msgstr "Organizar"
 
-#: ../src/selections.js:760
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Imprimir"
 
-#: ../src/selections.js:767
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Eliminar"
 
+#: ../src/selections.js:799
+msgid "Share"
+msgstr "Compartir"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:885
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
