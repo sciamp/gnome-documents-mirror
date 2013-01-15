@@ -535,7 +535,11 @@ const Embed = new Lang.Class({
     },
 
     getMainToolbar: function() {
-        return this._toolbar;
+        let fullscreen = Application.modeController.getFullscreen();
+        if (fullscreen)
+            return this._preview.getFullscreenToolbar();
+        else
+            return this._toolbar;
     },
 
     getPreview: function() {

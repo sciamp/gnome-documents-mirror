@@ -349,6 +349,10 @@ const PreviewView = new Lang.Class({
 
     getModel: function() {
         return this._model;
+    },
+
+    getFullscreenToolbar: function() {
+        return this._fsToolbar;
     }
 });
 Signals.addSignalMethods(PreviewView.prototype);
