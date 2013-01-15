@@ -52,9 +52,11 @@ const PreviewView = new Lang.Class({
         this._controlsVisible = false;
         this._pageChanged = false;
         this._viewSelectionChanged = false;
+        this._fsToolbar = null;
+        this._overlayLayout = overlayLayout;
 
         Application.modeController.connect('fullscreen-changed',
-            Lang.bind(this, this._syncControlsVisible));
+            Lang.bind(this, this._onFullscreenChanged));
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
@@ -69,14 +71,8 @@ const PreviewView = new Lang.Class({
 
         // create page nav bar
         this._navBar = new PreviewNav(this._model);
-        overlayLayout.add(this._navBar.actor,
+        this._overlayLayout.add(this._navBar.actor,
             Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
-
-        // create fullscreen toolbar (hidden by default)
-        this._fsToolbar = new PreviewFullscreenToolbar(this);
-        this._fsToolbar.setModel(this._model);
-        overlayLayout.add(this._fsToolbar.actor,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.START);
 
         this.widget.show_all();
 
@@ -162,13 +158,31 @@ const PreviewView = new Lang.Class({
 
     _syncControlsVisible: function() {
         if (this._controlsVisible) {
-            if (Application.modeController.getFullscreen())
+            if (this._fsToolbar)
                 this._fsToolbar.show();
             this._navBar.show();
         } else {
-            this._fsToolbar.hide();
+            if (this._fsToolbar)
+                this._fsToolbar.hide();
             this._navBar.hide();
         }
+    },
+
+    _onFullscreenChanged: function() {
+        let fullscreen = Application.modeController.getFullscreen();
+
+        if (fullscreen) {
+            // create fullscreen toolbar (hidden by default)
+            this._fsToolbar = new PreviewFullscreenToolbar(this);
+            this._fsToolbar.setModel(this._model);
+            this._overlayLayout.add(this._fsToolbar.actor,
+                Clutter.BinAlignment.FILL, Clutter.BinAlignment.START);
+        } else {
+            this._fsToolbar.actor.destroy();
+            this._fsToolbar = null;
+        }
+
+        this._syncControlsVisible();
     },
 
     _onKeyPressEvent: function(widget, event) {
@@ -325,7 +339,6 @@ const PreviewView = new Lang.Class({
             this._createView();
             this.view.set_model(this._model);
             this._navBar.widget.document_model = model;
-            this._fsToolbar.setModel(model);
             this._model.connect('page-changed', Lang.bind(this,
                 function() {
                     this._pageChanged = true;
