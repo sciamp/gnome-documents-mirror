@@ -104,9 +104,6 @@ const Searchbar = new Lang.Class({
     },
 
     _onActionStateChanged: function(source, actionName, state) {
-        if (actionName != 'search')
-            return;
-
         if (state.get_boolean())
             this.show();
         else
