@@ -199,7 +199,7 @@ const Searchbar = new Lang.Class({
 
     show: function() {
         let eventDevice = Gtk.get_current_event_device();
-        this._searchEntry.show();
+        this.widget.show_all();
 
         Tweener.addTween(this.actor, { height: this.widget.get_preferred_height()[1],
                                        time: 0.20,
@@ -217,7 +217,7 @@ const Searchbar = new Lang.Class({
                                        time: 0.20,
                                        transition: 'easeOutQuad',
                                        onComplete: function() {
-                                           this._searchEntry.hide();
+                                           this.widget.hide();
                                            this._in = false;
 
                                            // clear all the search properties when hiding the entry
