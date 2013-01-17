@@ -36,7 +36,6 @@
 struct _GdPlacesLinksPrivate {
         GtkWidget *tree_view;
 
-        guint selection_id;
         guint page_changed_id;
         guint link_activated_id;
 
@@ -109,16 +108,25 @@ emit_link_activated (GdPlacesLinks *self)
 }
 
 static void
-selection_changed_cb (GtkTreeSelection *selection,
-                      GdPlacesLinks    *self)
+schedule_emit_link_activated (GdPlacesLinks *self)
 {
-        g_return_if_fail (self->priv->document != NULL);
-
         /* jump through some hoops to avoid destroying in the middle
-           of a button press handler */
+           of a button release handler */
         if (self->priv->link_activated_id == 0) {
-                self->priv->link_activated_id = g_idle_add ((GSourceFunc)emit_link_activated, self);
+                self->priv->link_activated_id = g_idle_add ((GSourceFunc) emit_link_activated, self);
         }
+}
+
+static gboolean
+button_release_event_cb (GtkWidget *widget,
+                         GdkEventButton *event,
+                         GdPlacesLinks *self)
+{
+        if (event->button == GDK_BUTTON_PRIMARY) {
+                schedule_emit_link_activated (self);
+        }
+
+        return FALSE;
 }
 
 static gboolean
@@ -192,13 +200,9 @@ gd_places_links_set_current_page (GdPlacesLinks *self,
          * a GtkTreeModelSort here to make it faster, if it turns out to be
          * slow.
          */
-        g_signal_handler_block (selection, self->priv->selection_id);
-
         gtk_tree_model_foreach (model,
                                 (GtkTreeModelForeachFunc)update_page_cb_foreach,
                                 self);
-
-        g_signal_handler_unblock (selection, self->priv->selection_id);
 }
 
 static void
@@ -227,13 +231,6 @@ job_finished_cb (EvJobLinks     *job,
         gtk_tree_selection_set_mode (selection, GTK_SELECTION_SINGLE);
 
         gtk_tree_view_expand_all (GTK_TREE_VIEW (priv->tree_view));
-
-        if (priv->selection_id <= 0) {
-                priv->selection_id =
-                        g_signal_connect (selection, "changed",
-                                          G_CALLBACK (selection_changed_cb),
-                                          self);
-        }
 
         if (priv->page_changed_id <= 0) {
                 priv->page_changed_id =
@@ -287,6 +284,11 @@ gd_places_links_construct (GdPlacesLinks *self)
 
         /* Create tree view */
         priv->tree_view = gtk_tree_view_new ();
+
+        g_signal_connect (priv->tree_view, "button-release-event",
+                          G_CALLBACK (button_release_event_cb), self);
+        g_signal_connect_swapped (priv->tree_view, "row-activated",
+                                  G_CALLBACK (schedule_emit_link_activated), self);
 
         gtk_tree_view_set_show_expanders (GTK_TREE_VIEW (priv->tree_view), FALSE);
         gtk_tree_view_set_level_indentation (GTK_TREE_VIEW (priv->tree_view), 20);
