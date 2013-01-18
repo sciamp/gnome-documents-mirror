@@ -122,7 +122,7 @@ const PropertiesDialog = new Lang.Class({
                                                editable: true,
                                                hexpand: true,
                                                halign: Gtk.Align.START });
-            grid.attach_next_to (this._titleEntry, this._title, 1, 2, 1);
+            grid.attach_next_to (this._titleEntry, this._title, Gtk.PositionType.RIGHT, 2, 1);
 
             let docId = doc.id;
             this._titleEntryTimeout = 0;
@@ -145,14 +145,14 @@ const PropertiesDialog = new Lang.Class({
         } else {
             this._titleEntry = new Gtk.Label({ label: doc.name,
                                                halign: Gtk.Align.START });
-            grid.attach_next_to (this._titleEntry, this._title, 1, 2, 1);
+            grid.attach_next_to (this._titleEntry, this._title, Gtk.PositionType.RIGHT, 2, 1);
         }
 
         // Author value
         if (this._author) {
             this._authorData = new Gtk.Label({ label: doc.author,
                                                halign: Gtk.Align.START });
-            grid.attach_next_to (this._authorData, this._author, 1, 2, 1);
+            grid.attach_next_to (this._authorData, this._author, Gtk.PositionType.RIGHT, 2, 1);
         }
 
         // Source value
@@ -173,24 +173,24 @@ const PropertiesDialog = new Lang.Class({
                                                     halign: Gtk.Align.START });
         }
 
-        grid.attach_next_to (this._sourceData, this._source, 1, 2, 1);
+        grid.attach_next_to (this._sourceData, this._source, Gtk.PositionType.RIGHT, 2, 1);
 
         // Date Modified value
         this._dateModifiedData = new Gtk.Label({ label: dateModifiedString,
                                                  halign: Gtk.Align.START });
-        grid.attach_next_to (this._dateModifiedData, this._dateModified, 1, 2, 1);
+        grid.attach_next_to (this._dateModifiedData, this._dateModified, Gtk.PositionType.RIGHT, 2, 1);
 
         // Date Created value
         if (this._dateCreated) {
             this._dateCreatedData = new Gtk.Label({ label: dateCreatedString,
                                                     halign: Gtk.Align.START });
-            grid.attach_next_to (this._dateCreatedData, this._dateCreated, 1, 2, 1);
+            grid.attach_next_to (this._dateCreatedData, this._dateCreated, Gtk.PositionType.RIGHT, 2, 1);
         }
 
         // Document type value
         this._documentTypeData = new Gtk.Label({ label: doc.typeDescription,
                                                  halign: Gtk.Align.START });
-        grid.attach_next_to (this._documentTypeData, this._docType, 1, 2, 1);
+        grid.attach_next_to (this._documentTypeData, this._docType, Gtk.PositionType.RIGHT, 2, 1);
 
         this.widget.show_all();
     }

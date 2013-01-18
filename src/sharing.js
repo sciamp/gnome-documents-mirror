@@ -202,13 +202,13 @@ const SharingDialog = new Lang.Class({
             this._comboBoxText.append_text(combo[i]);
 
         this._comboBoxText.set_active(0);
-        this._grid.attach_next_to(this._comboBoxText, this._contactEntry, 1, 1, 1);
+        this._grid.attach_next_to(this._comboBoxText, this._contactEntry, Gtk.PositionType.RIGHT, 1, 1);
 
         this._saveShare = new Gtk.Button({ label: _("Add"),
                                            no_show_all: true,
                                            sensitive: false });
         this._saveShare.connect ('clicked', Lang.bind(this, this._onAddClicked));
-        this._grid.attach_next_to(this._saveShare, this._comboBoxText, 1, 1, 1);
+        this._grid.attach_next_to(this._saveShare, this._comboBoxText, Gtk.PositionType.RIGHT, 1, 1);
 
         this._noPermission = new Gtk.Label({ halign: Gtk.Align.START,
                                              no_show_all: true,
