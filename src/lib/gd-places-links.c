@@ -73,7 +73,6 @@ emit_link_activated (GdPlacesLinks *self)
         GtkTreeIter iter;
 
         selection = gtk_tree_view_get_selection (GTK_TREE_VIEW (self->priv->tree_view));
-
         if (gtk_tree_selection_get_selected (selection, &model, &iter)) {
                 EvLink *link;
                 EvDocumentModel *document_model;
@@ -115,18 +114,6 @@ schedule_emit_link_activated (GdPlacesLinks *self)
         if (self->priv->link_activated_id == 0) {
                 self->priv->link_activated_id = g_idle_add ((GSourceFunc) emit_link_activated, self);
         }
-}
-
-static gboolean
-button_release_event_cb (GtkWidget *widget,
-                         GdkEventButton *event,
-                         GdPlacesLinks *self)
-{
-        if (event->button == GDK_BUTTON_PRIMARY) {
-                schedule_emit_link_activated (self);
-        }
-
-        return FALSE;
 }
 
 static gboolean
@@ -284,9 +271,7 @@ gd_places_links_construct (GdPlacesLinks *self)
 
         /* Create tree view */
         priv->tree_view = gtk_tree_view_new ();
-
-        g_signal_connect (priv->tree_view, "button-release-event",
-                          G_CALLBACK (button_release_event_cb), self);
+        gtk_tree_view_set_activate_on_single_click (GTK_TREE_VIEW (priv->tree_view), TRUE);
         g_signal_connect_swapped (priv->tree_view, "row-activated",
                                   G_CALLBACK (schedule_emit_link_activated), self);
 
