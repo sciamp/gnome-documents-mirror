@@ -121,6 +121,7 @@ const PropertiesDialog = new Lang.Class({
             this._titleEntry = new Gtk.Entry({ text: doc.name,
                                                editable: true,
                                                hexpand: true,
+                                               width_chars: 40,
                                                halign: Gtk.Align.START });
             grid.attach_next_to (this._titleEntry, this._title, Gtk.PositionType.RIGHT, 2, 1);
 
