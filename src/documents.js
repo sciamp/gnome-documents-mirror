@@ -944,6 +944,23 @@ const DocumentManager = new Lang.Class({
         this._connectMetadata(docModel);
     },
 
+    reloadActiveItem: function() {
+        let doc = this.getActiveItem();
+
+        if (!doc)
+            return;
+
+        if (doc.collection)
+            return;
+
+        // cleanup any state we have for previously loaded model
+        this._clearActiveDocModel();
+
+        this._loaderCancellable = new Gio.Cancellable();
+        doc.load(this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+        this.emit('load-started', doc);
+    },
+
     setActiveItem: function(doc) {
         if (!this.parent(doc))
             return;

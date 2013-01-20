@@ -50,6 +50,7 @@ AC_CHECK_LIBM
 AC_SUBST(LIBM)
 
 EVINCE_MIN_VERSION=3.7.4
+WEBKITGTK_MIN_VERSION=1.10.0
 GLIB_MIN_VERSION=2.35.1
 GTK_MIN_VERSION=3.7.7
 GOBJECT_INTROSPECTION_MIN_VERSION=1.31.6
@@ -59,16 +60,19 @@ CLUTTER_GTK_MIN_VERSION=1.4.2
 CLUTTER_MIN_VERSION=1.10
 TRACKER_MIN_VERSION=0.13.1
 ZAPOJIT_MIN_VERSION=0.0.2
+SOUP_MIN_VERSION=2.41.3
 
 PKG_CHECK_MODULES(DOCUMENTS,
                   clutter-gtk-1.0 >= $CLUTTER_GTK_MIN_VERSION
                   clutter-1.0 >= $CLUTTER_MIN_VERSION
                   evince-document-3.0 >= $EVINCE_MIN_VERSION
                   evince-view-3.0 >= $EVINCE_MIN_VERSION
+                  webkitgtk-3.0 >= $WEBKITGTK_MIN_VERSION
                   gjs-1.0
                   glib-2.0 >= $GLIB_MIN_VERSION
                   gobject-introspection-1.0 >= $GOBJECT_INTROSPECTION_MIN_VERSION
                   gtk+-3.0 >= $GTK_MIN_VERSION
+                  libsoup-2.4 >= $SOUP_MIN_VERSION
                   gnome-desktop-3.0
                   tracker-sparql-0.16 >= $TRACKER_MIN_VERSION
                   goa-1.0 >= $GOA_MIN_VERSION

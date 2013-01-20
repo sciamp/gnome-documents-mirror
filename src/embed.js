@@ -27,9 +27,11 @@ const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Notifications = imports.notifications;
 const Preview = imports.preview;
+const Edit = imports.edit;
 const Selections = imports.selections;
 const View = imports.view;
 const WindowMode = imports.windowMode;
+const Documents = imports.documents;
 
 const Clutter = imports.gi.Clutter;
 const EvView = imports.gi.EvinceView;
@@ -377,6 +379,9 @@ const Embed = new Lang.Class({
         this._preview = new Preview.PreviewView(this._overlayLayout);
         this._previewPage = this._notebook.append_page(this._preview.widget, null);
 
+        this._edit = new Edit.EditView(this._overlayLayout);
+        this._editPage = this._notebook.append_page(this._edit.widget, null);
+
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
 
@@ -458,10 +463,24 @@ const Embed = new Lang.Class({
     },
 
     _onWindowModeChanged: function(object, newMode, oldMode) {
-        if (newMode == WindowMode.WindowMode.OVERVIEW)
+        switch (newMode) {
+        case WindowMode.WindowMode.OVERVIEW:
             this._prepareForOverview();
-        else
+            break;
+        case WindowMode.WindowMode.PREVIEW:
+            if (oldMode == WindowMode.WindowMode.EDIT)
+                Application.documentManager.reloadActiveItem();
             this._prepareForPreview();
+            break;
+        case WindowMode.WindowMode.EDIT:
+            this._prepareForEdit();
+            break;
+        case WindowMode.WindowMode.NONE:
+            break;
+         default:
+            throw(new Error('Not handled'))
+            break;
+        }
     },
 
     _onActiveItemChanged: function(manager, doc) {
@@ -500,6 +519,8 @@ const Embed = new Lang.Class({
     _prepareForOverview: function() {
         if (this._preview)
             this._preview.setModel(null);
+        if (this._edit)
+            this._edit.setUri(null);
 
         if (this._toolbar)
             this._toolbar.actor.destroy();
@@ -517,6 +538,8 @@ const Embed = new Lang.Class({
     },
 
     _prepareForPreview: function() {
+        if (this._edit)
+            this._edit.setUri(null);
         if (this._toolbar)
             this._toolbar.actor.destroy();
 
@@ -527,6 +550,21 @@ const Embed = new Lang.Class({
         this._contentsLayout.set_fill(this._toolbar.actor, true, false);
 
         this._notebook.set_current_page(this._previewPage);
+    },
+
+    _prepareForEdit: function() {
+        if (this._preview)
+            this._preview.setModel(null);
+        if (this._toolbar)
+            this._toolbar.actor.destroy();
+
+        // pack the toolbar
+        this._toolbar = new Edit.EditToolbar(this._preview);
+        this._contentsLayout.pack_start = true;
+        this._contentsActor.add_actor(this._toolbar.actor);
+        this._contentsLayout.set_fill(this._toolbar.actor, true, false);
+
+        this._notebook.set_current_page(this._editPage);
     },
 
     _setError: function(primary, secondary) {

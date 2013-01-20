@@ -29,7 +29,8 @@ const Application = imports.application;
 const WindowMode = {
     NONE: 0,
     OVERVIEW: 1,
-    PREVIEW: 2
+    PREVIEW: 2,
+    EDIT: 3
 };
 
 const ModeController = new Lang.Class({
@@ -47,7 +48,13 @@ const ModeController = new Lang.Class({
         if (oldMode == mode)
             return;
 
-        this.setCanFullscreen(mode == WindowMode.PREVIEW);
+        if (mode == WindowMode.PREVIEW
+            || mode == WindowMode.EDIT) {
+            this.setCanFullscreen(true);
+        } else {
+            this.setCanFullscreen(false);
+        }
+
         this._mode = mode;
 
         this.emit('window-mode-changed', this._mode, oldMode);
@@ -80,7 +87,8 @@ const ModeController = new Lang.Class({
     },
 
     setFullscreen: function(fullscreen) {
-        if (this._mode != WindowMode.PREVIEW)
+        if (this._mode != WindowMode.PREVIEW
+            && this._mode != WindowMode.EDIT)
             return;
 
         if (this._fullscreen == fullscreen)

@@ -149,10 +149,21 @@ const MainWindow = new Lang.Class({
         if (toolbar.handleEvent(event))
             return true;
 
-        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW)
+        switch (Application.modeController.getWindowMode()) {
+        case WindowMode.WindowMode.NONE:
+            return false;
+        case WindowMode.WindowMode.PREVIEW:
             return this._handleKeyPreview(event);
-        else
+        case WindowMode.WindowMode.OVERVIEW:
             return this._handleKeyOverview(event);
+        case WindowMode.WindowMode.EDIT:
+            return false;
+        default:
+            throw(new Error('Not handled'))
+            break;
+        }
+
+        return false;
     },
 
     _handleKeyPreview: function(event) {
