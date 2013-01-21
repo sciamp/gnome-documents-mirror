@@ -928,6 +928,8 @@ const DocumentManager = new Lang.Class({
     },
 
     _onDocumentLoaded: function(doc, docModel, error) {
+        this._loaderCancellable = null;
+
         if (error) {
             this._onDocumentLoadError(doc, error);
             return;
