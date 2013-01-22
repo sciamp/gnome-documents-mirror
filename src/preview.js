@@ -371,6 +371,8 @@ const PreviewView = new Lang.Class({
 });
 Signals.addSignalMethods(PreviewView.prototype);
 
+const _PREVIEW_NAVBAR_MARGIN = 40;
+
 const PreviewNav = new Lang.Class({
     Name: 'PreviewNav',
 
@@ -388,6 +390,10 @@ const PreviewNav = new Lang.Class({
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,
                                             visible: false,
+                                            margin_top: _PREVIEW_NAVBAR_MARGIN,
+                                            margin_bottom: _PREVIEW_NAVBAR_MARGIN,
+                                            margin_left: _PREVIEW_NAVBAR_MARGIN,
+                                            margin_right: _PREVIEW_NAVBAR_MARGIN,
                                             opacity: 0 });
         Utils.alphaGtkWidget(this.actor.get_widget());
 
