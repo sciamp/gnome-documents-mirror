@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.7.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-21 11:22+0100\n"
-"PO-Revision-Date: 2013-01-21 11:23+0100\n"
+"POT-Creation-Date: 2013-01-23 13:54+0100\n"
+"PO-Revision-Date: 2013-01-23 13:55+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
+#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
 msgid "Documents"
 msgstr "Dokumenter"
 
@@ -103,24 +103,24 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Kan ikke laste «%s» for forhåndsvisning"
 
-#: ../src/embed.js:72 ../src/lib/gd-places-links.c:248 ../src/view.js:70
+#: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
 msgid "Loading…"
 msgstr "Laster …"
 
-#: ../src/embed.js:222
+#: ../src/embed.js:224
 msgid "No Documents Found"
 msgstr "Ingen dokumenter funnet"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:245
+#: ../src/embed.js:247
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Du kan legge til dine kontoer på nettet i %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:249
+#: ../src/embed.js:251
 msgid "System Settings"
 msgstr "Systeminnstillinger"
 
@@ -186,11 +186,11 @@ msgstr "Tilbake"
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
-#: ../src/mainWindow.js:218
+#: ../src/mainWindow.js:229
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../src/mainWindow.js:220
+#: ../src/mainWindow.js:231
 msgid "A document manager application"
 msgstr "Et program for å håndtere dokumenter"
 
@@ -217,7 +217,7 @@ msgstr "Henter dokumenter fra %s"
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra kontoer på nettet"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
 #: ../src/selections.js:792
 msgid "Properties"
 msgstr "Egenskaper"
@@ -290,22 +290,26 @@ msgid "Open"
 msgstr "Åpne"
 
 #: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "Rediger"
+
+#: ../src/resources/preview-menu.ui.h:3
 msgid "Print…"
 msgstr "Skriv ut …"
 
-#: ../src/resources/preview-menu.ui.h:3
+#: ../src/resources/preview-menu.ui.h:4
 msgid "Zoom In"
 msgstr "Zoom inn"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom Out"
 msgstr "Zoom ut"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate ↶"
 msgstr "Roter ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↷"
 msgstr "Roter ↷"
 
