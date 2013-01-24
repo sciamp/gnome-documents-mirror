@@ -3,6 +3,7 @@ data/gnome-documents.desktop.in.in
 data/org.gnome.documents.gschema.xml.in
 src/application.js
 src/documents.js
+src/edit.js
 src/embed.js
 src/lib/gd-nav-bar.c
 src/lib/gd-pdf-loader.c
