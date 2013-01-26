@@ -49,8 +49,7 @@ struct _GdPlacesPageInterface
                                              EvDocument      *document);
         void         (* set_document_model) (GdPlacesPage    *places_page,
                                              EvDocumentModel *model);
-        const char * (* get_label)          (GdPlacesPage    *places_page);
-        const char * (* get_icon_name    )  (GdPlacesPage    *places_page);
+        const char * (* get_name)           (GdPlacesPage    *places_page);
 };
 
 GType         gd_places_page_get_type           (void) G_GNUC_CONST;
@@ -58,8 +57,7 @@ gboolean      gd_places_page_supports_document  (GdPlacesPage    *places_page,
                                                  EvDocument      *document);
 void          gd_places_page_set_document_model (GdPlacesPage    *places_page,
                                                  EvDocumentModel *model);
-const char *  gd_places_page_get_label          (GdPlacesPage    *page);
-const char *  gd_places_page_get_icon_name      (GdPlacesPage    *page);
+const char *  gd_places_page_get_name           (GdPlacesPage    *page);
 
 G_END_DECLS
 

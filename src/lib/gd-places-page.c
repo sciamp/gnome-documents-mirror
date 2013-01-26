@@ -62,7 +62,7 @@ gd_places_page_set_document_model (GdPlacesPage    *places_page,
 }
 
 const char *
-gd_places_page_get_label (GdPlacesPage *places_page)
+gd_places_page_get_name (GdPlacesPage *places_page)
 {
         GdPlacesPageInterface *iface;
 
@@ -70,27 +70,24 @@ gd_places_page_get_label (GdPlacesPage *places_page)
 
         iface = GD_PLACES_PAGE_GET_IFACE (places_page);
 
-        g_assert (iface->get_label);
+        g_assert (iface->get_name);
 
-        return iface->get_label (places_page);
+        return iface->get_name (places_page);
 }
-
-const char *
-gd_places_page_get_icon_name (GdPlacesPage *places_page)
-{
-        GdPlacesPageInterface *iface;
-
-        g_return_val_if_fail (GD_IS_PLACES_PAGE (places_page), NULL);
-
-        iface = GD_PLACES_PAGE_GET_IFACE (places_page);
-
-        g_assert (iface->get_icon_name);
-
-        return iface->get_icon_name (places_page);
-}
-
 
 static void
 gd_places_page_default_init (GdPlacesPageInterface *iface)
 {
+        g_object_interface_install_property (iface,
+                                             g_param_spec_string ("name",
+                                                                  "Name",
+                                                                  "Name of the page",
+                                                                  NULL,
+                                                                  G_PARAM_READABLE));
+        g_object_interface_install_property (iface,
+                                             g_param_spec_object ("document-model",
+                                                                  "Document Model",
+                                                                  "Document Model",
+                                                                  EV_TYPE_DOCUMENT_MODEL,
+                                                                  G_PARAM_READWRITE));
 }

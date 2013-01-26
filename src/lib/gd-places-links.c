@@ -43,6 +43,14 @@ struct _GdPlacesLinksPrivate {
         GtkTreeModel *model;
         EvDocument *document;
         EvDocumentModel *document_model;
+        const char *name;
+};
+
+enum
+{
+  PROP_0,
+  PROP_NAME,
+  PROP_DOCUMENT_MODEL,
 };
 
 enum {
@@ -391,18 +399,6 @@ gd_places_links_supports_document (GdPlacesPage *places_page,
                 ev_document_links_has_document_links (EV_DOCUMENT_LINKS (document)));
 }
 
-static const char *
-gd_places_links_get_label (GdPlacesPage *places_page)
-{
-        return _("Contents");
-}
-
-static const char *
-gd_places_links_get_icon_name (GdPlacesPage *places_page)
-{
-        return "view-list-symbolic";
-}
-
 static void
 gd_places_links_set_document_model (GdPlacesPage    *places_page,
                                     EvDocumentModel *model)
@@ -441,6 +437,12 @@ gd_places_links_set_document_model (GdPlacesPage    *places_page,
         }
 }
 
+static const char *
+gd_places_links_get_name (GdPlacesPage *places_page)
+{
+        return GD_PLACES_LINKS (places_page)->priv->name;
+}
+
 static void
 gd_places_links_dispose (GObject *object)
 {
@@ -468,11 +470,52 @@ gd_places_links_dispose (GObject *object)
         G_OBJECT_CLASS (gd_places_links_parent_class)->dispose (object);
 }
 
+static void
+gd_places_links_set_property (GObject      *object,
+                              guint         prop_id,
+                              const GValue *value,
+                              GParamSpec   *pspec)
+{
+
+        GdPlacesLinks *self = GD_PLACES_LINKS (object);
+
+        switch (prop_id) {
+        case PROP_DOCUMENT_MODEL:
+                gd_places_links_set_document_model (GD_PLACES_PAGE (self), g_value_get_object (value));
+                break;
+        default:
+                G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+                break;
+        }
+}
+
+static void
+gd_places_links_get_property (GObject    *object,
+                              guint       prop_id,
+                              GValue     *value,
+                              GParamSpec *pspec)
+{
+        GdPlacesLinks *self = GD_PLACES_LINKS (object);
+
+        switch (prop_id) {
+        case PROP_NAME:
+                g_value_set_string (value, self->priv->name);
+                break;
+        case PROP_DOCUMENT_MODEL:
+                g_value_set_object (value, self->priv->document_model);
+                break;
+        default:
+                G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+                break;
+        }
+}
 
 static void
 gd_places_links_init (GdPlacesLinks *self)
 {
         self->priv = GD_PLACES_LINKS_GET_PRIVATE (self);
+
+        self->priv->name = _("Contents");
 
         gd_places_links_construct (self);
 }
@@ -482,7 +525,7 @@ gd_places_links_page_iface_init (GdPlacesPageInterface *iface)
 {
         iface->supports_document = gd_places_links_supports_document;
         iface->set_document_model = gd_places_links_set_document_model;
-        iface->get_label = gd_places_links_get_label;
+        iface->get_name = gd_places_links_get_name;
 }
 
 static void
@@ -491,6 +534,8 @@ gd_places_links_class_init (GdPlacesLinksClass *klass)
         GObjectClass *oclass = G_OBJECT_CLASS (klass);
 
         oclass->dispose = gd_places_links_dispose;
+        oclass->set_property = gd_places_links_set_property;
+        oclass->get_property = gd_places_links_get_property;
 
         signals[LINK_ACTIVATED] = g_signal_new ("link-activated",
                                                 G_TYPE_FROM_CLASS (oclass),
@@ -499,6 +544,9 @@ gd_places_links_class_init (GdPlacesLinksClass *klass)
                                                 NULL, NULL,
                                                 g_cclosure_marshal_VOID__OBJECT,
                                                 G_TYPE_NONE, 1, G_TYPE_OBJECT);
+
+        g_object_class_override_property (oclass, PROP_NAME, "name");
+        g_object_class_override_property (oclass, PROP_DOCUMENT_MODEL, "document-model");
 
         g_type_class_add_private (oclass, sizeof (GdPlacesLinksPrivate));
 }
