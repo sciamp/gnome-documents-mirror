@@ -1,5 +1,6 @@
 gdprivate_cflags = \
     -I$(top_srcdir)/src \
+    -I$(top_srcdir)/libgd \
     -DPREFIX=\"$(prefix)\" \
     -DLIBDIR=\"$(libdir)\" \
     -DG_LOG_DOMAIN=\"Gdprivate\" \
@@ -11,7 +12,10 @@ gdprivate_source_h = \
     lib/gd-metadata.h \
     lib/gd-pdf-loader.h \
     lib/gd-nav-bar.h \
+    lib/gd-bookmark.h \
+    lib/gd-bookmarks.h \
     lib/gd-places-page.h \
+    lib/gd-places-bookmarks.h \
     lib/gd-places-links.h \
     $(NULL)
 
@@ -20,7 +24,10 @@ gdprivate_source_c = \
     lib/gd-metadata.c \
     lib/gd-pdf-loader.c \
     lib/gd-nav-bar.c \
+    lib/gd-bookmark.c \
+    lib/gd-bookmarks.c \
     lib/gd-places-page.c \
+    lib/gd-places-bookmarks.c \
     lib/gd-places-links.c \
     $(NULL)
 
@@ -28,7 +35,9 @@ pkglib_LTLIBRARIES += libgdprivate-1.0.la
 
 libgdprivate_1_0_la_LIBADD = \
     $(DOCUMENTS_LIBS) \
-    $(LIBM)
+    $(LIBM) \
+    $(top_builddir)/libgd/libgd.la
+
 
 libgdprivate_1_0_la_LDFLAGS = \
     -avoid-version

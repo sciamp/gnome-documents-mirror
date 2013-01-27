@@ -938,10 +938,11 @@ const DocumentManager = new Lang.Class({
         // save loaded model and signal
         this._activeDocModel = docModel;
         this._activeDocModel.set_continuous(false);
-        this.emit('load-finished', doc, docModel);
 
         // load metadata
         this._connectMetadata(docModel);
+
+        this.emit('load-finished', doc, docModel);
     },
 
     reloadActiveItem: function() {
@@ -1004,6 +1005,7 @@ const DocumentManager = new Lang.Class({
                     this._activeDocModel.disconnect(id);
                 }));
 
+            this.metadata = null;
             this._activeDocModel = null;
             this._activeDocModelIds = [];
         }
@@ -1012,20 +1014,19 @@ const DocumentManager = new Lang.Class({
     _connectMetadata: function(docModel) {
         let evDoc = docModel.get_document();
         let file = Gio.File.new_for_uri(evDoc.get_uri());
-
         if (!GdPrivate.is_metadata_supported_for_file(file))
             return;
 
-        let metadata = new GdPrivate.Metadata({ file: file });
+        this.metadata = new GdPrivate.Metadata({ file: file });
 
         // save current page in metadata
-        let [res, val] = metadata.get_int('page');
+        let [res, val] = this.metadata.get_int('page');
         if (res)
             docModel.set_page(val);
         this._activeDocModelIds.push(
             docModel.connect('page-changed', Lang.bind(this,
                 function(source, oldPage, newPage) {
-                    metadata.set_int('page', newPage);
+                    this.metadata.set_int('page', newPage);
                 }))
         );
     }

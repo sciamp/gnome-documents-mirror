@@ -78,6 +78,10 @@ const PreviewView = new Lang.Class({
 
         this.widget.show_all();
 
+        Application.application.connect('action-state-changed::bookmark-page',
+            Lang.bind(this, this._onActionStateChanged));
+        this._onActionStateChanged(Application.application, 'bookmark-page', Application.application.get_action_state('bookmark-page'));
+
         this._zoomIn = Application.application.lookup_action('zoom-in');
         this._zoomIn.connect('activate', Lang.bind(this,
             function() {
@@ -115,10 +119,51 @@ const PreviewView = new Lang.Class({
             }));
         let showPlaces = Application.application.lookup_action('places');
         showPlaces.connect('activate', Lang.bind(this, this._showPlaces));
+
+        Application.documentManager.connect('load-started',
+                                            Lang.bind(this, this._onLoadStarted));
+        Application.documentManager.connect('load-finished',
+                                            Lang.bind(this, this._onLoadFinished));
+    },
+
+   _onLoadStarted: function() {
+        this._showPlaces.enabled = false;
+    },
+
+    _onLoadFinished: function(manager, doc, docModel) {
+        this._showPlaces.enabled = true;
+
+        if (!Application.documentManager.metadata)
+            return;
+
+        this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });
+    },
+
+    _onActionStateChanged: function(source, actionName, state) {
+        if (!this._model)
+            return;
+
+        let page_number = this._model.page;
+        let bookmark = new GdPrivate.Bookmark({ page_number: page_number });
+
+        if (state.get_boolean())
+            this._bookmarks.add(bookmark);
+        else
+            this._bookmarks.remove(bookmark);
+    },
+
+    _onPageChanged: function() {
+        this._pageChanged = true;
+
+        let page_number = this._model.page;
+        let bookmark = new GdPrivate.Bookmark({ page_number: page_number });
+
+        let bookmark = this._bookmarks.find_bookmark(bookmark);
+        Application.application.change_action_state('bookmark-page', GLib.Variant.new('b', (bookmark != null)));
     },
 
     _showPlaces: function() {
-        let dialog = new Places.PlacesDialog(this._model);
+        let dialog = new Places.PlacesDialog(this._model, this._bookmarks);
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
                 widget.destroy();
@@ -349,11 +394,7 @@ const PreviewView = new Lang.Class({
             this._createView();
             this.view.set_model(this._model);
             this._navBar.widget.document_model = model;
-            this._model.connect('page-changed', Lang.bind(this,
-                function() {
-                    this._pageChanged = true;
-                }));
-
+            this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
         }
     },
 
@@ -386,6 +427,13 @@ const PreviewNav = new Lang.Class({
                                       valign: Gtk.Align.CENTER
                                     });
         let button_area = this.widget.get_button_area();
+        button_area.pack_start(button, false, false, 0);
+
+        let button = new Gtk.ToggleButton({ action_name: 'app.bookmark-page',
+                                            child: new Gtk.Image({ icon_name: 'bookmark-add-symbolic',
+                                                                   pixel_size: 16 }),
+                                            valign: Gtk.Align.CENTER
+                                          });
         button_area.pack_start(button, false, false, 0);
 
         this.actor = new GtkClutter.Actor({ contents: this.widget,

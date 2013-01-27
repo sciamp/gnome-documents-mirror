@@ -404,8 +404,13 @@ const Application = new Lang.Class({
             { name: 'properties',
               callback: this._onActionProperties,
               window_mode: WindowMode.WindowMode.PREVIEW },
+            { name: 'bookmark-page',
+              callback: this._onActionToggle,
+              state: GLib.Variant.new('b', false),
+              accel: '<Primary>d',
+              window_mode: WindowMode.WindowMode.PREVIEW },
             { name: 'places',
-              accel: 'F3',
+              accel: '<Primary>b',
               window_mode: WindowMode.WindowMode.PREVIEW }
         ];
 

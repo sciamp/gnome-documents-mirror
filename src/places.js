@@ -21,20 +21,23 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
+const Gd = imports.gi.Gd;
 
 const EvDocument = imports.gi.EvinceDocument;
 const GdPrivate = imports.gi.GdPrivate;
 const Application = imports.application;
 const Documents = imports.documents;
 const Mainloop = imports.mainloop;
+const MainToolbar = imports.mainToolbar;
 
 const Lang = imports.lang;
 
 const PlacesDialog = new Lang.Class({
     Name: 'PlacesDialog',
 
-    _init: function(model) {
+    _init: function(model, bookmarks) {
         this._model = model;
+        this._bookmarks = bookmarks;
         this._createWindow();
         this.widget.show_all();
     },
@@ -49,12 +52,29 @@ const PlacesDialog = new Lang.Class({
                                         default_height: 600,
                                         title: "",
                                         hexpand: true });
-        this.widget.add_button(Gtk.STOCK_CLOSE, Gtk.ResponseType.CLOSE);
+
+        let box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
+        let contentArea = this.widget.get_content_area();
+        contentArea.pack_start(box, true, true, 0);
+
+        this._toolbar = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU,
+                                             show_modes: true,
+                                             vexpand: false });
+        this._toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
+        let button = this._toolbar.add_button(null, _('Close'), false);
+        button.connect('clicked', Lang.bind(this,
+            function() {
+                this.widget.response(Gtk.ResponseType.CLOSE);
+            }));
+
+        box.pack_start(this._toolbar, false, false, 0);
 
         this._notebook = new Gtk.Notebook ({ show_tabs: false,
-                                             border_width: 5 });
+                                             border_width: 5,
+                                             vexpand: true });
+        box.pack_start(this._notebook, true, true, 0);
 
-        this._linksPage = new GdPrivate.PlacesLinks ();
+        this._linksPage = new GdPrivate.PlacesLinks();
         this._linksPage.connect('link-activated', Lang.bind(this,
             function(widget, link) {
                 this._handleLink(link);
@@ -62,14 +82,23 @@ const PlacesDialog = new Lang.Class({
 
         this._addPage(this._linksPage);
 
-        let contentArea = this.widget.get_content_area();
-        contentArea.pack_start(this._notebook, true, true, 0);
+        this._bookmarksPage = new GdPrivate.PlacesBookmarks({ bookmarks: this._bookmarks });
+        this._bookmarksPage.connect('bookmark-activated', Lang.bind(this,
+            function(widget, link) {
+                this._handleBookmark(link);
+            }));
+        this._addPage(this._bookmarksPage);
     },
 
     _handleLink: function(link) {
         if (link.action.type == EvDocument.LinkActionType.GOTO_DEST) {
             this._gotoDest(link.action.dest);
         }
+        this.widget.response(Gtk.ResponseType.CLOSE);
+    },
+
+    _handleBookmark: function(bookmark) {
+        this._model.set_page(bookmark.page_number);
         this.widget.response(Gtk.ResponseType.CLOSE);
     },
 
@@ -92,9 +121,14 @@ const PlacesDialog = new Lang.Class({
     },
 
     _addPage: function(widget) {
-        let label = new Gtk.Label({ label: widget.get_label() });
-        widget.set_document_model(this._model);
-        this._notebook.append_page(widget, label);
+        let label = new Gtk.Label({ label: widget.name });
+        widget.document_model = this._model;
+        let index = this._notebook.append_page(widget, label);
+        let button = this._toolbar.add_mode(widget.name);
+        button.connect('toggled', Lang.bind(this,
+            function() {
+                this._notebook.page = index;
+            }));
     }
 
 });

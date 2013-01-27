@@ -46,11 +46,10 @@ struct _GdPlacesLinksPrivate {
         const char *name;
 };
 
-enum
-{
-  PROP_0,
-  PROP_NAME,
-  PROP_DOCUMENT_MODEL,
+enum {
+        PROP_0,
+        PROP_NAME,
+        PROP_DOCUMENT_MODEL,
 };
 
 enum {
@@ -392,7 +391,7 @@ gd_places_links_document_changed_cb (EvDocumentModel *model,
 }
 
 static gboolean
-gd_places_links_supports_document (GdPlacesPage *places_page,
+gd_places_links_supports_document (GdPlacesPage *page,
                                    EvDocument   *document)
 {
         return (EV_IS_DOCUMENT_LINKS (document) &&
@@ -400,10 +399,10 @@ gd_places_links_supports_document (GdPlacesPage *places_page,
 }
 
 static void
-gd_places_links_set_document_model (GdPlacesPage    *places_page,
+gd_places_links_set_document_model (GdPlacesPage    *page,
                                     EvDocumentModel *model)
 {
-        GdPlacesLinks *self = GD_PLACES_LINKS (places_page);
+        GdPlacesLinks *self = GD_PLACES_LINKS (page);
         GdPlacesLinksPrivate *priv = self->priv;
 
         if (priv->document_model == model) {
@@ -418,7 +417,7 @@ gd_places_links_set_document_model (GdPlacesPage    *places_page,
         if (priv->document_model != NULL) {
                 g_signal_handlers_disconnect_by_func (priv->document_model,
                                                       gd_places_links_document_changed_cb,
-                                                      places_page);
+                                                      page);
         }
 
         g_clear_object (&priv->document_model);
@@ -430,7 +429,7 @@ gd_places_links_set_document_model (GdPlacesPage    *places_page,
                 g_signal_connect (priv->document_model,
                                   "notify::document",
                                   G_CALLBACK (gd_places_links_document_changed_cb),
-                                  places_page);
+                                  page);
                 gd_places_links_document_changed_cb (priv->document_model,
                                                      NULL,
                                                      self);
@@ -438,9 +437,9 @@ gd_places_links_set_document_model (GdPlacesPage    *places_page,
 }
 
 static const char *
-gd_places_links_get_name (GdPlacesPage *places_page)
+gd_places_links_get_name (GdPlacesPage *page)
 {
-        return GD_PLACES_LINKS (places_page)->priv->name;
+        return GD_PLACES_LINKS (page)->priv->name;
 }
 
 static void
