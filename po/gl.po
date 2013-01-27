@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-13 16:36+0100\n"
-"PO-Revision-Date: 2013-01-13 16:36+0200\n"
+"POT-Creation-Date: 2013-01-27 18:02+0100\n"
+"PO-Revision-Date: 2013-01-27 18:03+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -23,7 +23,7 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
+#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
 msgid "Documents"
 msgstr "Documentos"
 
@@ -108,24 +108,32 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
 
-#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
+#: ../src/edit.js:192 ../src/mainToolbar.js:219
+msgid "Back"
+msgstr "Atrás"
+
+#: ../src/edit.js:199
+msgid "View"
+msgstr "Ver"
+
+#: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: ../src/embed.js:222
+#: ../src/embed.js:224
 msgid "No Documents Found"
 msgstr "Non se atoparon documentos"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:245
+#: ../src/embed.js:247
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Pode engadir as súas contas en liña en %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:249
+#: ../src/embed.js:251
 msgid "System Settings"
 msgstr "Preferencias do sistema"
 
@@ -142,11 +150,11 @@ msgstr "Non foi posíbel cargar o documento"
 msgid "LibreOffice is required to view this document"
 msgstr "Requírese LibreOffice para ver este documento"
 
-#: ../src/lib/gd-places-links.c:347
+#: ../src/lib/gd-places-links.c:334
 msgid "No table of contents"
 msgstr "Non hai táboa de contidos"
 
-#: ../src/lib/gd-places-links.c:410
+#: ../src/lib/gd-places-links.c:397
 msgid "Contents"
 msgstr "Contidos"
 
@@ -178,19 +186,16 @@ msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#: ../src/mainToolbar.js:201 ../src/properties.js:59
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Feito"
-
-#: ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "Atrás"
 
 #: ../src/mainToolbar.js:241
 msgid "Select Items"
 msgstr "Seleccionar elementos"
 
-#: ../src/mainWindow.js:218
+#: ../src/mainWindow.js:229
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
@@ -199,7 +204,7 @@ msgstr ""
 "Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
 "colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/mainWindow.js:220
+#: ../src/mainWindow.js:231
 msgid "A document manager application"
 msgstr "Un aplicativo para xestionar documentos"
 
@@ -225,8 +230,8 @@ msgstr "Obtendo os documentos desde %s"
 msgid "Fetching documents from online accounts"
 msgstr "Obtendo os documentos das contas en liña"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
-#: ../src/selections.js:791
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
+#: ../src/selections.js:792
 msgid "Properties"
 msgstr "Propiedades"
 
@@ -293,27 +298,31 @@ msgid "Quit"
 msgstr "Saír"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
 msgid "Open"
 msgstr "Abrir"
 
 #: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "Editar"
+
+#: ../src/resources/preview-menu.ui.h:3
 msgid "Print…"
 msgstr "Imprimir…"
 
-#: ../src/resources/preview-menu.ui.h:3
+#: ../src/resources/preview-menu.ui.h:4
 msgid "Zoom In"
 msgstr "Ampliar"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom Out"
 msgstr "Afastar"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate ↶"
 msgstr "Rotar ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↷"
 msgstr "Rotar ↷"
 
@@ -372,23 +381,99 @@ msgstr "Coincidir"
 msgid "Sources"
 msgstr "Fontes"
 
-#: ../src/selections.js:614 ../src/selections.js:783
+#: ../src/selections.js:615 ../src/selections.js:784
 msgid "Organize"
 msgstr "Organizar"
 
-#: ../src/selections.js:760
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "Imprimir"
 
-#: ../src/selections.js:767
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "Eliminar"
 
+#: ../src/selections.js:799
+msgid "Share"
+msgstr "Compartir"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:885
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
+
+#: ../src/sharing.js:89
+msgid "Sharing Settings"
+msgstr "Preferencias de compartición"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+msgid "Document permissions"
+msgstr "Permisos do documentos"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "Cambiar"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "Privado"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "Público"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "Todos poden editar"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "Engadir persoas"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "Escriba un enderezo de correo"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "Pode editar"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "Pode ver"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "Engadir"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "Todos poden ver"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "Gardar"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "Propietario"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "Vostede pode solicitarlle acceso ao %s"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "O documento non foi actualizado"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
@@ -487,6 +572,3 @@ msgstr[1] "fai %d anos"
 
 #~ msgid "Enable list view"
 #~ msgstr "Activar a vista de lista"
-
-#~ msgid "Private"
-#~ msgstr "Privado"
