@@ -19,6 +19,7 @@
  *
  */
 
+const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const Gd = imports.gi.Gd;
 const GdPrivate = imports.gi.GdPrivate;
@@ -189,6 +190,62 @@ const PreviewView = new Lang.Class({
             this._cancelControlsFlip();
     },
 
+    _uriRewrite: function(uri) {
+        if (uri.substring(0, 3) != 'www.') {
+            /* Prepending "http://" when the url is a webpage (starts with
+             * "www.").
+             */
+            uri = 'http://' + uri;
+        } else {
+            /* Or treating as a file, otherwise.
+             * http://en.wikipedia.org/wiki/File_URI_scheme
+             */
+            let doc = Application.documentManager.getActiveItem();
+            let file = Gio.file_new_for_uri(doc.uri);
+            let parent = file.get_parent();
+
+            if (parent)
+                uri = parent.get_uri() + uri;
+            else
+                uri = 'file:///' + uri;
+        }
+
+        return uri;
+    },
+
+    _launchExternalUri: function(widget, action) {
+        let uri = action.get_uri();
+        let screen = widget.get_screen();
+        let context = screen.get_display().get_app_launch_context();
+
+        context.set_screen(screen);
+        context.set_timestamp(Gtk.get_current_event_time());
+
+        if (uri.indexOf('://') == -1 && uri.substring(0, 6) != 'mailto:')
+            /* We are only interested in treat URLs (ignoring URN and Mailto
+             * schemes), which have this syntax scheme:
+             * scheme://domain:port/path?query_string#fragment_id
+             *
+             * So, if the url is bad formed (doesn't contain "://"), we need to
+             * rewrite it.
+             *
+             * An example of URL, URN and Mailto schemes can be found in:
+             * http://en.wikipedia.org/wiki/URI_scheme#Examples
+             */
+            uri = this._uriRewrite(uri);
+
+        try {
+            Gio.AppInfo.launch_default_for_uri(uri, context)
+        } catch (e) {
+            log('Unable to open external link: ' + e.message);
+        }
+    },
+
+    _handleExternalLink: function(widget, action) {
+        if (action.type == EvDocument.LinkActionType.EXTERNAL_URI)
+            this._launchExternalUri(widget, action);
+    },
+
     _onCanZoomInChanged: function() {
         this._zoomIn.enabled = this.view.can_zoom_in;
     },
@@ -214,6 +271,8 @@ const PreviewView = new Lang.Class({
             this._onKeyPressEvent));
         this.view.connect('selection-changed', Lang.bind(this,
             this._onViewSelectionChanged));
+        this.view.connect('external-link', Lang.bind(this,
+            this._handleExternalLink));
     },
 
     _syncControlsVisible: function() {
