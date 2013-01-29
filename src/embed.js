@@ -457,7 +457,6 @@ const Embed = new Lang.Class({
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {
-        Gtk.Settings.get_default().gtk_application_prefer_dark_theme = fullscreen;
         this._toolbar.actor.visible = !fullscreen;
         this._toolbar.widget.sensitive = !fullscreen;
     },
