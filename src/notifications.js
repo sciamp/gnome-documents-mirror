@@ -85,7 +85,7 @@ const PrintNotification = new Lang.Class({
         let status = this._printOp.get_status();
         let fraction = this._printOp.get_progress();
 	let name = this._printOp.get_job_name();
-	status = _("Printing \"%s\": %s").format(this._doc.name, status);
+	status = _("Printing “%s”: %s").format(this._doc.name, status);
 
         this._statusLabel.set_text(status);
         this._progressBar.fraction = fraction;

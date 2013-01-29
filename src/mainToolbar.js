@@ -155,7 +155,7 @@ const OverviewToolbar = new Lang.Class({
                 } else {
                     let searchMatch = Application.searchMatchManager.getActiveItem();
 
-                    primary = _("Results for \"%s\"").format(string);
+                    primary = _("Results for “%s”").format(string);
                     if (searchMatch.id == 'title')
                         detail = _("filtered by title");
                     else if (searchMatch.id == 'author')

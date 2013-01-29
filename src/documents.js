@@ -923,7 +923,7 @@ const DocumentManager = new Lang.Class({
             return;
 
         // Translators: %s is the title of a document
-        let message = _("Unable to load \"%s\" for preview").format(doc.name);
+        let message = _("Unable to load “%s” for preview").format(doc.name);
         this.emit('load-error', doc, message, error);
     },
 
