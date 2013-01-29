@@ -124,6 +124,8 @@ const PreviewView = new Lang.Class({
                                             Lang.bind(this, this._onLoadStarted));
         Application.documentManager.connect('load-finished',
                                             Lang.bind(this, this._onLoadFinished));
+        Application.documentManager.connect('load-error',
+                                            Lang.bind(this, this._onLoadError));
     },
 
    _onLoadStarted: function() {
@@ -137,6 +139,11 @@ const PreviewView = new Lang.Class({
             return;
 
         this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });
+    },
+
+    _onLoadError: function(manager, doc, message, exception) {
+        this._controlsVisible = true;
+        this._syncControlsVisible();
     },
 
     _onActionStateChanged: function(source, actionName, state) {
@@ -393,7 +400,7 @@ const PreviewView = new Lang.Class({
         if (this._model) {
             this._createView();
             this.view.set_model(this._model);
-            this._navBar.widget.document_model = model;
+            this._navBar.setModel(model);
             this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
         }
     },
@@ -418,6 +425,7 @@ const PreviewNav = new Lang.Class({
     Name: 'PreviewNav',
 
     _init: function(model) {
+        this._model = model;
         this.widget = new GdPrivate.NavBar({ document_model: model });
         this.widget.get_style_context().add_class('osd');
 
@@ -448,7 +456,17 @@ const PreviewNav = new Lang.Class({
         this.widget.show_all();
     },
 
+    setModel: function(model) {
+        this._model = model;
+        this.widget.document_model = model;
+        if (!model)
+            this.hide();
+    },
+
     show: function() {
+        if (!this._model)
+            return;
+
         this.actor.show();
 
         Tweener.addTween(this.actor,
