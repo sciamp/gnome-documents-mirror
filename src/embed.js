@@ -141,7 +141,7 @@ const ErrorBox = new Lang.Class({
                                      valign: Gtk.Align.CENTER });
 
         this._image = new Gtk.Image({ pixel_size: _ICON_SIZE,
-                                      icon_name: 'dialog-error',
+                                      icon_name: 'face-uncertain-symbolic',
                                       halign: Gtk.Align.CENTER,
                                       valign: Gtk.Align.CENTER });
 
