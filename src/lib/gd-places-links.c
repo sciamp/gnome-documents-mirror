@@ -30,6 +30,8 @@
 #include <evince-document.h>
 #include <evince-view.h>
 
+#include <libgd/gd.h>
+
 #include "gd-places-links.h"
 #include "gd-places-page.h"
 
@@ -308,15 +310,14 @@ gd_places_links_construct (GdPlacesLinks *self)
                                              "markup", EV_DOCUMENT_LINKS_COLUMN_MARKUP,
                                              NULL);
 
-        renderer = (GtkCellRenderer *)
-                g_object_new (GTK_TYPE_CELL_RENDERER_TEXT,
-                              "ellipsize", PANGO_ELLIPSIZE_MIDDLE,
-                              "foreground", "#cccccc",
-                              "max-width-chars", 12,
-                              "scale", PANGO_SCALE_SMALL,
-                              "xalign", 1.0,
-                              "xpad", 10,
-                              NULL);
+        renderer = gd_styled_text_renderer_new ();
+        gd_styled_text_renderer_add_class (GD_STYLED_TEXT_RENDERER (renderer), "dim-label");
+        g_object_set (renderer,
+                      "max-width-chars", 12,
+                      "scale", PANGO_SCALE_SMALL,
+                      "xalign", 1.0,
+                      "xpad", 10,
+                      NULL);
         gtk_tree_view_column_pack_end (GTK_TREE_VIEW_COLUMN (column), renderer, FALSE);
         gtk_tree_view_column_set_attributes (GTK_TREE_VIEW_COLUMN (column), renderer,
                                              "text", EV_DOCUMENT_LINKS_COLUMN_PAGE_LABEL,
