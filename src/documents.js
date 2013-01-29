@@ -918,13 +918,39 @@ const DocumentManager = new Lang.Class({
         this.parent();
     },
 
+    _humanizeError: function(error) {
+        let message = error.message;
+        if (error.domain == GData.ServiceError) {
+            switch (error.code) {
+            case GData.ServiceError.NETWORK_ERROR:
+                message = _("Please check the network connection.");
+                break;
+            case GData.ServiceError.PROXY_ERROR:
+                message = _("Please check the network proxy settings.");
+                break;
+            case GData.ServiceError.AUTHENTICATION_REQUIRED:
+                message = _("Unable to sign in to the document service.");
+                break;
+            case GData.ServiceError.NOT_FOUND:
+                message = _("Unable to locate this document.");
+                break;
+            default:
+                message = _("Hmm, something is fishy (%d).").format(error.code);
+                break;
+            }
+        }
+        let exception = new GLib.Error(error.domain, error.code, message);
+        return exception;
+    },
+
     _onDocumentLoadError: function(doc, error) {
         if (error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
             return;
 
         // Translators: %s is the title of a document
         let message = _("Oops! Unable to load “%s”").format(doc.name);
-        this.emit('load-error', doc, message, error);
+        let exception = this._humanizeError(error);
+        this.emit('load-error', doc, message, exception);
     },
 
     _onDocumentLoaded: function(doc, docModel, error) {
