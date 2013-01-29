@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.7.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-23 13:54+0100\n"
-"PO-Revision-Date: 2013-01-23 13:55+0100\n"
+"POT-Creation-Date: 2013-01-29 19:04+0100\n"
+"PO-Revision-Date: 2013-01-29 19:04+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -103,6 +103,14 @@ msgstr "Skydrive"
 msgid "Unable to load \"%s\" for preview"
 msgstr "Kan ikke laste «%s» for forhåndsvisning"
 
+#: ../src/edit.js:192 ../src/mainToolbar.js:219
+msgid "Back"
+msgstr "Tilbake"
+
+#: ../src/edit.js:199
+msgid "View"
+msgstr "Vis"
+
 #: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
 msgid "Loading…"
 msgstr "Laster …"
@@ -177,10 +185,6 @@ msgstr[1] "%d valgt"
 #: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Ferdig"
-
-#: ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "Tilbake"
 
 #: ../src/mainToolbar.js:241
 msgid "Select Items"
