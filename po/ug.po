@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-15 14:48+0000\n"
-"PO-Revision-Date: 2012-02-18 21:16+0000\n"
-"Last-Translator: Gheyret T.Kenji <gheyret@gmail.com>\n"
+"POT-Creation-Date: 2013-01-29 18:09+0000\n"
+"PO-Revision-Date: 2013-01-30 19:34+0900\n"
+"Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
+#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
 msgid "Documents"
 msgstr "پۈتۈكلەر"
 
@@ -27,7 +27,6 @@ msgid "Access, manage and share documents"
 msgstr "پۈتۈكلەرنى زىيارەت قىلىدۇ، باشقۇرىدۇ ۋە ھەمبەھىر قىلىدۇ"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
-#| msgid "PDF Documents"
 msgid "Docs;PDF;Document;"
 msgstr "Docs;PDF;پۈتۈكلەر;"
 
@@ -98,32 +97,62 @@ msgstr "پۈتۈك"
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
 #: ../src/documents.js:926
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "%s نى ئالدىن كۆرىدىغانغا ئاچالمىدى"
+msgid "Please check the network connection."
+msgstr "تور باغلىنىشىنى تەكشۈرۈڭ."
 
-#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
-#| msgid "Loading..."
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "تور ۋاكالەتچى تەڭشىكىنى تەكشۈرۈڭ."
+
+#: ../src/documents.js:932
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "پۈتۈك مۇلازىمىتىگە خەتلەتكىلى بولمىدى."
+
+#: ../src/documents.js:935
+#| msgid "Unable to load the document"
+msgid "Unable to locate this document."
+msgstr "مەزكۇر پۈتۈكنىڭ ئورنىنى بىلگىلى بولمىدى."
+
+#: ../src/documents.js:938
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "ھىم، غەلىتە ئىشلار بار (%d)."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "ئاپلا! «%s» نى ئوقۇغىلى بولمىدى"
+
+#: ../src/edit.js:192 ../src/mainToolbar.js:219
+msgid "Back"
+msgstr "كەينى"
+
+#: ../src/edit.js:199
+#| msgid "View as"
+msgid "View"
+msgstr "كۆرۈنۈش"
+
+#: ../src/embed.js:74 ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "يۈكلەۋاتىدۇ…"
 
-#: ../src/embed.js:222
-#| msgid "Documents"
+#: ../src/embed.js:224
 msgid "No Documents Found"
 msgstr "پۈتۈك تېپىلمىدى"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:245
+#: ../src/embed.js:247
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "توردىكى ھېساباتلىرىڭىزنى %s دە قوشالايسىز"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:249
+#: ../src/embed.js:251
 msgid "System Settings"
 msgstr "سىستېما تەڭشىكى"
 
@@ -140,11 +169,11 @@ msgstr "پۈتۈكنى ئوقۇيالمىدى"
 msgid "LibreOffice is required to view this document"
 msgstr "مەزكۇر پۈتۈكنى كۆرۈش ئۈچۈن LibreOffice كېرەكتۇر"
 
-#: ../src/lib/gd-places-links.c:347
+#: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "مەزمۇن يوق"
 
-#: ../src/lib/gd-places-links.c:410
+#: ../src/lib/gd-places-links.c:518
 msgid "Contents"
 msgstr "مەزمۇنلار"
 
@@ -154,8 +183,9 @@ msgstr "ئىزدە"
 
 #: ../src/mainToolbar.js:158
 #, c-format
-msgid "Results for \"%s\""
-msgstr "«%s» نىڭ نەتىجىسى"
+#| msgid "Results for \"%s\""
+msgid "Results for “%s”"
+msgstr "«%s» نىڭ نەتىجىلىرى"
 
 #: ../src/mainToolbar.js:160
 msgid "filtered by title"
@@ -171,7 +201,6 @@ msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
 
 #: ../src/mainToolbar.js:171
 #, c-format
-#| msgid "%d selected"
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d تاللاندى"
@@ -181,33 +210,24 @@ msgstr[0] "%d تاللاندى"
 msgid "Done"
 msgstr "تامام"
 
-#: ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "كەينى"
-
 #: ../src/mainToolbar.js:241
 msgid "Select Items"
 msgstr "تۈرلەرنى تاللاش"
 
-#: ../src/mainWindow.js:218
+#: ../src/mainWindow.js:229
 msgid "translator-credits"
 msgstr "Gheyret Kenji <gheyret@gmail.com>\n"
 "Sahran<sahran@live.com>\n"
-"Muhemmed Erdem <misran_erdem@hotmail.com>\n"
-"\n"
-"Launchpad Contributions:\n"
-"  Abdumomin.Kadir https://launchpad.net/~abdumomin-kadir\n"
-"  Gheyret T.Kenji https://launchpad.net/~gheyret\n"
-"  Gheyret T.Kenji https://launchpad.net/~gheyretkenji\n"
-"  Sahran https://launchpad.net/~sahran"
+"Muhemmed Erdem <misran_erdem@hotmail.com>"
 
-#: ../src/mainWindow.js:220
+#: ../src/mainWindow.js:231
 msgid "A document manager application"
-msgstr "پۈتۈل باشقۇرۇش پروگراممىسى"
+msgstr "پۈتۈك باشقۇرۇش پروگراممىسى"
 
 #: ../src/notifications.js:88
 #, c-format
-msgid "Printing \"%s\": %s"
+#| msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "بېسىۋاتقىنى «%s»: %s"
 
 #: ../src/notifications.js:143
@@ -227,7 +247,7 @@ msgstr "پۈتۈكلەرنى %s دىن ئېلىۋاتىدۇ"
 msgid "Fetching documents from online accounts"
 msgstr "پۈتۈكلەرنى توردىكى ھېساباتلاردىن ئېلىۋاتىدۇ"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
 #: ../src/selections.js:792
 msgid "Properties"
 msgstr "خاسلىق"
@@ -249,7 +269,6 @@ msgstr "ئاپتور"
 
 #. Source item
 #: ../src/properties.js:92
-#| msgid "Sources"
 msgid "Source"
 msgstr "مەنبە"
 
@@ -284,7 +303,6 @@ msgid "Fullscreen"
 msgstr "پۈتۈن ئېكران"
 
 #: ../src/resources/app-menu.ui.h:5
-#| msgid "Documents"
 msgid "About Documents"
 msgstr "پۈتۈكلەر ھەققىدە"
 
@@ -302,22 +320,26 @@ msgid "Open"
 msgstr "ئاچ"
 
 #: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "تەھرىرلەش"
+
+#: ../src/resources/preview-menu.ui.h:3
 msgid "Print…"
 msgstr "باس…"
 
-#: ../src/resources/preview-menu.ui.h:3
+#: ../src/resources/preview-menu.ui.h:4
 msgid "Zoom In"
 msgstr "چوڭايت"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom Out"
 msgstr "كىچىكلىتىش"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate ↶"
 msgstr "چۆرگىلەت ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↷"
 msgstr "چۆرگىلەت ↷"
 
@@ -404,7 +426,6 @@ msgstr "ھەمبەھىرلەش تەڭشەكلىرى"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:126
-#| msgid "Documents"
 msgid "Document permissions"
 msgstr "پۈتۈك ئىمتىيازلىرى"
 
@@ -472,7 +493,6 @@ msgid "The document was not updated"
 msgstr "پۈتۈك يېڭىلانمىغان"
 
 #: ../src/shellSearchProvider.js:293
-#| msgid "Document"
 msgid "Untitled Document"
 msgstr "ماۋزۇسىز ھۆججەت"
 
@@ -519,6 +539,9 @@ msgstr "ئۆتكەن يىلدىكىسى"
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d ئاي بۇرۇن"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "%s نى ئالدىن كۆرىدىغانغا ئاچالمىدى"
 
 #~ msgid "The active source filter"
 #~ msgstr "ئاكتىپ مەنبە سۈزگۈچ"
