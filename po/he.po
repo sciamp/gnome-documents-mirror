@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-12-27 00:16+0200\n"
-"PO-Revision-Date: 2012-12-27 00:17+0200\n"
+"POT-Creation-Date: 2013-02-02 14:20+0200\n"
+"PO-Revision-Date: 2013-02-02 14:23+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -23,7 +23,7 @@ msgstr ""
 #: ../data/gnome-documents.desktop.in.in.h:1
 #: ../src/application.js:102
 #: ../src/mainWindow.js:55
-#: ../src/mainWindow.js:219
+#: ../src/mainWindow.js:230
 msgid "Documents"
 msgstr "מסמכים"
 
@@ -108,33 +108,70 @@ msgstr "מסמך"
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
 #: ../src/documents.js:926
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "לא ניתן לטעון את ”%s“ לתצוגה מקדימה"
+msgid "Please check the network connection."
+msgstr "נא לבדוק את החיבור לרשת."
 
-#: ../src/embed.js:72
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "נא לבדוק את הגדרות המתווך של הרשת."
+
+#: ../src/documents.js:932
+msgid "Unable to sign in to the document service."
+msgstr "לא ניתן להיכנס לשירות המסמכים."
+
+#: ../src/documents.js:935
+msgid "Unable to locate this document."
+msgstr "לא ניתן לאתר מסמך זה."
+
+#: ../src/documents.js:938
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "המממ, משהו פה מסריח (%d)."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "אופס! לא ניתן לטעון את „%s“"
+
+#: ../src/edit.js:192
+#: ../src/mainToolbar.js:219
+msgid "Back"
+msgstr "חזרה"
+
+#: ../src/edit.js:199
+msgid "View"
+msgstr "צפייה"
+
+#: ../src/embed.js:74
+#: ../src/lib/gd-places-bookmarks.c:380
+#: ../src/lib/gd-places-links.c:257
 #: ../src/view.js:70
 msgid "Loading…"
 msgstr "בטעינה…"
 
-#: ../src/embed.js:222
+#: ../src/embed.js:224
 msgid "No Documents Found"
 msgstr "לא נמצאו מסמכים"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:245
+#: ../src/embed.js:247
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:249
+#: ../src/embed.js:251
 msgid "System Settings"
 msgstr "הגדרות מערכת"
+
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "עמוד %u מתוך %u"
 
 #: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
@@ -144,13 +181,34 @@ msgstr "לא ניתן לטעון את המסמך"
 msgid "LibreOffice is required to view this document"
 msgstr "יש צורך ב־LibreOffice כדי לצפות במסמך זה"
 
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "עמוד %s"
+
+#: ../src/lib/gd-places-bookmarks.c:373
+msgid "No bookmarks"
+msgstr "אין סימניות"
+
+#: ../src/lib/gd-places-bookmarks.c:645
+msgid "Bookmarks"
+msgstr "סימניות"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "אין טבלת תכנים"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "תכנים"
+
 #: ../src/mainToolbar.js:73
 msgid "Search"
 msgstr "חיפוש"
 
 #: ../src/mainToolbar.js:158
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "תוצאות עבור „%s“"
 
 #: ../src/mainToolbar.js:160
@@ -173,30 +231,28 @@ msgstr[0] "נבחר אחד"
 msgstr[1] "נבחרו %d"
 msgstr[2] "נבחרו 2"
 
+#. Label for Done button in Sharing dialog
 #: ../src/mainToolbar.js:201
 #: ../src/properties.js:59
+#: ../src/sharing.js:93
 msgid "Done"
 msgstr "בוצע"
-
-#: ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "חזרה"
 
 #: ../src/mainToolbar.js:241
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
-#: ../src/mainWindow.js:218
+#: ../src/mainWindow.js:229
 msgid "translator-credits"
 msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 
-#: ../src/mainWindow.js:220
+#: ../src/mainWindow.js:231
 msgid "A document manager application"
 msgstr "יישום לניהול מסמכים"
 
 #: ../src/notifications.js:88
 #, c-format
-msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "מתבצעת הדפסה של „%s“:‏ %s"
 
 #: ../src/notifications.js:143
@@ -217,8 +273,8 @@ msgid "Fetching documents from online accounts"
 msgstr "מתקבלים מסמכים מחשבונות מקוונים"
 
 #: ../src/properties.js:57
-#: ../src/resources/preview-menu.ui.h:7
-#: ../src/selections.js:791
+#: ../src/resources/preview-menu.ui.h:8
+#: ../src/selections.js:792
 msgid "Properties"
 msgstr "מאפיינים"
 
@@ -289,27 +345,31 @@ msgstr "יציאה"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/resources/preview-menu.ui.h:1
-#: ../src/selections.js:875
+#: ../src/selections.js:888
 msgid "Open"
 msgstr "פתיחה"
 
 #: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "עריכה"
+
+#: ../src/resources/preview-menu.ui.h:3
 msgid "Print…"
 msgstr "הדפסה…"
 
-#: ../src/resources/preview-menu.ui.h:3
+#: ../src/resources/preview-menu.ui.h:4
 msgid "Zoom In"
 msgstr "התקרבות"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom Out"
 msgstr "התרחקות"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Rotate ↶"
 msgstr "הטייה ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↷"
 msgstr "הטייה ↷"
 
@@ -370,24 +430,109 @@ msgstr "התאמה"
 msgid "Sources"
 msgstr "מקורות"
 
-#: ../src/selections.js:614
-#: ../src/selections.js:783
+#: ../src/selections.js:615
+#: ../src/selections.js:784
 msgid "Organize"
 msgstr "ארגון"
 
-#: ../src/selections.js:760
+#: ../src/selections.js:761
 msgid "Print"
 msgstr "הדפסה"
 
-#: ../src/selections.js:767
+#: ../src/selections.js:768
 msgid "Delete"
 msgstr "מחיקה"
 
+#: ../src/selections.js:799
+msgid "Share"
+msgstr "שיתוף"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:885
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
+
+#: ../src/sharing.js:89
+msgid "Sharing Settings"
+msgstr "הגדרות שיתוף"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+msgid "Document permissions"
+msgstr "הרשאות המסמך"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133
+#: ../src/sharing.js:311
+msgid "Change"
+msgstr "שינוי"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157
+#: ../src/sharing.js:286
+msgid "Private"
+msgstr "פרטי"
+
+#: ../src/sharing.js:167
+#: ../src/sharing.js:279
+msgid "Public"
+msgstr "ציבורי"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171
+#: ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "כולם יכולים לערוך"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "הוספת אנשים"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "נא להזין כתובת דוא״ל"
+
+#: ../src/sharing.js:200
+#: ../src/sharing.js:367
+msgid "Can edit"
+msgstr "יש הרשאות עריכה"
+
+#: ../src/sharing.js:200
+#: ../src/sharing.js:370
+msgid "Can view"
+msgstr "יש הרשאות לצפייה"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "הוספה"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "כולם יכולים לקרוא"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "שמירה"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "בעלים"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "ניתן לבקש גישה מ־%s"
+
+#: ../src/sharing.js:470
+#: ../src/sharing.js:506
+#: ../src/sharing.js:563
+#: ../src/sharing.js:580
+#: ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "המסמך לא עודכן"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
@@ -445,6 +590,9 @@ msgid_plural "%d years ago"
 msgstr[0] "לפני שנה"
 msgstr[1] "לפני %d שנים"
 msgstr[2] "לפני שנתיים"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "לא ניתן לטעון את ”%s“ לתצוגה מקדימה"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr "לא ניתן למצוא את \"unoconv\", נא לבדוק את התקנת ה־LibreOffice שלך"
