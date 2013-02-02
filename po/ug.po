@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-29 18:09+0000\n"
-"PO-Revision-Date: 2013-01-30 19:34+0900\n"
+"POT-Creation-Date: 2013-01-30 13:59+0000\n"
+"PO-Revision-Date: 2013-02-02 12:37+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -106,12 +106,10 @@ msgid "Please check the network proxy settings."
 msgstr "تور ۋاكالەتچى تەڭشىكىنى تەكشۈرۈڭ."
 
 #: ../src/documents.js:932
-#| msgid "Unable to load the document"
 msgid "Unable to sign in to the document service."
 msgstr "پۈتۈك مۇلازىمىتىگە خەتلەتكىلى بولمىدى."
 
 #: ../src/documents.js:935
-#| msgid "Unable to load the document"
 msgid "Unable to locate this document."
 msgstr "مەزكۇر پۈتۈكنىڭ ئورنىنى بىلگىلى بولمىدى."
 
@@ -131,11 +129,11 @@ msgid "Back"
 msgstr "كەينى"
 
 #: ../src/edit.js:199
-#| msgid "View as"
 msgid "View"
 msgstr "كۆرۈنۈش"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/embed.js:74 ../src/lib/gd-places-bookmarks.c:380
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "يۈكلەۋاتىدۇ…"
 
@@ -169,6 +167,20 @@ msgstr "پۈتۈكنى ئوقۇيالمىدى"
 msgid "LibreOffice is required to view this document"
 msgstr "مەزكۇر پۈتۈكنى كۆرۈش ئۈچۈن LibreOffice كېرەكتۇر"
 
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+#| msgid "Page %u of %u"
+msgid "Page %s"
+msgstr "بەت %s"
+
+#: ../src/lib/gd-places-bookmarks.c:373
+msgid "No bookmarks"
+msgstr "خەتكۈشلەر يوق"
+
+#: ../src/lib/gd-places-bookmarks.c:645
+msgid "Bookmarks"
+msgstr "خەتكۈشلەر"
+
 #: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "مەزمۇن يوق"
@@ -183,7 +195,6 @@ msgstr "ئىزدە"
 
 #: ../src/mainToolbar.js:158
 #, c-format
-#| msgid "Results for \"%s\""
 msgid "Results for “%s”"
 msgstr "«%s» نىڭ نەتىجىلىرى"
 
@@ -226,7 +237,6 @@ msgstr "پۈتۈك باشقۇرۇش پروگراممىسى"
 
 #: ../src/notifications.js:88
 #, c-format
-#| msgid "Printing \"%s\": %s"
 msgid "Printing “%s”: %s"
 msgstr "بېسىۋاتقىنى «%s»: %s"
 
