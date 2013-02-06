@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-27 18:02+0100\n"
-"PO-Revision-Date: 2013-01-27 18:03+0200\n"
+"POT-Creation-Date: 2013-02-06 17:42+0100\n"
+"PO-Revision-Date: 2013-02-06 17:45+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -102,11 +102,32 @@ msgstr "Documento"
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
 #: ../src/documents.js:926
+msgid "Please check the network connection."
+msgstr "Comprobe a conexión á rede."
+
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "Comprobe as preferencias do proxy da rede."
+
+#: ../src/documents.js:932
+msgid "Unable to sign in to the document service."
+msgstr "Non foi posíbel iniciar sesión no servizo de documentos."
+
+#: ../src/documents.js:935
+msgid "Unable to locate this document."
+msgstr "Non foi posíbel atopar este documento."
+
+#: ../src/documents.js:938
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, algo cheira mal (%d)."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Oops! Non foi posíbel cargar «%s»"
 
 #: ../src/edit.js:192 ../src/mainToolbar.js:219
 msgid "Back"
@@ -116,7 +137,8 @@ msgstr "Atrás"
 msgid "View"
 msgstr "Ver"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
+#: ../src/embed.js:74 ../src/lib/gd-places-bookmarks.c:380
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Cargando…"
 
@@ -150,11 +172,24 @@ msgstr "Non foi posíbel cargar o documento"
 msgid "LibreOffice is required to view this document"
 msgstr "Requírese LibreOffice para ver este documento"
 
-#: ../src/lib/gd-places-links.c:334
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "Páxina %s"
+
+#: ../src/lib/gd-places-bookmarks.c:373
+msgid "No bookmarks"
+msgstr "Non hai marcadores"
+
+#: ../src/lib/gd-places-bookmarks.c:645
+msgid "Bookmarks"
+msgstr "Marcadores"
+
+#: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Non hai táboa de contidos"
 
-#: ../src/lib/gd-places-links.c:397
+#: ../src/lib/gd-places-links.c:518
 msgid "Contents"
 msgstr "Contidos"
 
@@ -164,7 +199,7 @@ msgstr "Buscar"
 
 #: ../src/mainToolbar.js:158
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "Resultados para «%s»"
 
 #: ../src/mainToolbar.js:160
@@ -210,7 +245,7 @@ msgstr "Un aplicativo para xestionar documentos"
 
 #: ../src/notifications.js:88
 #, c-format
-msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "Imprimindo «%s»: %s"
 
 #: ../src/notifications.js:143
@@ -526,6 +561,9 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "fai %d ano"
 msgstr[1] "fai %d anos"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr ""
