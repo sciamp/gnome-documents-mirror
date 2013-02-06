@@ -30,6 +30,7 @@ const _ = imports.gettext.gettext;
 
 const Application = imports.application;
 const Utils = imports.utils;
+const WindowMode = imports.windowMode;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
@@ -115,9 +116,15 @@ const IndexingNotification = new Lang.Class({
         }
 
         Application.application.connectJS('miners-changed', Lang.bind(this, this._checkNotification));
+        Application.modeController.connect('window-mode-changed', Lang.bind(this, this._checkNotification));
     },
 
     _checkNotification: function() {
+        if (Application.modeController.getWindowMode() == WindowMode.WindowMode.PREVIEW) {
+            this._destroy(false);
+            return;
+        }
+
         let isIndexingLocal = false;
         let isIndexingRemote = false;
 
