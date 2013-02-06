@@ -342,7 +342,6 @@ const Application = new Lang.Class({
         trackerController = new TrackerController.TrackerController();
         selectionController = new Selections.SelectionController();
         modeController = new WindowMode.ModeController();
-        notificationManager = new Notifications.NotificationManager();
 
         this._actionEntries = [
             { name: 'quit',
