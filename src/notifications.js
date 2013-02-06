@@ -115,11 +115,6 @@ const IndexingNotification = new Lang.Class({
         }
 
         Application.application.connectJS('miners-changed', Lang.bind(this, this._checkNotification));
-        Mainloop.idle_add(Lang.bind(this,
-            function() {
-                this._checkNotification();
-                return false;
-            }));
     },
 
     _checkNotification: function() {
