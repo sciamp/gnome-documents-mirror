@@ -1,3 +1,16 @@
+3.7.5 - "Eva"
+=============
+
+- Add an embedded edit mode for Google documents (William Jon McCann)
+- Add a Bookmarks page in preview mode (William Jon McCann)
+- Improve the error dialog layout (William Jon McCann)
+- Use more human readable messages for GData errors (William Jon McCann)
+- Don't use the dark theme in fullscreen preview (William Jon McCann)
+- Add some padding around the preview navigation bar (William Jon McCann)
+- Fix double search entry in fullscreen preview
+- Fix crash when going back from a Google document under some circumstances
+- Fix double and misspelled indexing notifications
+
 3.7.4 - "Don Calisto"
 =====================
 
