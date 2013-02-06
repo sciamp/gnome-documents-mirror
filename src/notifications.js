@@ -149,9 +149,13 @@ const IndexingNotification = new Lang.Class({
         this._timeoutId = 0;
 
         let primary = null;
+        let miner = null;
 
         if (Application.application.minersRunning.length == 1) {
-            let miner = Application.application.minersRunning[0];
+            miner = Application.application.minersRunning[0];
+        }
+
+        if (miner && miner.DisplayName) {
             primary = _("Fetching documents from %s").format(miner.DisplayName);
         } else {
             primary = _("Fetching documents from online accounts");
