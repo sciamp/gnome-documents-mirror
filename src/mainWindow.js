@@ -159,7 +159,7 @@ const MainWindow = new Lang.Class({
         case WindowMode.WindowMode.EDIT:
             return false;
         default:
-            throw(new Error('Not handled'))
+            throw(new Error('Not handled'));
             break;
         }
 
