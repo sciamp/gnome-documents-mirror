@@ -39,6 +39,7 @@ const Places = imports.places;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
 const View = imports.view;
+const WindowMode = imports.windowMode;
 
 const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 
@@ -55,9 +56,12 @@ const PreviewView = new Lang.Class({
         this._fsToolbar = null;
         this._overlay = overlay;
         this._lastSearch = '';
+        this._loadError = false;
 
         Application.modeController.connect('fullscreen-changed', Lang.bind(this,
             this._onFullscreenChanged));
+        Application.modeController.connect('window-mode-changed', Lang.bind(this,
+            this._onWindowModeChanged));
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
                                                vexpand: true,
@@ -126,7 +130,7 @@ const PreviewView = new Lang.Class({
                                             Lang.bind(this, this._onLoadError));
     },
 
-   _onLoadStarted: function() {
+    _onLoadStarted: function() {
         this._showPlaces.enabled = false;
     },
 
@@ -141,7 +145,10 @@ const PreviewView = new Lang.Class({
 
     _onLoadError: function(manager, doc, message, exception) {
         this._controlsVisible = true;
+
+        this._loadError = true;
         this._syncControlsVisible();
+        this._loadError = false;
     },
 
     _onActionStateChanged: function(source, actionName, state) {
@@ -212,12 +219,19 @@ const PreviewView = new Lang.Class({
         if (this._controlsVisible) {
             if (this._fsToolbar)
                 this._fsToolbar.show();
-            this._navBar.show();
+            if (!this._loadError)
+                this._navBar.show();
         } else {
             if (this._fsToolbar)
                 this._fsToolbar.hide();
             this._navBar.hide();
         }
+    },
+
+    _onWindowModeChanged: function() {
+        let windowMode = Application.modeController.getWindowMode();
+        if (windowMode != WindowMode.WindowMode.PREVIEW)
+            this.controlsVisible = false;
     },
 
     _onFullscreenChanged: function() {
