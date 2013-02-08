@@ -301,7 +301,7 @@ const Embed = new Lang.Class({
         this._viewActor.add_child(this._notebookActor);
 
         // create the OSD toolbar for selected items, it's hidden by default
-        this._selectionToolbar = new Selections.SelectionToolbar(this._contentsActor);
+        this._selectionToolbar = new Selections.SelectionToolbar(this.actor);
         this._overlayLayout.add(this._selectionToolbar.actor,
             Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
 
