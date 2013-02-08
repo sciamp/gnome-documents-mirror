@@ -26,7 +26,6 @@ const Gettext = imports.gettext;
 const _ = imports.gettext.gettext;
 
 // Import versions go here
-imports.gi.versions.GtkClutter = '1.0';
 imports.gi.versions.GdPrivate = '1.0';
 imports.gi.versions.Gd = '1.0';
 imports.gi.versions.Tracker = '0.16';
@@ -34,7 +33,6 @@ imports.gi.versions.TrackerMiner = '0.16';
 imports.gi.versions.EvinceDocument = '3.0';
 imports.gi.versions.Goa = '1.0';
 
-const GtkClutter = imports.gi.GtkClutter;
 const EvDoc = imports.gi.EvinceDocument;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
@@ -60,7 +58,6 @@ const Selections = imports.selections;
 const ShellSearchProvider = imports.shellSearchProvider;
 const TrackerController = imports.trackerController;
 const TrackerUtils = imports.trackerUtils;
-const Tweener = imports.util.tweener;
 const Utils = imports.utils;
 const WindowMode = imports.windowMode;
 
@@ -304,9 +301,8 @@ const Application = new Lang.Class({
         this.parent();
         String.prototype.format = Format.format;
 
-        GtkClutter.init(null);
+        Gtk.init(null);
         EvDoc.init();
-        Tweener.init();
 
         let resource = Gio.Resource.load(Path.RESOURCE_DIR + '/gnome-documents.gresource');
         resource._register();

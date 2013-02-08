@@ -27,10 +27,6 @@ dist_js_DATA = \
     windowMode.js \
     path.js
 
-jsutildir = $(pkgdatadir)/js/util/
-dist_jsutil_DATA = \
-    util/tweener.js
-
 BUILT_SOURCES += \
     path.js \
     config.js

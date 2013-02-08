@@ -19,14 +19,12 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const EvView = imports.gi.EvinceView;
 const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
 
@@ -37,7 +35,7 @@ const Notifications = imports.notifications;
 const Properties = imports.properties;
 const Query = imports.query;
 const Sharing = imports.sharing;
-const Tweener = imports.util.tweener;
+const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const Lang = imports.lang;
@@ -721,29 +719,18 @@ const _SELECTION_TOOLBAR_DEFAULT_WIDTH = 500;
 const SelectionToolbar = new Lang.Class({
     Name: 'SelectionToolbar',
 
-    _init: function(parentActor) {
+    _init: function() {
         this._itemListeners = {};
         this._insideRefresh = false;
-        this._parentActor = parentActor;
 
         this.widget = new Gtk.Toolbar({ show_arrow: false,
-                                        icon_size: Gtk.IconSize.LARGE_TOOLBAR });
+                                        halign: Gtk.Align.CENTER,
+                                        valign: Gtk.Align.END,
+                                        margin_bottom: 40,
+                                        icon_size: Gtk.IconSize.LARGE_TOOLBAR,
+                                        opacity: 0 });
         this.widget.get_style_context().add_class('osd');
         this.widget.set_size_request(_SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
-
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            show_on_set_parent: false,
-                                            opacity: 0 });
-        Utils.alphaGtkWidget(this.actor.get_widget());
-
-        this.actor.add_constraint(
-            new Clutter.AlignConstraint({ align_axis: Clutter.AlignAxis.X_AXIS,
-                                          source: this._parentActor,
-                                          factor: 0.50 }));
-        this.actor.add_constraint(
-            new Clutter.AlignConstraint({ align_axis: Clutter.AlignAxis.Y_AXIS,
-                                          source: this._parentActor,
-                                          factor: 0.95 }));
 
         this._leftBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
         this._leftGroup = new Gtk.ToolItem({ child: this._leftBox });
@@ -799,8 +786,6 @@ const SelectionToolbar = new Lang.Class({
         this._toolbarShare.set_tooltip_text(_("Share"));
         this._rightBox.add(this._toolbarShare);
         this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
-
-        this.widget.show_all();
 
         Application.selectionController.connect('selection-mode-changed',
             Lang.bind(this, this._onSelectionModeChanged));
@@ -971,26 +956,19 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _fadeIn: function() {
-        if (this.actor.opacity != 0)
-            return;
-
-        this.actor.opacity = 0;
-        this.actor.show();
-
-        Tweener.addTween(this.actor,
-            { opacity: 255,
-              time: 0.30,
-              transition: 'easeOutQuad' });
+        this.widget.show_all();
+        Tweener.addTween(this.widget, { opacity: 1,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad' });
     },
 
     _fadeOut: function() {
-        Tweener.addTween(this.actor,
-            { opacity: 0,
-              time: 0.30,
-              transition: 'easeOutQuad',
-              onComplete: function() {
-                  this.actor.hide();
-              },
-              onCompleteScope: this });
+        Tweener.addTween(this.widget, { opacity: 0,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad',
+                                        onComplete: function() {
+                                            this.widget.hide();
+                                        },
+                                        onCompleteScope: this });
     }
 });

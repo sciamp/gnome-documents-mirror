@@ -23,7 +23,6 @@ const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const Tracker = imports.gi.Tracker;
 const _ = imports.gettext.gettext;
 
@@ -33,7 +32,7 @@ const Signals = imports.signals;
 
 const Application = imports.application;
 const Manager = imports.manager;
-const Tweener = imports.util.tweener;
+const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const _SEARCH_ENTRY_TIMEOUT = 200;
@@ -81,6 +80,9 @@ const Searchbar = new Lang.Class({
                     Mainloop.source_remove(this._searchEntryTimeout);
                     this._searchEntryTimeout = 0;
                 }
+
+                if (this._searchChangeBlocked)
+                    return;
 
                 this._searchEntryTimeout = Mainloop.timeout_add(_SEARCH_ENTRY_TIMEOUT, Lang.bind(this,
                     function() {
@@ -207,7 +209,9 @@ const Searchbar = new Lang.Class({
         this._in = false;
         this.widget.set_revealed(false);
         // clear all the search properties when hiding the entry
+        this._searchChangeBlocked = true;
         this._searchEntry.set_text('');
+        this._searchChangeBlocked = false;
     }
 });
 
@@ -229,11 +233,11 @@ const Dropdown = new Lang.Class({
         this._matchView.connect('item-activated',
                                 Lang.bind(this, this._onItemActivated));
 
-        this.widget = new Gtk.Frame({ shadow_type: Gtk.ShadowType.IN });
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 0 });
-        let actorWidget = this.actor.get_widget();
-        actorWidget.get_style_context().add_class('documents-dropdown');
+        this.widget = new Gtk.Frame({ shadow_type: Gtk.ShadowType.IN,
+                                      halign: Gtk.Align.CENTER,
+                                      valign: Gtk.Align.START,
+                                      opacity: 0 });
+        this.widget.get_style_context().add_class('documents-dropdown');
 
         this._grid = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL });
         this.widget.add(this._grid);
@@ -253,24 +257,19 @@ const Dropdown = new Lang.Class({
     show: function() {
         this.widget.show_all();
 
-        let parent = this.actor.get_parent();
-        parent.set_child_above_sibling(this.actor, null);
-
-        Tweener.addTween(this.actor, { opacity: 245,
-                                       time: 0.20,
-                                       transition: 'easeOutQuad' });
+        Tweener.addTween(this.widget, { opacity: 0.9,
+                                        time: 0.20,
+                                        transition: 'easeOutQuad' });
     },
 
     hide: function() {
-        this.widget.hide();
-        Tweener.addTween(this.actor, { opacity: 0,
-                                       time: 0.20,
-                                       transition: 'easeOutQuad',
-                                       onComplete: function() {
-                                           let parent = this.actor.get_parent();
-                                           parent.set_child_below_sibling(this.actor, null);
-                                       },
-                                       onCompleteScope: this });
+        Tweener.addTween(this.widget, { opacity: 0,
+                                        time: 0.20,
+                                        transition: 'easeOutQuad',
+                                        onComplete: function() {
+                                            this.widget.hide();
+                                        },
+                                        onCompleteScope: this });
     }
 });
 Signals.addSignalMethods(Dropdown.prototype);

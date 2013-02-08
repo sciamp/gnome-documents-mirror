@@ -17,7 +17,6 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const WebKit = imports.gi.WebKit;
 const Soup = imports.gi.Soup;
 const GdPrivate = imports.gi.GdPrivate;
@@ -25,7 +24,6 @@ const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
@@ -33,7 +31,6 @@ const Mainloop = imports.mainloop;
 const Signals = imports.signals;
 
 const Application = imports.application;
-const Tweener = imports.util.tweener;
 const MainToolbar = imports.mainToolbar;
 const Searchbar = imports.searchbar;
 const Utils = imports.utils;
@@ -46,7 +43,7 @@ const _BLANK_URI = "about:blank";
 const EditView = new Lang.Class({
     Name: 'EditView',
 
-    _init: function(overlayLayout) {
+    _init: function() {
         this._uri = null;
 
         this.widget = new Gtk.Overlay();

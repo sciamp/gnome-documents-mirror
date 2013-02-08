@@ -19,12 +19,10 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const Gd = imports.gi.Gd;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const TrackerMiner = imports.gi.TrackerMiner;
 const _ = imports.gettext.gettext;
 
@@ -257,19 +255,13 @@ const NotificationManager = new Lang.Class({
 
     _init: function() {
         this.widget = new Gd.Notification({ timeout: -1,
-                                            show_close_button: false });
+                                            show_close_button: false,
+                                            halign: Gtk.Align.CENTER,
+                                            valign: Gtk.Align.START });
         this._grid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
                                     row_spacing: 6 });
 
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            x_align: Clutter.ActorAlign.CENTER,
-                                            y_align: Clutter.ActorAlign.START,
-                                            y_expand: true,
-                                            visible: false });
-        Utils.alphaGtkWidget(this.actor.get_widget());
-
         this.widget.add(this._grid);
-        this.widget.show_all();
 
         // add indexing monitor notification
         this._indexingNotification = new IndexingNotification();
@@ -277,18 +269,16 @@ const NotificationManager = new Lang.Class({
 
     addNotification: function(notification) {
         this._grid.add(notification.widget);
-
-        notification.widget.show_all();
         notification.widget.connect('destroy', Lang.bind(this, this._onWidgetDestroy));
 
-        this.actor.show();
+        this.widget.show_all();
     },
 
     _onWidgetDestroy: function() {
         let children = this._grid.get_children();
 
         if (children.length == 0)
-            this.actor.hide();
+            this.widget.hide();
     }
 });
 Signals.addSignalMethods(NotificationManager.prototype);

@@ -19,11 +19,9 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const Gdk = imports.gi.Gdk;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;

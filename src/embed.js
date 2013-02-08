@@ -21,7 +21,6 @@
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
-const Tweener = imports.util.tweener;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
@@ -33,13 +32,11 @@ const View = imports.view;
 const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
-const Clutter = imports.gi.Clutter;
 const EvView = imports.gi.EvinceView;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const _ = imports.gettext.gettext;
 
 const _ICON_SIZE = 128;
@@ -230,34 +227,6 @@ const EmptyResultsBox = new Lang.Class({
     }
 });
 
-const EmbedWidget = new Lang.Class({
-    Name: 'EmbedWidget',
-    Extends: GtkClutter.Embed,
-
-    _init: function() {
-        this.parent({ use_layout_size: true,
-                      can_focus: false });
-    },
-
-    /* We overide all keyboard handling of GtkClutter.Embed, as it interfers
-     * with the key event propagation and thus focus navigation in gtk+.
-     * We also make the embed itself non-focusable, as we want to treat it
-     * like a container of Gtk+ widget rather than an edge widget which gets
-     * keyboard events.
-     * This means we will never get any Clutter key events, but that is
-     * fine, as all our keyboard input is into GtkClutterActors, and clutter
-     * is just used as a nice way of animating and rendering Gtk+ widgets
-     * and some non-active graphical things.
-     */
-    vfunc_key_press_event: function(event) {
-        return false;
-    },
-
-    vfunc_key_release_event: function(event) {
-        return false;
-    }
-});
-
 const Embed = new Lang.Class({
     Name: 'Embed',
 
@@ -265,57 +234,32 @@ const Embed = new Lang.Class({
         this._queryErrorId = 0;
         this._noResultsChangeId = 0;
 
-        this.widget = new EmbedWidget();
-        this.widget.show();
+        this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL,
+                                    visible: true });
 
-        // the embed is a vertical ClutterBox
-        let stage = this.widget.get_stage();
-        this._overlayLayout = new Clutter.BinLayout();
-        this.actor = new Clutter.Box({ layout_manager: this._overlayLayout });
-        this.actor.add_constraint(
-            new Clutter.BindConstraint({ coordinate: Clutter.BindCoordinate.SIZE,
-                                         source: stage }));
-        stage.add_actor(this.actor);
-
-        this._contentsLayout = new Clutter.BoxLayout({ vertical: true });
-        this._contentsActor = new Clutter.Box({ layout_manager: this._contentsLayout });
-        this._overlayLayout.add(this._contentsActor,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
-
-        // pack the main GtkNotebook and a spinnerbox in a BinLayout, so that
-        // we can easily bring them front/back
-        this._viewLayout = new Clutter.BinLayout();
-        this._viewActor = new Clutter.Box({ layout_manager: this._viewLayout });
-        this._contentsLayout.set_expand(this._viewActor, true);
-        this._contentsLayout.set_fill(this._viewActor, true, true);
-        this._contentsActor.add_actor(this._viewActor);
+        this._notebookOverlay = new Gtk.Overlay({ visible: true });
+        this.widget.pack_end(this._notebookOverlay, true, true, 0);
 
         this._notebook = new Gtk.Notebook({ show_tabs: false,
-                                            show_border: false });
-        this._notebook.show();
-        this._notebookActor = new GtkClutter.Actor({ contents: this._notebook,
-                                                     x_align: Clutter.ActorAlign.FILL,
-                                                     x_expand: true,
-                                                     y_align: Clutter.ActorAlign.FILL,
-                                                     y_expand: true });
-        this._viewActor.add_child(this._notebookActor);
+                                            show_border: false,
+                                            visible: true });
+        this._notebookOverlay.add(this._notebook);
 
         // create the OSD toolbar for selected items, it's hidden by default
-        this._selectionToolbar = new Selections.SelectionToolbar(this.actor);
-        this._overlayLayout.add(this._selectionToolbar.actor,
-            Clutter.BinAlignment.FIXED, Clutter.BinAlignment.FIXED);
+        this._selectionToolbar = new Selections.SelectionToolbar();
+        this._notebookOverlay.add_overlay(this._selectionToolbar.widget);
 
-        // pack the OSD notification actor
-        this._viewActor.add_child(Application.notificationManager.actor);
+        // pack the OSD notification widget
+        this._notebookOverlay.add_overlay(Application.notificationManager.widget);
 
         // now create the actual content widgets
         this._view = new View.ViewContainer();
         this._viewPage = this._notebook.append_page(this._view.widget, null);
 
-        this._preview = new Preview.PreviewView(this._overlayLayout);
+        this._preview = new Preview.PreviewView(this._notebookOverlay);
         this._previewPage = this._notebook.append_page(this._preview.widget, null);
 
-        this._edit = new Edit.EditView(this._overlayLayout);
+        this._edit = new Edit.EditView(this._notebookOverlay);
         this._editPage = this._notebook.append_page(this._edit.widget, null);
 
         this._spinnerBox = new SpinnerBox();
@@ -403,7 +347,7 @@ const Embed = new Lang.Class({
     },
 
     _onFullscreenChanged: function(controller, fullscreen) {
-        this._toolbar.actor.visible = !fullscreen;
+        this._toolbar.widget.visible = !fullscreen;
         this._toolbar.widget.sensitive = !fullscreen;
     },
 
@@ -469,13 +413,11 @@ const Embed = new Lang.Class({
             this._edit.setUri(null);
 
         if (this._toolbar)
-            this._toolbar.actor.destroy();
+            this._toolbar.widget.destroy();
 
         // pack the toolbar
-        this._toolbar = new MainToolbar.OverviewToolbar(this._viewLayout);
-        this._contentsLayout.pack_start = true;
-        this._contentsActor.add_actor(this._toolbar.actor);
-        this._contentsLayout.set_fill(this._toolbar.actor, true, false);
+        this._toolbar = new MainToolbar.OverviewToolbar(this._notebookOverlay);
+        this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
         this._spinnerBox.stop();
         this._notebook.set_current_page(this._viewPage);
@@ -485,13 +427,11 @@ const Embed = new Lang.Class({
         if (this._edit)
             this._edit.setUri(null);
         if (this._toolbar)
-            this._toolbar.actor.destroy();
+            this._toolbar.widget.destroy();
 
         // pack the toolbar
         this._toolbar = new Preview.PreviewToolbar(this._preview);
-        this._contentsLayout.pack_start = true;
-        this._contentsActor.add_actor(this._toolbar.actor);
-        this._contentsLayout.set_fill(this._toolbar.actor, true, false);
+        this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
         this._notebook.set_current_page(this._previewPage);
     },
@@ -500,13 +440,11 @@ const Embed = new Lang.Class({
         if (this._preview)
             this._preview.setModel(null);
         if (this._toolbar)
-            this._toolbar.actor.destroy();
+            this._toolbar.widget.destroy();
 
         // pack the toolbar
         this._toolbar = new Edit.EditToolbar(this._preview);
-        this._contentsLayout.pack_start = true;
-        this._contentsActor.add_actor(this._toolbar.actor);
-        this._contentsLayout.set_fill(this._toolbar.actor, true, false);
+        this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
         this._notebook.set_current_page(this._editPage);
     },

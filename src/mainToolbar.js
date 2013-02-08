@@ -19,12 +19,10 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const Gd = imports.gi.Gd;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const Pango = imports.gi.Pango;
 
 const Gettext = imports.gettext;
@@ -35,7 +33,6 @@ const Mainloop = imports.mainloop;
 
 const Application = imports.application;
 const Searchbar = imports.searchbar;
-const Tweener = imports.util.tweener;
 
 const MainToolbar = new Lang.Class({
     Name: 'MainToolbar',
@@ -44,7 +41,7 @@ const MainToolbar = new Lang.Class({
         this._model = null;
 
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
-        this.actor = new GtkClutter.Actor({ contents: this.widget });
+        this.widget.show();
 
         this.toolbar = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU });
         this.toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
@@ -75,8 +72,8 @@ const OverviewToolbar = new Lang.Class({
     Name: 'OverviewToolbar',
     Extends: MainToolbar,
 
-    _init: function(viewLayout) {
-        this._viewLayout = viewLayout;
+    _init: function(overlay) {
+        this._overlay = overlay;
         this._collBackButton = null;
         this._collectionId = 0;
         this._selectionChangedId = 0;
@@ -288,8 +285,7 @@ const OverviewToolbar = new Lang.Class({
     createSearchbar: function() {
         // create the dropdown for the search bar, it's hidden by default
         let dropdown = new Searchbar.Dropdown();
-        this._viewLayout.add(dropdown.actor,
-            Clutter.BinAlignment.CENTER, Clutter.BinAlignment.FIXED);
+        this._overlay.add_overlay(dropdown.widget);
 
         return new Searchbar.OverviewSearchbar(dropdown);
     }

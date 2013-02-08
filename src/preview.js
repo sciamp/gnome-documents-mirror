@@ -19,22 +19,21 @@
  *
  */
 
-const Clutter = imports.gi.Clutter;
 const EvView = imports.gi.EvinceView;
+const Gd = imports.gi.Gd;
 const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
-const GtkClutter = imports.gi.GtkClutter;
 const _ = imports.gettext.gettext;
 
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
+const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
-const Tweener = imports.util.tweener;
 const MainToolbar = imports.mainToolbar;
 const Places = imports.places;
 const Searchbar = imports.searchbar;
@@ -46,7 +45,7 @@ const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 const PreviewView = new Lang.Class({
     Name: 'PreviewView',
 
-    _init: function(overlayLayout) {
+    _init: function(overlay) {
         this._model = null;
         this._jobFind = null;
         this._controlsFlipId = 0;
@@ -54,7 +53,7 @@ const PreviewView = new Lang.Class({
         this._pageChanged = false;
         this._viewSelectionChanged = false;
         this._fsToolbar = null;
-        this._overlayLayout = overlayLayout;
+        this._overlay = overlay;
         this._lastSearch = '';
 
         Application.modeController.connect('fullscreen-changed', Lang.bind(this,
@@ -73,8 +72,7 @@ const PreviewView = new Lang.Class({
 
         // create page nav bar
         this._navBar = new PreviewNav(this._model);
-        this._overlayLayout.add(this._navBar.actor,
-            Clutter.BinAlignment.FILL, Clutter.BinAlignment.END);
+        this._overlay.add_overlay(this._navBar.widget);
 
         this.widget.show_all();
 
@@ -229,15 +227,14 @@ const PreviewView = new Lang.Class({
             // create fullscreen toolbar (hidden by default)
             this._fsToolbar = new PreviewFullscreenToolbar(this);
             this._fsToolbar.setModel(this._model);
-            this._overlayLayout.add(this._fsToolbar.actor,
-                Clutter.BinAlignment.FILL, Clutter.BinAlignment.START);
+            this._overlay.add_overlay(this._fsToolbar.revealer);
 
             this._fsToolbar.connect('show-controls', Lang.bind(this,
                 function() {
                     this.controlsVisible = true;
                 }));
         } else {
-            this._fsToolbar.actor.destroy();
+            this._fsToolbar.revealer.destroy();
             this._fsToolbar = null;
         }
 
@@ -363,12 +360,12 @@ const PreviewView = new Lang.Class({
             this._jobFind = null;
         }
 
+        this._lastSearch = str;
+
         if (!str) {
             this.view.queue_draw();
             return;
         }
-
-        this._lastSearch = str;
 
         let evDoc = this._model.get_document();
         this._jobFind = EvView.JobFind.new(evDoc, this._model.get_page(), evDoc.get_n_pages(),
@@ -426,7 +423,10 @@ const PreviewNav = new Lang.Class({
 
     _init: function(model) {
         this._model = model;
-        this.widget = new GdPrivate.NavBar({ document_model: model });
+        this.widget = new GdPrivate.NavBar({ document_model: model,
+                                             margin: _PREVIEW_NAVBAR_MARGIN,
+                                             valign: Gtk.Align.END,
+                                             opacity: 0 });
         this.widget.get_style_context().add_class('osd');
 
         let button = new Gtk.Button({ action_name: 'app.places',
@@ -443,17 +443,6 @@ const PreviewNav = new Lang.Class({
                                         valign: Gtk.Align.CENTER
                                       });
         buttonArea.pack_start(button, false, false, 0);
-
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            visible: false,
-                                            margin_top: _PREVIEW_NAVBAR_MARGIN,
-                                            margin_bottom: _PREVIEW_NAVBAR_MARGIN,
-                                            margin_left: _PREVIEW_NAVBAR_MARGIN,
-                                            margin_right: _PREVIEW_NAVBAR_MARGIN,
-                                            opacity: 0 });
-        Utils.alphaGtkWidget(this.actor.get_widget());
-
-        this.widget.show_all();
     },
 
     setModel: function(model) {
@@ -467,23 +456,20 @@ const PreviewNav = new Lang.Class({
         if (!this._model)
             return;
 
-        this.actor.show();
-
-        Tweener.addTween(this.actor,
-            { opacity: 255,
-              time: 0.30,
-              transition: 'easeOutQuad' });
+        this.widget.show_all();
+        Tweener.addTween(this.widget, { opacity: 1,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad' });
     },
 
     hide: function() {
-        Tweener.addTween(this.actor,
-            { opacity: 0,
-              time: 0.30,
-              transition: 'easeOutQuad',
-              onComplete: function() {
-                  this.actor.hide();
-              },
-              onCompleteScope: this });
+        Tweener.addTween(this.widget, { opacity: 0,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad',
+                                        onComplete: function() {
+                                            this.widget.hide();
+                                        },
+                                        onCompleteScope: this });
     }
 });
 
@@ -641,7 +627,9 @@ const PreviewFullscreenToolbar = new Lang.Class({
     _init: function(previewView) {
         this.parent(previewView);
 
-        this.actor.translation_y = -(this.widget.get_preferred_height()[1]);
+        this.revealer = new Gd.Revealer({ valign: Gtk.Align.START });
+        this.revealer.add(this.widget);
+        this.revealer.show();
 
         // make controls show when a toolbar action is activated in fullscreen
         let actionNames = ['gear-menu', 'search'];
@@ -676,24 +664,12 @@ const PreviewFullscreenToolbar = new Lang.Class({
     },
 
     show: function() {
-        this.actor.show();
-        Tweener.addTween(this.actor,
-                         { translation_y: 0,
-                           time: 0.20,
-                           transition: 'easeInQuad' });
+        this.revealer.set_revealed(true);
     },
 
     hide: function() {
-        Tweener.addTween(this.actor,
-                         { translation_y: -(this.widget.get_preferred_height()[1]),
-                           time: 0.20,
-                           transition: 'easeOutQuad',
-                           onComplete: Lang.bind(this,
-                               function() {
-                                   this.actor.hide();
-                                   Application.application.change_action_state('search', GLib.Variant.new('b', false));
-                               })
-                         });
+        this.revealer.set_revealed(false);
+        Application.application.change_action_state('search', GLib.Variant.new('b', false));
     }
 });
 Signals.addSignalMethods(PreviewFullscreenToolbar.prototype);
