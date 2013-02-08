@@ -172,8 +172,9 @@ const MainWindow = new Lang.Class({
 
         if (keyval == Gdk.KEY_Escape) {
             let preview = this._embed.getPreview();
+            let model = preview.getModel();
 
-            if (preview.controlsVisible)
+            if (preview.controlsVisible && (model != null))
                 preview.controlsVisible = false;
             else if (fullscreen)
                 Application.documentManager.setActiveItem(null);
