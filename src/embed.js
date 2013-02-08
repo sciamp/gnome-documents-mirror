@@ -49,7 +49,7 @@ const SpinnerBox = new Lang.Class({
     Name: 'SpinnerBox',
 
     _init: function() {
-        this._delayedMoveId = 0;
+        this._delayedShowId = 0;
 
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
                                      row_spacing: 24,
@@ -57,13 +57,6 @@ const SpinnerBox = new Lang.Class({
                                      vexpand: true,
                                      halign: Gtk.Align.CENTER,
                                      valign: Gtk.Align.CENTER });
-
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255,
-                                            x_align: Clutter.ActorAlign.FILL,
-                                            x_expand: true,
-                                            y_align: Clutter.ActorAlign.FILL,
-                                            y_expand: true });
 
         this._spinner = new Gtk.Spinner({ width_request: _ICON_SIZE,
                                           height_request: _ICON_SIZE,
@@ -82,48 +75,30 @@ const SpinnerBox = new Lang.Class({
     },
 
     _clearDelayId: function() {
-        if (this._delayedMoveId != 0) {
-            Mainloop.source_remove(this._delayedMoveId);
-            this._delayedMoveId = 0;
+        if (this._delayedShowId != 0) {
+            Mainloop.source_remove(this._delayedShowId);
+            this._delayedShowId = 0;
         }
     },
 
-    moveIn: function() {
+    start: function() {
         this._clearDelayId();
-
-        let parent = this.actor.get_parent();
-        parent.set_child_above_sibling(this.actor, null);
-
         this._spinner.start();
-
-        Tweener.addTween(this.actor, { opacity: 255,
-                                       time: 0.30,
-                                       transition: 'easeOutQuad' });
     },
 
-    moveOut: function() {
+    stop: function() {
         this._clearDelayId();
-
-        Tweener.addTween(this.actor, { opacity: 0,
-                                       time: 0.30,
-                                       transition: 'easeOutQuad',
-                                       onComplete: function () {
-                                           let parent = this.actor.get_parent();
-                                           parent.set_child_below_sibling(this.actor, null);
-
-                                           this._spinner.stop();
-                                       },
-                                       onCompleteScope: this });
+        this._spinner.stop();
     },
 
-    moveInDelayed: function(delay) {
+    startDelayed: function(delay) {
         this._clearDelayId();
 
-        this._delayedMoveId = Mainloop.timeout_add(delay, Lang.bind(this,
+        this._delayedShowId = Mainloop.timeout_add(delay, Lang.bind(this,
             function() {
-                this._delayedMoveId = 0;
+                this._delayedShowId = 0;
 
-                this.moveIn();
+                this.start();
                 return false;
             }));
     }
@@ -162,13 +137,6 @@ const ErrorBox = new Lang.Class({
         this.widget.add(this._secondaryLabel);
 
         this.widget.show_all();
-
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255,
-                                            x_align: Clutter.ActorAlign.FILL,
-                                            x_expand: true,
-                                            y_align: Clutter.ActorAlign.FILL,
-                                            y_expand: true });
     },
 
     update: function(primary, secondary) {
@@ -177,26 +145,6 @@ const ErrorBox = new Lang.Class({
 
         this._primaryLabel.label = primaryMarkup;
         this._secondaryLabel.label = secondaryMarkup;
-    },
-
-    moveIn: function() {
-        let parent = this.actor.get_parent();
-        parent.set_child_above_sibling(this.actor, null);
-
-        Tweener.addTween(this.actor, { opacity: 255,
-                                       time: 0.30,
-                                       transition: 'easeOutQuad' });
-    },
-
-    moveOut: function() {
-        Tweener.addTween(this.actor, { opacity: 0,
-                                       time: 0.30,
-                                       transition: 'easeOutQuad',
-                                       onComplete: function () {
-                                           let parent = this.actor.get_parent();
-                                           parent.set_child_below_sibling(this.actor, null);
-                                       },
-                                       onCompleteScope: this });
     }
 });
 
@@ -235,8 +183,6 @@ const EmptyResultsBox = new Lang.Class({
             this._addSystemSettingsLabel();
         }
 
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            opacity: 255 });
         this.widget.show_all();
     },
 
@@ -354,16 +300,6 @@ const Embed = new Lang.Class({
                                                      y_expand: true });
         this._viewActor.add_child(this._notebookActor);
 
-        this._spinnerBox = new SpinnerBox();
-        this._viewActor.insert_child_below(this._spinnerBox.actor, null);
-
-        this._errorBox = new ErrorBox();
-        this._viewActor.insert_child_below(this._errorBox.actor,  null);
-
-        this._noResults = new EmptyResultsBox();
-        this._viewLayout.add(this._noResults.actor, Clutter.BinAlignment.FILL, Clutter.BinAlignment.FILL);
-        this._noResults.actor.lower_bottom();
-
         // create the OSD toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar(this._contentsActor);
         this._overlayLayout.add(this._selectionToolbar.actor,
@@ -381,6 +317,15 @@ const Embed = new Lang.Class({
 
         this._edit = new Edit.EditView(this._overlayLayout);
         this._editPage = this._notebook.append_page(this._edit.widget, null);
+
+        this._spinnerBox = new SpinnerBox();
+        this._spinnerPage = this._notebook.append_page(this._spinnerBox.widget, null);
+
+        this._errorBox = new ErrorBox();
+        this._errorPage = this._notebook.append_page(this._errorBox.widget, null);
+
+        this._noResults = new EmptyResultsBox();
+        this._noResultsPage = this._notebook.append_page(this._noResults.widget, null);
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
@@ -419,10 +364,11 @@ const Embed = new Lang.Class({
         let queryStatus = Application.trackerController.getQueryStatus();
 
         if (queryStatus) {
-            this._errorBox.moveOut();
-            this._spinnerBox.moveIn();
+            this._spinnerBox.start();
+            this._notebook.set_current_page(this._spinnerPage);
         } else {
-            this._spinnerBox.moveOut();
+            this._spinnerBox.stop();
+            this._notebook.set_current_page(this._viewPage);
         }
     },
 
@@ -432,7 +378,7 @@ const Embed = new Lang.Class({
             this._noResultsChangeId = 0;
         }
 
-        this._noResults.actor.lower_bottom();
+        this._notebook.set_current_page(this._viewPage);
     },
 
     _onItemCountChanged: function() {
@@ -446,7 +392,7 @@ const Embed = new Lang.Class({
                         this._hideNoResultsPage();
                     }));
 
-            this._noResults.actor.raise_top();
+            this._notebook.set_current_page(this._noResultsPage);
         } else {
             this._hideNoResultsPage();
         }
@@ -497,7 +443,7 @@ const Embed = new Lang.Class({
     _onLoadStarted: function() {
         // switch to preview mode, and schedule the spinnerbox to
         // move in if the document is not loaded by the timeout
-        this._spinnerBox.moveInDelayed(_PDF_LOADER_TIMEOUT);
+        this._spinnerBox.startDelayed(_PDF_LOADER_TIMEOUT);
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
@@ -507,11 +453,12 @@ const Embed = new Lang.Class({
         this._preview.setModel(docModel);
         this._preview.widget.grab_focus();
 
-        this._spinnerBox.moveOut();
+        this._spinnerBox.stop();
+        this._notebook.set_current_page(this._previewPage);
     },
 
     _onLoadError: function(manager, doc, message, exception) {
-        this._spinnerBox.moveOut();
+        this._spinnerBox.stop();
         this._setError(message, exception.message);
     },
 
@@ -530,9 +477,7 @@ const Embed = new Lang.Class({
         this._contentsActor.add_actor(this._toolbar.actor);
         this._contentsLayout.set_fill(this._toolbar.actor, true, false);
 
-        this._spinnerBox.moveOut();
-        this._errorBox.moveOut();
-
+        this._spinnerBox.stop();
         this._notebook.set_current_page(this._viewPage);
     },
 
@@ -568,7 +513,7 @@ const Embed = new Lang.Class({
 
     _setError: function(primary, secondary) {
         this._errorBox.update(primary, secondary);
-        this._errorBox.moveIn();
+        this._notebook.set_current_page(this._errorPage);
     },
 
     getMainToolbar: function() {
