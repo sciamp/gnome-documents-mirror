@@ -498,10 +498,10 @@ const PreviewToolbar = new Lang.Class({
 
         // back button, on the left of the toolbar
         let iconName =
-            (this.widget.get_direction() == Gtk.TextDirection.RTL) ?
+            (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
             'go-next-symbolic' : 'go-previous-symbolic';
         let backButton =
-            this.widget.add_button(iconName, _("Back"), true);
+            this.toolbar.add_button(iconName, _("Back"), true);
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
@@ -512,12 +512,12 @@ const PreviewToolbar = new Lang.Class({
 
         // menu button, on the right of the toolbar
         let previewMenu = this._getPreviewMenu();
-        let menuButton = this.widget.add_menu('emblem-system-symbolic', null, false);
+        let menuButton = this.toolbar.add_menu('emblem-system-symbolic', null, false);
         menuButton.set_menu_model(previewMenu);
         menuButton.set_action_name('app.gear-menu');
 
         this._setToolbarTitle();
-        this.widget.show_all();
+        this.toolbar.show_all();
     },
 
     _getPreviewMenu: function() {
@@ -536,10 +536,7 @@ const PreviewToolbar = new Lang.Class({
     },
 
     createSearchbar: function() {
-        this._searchbar = new PreviewSearchbar(this._previewView);
-        this.layout.pack_start = false;
-        this.layout.pack(this._searchbar.actor, false, true, false,
-                         Clutter.BoxAlignment.CENTER, Clutter.BoxAlignment.START);
+        return new PreviewSearchbar(this._previewView);
     },
 
     _setToolbarTitle: function() {
@@ -549,7 +546,7 @@ const PreviewToolbar = new Lang.Class({
         if (doc)
             primary = doc.name;
 
-        this.widget.set_labels(primary, null);
+        this.toolbar.set_labels(primary, null);
     },
 
     setModel: function(model) {

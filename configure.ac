@@ -93,6 +93,7 @@ LIBGD_INIT([
   main-toolbar
   margin-container
   notification
+  revealer
   tagged-entry
   gir
 ])

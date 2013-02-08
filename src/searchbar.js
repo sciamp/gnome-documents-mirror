@@ -48,11 +48,11 @@ const Searchbar = new Lang.Class({
 
         this._in = false;
 
-        this.widget = new Gtk.Toolbar();
-        this.widget.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
+        this.widget = new Gd.Revealer();
 
-        this.actor = new GtkClutter.Actor({ contents: this.widget,
-                                            height: 0 });
+        let toolbar = new Gtk.Toolbar();
+        toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
+        this.widget.add(toolbar);
 
         // subclasses will create this._searchEntry and this._searchContainer
         // GtkWidgets
@@ -61,7 +61,7 @@ const Searchbar = new Lang.Class({
         let item = new Gtk.ToolItem();
         item.set_expand(true);
         item.add(this._searchContainer);
-        this.widget.insert(item, 0);
+        toolbar.insert(item, 0);
 
         this._searchEntry.connect('key-press-event', Lang.bind(this,
             function(widget, event) {
@@ -196,31 +196,18 @@ const Searchbar = new Lang.Class({
 
     show: function() {
         let eventDevice = Gtk.get_current_event_device();
-        this.widget.show_all();
+        this.widget.set_revealed(true);
+        this._in = true;
 
-        Tweener.addTween(this.actor, { height: this.widget.get_preferred_height()[1],
-                                       time: 0.20,
-                                       transition: 'easeOutQuad',
-                                       onComplete: function() {
-                                           this._in = true;
-                                           if (eventDevice)
-                                               Gd.entry_focus_hack(this._searchEntry, eventDevice);
-                                       },
-                                       onCompleteScope: this });
+        if (eventDevice)
+            Gd.entry_focus_hack(this._searchEntry, eventDevice);
     },
 
     hide: function() {
-        Tweener.addTween(this.actor, { height: 0,
-                                       time: 0.20,
-                                       transition: 'easeOutQuad',
-                                       onComplete: function() {
-                                           this.widget.hide();
-                                           this._in = false;
-
-                                           // clear all the search properties when hiding the entry
-                                           this._searchEntry.set_text('');
-                                       },
-                                       onCompleteScope: this });
+        this._in = false;
+        this.widget.set_revealed(false);
+        // clear all the search properties when hiding the entry
+        this._searchEntry.set_text('');
     }
 });
 

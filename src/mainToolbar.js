@@ -43,20 +43,16 @@ const MainToolbar = new Lang.Class({
     _init: function() {
         this._model = null;
 
-        this.widget = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU });
-        this.widget.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
-        this.widget.show();
+        this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
+        this.actor = new GtkClutter.Actor({ contents: this.widget });
 
-        this.layout = new Clutter.BoxLayout({ vertical: true });
-        this.actor = new Clutter.Actor({ layout_manager: this.layout });
+        this.toolbar = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU });
+        this.toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
+        this.widget.add(this.toolbar);
+        this.toolbar.show();
 
-        this.toolbarActor = new GtkClutter.Actor({ contents: this.widget });
-
-        this.layout.pack(this.toolbarActor,
-                         false, true, false,
-                         Clutter.BoxAlignment.CENTER, Clutter.BoxAlignment.START);
-
-        this.createSearchbar();
+        this._searchbar = this.createSearchbar();
+        this.widget.add(this._searchbar.widget);
     },
 
     createSearchbar: function() {
@@ -70,7 +66,7 @@ const MainToolbar = new Lang.Class({
 
     addSearchButton: function() {
         let searchButton =
-            this.widget.add_toggle('edit-find-symbolic', _("Search"), false);
+            this.toolbar.add_toggle('edit-find-symbolic', _("Search"), false);
         searchButton.action_name = 'app.search';
     }
 });
@@ -183,22 +179,22 @@ const OverviewToolbar = new Lang.Class({
         if (detail)
             detail = '(' + detail + ')';
 
-        this.widget.set_labels(primary, detail);
+        this.toolbar.set_labels(primary, detail);
     },
 
     _populateForSelectionMode: function() {
-        this.widget.get_style_context().add_class('selection-mode');
-        this.widget.reset_style();
+        this.toolbar.get_style_context().add_class('selection-mode');
+        this.toolbar.reset_style();
 
         this.addSearchButton();
 
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/documents/selection-menu.ui');
         let selectionMenu = builder.get_object('selection-menu');
-        this.widget.set_labels_menu(selectionMenu);
+        this.toolbar.set_labels_menu(selectionMenu);
 
         let selectionButton =
-            this.widget.add_button(null, _("Done"), false);
+            this.toolbar.add_button(null, _("Done"), false);
         selectionButton.get_style_context().add_class('suggested-action');
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
@@ -216,7 +212,7 @@ const OverviewToolbar = new Lang.Class({
 
         if (item && !this._collBackButton) {
             this._collBackButton =
-                this.widget.add_button('go-previous-symbolic', _("Back"), true);
+                this.toolbar.add_button('go-previous-symbolic', _("Back"), true);
             this._collBackButton.connect('clicked', Lang.bind(this,
                 function() {
                     Application.documentManager.activatePreviousCollection();
@@ -238,7 +234,7 @@ const OverviewToolbar = new Lang.Class({
         this.addSearchButton();
 
         let selectionButton =
-            this.widget.add_button('object-select-symbolic', _("Select Items"), false);
+            this.toolbar.add_button('object-select-symbolic', _("Select Items"), false);
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.selectionController.setSelectionMode(true);
@@ -252,7 +248,7 @@ const OverviewToolbar = new Lang.Class({
 
     _clearStateData: function() {
         this._collBackButton = null;
-        this.widget.set_labels_menu(null);
+        this.toolbar.set_labels_menu(null);
 
         if (this._collectionId != 0) {
             Application.collectionManager.disconnect(this._collectionId);
@@ -268,9 +264,9 @@ const OverviewToolbar = new Lang.Class({
     _clearToolbar: function() {
         this._clearStateData();
 
-        this.widget.get_style_context().remove_class('selection-mode');
-        this.widget.reset_style();
-        this.widget.clear();
+        this.toolbar.get_style_context().remove_class('selection-mode');
+        this.toolbar.reset_style();
+        this.toolbar.clear();
     },
 
     _resetToolbarMode: function() {
@@ -283,7 +279,7 @@ const OverviewToolbar = new Lang.Class({
             this._populateForOverview();
 
         this._setToolbarTitle();
-        this.widget.show_all();
+        this.toolbar.show_all();
 
         if (Application.searchController.getString() != '')
             Application.application.change_action_state('search', GLib.Variant.new('b', true));
@@ -295,9 +291,6 @@ const OverviewToolbar = new Lang.Class({
         this._viewLayout.add(dropdown.actor,
             Clutter.BinAlignment.CENTER, Clutter.BinAlignment.FIXED);
 
-        this._searchbar = new Searchbar.OverviewSearchbar(dropdown);
-        this.layout.pack_start = false;
-        this.layout.pack(this._searchbar.actor, false, true, false,
-                         Clutter.BoxAlignment.CENTER, Clutter.BoxAlignment.START);
+        return new Searchbar.OverviewSearchbar(dropdown);
     }
 });
