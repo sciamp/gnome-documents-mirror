@@ -367,7 +367,7 @@ const Embed = new Lang.Class({
         case WindowMode.WindowMode.NONE:
             break;
          default:
-            throw(new Error('Not handled'))
+            throw(new Error('Not handled'));
             break;
         }
     },

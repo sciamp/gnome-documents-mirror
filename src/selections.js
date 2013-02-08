@@ -933,16 +933,16 @@ const SelectionToolbar = new Lang.Class({
     },
 
    _onToolbarShare: function(widget) {
-	    let dialog = new Sharing.SharingDialog();
-        this._fadeOut();
+       let dialog = new Sharing.SharingDialog();
+       this._fadeOut();
 
-        dialog.widget.connect('response', Lang.bind(this,
-            function(widget, response) {
-                if (response == Gtk.ResponseType.OK) {
-                    dialog.widget.destroy();
-                    this._fadeIn();
-                }
-            }));
+       dialog.widget.connect('response', Lang.bind(this,
+           function(widget, response) {
+               if (response == Gtk.ResponseType.OK) {
+                   dialog.widget.destroy();
+                   this._fadeIn();
+               }
+           }));
     },
 
     _onToolbarPrint: function(widget) {

@@ -57,7 +57,7 @@ const EditView = new Lang.Class({
         this._session = WebKit.get_default_session ();
         Soup.Session.prototype.add_feature.call(this._session, new Soup.ProxyResolverDefault());
         Soup.Session.prototype.remove_feature.call(this._session, new Soup.CookieJar());
-        let jarfile = GLib.build_filenamev([GLib.get_user_cache_dir(), 'gnome-documents', 'cookies.sqlite'])
+        let jarfile = GLib.build_filenamev([GLib.get_user_cache_dir(), 'gnome-documents', 'cookies.sqlite']);
         this._cookieJar = new Soup.CookieJarDB({ filename: jarfile, read_only: false });
         Soup.Session.prototype.add_feature.call(this._session, this._cookieJar);
 
