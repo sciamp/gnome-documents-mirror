@@ -259,7 +259,6 @@ thumbnail_job_completed_cb (EvJobThumbnail *job,
         GdNavBarPrivate *priv = self->priv;
         GdkPixbuf *pixbuf;
         PreviewItem *item;
-        int page;
 
         pixbuf = ev_document_misc_render_thumbnail_with_frame (GTK_WIDGET (self), job->thumbnail);
 
@@ -426,14 +425,10 @@ previews_clear (GdNavBar *self)
 static void
 previews_reload (GdNavBar *self)
 {
-        EvDocumentModel *model;
-
         if (self->priv->document == NULL ||
             self->priv->n_pages <= 0) {
                 return;
         }
-
-        model = self->priv->model;
 
         previews_clear (self);
         previews_create (self);

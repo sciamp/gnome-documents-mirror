@@ -39,7 +39,7 @@ typedef struct _GdBookmarksClass GdBookmarksClass;
 GType        gd_bookmarks_get_type      (void) G_GNUC_CONST;
 
 GdBookmarks *gd_bookmarks_new           (GdMetadata  *metadata);
-guint        gd_bookmarks_get_number    (GdBookmarks *bookmarks);
+guint        gd_bookmarks_get_n_items   (GdBookmarks *bookmarks);
 GList       *gd_bookmarks_get_bookmarks (GdBookmarks *bookmarks);
 GdBookmark  *gd_bookmarks_find_bookmark (GdBookmarks *bookmarks,
                                          GdBookmark  *bookmark);

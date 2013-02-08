@@ -616,7 +616,6 @@ gd_miner_refresh_db_real (GdMiner *self)
   GoaAccount *account;
   GoaObject *object;
   const gchar *provider_type;
-  GError *error = NULL;
   GList *accounts, *doc_objects, *acc_objects, *l;
   GdMinerClass *miner_class = GD_MINER_GET_CLASS (self);
 

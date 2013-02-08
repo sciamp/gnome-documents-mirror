@@ -91,7 +91,7 @@ emit_link_activated (GdPlacesLinks *self)
                                     -1);
 
                 if (link == NULL) {
-                        return;
+                        return FALSE;
                 }
 
 

@@ -343,7 +343,6 @@ gd_places_bookmarks_update (GdPlacesBookmarks *self)
 {
         GdPlacesBookmarksPrivate *priv = self->priv;
         GtkListStore             *model;
-        GList                    *l;
         GtkTreeIter               iter;
         guint                     n_items = 0;
         EvDocument               *document;
@@ -651,7 +650,6 @@ static void
 gd_places_bookmarks_class_init (GdPlacesBookmarksClass *klass)
 {
         GObjectClass   *oclass = G_OBJECT_CLASS (klass);
-        GtkWidgetClass *wclass = GTK_WIDGET_CLASS (klass);
 
         oclass->get_property = gd_places_bookmarks_get_property;
         oclass->set_property = gd_places_bookmarks_set_property;
