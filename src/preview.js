@@ -82,7 +82,8 @@ const PreviewView = new Lang.Class({
 
         Application.application.connect('action-state-changed::bookmark-page',
             Lang.bind(this, this._onActionStateChanged));
-        this._onActionStateChanged(Application.application, 'bookmark-page', Application.application.get_action_state('bookmark-page'));
+        this._onActionStateChanged(Application.application, 'bookmark-page',
+            Application.application.get_action_state('bookmark-page'));
 
         this._zoomIn = Application.application.lookup_action('zoom-in');
         this._zoomIn.connect('activate', Lang.bind(this,
@@ -516,8 +517,34 @@ const PreviewToolbar = new Lang.Class({
         menuButton.set_menu_model(previewMenu);
         menuButton.set_action_name('app.gear-menu');
 
+        this._searchAction = Application.application.lookup_action('search');
+        this._gearMenu = Application.application.lookup_action('gear-menu');
+
         this._setToolbarTitle();
         this.toolbar.show_all();
+
+        let loadStartId =
+            Application.documentManager.connect('load-started',
+                Lang.bind(this, this._onLoadStarted));
+        let loadFinishId =
+            Application.documentManager.connect('load-finished',
+                Lang.bind(this, this._onLoadFinished));
+
+        this.widget.connect('destroy',
+            function() {
+                Application.documentManager.disconnect(loadStartId);
+                Application.documentManager.disconnect(loadFinishId);
+            });
+    },
+
+    _onLoadStarted: function() {
+        this._gearMenu.enabled = false;
+        this._searchAction.enabled = false;
+    },
+
+    _onLoadFinished: function() {
+        this._gearMenu.enabled = true;
+        this._searchAction.enabled = true;
     },
 
     _getPreviewMenu: function() {
