@@ -497,6 +497,9 @@ const PreviewToolbar = new Lang.Class({
 
         this.parent();
 
+        this._searchAction = Application.application.lookup_action('search');
+        this._gearMenu = Application.application.lookup_action('gear-menu');
+
         // back button, on the left of the toolbar
         let iconName =
             (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
@@ -506,6 +509,7 @@ const PreviewToolbar = new Lang.Class({
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
+                this._searchAction.enabled = true;
             }));
 
         // search button, on the right of the toolbar
@@ -516,9 +520,6 @@ const PreviewToolbar = new Lang.Class({
         let menuButton = this.toolbar.add_menu('emblem-system-symbolic', null, false);
         menuButton.set_menu_model(previewMenu);
         menuButton.set_action_name('app.gear-menu');
-
-        this._searchAction = Application.application.lookup_action('search');
-        this._gearMenu = Application.application.lookup_action('gear-menu');
 
         this._setToolbarTitle();
         this.toolbar.show_all();
