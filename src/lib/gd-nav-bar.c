@@ -677,11 +677,12 @@ hide_preview (GdNavBar *self)
 static void
 show_preview (GdNavBar *self)
 {
-        GdkWindow *window;
+        GdkWindow *window, *toplevel_window;
+        GtkWidget *toplevel;
         int x, y;
         int width, height;
         int bx, by;
-        int rx, ry;
+        int tx, ty;
 
         gtk_widget_realize (self->priv->preview_window);
 
@@ -689,11 +690,14 @@ show_preview (GdNavBar *self)
         height = gtk_widget_get_allocated_height (GTK_WIDGET (self->priv->preview_window));
 
         window = gtk_widget_get_window (GTK_WIDGET (self));
-        gdk_window_get_root_origin (window, &rx, &ry);
         gdk_window_get_position (window, &bx, &by);
 
-        x = rx + bx + (gdk_window_get_width (window) - width) / 2;
-        y = ry + by - height + 10;
+        toplevel = gtk_widget_get_toplevel (GTK_WIDGET (self));
+        toplevel_window = gtk_widget_get_window (toplevel);
+        gdk_window_get_origin (toplevel_window, &tx, &ty);
+
+        x = tx + bx + (gdk_window_get_width (window) - width) / 2;
+        y = ty + by - height - 10;
 
         gtk_window_move (GTK_WINDOW (self->priv->preview_window), x, y);
         gtk_window_present (GTK_WINDOW (self->priv->preview_window));
