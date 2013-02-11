@@ -706,11 +706,11 @@ const PreviewFullscreenToolbar = new Lang.Class({
     },
 
     show: function() {
-        this.revealer.set_revealed(true);
+        this.revealer.set_reveal_child(true);
     },
 
     hide: function() {
-        this.revealer.set_revealed(false);
+        this.revealer.set_reveal_child(false);
         Application.application.change_action_state('search', GLib.Variant.new('b', false));
     }
 });

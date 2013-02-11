@@ -198,7 +198,7 @@ const Searchbar = new Lang.Class({
 
     show: function() {
         let eventDevice = Gtk.get_current_event_device();
-        this.widget.set_revealed(true);
+        this.widget.set_reveal_child(true);
         this._in = true;
 
         if (eventDevice)
@@ -207,7 +207,7 @@ const Searchbar = new Lang.Class({
 
     hide: function() {
         this._in = false;
-        this.widget.set_revealed(false);
+        this.widget.set_reveal_child(false);
         // clear all the search properties when hiding the entry
         this._searchChangeBlocked = true;
         this._searchEntry.set_text('');
