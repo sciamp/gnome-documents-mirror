@@ -33,6 +33,7 @@ const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
 const EvView = imports.gi.EvinceView;
+const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
@@ -46,8 +47,6 @@ const SpinnerBox = new Lang.Class({
     Name: 'SpinnerBox',
 
     _init: function() {
-        this._delayedShowId = 0;
-
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
                                      row_spacing: 24,
                                      hexpand: true,
@@ -66,38 +65,15 @@ const SpinnerBox = new Lang.Class({
                                       halign: Gtk.Align.CENTER,
                                       valign: Gtk.Align.CENTER });
         this.widget.add(this._label);
-
-        this.widget.connect('destroy', Lang.bind(this, this._clearDelayId));
         this.widget.show_all();
     },
 
-    _clearDelayId: function() {
-        if (this._delayedShowId != 0) {
-            Mainloop.source_remove(this._delayedShowId);
-            this._delayedShowId = 0;
-        }
-    },
-
     start: function() {
-        this._clearDelayId();
         this._spinner.start();
     },
 
     stop: function() {
-        this._clearDelayId();
         this._spinner.stop();
-    },
-
-    startDelayed: function(delay) {
-        this._clearDelayId();
-
-        this._delayedShowId = Mainloop.timeout_add(delay, Lang.bind(this,
-            function() {
-                this._delayedShowId = 0;
-
-                this.start();
-                return false;
-            }));
     }
 });
 
@@ -237,39 +213,37 @@ const Embed = new Lang.Class({
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL,
                                     visible: true });
 
-        this._notebookOverlay = new Gtk.Overlay({ visible: true });
-        this.widget.pack_end(this._notebookOverlay, true, true, 0);
+        this._stackOverlay = new Gtk.Overlay({ visible: true });
+        this.widget.pack_end(this._stackOverlay, true, true, 0);
 
-        this._notebook = new Gtk.Notebook({ show_tabs: false,
-                                            show_border: false,
-                                            visible: true });
-        this._notebookOverlay.add(this._notebook);
+        this._stack = new Gd.Stack({ visible: true });
+        this._stackOverlay.add(this._stack);
 
         // create the OSD toolbar for selected items, it's hidden by default
         this._selectionToolbar = new Selections.SelectionToolbar();
-        this._notebookOverlay.add_overlay(this._selectionToolbar.widget);
+        this._stackOverlay.add_overlay(this._selectionToolbar.widget);
 
         // pack the OSD notification widget
-        this._notebookOverlay.add_overlay(Application.notificationManager.widget);
+        this._stackOverlay.add_overlay(Application.notificationManager.widget);
 
         // now create the actual content widgets
         this._view = new View.ViewContainer();
-        this._viewPage = this._notebook.append_page(this._view.widget, null);
+        this._stack.add_named(this._view.widget, 'view');
 
-        this._preview = new Preview.PreviewView(this._notebookOverlay);
-        this._previewPage = this._notebook.append_page(this._preview.widget, null);
+        this._preview = new Preview.PreviewView(this._stackOverlay);
+        this._stack.add_named(this._preview.widget, 'preview');
 
-        this._edit = new Edit.EditView(this._notebookOverlay);
-        this._editPage = this._notebook.append_page(this._edit.widget, null);
+        this._edit = new Edit.EditView(this._stackOverlay);
+        this._stack.add_named(this._edit.widget, 'edit');
 
         this._spinnerBox = new SpinnerBox();
-        this._spinnerPage = this._notebook.append_page(this._spinnerBox.widget, null);
+        this._stack.add_named(this._spinnerBox.widget, 'spinner');
 
         this._errorBox = new ErrorBox();
-        this._errorPage = this._notebook.append_page(this._errorBox.widget, null);
+        this._stack.add_named(this._errorBox.widget, 'error');
 
         this._noResults = new EmptyResultsBox();
-        this._noResultsPage = this._notebook.append_page(this._noResults.widget, null);
+        this._stack.add_named(this._noResults.widget, 'no-results');
 
         Application.modeController.connect('window-mode-changed',
                                            Lang.bind(this, this._onWindowModeChanged));
@@ -309,10 +283,10 @@ const Embed = new Lang.Class({
 
         if (queryStatus) {
             this._spinnerBox.start();
-            this._notebook.set_current_page(this._spinnerPage);
+            this._stack.set_visible_child_name('spinner');
         } else {
             this._spinnerBox.stop();
-            this._notebook.set_current_page(this._viewPage);
+            this._stack.set_visible_child_name('view');
         }
     },
 
@@ -322,7 +296,7 @@ const Embed = new Lang.Class({
             this._noResultsChangeId = 0;
         }
 
-        this._notebook.set_current_page(this._viewPage);
+        this._stack.set_visible_child_name('view');
     },
 
     _onItemCountChanged: function() {
@@ -336,7 +310,7 @@ const Embed = new Lang.Class({
                         this._hideNoResultsPage();
                     }));
 
-            this._notebook.set_current_page(this._noResultsPage);
+            this._stack.set_visible_child_name('no-results');
         } else {
             this._hideNoResultsPage();
         }
@@ -384,10 +358,23 @@ const Embed = new Lang.Class({
         Application.modeController.setWindowMode(newMode);
     },
 
+    _clearLoadTimer: function() {
+        if (this._loadShowId != 0) {
+            Mainloop.source_remove(this._loadShowId);
+            this._loadShowId = 0;
+        }
+    },
+
     _onLoadStarted: function() {
-        // switch to preview mode, and schedule the spinnerbox to
-        // move in if the document is not loaded by the timeout
-        this._spinnerBox.startDelayed(_PDF_LOADER_TIMEOUT);
+        this._clearLoadTimer();
+        this._loadShowId = Mainloop.timeout_add(_PDF_LOADER_TIMEOUT, Lang.bind(this,
+            function() {
+                this._loadShowId = 0;
+
+                this._stack.set_visible_child_name('spinner');
+                this._spinnerBox.start();
+                return false;
+            }));
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
@@ -397,11 +384,13 @@ const Embed = new Lang.Class({
         this._preview.setModel(docModel);
         this._preview.widget.grab_focus();
 
+        this._clearLoadTimer();
         this._spinnerBox.stop();
-        this._notebook.set_current_page(this._previewPage);
+        this._stack.set_visible_child_name('preview');
     },
 
     _onLoadError: function(manager, doc, message, exception) {
+        this._clearLoadTimer();
         this._spinnerBox.stop();
         this._setError(message, exception.message);
     },
@@ -416,11 +405,11 @@ const Embed = new Lang.Class({
             this._toolbar.widget.destroy();
 
         // pack the toolbar
-        this._toolbar = new MainToolbar.OverviewToolbar(this._notebookOverlay);
+        this._toolbar = new MainToolbar.OverviewToolbar(this._stackOverlay);
         this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
         this._spinnerBox.stop();
-        this._notebook.set_current_page(this._viewPage);
+        this._stack.set_visible_child_name('view');
     },
 
     _prepareForPreview: function() {
@@ -433,7 +422,7 @@ const Embed = new Lang.Class({
         this._toolbar = new Preview.PreviewToolbar(this._preview);
         this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
-        this._notebook.set_current_page(this._previewPage);
+        this._stack.set_visible_child_name('preview');
     },
 
     _prepareForEdit: function() {
@@ -446,12 +435,12 @@ const Embed = new Lang.Class({
         this._toolbar = new Edit.EditToolbar(this._preview);
         this.widget.pack_start(this._toolbar.widget, false, false, 0);
 
-        this._notebook.set_current_page(this._editPage);
+        this._stack.set_visible_child_name('edit');
     },
 
     _setError: function(primary, secondary) {
         this._errorBox.update(primary, secondary);
-        this._notebook.set_current_page(this._errorPage);
+        this._stack.set_visible_child_name('error');
     },
 
     getMainToolbar: function() {

@@ -69,10 +69,8 @@ const PlacesDialog = new Lang.Class({
 
         box.pack_start(this._toolbar, false, false, 0);
 
-        this._notebook = new Gtk.Notebook ({ show_tabs: false,
-                                             border_width: 5,
-                                             vexpand: true });
-        box.pack_start(this._notebook, true, true, 0);
+        this._stack = new Gd.Stack({ border_width: 5 });
+        box.pack_start(this._stack, true, true, 0);
 
         this._linksPage = new GdPrivate.PlacesLinks();
         this._linksPage.connect('link-activated', Lang.bind(this,
@@ -123,11 +121,12 @@ const PlacesDialog = new Lang.Class({
     _addPage: function(widget) {
         let label = new Gtk.Label({ label: widget.name });
         widget.document_model = this._model;
-        let index = this._notebook.append_page(widget, label);
+        this._stack.add(widget);
+
         let button = this._toolbar.add_mode(widget.name);
         button.connect('toggled', Lang.bind(this,
             function() {
-                this._notebook.page = index;
+                this._stack.set_visible_child(widget);
             }));
     }
 

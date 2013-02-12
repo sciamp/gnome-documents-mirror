@@ -90,6 +90,7 @@ LIBGD_INIT([
   margin-container
   notification
   revealer
+  stack
   tagged-entry
   gir
 ])
