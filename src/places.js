@@ -69,7 +69,9 @@ const PlacesDialog = new Lang.Class({
 
         box.pack_start(this._toolbar, false, false, 0);
 
-        this._stack = new Gd.Stack({ border_width: 5 });
+        this._stack = new Gd.Stack({ border_width: 5,
+                                     homogeneous: true,
+                                     duration: 0 });
         box.pack_start(this._stack, true, true, 0);
 
         this._linksPage = new GdPrivate.PlacesLinks();
