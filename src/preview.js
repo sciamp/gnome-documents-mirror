@@ -41,6 +41,7 @@ const Searchbar = imports.searchbar;
 const Utils = imports.utils;
 const View = imports.view;
 const WindowMode = imports.windowMode;
+const Presentation = imports.presentation;
 
 const _FULLSCREEN_TOOLBAR_TIMEOUT = 2; // seconds
 
@@ -124,6 +125,10 @@ const PreviewView = new Lang.Class({
         let showPlaces = Application.application.lookup_action('places');
         showPlaces.connect('activate', Lang.bind(this, this._showPlaces));
 
+        this._togglePresentation = Application.application.lookup_action('present-current');
+        Application.application.connect('action-state-changed::present-current',
+            Lang.bind(this, this._onPresentStateChanged));
+
         Application.documentManager.connect('load-started',
                                             Lang.bind(this, this._onLoadStarted));
         Application.documentManager.connect('load-finished',
@@ -138,6 +143,7 @@ const PreviewView = new Lang.Class({
 
     _onLoadFinished: function(manager, doc, docModel) {
         this._showPlaces.enabled = true;
+        this._togglePresentation.enabled = true;
 
         if (!Application.documentManager.metadata)
             return;
@@ -166,6 +172,16 @@ const PreviewView = new Lang.Class({
             this._bookmarks.remove(bookmark);
     },
 
+    _onPresentStateChanged: function(source, actionName, state) {
+        if (!this._model)
+            return;
+
+        if (state.get_boolean())
+            this._promptPresentation();
+        else
+            this._hidePresentation();
+    },
+
     _onPageChanged: function() {
         this._pageChanged = true;
 
@@ -182,6 +198,40 @@ const PreviewView = new Lang.Class({
             function(widget, response) {
                 widget.destroy();
             }));
+    },
+
+    _hidePresentation: function() {
+        if (this._presentation) {
+            this._presentation.close();
+            this._presentation = null;
+        }
+
+        Application.application.change_action_state('present-current', GLib.Variant.new('b', false));
+    },
+
+    _showPresentation: function(output) {
+        this._presentation = new Presentation.PresentationWindow(this._model);
+        this._presentation.window.connect('destroy', Lang.bind(this, this._hidePresentation));
+        if (output)
+            this._presentation.setOutput(output);
+    },
+
+    _promptPresentation: function() {
+        let outputs = new Presentation.PresentationOutputs();
+        if (outputs.list.length < 2) {
+            this._showPresentation();
+        } else {
+            let chooser = new Presentation.PresentationOutputChooser(outputs);
+            chooser.connect('output-activated', Lang.bind(this,
+                function(chooser, output) {
+                    if (output) {
+                        this._showPresentation(output);
+                    } else {
+                        this._hidePresentation();
+                    }
+                }));
+
+        }
     },
 
     _onViewSelectionChanged: function() {
@@ -290,8 +340,10 @@ const PreviewView = new Lang.Class({
 
     _onWindowModeChanged: function() {
         let windowMode = Application.modeController.getWindowMode();
-        if (windowMode != WindowMode.WindowMode.PREVIEW)
+        if (windowMode != WindowMode.WindowMode.PREVIEW) {
             this.controlsVisible = false;
+            this._hidePresentation();
+        }
     },
 
     _onFullscreenChanged: function() {

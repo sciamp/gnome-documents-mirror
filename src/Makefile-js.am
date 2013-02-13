@@ -12,6 +12,7 @@ dist_js_DATA = \
     miners.js \
     notifications.js \
     places.js \
+    presentation.js \
     preview.js \
     properties.js\
     query.js \
