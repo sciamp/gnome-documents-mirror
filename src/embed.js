@@ -422,8 +422,6 @@ const Embed = new Lang.Class({
         // pack the toolbar
         this._toolbar = new Preview.PreviewToolbar(this._preview);
         this.widget.pack_start(this._toolbar.widget, false, false, 0);
-
-        this._stack.set_visible_child_name('preview');
     },
 
     _prepareForEdit: function() {

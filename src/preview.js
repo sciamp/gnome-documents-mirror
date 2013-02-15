@@ -461,7 +461,6 @@ const PreviewView = new Lang.Class({
             return;
 
         if (this.view) {
-            this.view.destroy();
             this.controlsVisible = false;
             this._lastSearch = '';
         }
@@ -469,7 +468,6 @@ const PreviewView = new Lang.Class({
         this._model = model;
 
         if (this._model) {
-            this._createView();
             this.view.set_model(this._model);
             this._navBar.setModel(model);
             this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
