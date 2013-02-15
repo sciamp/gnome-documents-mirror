@@ -1,14 +1,14 @@
 # Serbian translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011, 2012, 2013.
+# Мирослав Николић <miroslavnikolic@rocketmail.com>, 2011—2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-29 18:09+0000\n"
-"PO-Revision-Date: 2013-01-30 09:47+0200\n"
+"POT-Creation-Date: 2013-01-30 13:59+0000\n"
+"PO-Revision-Date: 2013-02-15 22:44+0200\n"
 "Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -108,12 +108,10 @@ msgid "Please check the network proxy settings."
 msgstr "Молим проверите подешавања мрежног посредника."
 
 #: ../src/documents.js:932
-#| msgid "Unable to load the document"
 msgid "Unable to sign in to the document service."
 msgstr "Не могу да се пријавим на услугу докумената."
 
 #: ../src/documents.js:935
-#| msgid "Unable to load the document"
 msgid "Unable to locate this document."
 msgstr "Не могу да пронађем овај документ."
 
@@ -133,11 +131,11 @@ msgid "Back"
 msgstr "Назад"
 
 #: ../src/edit.js:199
-#| msgid "View as"
 msgid "View"
 msgstr "Преглед"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/embed.js:74 ../src/lib/gd-places-bookmarks.c:380
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Учитавам…"
 
@@ -171,6 +169,20 @@ msgstr "Не могу да учитам документ"
 msgid "LibreOffice is required to view this document"
 msgstr "Потребан је Либре офис да прегледате овај документ"
 
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+#| msgid "Page %u of %u"
+msgid "Page %s"
+msgstr "Страница %s"
+
+#: ../src/lib/gd-places-bookmarks.c:373
+msgid "No bookmarks"
+msgstr "Нема обележивача"
+
+#: ../src/lib/gd-places-bookmarks.c:645
+msgid "Bookmarks"
+msgstr "Обележивачи"
+
 #: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Нема табеле садржаја"
@@ -185,7 +197,6 @@ msgstr "Потражи"
 
 #: ../src/mainToolbar.js:158
 #, c-format
-#| msgid "Results for \"%s\""
 msgid "Results for “%s”"
 msgstr "Резултати за „%s“"
 
@@ -232,7 +243,6 @@ msgstr "Програм за управљање документима"
 
 #: ../src/notifications.js:88
 #, c-format
-#| msgid "Printing \"%s\": %s"
 msgid "Printing “%s”: %s"
 msgstr "Штампам „%s“: %s"
 
