@@ -787,6 +787,8 @@ const SelectionToolbar = new Lang.Class({
         this._rightBox.add(this._toolbarShare);
         this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
 
+        this.widget.show_all();
+
         Application.selectionController.connect('selection-mode-changed',
             Lang.bind(this, this._onSelectionModeChanged));
         Application.selectionController.connect('selection-changed',
@@ -956,7 +958,7 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _fadeIn: function() {
-        this.widget.show_all();
+        this.widget.show();
         Tweener.addTween(this.widget, { opacity: 1,
                                         time: 0.30,
                                         transition: 'easeOutQuad' });
