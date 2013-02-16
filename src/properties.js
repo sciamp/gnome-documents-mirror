@@ -59,10 +59,12 @@ const PropertiesDialog = new Lang.Class({
         this.widget.add_button(_("Done"), Gtk.ResponseType.OK);
 
         let grid = new Gtk.Grid ({ orientation: Gtk.Orientation.VERTICAL,
+                                   row_homogeneous: true,
                                    column_homogeneous: true,
                                    halign: Gtk.Align.CENTER,
-                                   row_spacing: 12,
+                                   row_spacing: 6,
                                    column_spacing: 24,
+                                   margin_top: 12,
                                    margin_left: 24,
                                    margin_right: 24,
                                    margin_bottom: 12 });
