@@ -77,8 +77,11 @@ const PreviewView = new Lang.Class({
         this._createView();
 
         // create page nav bar
-        this._navBar = new PreviewNav(this._model);
+        this._navBar = new PreviewNavBar(this._model);
         this._overlay.add_overlay(this._navBar.widget);
+
+        // create page nav buttons
+        this._navButtons = new PreviewNavButtons(this._model, this._overlay);
 
         this.widget.show_all();
 
@@ -147,6 +150,8 @@ const PreviewView = new Lang.Class({
 
         if (!Application.documentManager.metadata)
             return;
+
+        this._navButtons.show();
 
         this._bookmarks = new GdPrivate.Bookmarks({ metadata: Application.documentManager.metadata });
     },
@@ -343,6 +348,7 @@ const PreviewView = new Lang.Class({
         if (windowMode != WindowMode.WindowMode.PREVIEW) {
             this.controlsVisible = false;
             this._hidePresentation();
+            this._navButtons.hide();
         }
     },
 
@@ -522,6 +528,7 @@ const PreviewView = new Lang.Class({
         if (this._model) {
             this.view.set_model(this._model);
             this._navBar.setModel(model);
+            this._navButtons.setModel(model);
             this._model.connect('page-changed', Lang.bind(this, this._onPageChanged));
         }
     },
@@ -540,10 +547,10 @@ const PreviewView = new Lang.Class({
 });
 Signals.addSignalMethods(PreviewView.prototype);
 
-const _PREVIEW_NAVBAR_MARGIN = 40;
+const _PREVIEW_NAVBAR_MARGIN = 30;
 
-const PreviewNav = new Lang.Class({
-    Name: 'PreviewNav',
+const PreviewNavBar = new Lang.Class({
+    Name: 'PreviewNavBar',
 
     _init: function(model) {
         this._model = model;
@@ -595,6 +602,171 @@ const PreviewNav = new Lang.Class({
                                         },
                                         onCompleteScope: this });
     }
+});
+
+const _AUTO_HIDE_TIMEOUT = 2;
+const PreviewNavButtons = new Lang.Class({
+    Name: 'PreviewNavButtons',
+
+    _init: function(model, overlay) {
+        this._model = model;
+        this._overlay = overlay;
+        this._visible = false;
+        this._pageChangedId = 0;
+        this._autoHideId = 0;
+        this._motionId = 0;
+        this._hover = false;
+
+        this.prev_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
+                                                                    pixel_size: 16 }),
+                                            margin_left: _PREVIEW_NAVBAR_MARGIN,
+                                            halign: Gtk.Align.START,
+                                            valign: Gtk.Align.CENTER });
+        this.prev_widget.get_style_context().add_class('osd');
+        this._overlay.add_overlay(this.prev_widget);
+        this.prev_widget.connect('clicked', Lang.bind(this, this._onPrevClicked));
+        this.prev_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        this.prev_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+
+        this.next_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-next-symbolic',
+                                                                    pixel_size: 16 }),
+                                            margin_right: _PREVIEW_NAVBAR_MARGIN,
+                                            halign: Gtk.Align.END,
+                                            valign: Gtk.Align.CENTER });
+        this.next_widget.get_style_context().add_class('osd');
+        this._overlay.add_overlay(this.next_widget);
+        this.next_widget.connect('clicked', Lang.bind(this, this._onNextClicked));
+        this.next_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        this.next_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+
+        this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
+
+    },
+
+    _onEnterNotify: function() {
+        this._hover = true;
+        this._unqueueAutoHide();
+        return false;
+    },
+
+    _onLeaveNotify: function() {
+        this._hover = false;
+        this._queueAutoHide();
+        return false;
+    },
+
+    _motionTimeout: function() {
+        this._motionId = 0;
+        this._updateVisibility();
+        return false;
+    },
+
+    _onMotion: function() {
+        if (this._motionId != 0) {
+            return false;
+        }
+
+        this._motionId = Mainloop.idle_add(Lang.bind(this, this._motionTimeout));
+        return false;
+    },
+
+    _onPrevClicked: function() {
+        if (this._model.page > 0)
+            this._model.page--;
+    },
+
+    _onNextClicked: function() {
+        let doc = this._model.document;
+        if (doc.get_n_pages() > this._model.page + 1)
+            this._model.page++;
+    },
+
+    _autoHide: function() {
+        this._fadeOutButton(this.prev_widget);
+        this._fadeOutButton(this.next_widget);
+        this._autoHideId = 0;
+        return false;
+    },
+
+    _unqueueAutoHide: function() {
+        if (this._autoHideId == 0)
+            return;
+
+        Mainloop.source_remove(this._autoHideId);
+        this._autoHideId = 0;
+    },
+
+    _queueAutoHide: function() {
+        this._unqueueAutoHide();
+        this._autoHideId = Mainloop.timeout_add_seconds(_AUTO_HIDE_TIMEOUT, Lang.bind(this, this._autoHide));
+    },
+
+    _updateVisibility: function() {
+        if (!this._model || !this._visible) {
+            this._fadeOutButton(this.prev_widget);
+            this._fadeOutButton(this.next_widget);
+            return;
+        }
+
+        if (this._model.page > 0)
+            this._fadeInButton(this.prev_widget);
+        else
+            this._fadeOutButton(this.prev_widget);
+
+        let doc = this._model.document;
+        if (doc.get_n_pages() > this._model.page + 1)
+            this._fadeInButton(this.next_widget);
+        else
+            this._fadeOutButton(this.next_widget);
+
+        if (!this._hover)
+            this._queueAutoHide();
+    },
+
+    setModel: function(model) {
+        if (this._pageChangedId != 0) {
+            this._model.disconnect(this._pageChangedId);
+            this._pageChangedId = 0;
+        }
+
+        this._model = model;
+
+        if (this._model)
+            this._pageChangedId = this._model.connect('page-changed', Lang.bind(this, this._updateVisibility));
+
+        this._updateVisibility();
+    },
+
+    _fadeInButton: function(widget) {
+        if (!this._model)
+            return;
+        widget.show_all();
+        Tweener.addTween(widget, { opacity: 1,
+                                   time: 0.30,
+                                   transition: 'easeOutQuad' });
+    },
+
+    _fadeOutButton: function(widget) {
+        Tweener.addTween(widget, { opacity: 0,
+                                   time: 0.30,
+                                   transition: 'easeOutQuad',
+                                   onComplete: function() {
+                                       widget.hide();
+                                   },
+                                   onCompleteScope: this });
+    },
+
+    show: function() {
+        this._visible = true;
+        this._fadeInButton(this.prev_widget);
+        this._fadeInButton(this.next_widget);
+    },
+
+    hide: function() {
+        this._visible = false;
+        this._fadeOutButton(this.prev_widget);
+        this._fadeOutButton(this.next_widget);
+    },
 });
 
 const PreviewToolbar = new Lang.Class({
