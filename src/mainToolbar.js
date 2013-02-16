@@ -49,11 +49,8 @@ const MainToolbar = new Lang.Class({
         this.toolbar.show();
 
         this._searchbar = this.createSearchbar();
-        this.widget.add(this._searchbar.widget);
-    },
-
-    createSearchbar: function() {
-        log('Error: MainToolbar subclasses must implement createSearchbar');
+        if (this._searchbar)
+            this.widget.add(this._searchbar.widget);
     },
 
     handleEvent: function(event) {

@@ -183,17 +183,17 @@ const EditToolbar = new Lang.Class({
 
         // back button, on the left of the toolbar
         let iconName =
-            (this.widget.get_direction() == Gtk.TextDirection.RTL) ?
+            (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
             'go-next-symbolic' : 'go-previous-symbolic';
         let backButton =
-            this.widget.add_button(iconName, _("Back"), true);
+            this.toolbar.add_button(iconName, _("Back"), true);
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
             }));
 
         let viewButton =
-            this.widget.add_button(null, _("View"), false);
+            this.toolbar.add_button(null, _("View"), false);
         viewButton.get_style_context().add_class('suggested-action');
         viewButton.set_action_name('app.view-current');
 
@@ -215,6 +215,6 @@ const EditToolbar = new Lang.Class({
         if (doc)
             primary = doc.name;
 
-        this.widget.set_labels(primary, null);
+        this.toolbar.set_labels(primary, null);
     }
 });
