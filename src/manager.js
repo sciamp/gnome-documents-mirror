@@ -288,8 +288,7 @@ const BaseView = new Lang.Class({
 
     _visibilityForHeading: function(col, cell, model, iter, visible, additionalFunc) {
         let heading = model.get_value(iter, BaseModelColumns.HEADING_TEXT);
-
-        if ((visible && heading.length) || (!visible && !heading.length))
+        if ((visible && heading != null && heading.length) || (!visible && heading != null && !heading.length))
             cell.visible = true;
         else
             cell.visible = false;
