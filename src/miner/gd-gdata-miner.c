@@ -82,6 +82,8 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
     class = "nfo:PaginatedTextDocument";
   else if (GDATA_IS_DOCUMENTS_DRAWING (doc_entry))
     class = "nfo:PaginatedTextDocument";
+  else if (GDATA_IS_DOCUMENTS_PDF (doc_entry))
+    class = "nfo:PaginatedTextDocument";
   else if (GDATA_IS_DOCUMENTS_FOLDER (doc_entry))
     class = "nfo:DataContainer";
 
