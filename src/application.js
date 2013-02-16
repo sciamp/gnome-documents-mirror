@@ -450,9 +450,7 @@ const Application = new Lang.Class({
         return 0;
     },
 
-    _onWindowDestroy: function(window) {
-        this._mainWindow = null;
-
+    _clearState: function() {
         // clean up signals
         changeMonitor.disconnectAll();
         documentManager.disconnectAll();
@@ -468,6 +466,14 @@ const Application = new Lang.Class({
 
         // stop miners
         this._stopMiners();
+    },
+
+    _onWindowDestroy: function(window) {
+        this._mainWindow = null;
+
+        // clear our state in an idle, so other handlers connected
+        // to 'destroy' have the chance to perform their cleanups first
+        Mainloop.idle_add(Lang.bind(this, this._clearState));
     },
 
     _onActivateResult: function(provider, urn, terms) {
