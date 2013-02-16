@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-30 13:59+0000\n"
-"PO-Revision-Date: 2013-02-02 12:37+0900\n"
+"POT-Creation-Date: 2013-02-15 21:57+0000\n"
+"PO-Revision-Date: 2013-02-16 13:06+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -17,8 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
 msgid "Documents"
 msgstr "پۈتۈكلەر"
 
@@ -28,7 +28,7 @@ msgstr "پۈتۈكلەرنى زىيارەت قىلىدۇ، باشقۇرىدۇ ۋ
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Docs;PDF;پۈتۈكلەر;"
+msgstr "Docs;PDF;پۈتۈك;"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -124,33 +124,33 @@ msgstr "ھىم، غەلىتە ئىشلار بار (%d)."
 msgid "Oops! Unable to load “%s”"
 msgstr "ئاپلا! «%s» نى ئوقۇغىلى بولمىدى"
 
-#: ../src/edit.js:192 ../src/mainToolbar.js:219
+#: ../src/edit.js:189 ../src/mainToolbar.js:212
 msgid "Back"
 msgstr "كەينى"
 
-#: ../src/edit.js:199
+#: ../src/edit.js:196
 msgid "View"
 msgstr "كۆرۈنۈش"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-bookmarks.c:380
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
-msgstr "يۈكلەۋاتىدۇ…"
+msgstr "ئوقۇۋاتىدۇ…"
 
-#: ../src/embed.js:224
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "پۈتۈك تېپىلمىدى"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:247
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "توردىكى ھېساباتلىرىڭىزنى %s دە قوشالايسىز"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:251
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "سىستېما تەڭشىكى"
 
@@ -169,15 +169,14 @@ msgstr "مەزكۇر پۈتۈكنى كۆرۈش ئۈچۈن LibreOffice كېرەك
 
 #: ../src/lib/gd-places-bookmarks.c:309
 #, c-format
-#| msgid "Page %u of %u"
 msgid "Page %s"
 msgstr "بەت %s"
 
-#: ../src/lib/gd-places-bookmarks.c:373
+#: ../src/lib/gd-places-bookmarks.c:372
 msgid "No bookmarks"
 msgstr "خەتكۈشلەر يوق"
 
-#: ../src/lib/gd-places-bookmarks.c:645
+#: ../src/lib/gd-places-bookmarks.c:644
 msgid "Bookmarks"
 msgstr "خەتكۈشلەر"
 
@@ -189,53 +188,53 @@ msgstr "مەزمۇن يوق"
 msgid "Contents"
 msgstr "مەزمۇنلار"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:66
 msgid "Search"
 msgstr "ئىزدە"
 
-#: ../src/mainToolbar.js:158
+#: ../src/mainToolbar.js:151
 #, c-format
 msgid "Results for “%s”"
 msgstr "«%s» نىڭ نەتىجىلىرى"
 
-#: ../src/mainToolbar.js:160
+#: ../src/mainToolbar.js:153
 msgid "filtered by title"
 msgstr "ماۋزۇ بويىچە تەرتىپلەنگەن"
 
-#: ../src/mainToolbar.js:162
+#: ../src/mainToolbar.js:155
 msgid "filtered by author"
 msgstr "ئاپتور بويىچە تەرتىپلەنگەن"
 
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:162
 msgid "Click on items to select them"
 msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
 
-#: ../src/mainToolbar.js:171
+#: ../src/mainToolbar.js:164
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d تاللاندى"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:194 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "تامام"
 
-#: ../src/mainToolbar.js:241
+#: ../src/mainToolbar.js:234
 msgid "Select Items"
 msgstr "تۈرلەرنى تاللاش"
 
-#: ../src/mainWindow.js:229
+#: ../src/mainWindow.js:228
 msgid "translator-credits"
 msgstr "Gheyret Kenji <gheyret@gmail.com>\n"
 "Sahran<sahran@live.com>\n"
 "Muhemmed Erdem <misran_erdem@hotmail.com>"
 
-#: ../src/mainWindow.js:231
+#: ../src/mainWindow.js:230
 msgid "A document manager application"
 msgstr "پۈتۈك باشقۇرۇش پروگراممىسى"
 
-#: ../src/notifications.js:88
+#: ../src/notifications.js:87
 #, c-format
 msgid "Printing “%s”: %s"
 msgstr "بېسىۋاتقىنى «%s»: %s"
@@ -248,17 +247,17 @@ msgstr "پۈتۈكلەر ئىندېكىسلىنىۋاتىدۇ"
 msgid "Some documents might not be available during this process"
 msgstr "بۇ مەشغۇلاتنى قىلىۋاتقاندا، بەزى پۈتۈكلەرنى ئىشلەتكىلى بولماسلىقى مۇمكىن"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "پۈتۈكلەرنى %s دىن ئېلىۋاتىدۇ"
 
-#: ../src/notifications.js:162
+#: ../src/notifications.js:166
 msgid "Fetching documents from online accounts"
 msgstr "پۈتۈكلەرنى توردىكى ھېساباتلاردىن ئېلىۋاتىدۇ"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
-#: ../src/selections.js:792
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "خاسلىق"
 
@@ -325,7 +324,7 @@ msgid "Quit"
 msgstr "ئاخىرلاشتۇر"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:873
 msgid "Open"
 msgstr "ئاچ"
 
@@ -338,18 +337,23 @@ msgid "Print…"
 msgstr "باس…"
 
 #: ../src/resources/preview-menu.ui.h:4
+#| msgid "Presentation"
+msgid "Present"
+msgstr "ھازىر"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "چوڭايت"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "كىچىكلىتىش"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
 msgstr "چۆرگىلەت ↶"
 
-#: ../src/resources/preview-menu.ui.h:7
+#: ../src/resources/preview-menu.ui.h:8
 msgid "Rotate ↷"
 msgstr "چۆرگىلەت ↷"
 
@@ -384,7 +388,7 @@ msgstr "توپلاملار"
 
 #: ../src/search.js:175
 msgid "PDF Documents"
-msgstr "PDF پۈتۈكى"
+msgstr "PDF پۈتۈكلىرى"
 
 #: ../src/search.js:179
 msgid "Presentations"
@@ -408,24 +412,24 @@ msgstr "مۇۋاپىق"
 msgid "Sources"
 msgstr "مەنبەلەر"
 
-#: ../src/selections.js:615 ../src/selections.js:784
+#: ../src/selections.js:613 ../src/selections.js:771
 msgid "Organize"
 msgstr "باشقۇر"
 
-#: ../src/selections.js:761
+#: ../src/selections.js:748
 msgid "Print"
 msgstr "بېسىپ چىقار"
 
-#: ../src/selections.js:768
+#: ../src/selections.js:755
 msgid "Delete"
 msgstr "ئۆچۈر"
 
-#: ../src/selections.js:799
+#: ../src/selections.js:786
 msgid "Share"
 msgstr "ھەمبەھىر"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:885
+#: ../src/selections.js:870
 #, c-format
 msgid "Open with %s"
 msgstr "%s دا ئاچ"
