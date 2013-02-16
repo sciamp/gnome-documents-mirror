@@ -1,6 +1,7 @@
 [encoding: UTF-8]
 data/gnome-documents.desktop.in.in
 data/org.gnome.documents.gschema.xml.in
+egg-list-box/egg-flow-box.c
 src/application.js
 src/documents.js
 src/edit.js
@@ -12,6 +13,7 @@ src/lib/gd-places-links.c
 src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
+src/presentation.js
 src/properties.js
 [type: gettext/glade]src/resources/app-menu.ui
 [type: gettext/glade]src/resources/preview-menu.ui
