@@ -45,7 +45,7 @@ typedef struct {
 
   GDataEntry *gdata_entry;
   GDataService *gdata_service;
-  gchar *document_id;
+  gchar *resource_id;
 
   ZpjSkydriveEntry *zpj_entry;
   ZpjSkydrive *zpj_service;
@@ -129,7 +129,7 @@ pdf_load_job_free (PdfLoadJob *job)
   g_clear_object (&job->zpj_entry);
 
   g_free (job->uri);
-  g_free (job->document_id);
+  g_free (job->resource_id);
 
   if (job->pdf_path != NULL) {
     if (job->unlink_cache)
@@ -537,7 +537,7 @@ pdf_load_job_from_google_documents (PdfLoadJob *job)
 
   job->original_file_mtime = gdata_entry_get_updated (job->gdata_entry);
 
-  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf", 
+  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf",
                               g_str_hash (gdata_documents_entry_get_resource_id (GDATA_DOCUMENTS_ENTRY (job->gdata_entry))));
   tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
   job->pdf_path = pdf_path =
@@ -598,8 +598,8 @@ pdf_load_job_from_gdata_cache (PdfLoadJob *job)
   gchar *tmp_name;
   gchar *tmp_path;
 
-  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf", 
-                              g_str_hash (job->document_id));
+  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf",
+                              g_str_hash (job->resource_id));
   tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
   job->pdf_path = g_build_filename (tmp_path, tmp_name, NULL);
 
@@ -616,7 +616,7 @@ pdf_load_job_from_zpj_cache (PdfLoadJob *job)
   gchar *tmp_path;
 
   tmp_name = g_strdup_printf ("gnome-documents-%u.pdf",
-                              g_str_hash (job->document_id));
+                              g_str_hash (job->resource_id));
   tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
   job->pdf_path = g_build_filename (tmp_path, tmp_name, NULL);
 
@@ -920,14 +920,31 @@ query_info_ready_cb (GObject *obj,
 }
 
 static gchar *
-document_id_from_entry_id (const gchar *entry_id)
+resource_id_from_entry_id (const gchar *entry_id)
 {
   const gchar *ptr;
 
   ptr = g_strrstr (entry_id, "%3A");
 
   if (ptr)
-    return g_strdup (ptr + 3);
+    {
+      const gchar *p = ptr;
+
+      while (p >= entry_id)
+        {
+          if (*p == '/')
+            {
+              gchar *id;
+              gchar *type = g_strndup (p + 1, ptr - p - 1);
+
+              id = g_strdup_printf ("%s:%s", type, ptr + 3);
+              g_free (type);
+
+              return id;
+            }
+          p--;
+        }
+    }
 
   return g_strdup (entry_id);
 }
@@ -939,13 +956,13 @@ pdf_load_job_from_regular_file (PdfLoadJob *job)
   const gchar *zpj_prefix = "windows-live:skydrive:";
 
   if (g_str_has_prefix (job->uri, "https://docs.google.com")) {
-    job->document_id = document_id_from_entry_id (job->uri);
+    job->resource_id = resource_id_from_entry_id (job->uri);
     pdf_load_job_from_gdata_cache (job);
     return;
   }
 
   if (g_str_has_prefix (job->uri, zpj_prefix)) {
-    job->document_id = g_strdup (job->uri + strlen (zpj_prefix));
+    job->resource_id = g_strdup (job->uri + strlen (zpj_prefix));
     pdf_load_job_from_zpj_cache (job);
     return;
   }
