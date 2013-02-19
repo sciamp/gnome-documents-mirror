@@ -939,7 +939,9 @@ const PreviewSearchbar = new Lang.Class({
     hide: function() {
         this._previewView.view.find_set_highlight_search(false);
 
+        this.searchChangeBlocked = true;
         this.parent();
+        this.searchChangeBlocked = false;
     }
 });
 

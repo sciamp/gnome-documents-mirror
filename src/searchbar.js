@@ -44,6 +44,7 @@ const Searchbar = new Lang.Class({
         this._searchEntryTimeout = 0;
         this._searchTypeId = 0;
         this._searchMatchId = 0;
+        this.searchChangeBlocked = false;
 
         this._in = false;
 
@@ -81,7 +82,7 @@ const Searchbar = new Lang.Class({
                     this._searchEntryTimeout = 0;
                 }
 
-                if (this._searchChangeBlocked)
+                if (this.searchChangeBlocked)
                     return;
 
                 this._searchEntryTimeout = Mainloop.timeout_add(_SEARCH_ENTRY_TIMEOUT, Lang.bind(this,
@@ -209,9 +210,7 @@ const Searchbar = new Lang.Class({
         this._in = false;
         this.widget.set_reveal_child(false);
         // clear all the search properties when hiding the entry
-        this._searchChangeBlocked = true;
         this._searchEntry.set_text('');
-        this._searchChangeBlocked = false;
     }
 });
 
