@@ -295,7 +295,7 @@ const OverviewSearchbar = new Lang.Class({
         this._onActiveTypeChanged();
         this._onActiveMatchChanged();
 
-        this._searchEntry.text = Application.searchController.getString();
+        this._searchEntry.set_text(Application.searchController.getString());
     },
 
     createSearchWidgets: function() {
@@ -307,7 +307,7 @@ const OverviewSearchbar = new Lang.Class({
         // connect to search string changes in the controller
         let searchChangedId = Application.searchController.connect('search-string-changed', Lang.bind(this,
             function(controller, string) {
-                this._searchEntry.text = string;
+                this._searchEntry.set_text(string);
             }));
 
         this._searchEntry.connect('destroy', Lang.bind(this,
