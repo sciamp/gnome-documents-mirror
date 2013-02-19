@@ -980,12 +980,6 @@ const PreviewFullscreenToolbar = new Lang.Class({
             }));
     },
 
-    handleEvent: function(event) {
-        let res = this.parent(event);
-        if (res)
-            this.emit('search-event-handled');
-    },
-
     show: function() {
         this.revealer.set_reveal_child(true);
     },
