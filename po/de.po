@@ -6,15 +6,15 @@
 # Hedda Peters <hpeters@redhat.com>, 2012.
 # Christian Kirbach <Christian.Kirbach@gmail.com>, 2012, 2013.
 # Wolfgang Stöggl <c72578@yahoo.de>, 2012.
-# Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012.
+# Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-24 16:59+0000\n"
-"PO-Revision-Date: 2013-01-24 21:53+0100\n"
+"POT-Creation-Date: 2013-02-17 15:15+0000\n"
+"PO-Revision-Date: 2013-02-14 19:22+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de_DE\n"
@@ -22,10 +22,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.5.4\n"
+"X-Generator: Gtranslator 2.91.6\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
 msgid "Documents"
 msgstr "Dokumentverwaltung"
 
@@ -87,7 +89,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Tabellendokument"
 
-#: ../src/documents.js:710 ../src/documents.js:809
+#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Präsentation"
 
@@ -104,39 +106,62 @@ msgstr "Dokument"
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
 #: ../src/documents.js:926
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "»%s« kann nicht für Vorschau geladen werden"
+msgid "Please check the network connection."
+msgstr "Bitte überprüfen Sie die Netzwerkverbindung."
 
-#: ../src/edit.js:192 ../src/mainToolbar.js:219
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "Bitte überprüfen Sie die Proxy-Einstellungen des Netzwerks."
+
+#: ../src/documents.js:932
+msgid "Unable to sign in to the document service."
+msgstr "Das Eintragen in den Dokumentendienst ist fehlgeschlagen."
+
+# »lokalisiert« könnte eventuell mit Übersetzung in Verbindung gebracht werden
+#: ../src/documents.js:935
+msgid "Unable to locate this document."
+msgstr "Der Ort des Dokuments konnte nicht ermittelt werden."
+
+#: ../src/documents.js:938
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmmh, etwas ist verdächtig (%d)."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Ups! »%s« konnte nicht geladen werden."
+
+#: ../src/edit.js:189 ../src/mainToolbar.js:209
 msgid "Back"
 msgstr "Zurück"
 
-#: ../src/edit.js:199
+#: ../src/edit.js:196
 msgid "View"
 msgstr "Betrachten"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Ladevorgang …"
 
-#: ../src/embed.js:224
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Keine Dokumente gefunden"
 
 #
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:247
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Sie können Ihre Online-Konten in den %s hinzufügen"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:251
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Systemeinstellungen"
 
@@ -153,36 +178,49 @@ msgstr "Dokument konnte nicht geladen werden"
 msgid "LibreOffice is required to view this document"
 msgstr "LibreOffice wird benötigt, um dieses Dokument zu betrachten"
 
-#: ../src/lib/gd-places-links.c:334
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "Seite %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "Keine Lesezeichen"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "Lesezeichen"
+
+#: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Keine Inhaltsangabe"
 
-#: ../src/lib/gd-places-links.c:397
+#: ../src/lib/gd-places-links.c:518
 msgid "Contents"
 msgstr "Inhalt"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:63
 msgid "Search"
 msgstr "Suchen"
 
-#: ../src/mainToolbar.js:158
+#: ../src/mainToolbar.js:148
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "Ergebnisse für »%s«"
 
-#: ../src/mainToolbar.js:160
+#: ../src/mainToolbar.js:150
 msgid "filtered by title"
 msgstr "gefiltert nach Titel"
 
-#: ../src/mainToolbar.js:162
+#: ../src/mainToolbar.js:152
 msgid "filtered by author"
 msgstr "gefiltert nach Autor"
 
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:159
 msgid "Click on items to select them"
 msgstr "Klicken Sie auf Objekte, um Sie auszuwählen"
 
-#: ../src/mainToolbar.js:171
+#: ../src/mainToolbar.js:161
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -190,15 +228,15 @@ msgstr[0] "%d ausgewählt"
 msgstr[1] "%d ausgewählt"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:191 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Abgeschlossen"
 
-#: ../src/mainToolbar.js:241
+#: ../src/mainToolbar.js:231
 msgid "Select Items"
 msgstr "Objekte auswählen"
 
-#: ../src/mainWindow.js:229
+#: ../src/mainWindow.js:228
 msgid "translator-credits"
 msgstr ""
 "Viktor Nyberg <greenscandic@googlemail.com>\n"
@@ -206,13 +244,13 @@ msgstr ""
 "Hedda Peters <hpeters@redhat.com>\n"
 "Tobias Endrigkeit <tobiasendrigkeit@googlemail.com>"
 
-#: ../src/mainWindow.js:231
+#: ../src/mainWindow.js:230
 msgid "A document manager application"
 msgstr "Eine Anwendung zur Dokumentverwaltung"
 
-#: ../src/notifications.js:88
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "»%s« wird gedruckt: %s"
 
 #: ../src/notifications.js:143
@@ -223,17 +261,27 @@ msgstr "Ein Index Ihrer Dokumente wird erstellt"
 msgid "Some documents might not be available during this process"
 msgstr "Manche Dokumente könnten während dieses Vorganges nicht verfügbar sein"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "Dokumente von %s holen"
 
-#: ../src/notifications.js:162
+#: ../src/notifications.js:166
 msgid "Fetching documents from online accounts"
 msgstr "Dokumente von Online-Konten holen"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
-#: ../src/selections.js:792
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr ""
+
+#: ../src/presentation.js:158
+#, fuzzy
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "Präsentation"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "Eigenschaften"
 
@@ -241,28 +289,28 @@ msgstr "Eigenschaften"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/search.js:257
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "Titel"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/search.js:260
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:92
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "Quelle"
 
 #. Date Modified item
-#: ../src/properties.js:98
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "Änderungsdatum"
 
-#: ../src/properties.js:105
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "Erstellungsdatum"
 
@@ -271,7 +319,7 @@ msgstr "Erstellungsdatum"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/search.js:166
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "Typ"
 
@@ -300,7 +348,7 @@ msgid "Quit"
 msgstr "Beenden"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
 msgid "Open"
 msgstr "Öffnen"
 
@@ -313,18 +361,24 @@ msgid "Print…"
 msgstr "Drucken …"
 
 #: ../src/resources/preview-menu.ui.h:4
+#, fuzzy
+#| msgid "Presentation"
+msgid "Present"
+msgstr "Präsentation"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "Vergrößern"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "Verkleinern"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
 msgstr "Drehen ↶"
 
-#: ../src/resources/preview-menu.ui.h:7
+#: ../src/resources/preview-menu.ui.h:8
 msgid "Rotate ↷"
 msgstr "Drehen ↷"
 
@@ -383,24 +437,24 @@ msgstr "Übereinstimmung"
 msgid "Sources"
 msgstr "Quellen"
 
-#: ../src/selections.js:615 ../src/selections.js:784
+#: ../src/selections.js:613 ../src/selections.js:771
 msgid "Organize"
 msgstr "Verwalten"
 
-#: ../src/selections.js:761
+#: ../src/selections.js:748
 msgid "Print"
 msgstr "Drucken"
 
-#: ../src/selections.js:768
+#: ../src/selections.js:755
 msgid "Delete"
 msgstr "Löschen"
 
-#: ../src/selections.js:799
+#: ../src/selections.js:786
 msgid "Share"
 msgstr "Freigeben"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:885
+#: ../src/selections.js:872
 #, c-format
 msgid "Open with %s"
 msgstr "Öffnen mit »%s«"
@@ -531,6 +585,9 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "vor %d Jahr"
 msgstr[1] "vor %d Jahren"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "»%s« kann nicht für Vorschau geladen werden"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr ""
