@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-06 17:42+0100\n"
-"PO-Revision-Date: 2013-02-06 17:45+0200\n"
+"POT-Creation-Date: 2013-02-20 10:52+0100\n"
+"PO-Revision-Date: 2013-02-20 10:53+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
 msgid "Documents"
 msgstr "Documentos"
 
@@ -85,7 +85,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Folla de cálculo"
 
-#: ../src/documents.js:710 ../src/documents.js:809
+#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Presentación"
 
@@ -129,33 +129,33 @@ msgstr "Hmm, algo cheira mal (%d)."
 msgid "Oops! Unable to load “%s”"
 msgstr "Oops! Non foi posíbel cargar «%s»"
 
-#: ../src/edit.js:192 ../src/mainToolbar.js:219
+#: ../src/edit.js:189 ../src/mainToolbar.js:200
 msgid "Back"
 msgstr "Atrás"
 
-#: ../src/edit.js:199
+#: ../src/edit.js:196
 msgid "View"
 msgstr "Ver"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-bookmarks.c:380
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: ../src/embed.js:224
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Non se atoparon documentos"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:247
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Pode engadir as súas contas en liña en %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:251
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Preferencias do sistema"
 
@@ -177,11 +177,11 @@ msgstr "Requírese LibreOffice para ver este documento"
 msgid "Page %s"
 msgstr "Páxina %s"
 
-#: ../src/lib/gd-places-bookmarks.c:373
+#: ../src/lib/gd-places-bookmarks.c:372
 msgid "No bookmarks"
 msgstr "Non hai marcadores"
 
-#: ../src/lib/gd-places-bookmarks.c:645
+#: ../src/lib/gd-places-bookmarks.c:644
 msgid "Bookmarks"
 msgstr "Marcadores"
 
@@ -193,28 +193,20 @@ msgstr "Non hai táboa de contidos"
 msgid "Contents"
 msgstr "Contidos"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Buscar"
 
-#: ../src/mainToolbar.js:158
+#: ../src/mainToolbar.js:142
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultados para «%s»"
 
-#: ../src/mainToolbar.js:160
-msgid "filtered by title"
-msgstr "filtrado por título"
-
-#: ../src/mainToolbar.js:162
-msgid "filtered by author"
-msgstr "filtrado por autor"
-
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:150
 msgid "Click on items to select them"
 msgstr "Prema nos elementos para seleccionalos"
 
-#: ../src/mainToolbar.js:171
+#: ../src/mainToolbar.js:152
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -222,15 +214,15 @@ msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:181 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Feito"
 
-#: ../src/mainToolbar.js:241
+#: ../src/mainToolbar.js:224
 msgid "Select Items"
 msgstr "Seleccionar elementos"
 
-#: ../src/mainWindow.js:229
+#: ../src/mainWindow.js:228
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
@@ -239,11 +231,11 @@ msgstr ""
 "Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
 "colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/mainWindow.js:231
+#: ../src/mainWindow.js:230
 msgid "A document manager application"
 msgstr "Un aplicativo para xestionar documentos"
 
-#: ../src/notifications.js:88
+#: ../src/notifications.js:87
 #, c-format
 msgid "Printing “%s”: %s"
 msgstr "Imprimindo «%s»: %s"
@@ -256,17 +248,25 @@ msgstr "Estanse indexando os seus documentos"
 msgid "Some documents might not be available during this process"
 msgstr "Algúns documentos poderían non estar dispoñíbeis durante este proceso"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "Obtendo os documentos desde %s"
 
-#: ../src/notifications.js:162
+#: ../src/notifications.js:166
 msgid "Fetching documents from online accounts"
 msgstr "Obtendo os documentos das contas en liña"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
-#: ../src/selections.js:792
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "Executando no modo presentación"
+
+#: ../src/presentation.js:158
+msgid "Present On"
+msgstr "Presentación activada"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "Propiedades"
 
@@ -274,28 +274,28 @@ msgstr "Propiedades"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/search.js:257
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "Título"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/search.js:260
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:92
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "Fonte"
 
 #. Date Modified item
-#: ../src/properties.js:98
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "Data de modificación"
 
-#: ../src/properties.js:105
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "Data de creación"
 
@@ -304,7 +304,7 @@ msgstr "Data de creación"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/search.js:166
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "Tipo"
 
@@ -333,7 +333,7 @@ msgid "Quit"
 msgstr "Saír"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
 msgid "Open"
 msgstr "Abrir"
 
@@ -346,18 +346,22 @@ msgid "Print…"
 msgstr "Imprimir…"
 
 #: ../src/resources/preview-menu.ui.h:4
+msgid "Present"
+msgstr "Presentación"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "Ampliar"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "Afastar"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
 msgstr "Rotar ↶"
 
-#: ../src/resources/preview-menu.ui.h:7
+#: ../src/resources/preview-menu.ui.h:8
 msgid "Rotate ↷"
 msgstr "Rotar ↷"
 
@@ -416,24 +420,24 @@ msgstr "Coincidir"
 msgid "Sources"
 msgstr "Fontes"
 
-#: ../src/selections.js:615 ../src/selections.js:784
+#: ../src/selections.js:613 ../src/selections.js:771
 msgid "Organize"
 msgstr "Organizar"
 
-#: ../src/selections.js:761
+#: ../src/selections.js:748
 msgid "Print"
 msgstr "Imprimir"
 
-#: ../src/selections.js:768
+#: ../src/selections.js:755
 msgid "Delete"
 msgstr "Eliminar"
 
-#: ../src/selections.js:799
+#: ../src/selections.js:786
 msgid "Share"
 msgstr "Compartir"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:885
+#: ../src/selections.js:872
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
@@ -561,6 +565,12 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "fai %d ano"
 msgstr[1] "fai %d anos"
+
+#~ msgid "filtered by title"
+#~ msgstr "filtrado por título"
+
+#~ msgid "filtered by author"
+#~ msgstr "filtrado por autor"
 
 #~ msgid "Unable to load \"%s\" for preview"
 #~ msgstr "Non foi posíbel cargar «%s» para a súa vista previa"
