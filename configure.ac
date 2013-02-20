@@ -95,6 +95,7 @@ PKG_CHECK_MODULES(MINER,
 
 LIBGD_INIT([
   gtk-hacks
+  header-bar
   main-view
   main-toolbar
   margin-container

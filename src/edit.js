@@ -19,6 +19,7 @@
 
 const WebKit = imports.gi.WebKit;
 const Soup = imports.gi.Soup;
+const Gd = imports.gi.Gd;
 const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
@@ -185,17 +186,18 @@ const EditToolbar = new Lang.Class({
         let iconName =
             (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
             'go-next-symbolic' : 'go-previous-symbolic';
-        let backButton =
-            this.toolbar.add_button(iconName, _("Back"), true);
+        let backButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: iconName,
+                                                     label: _("Back") });
+        this.toolbar.pack_start(backButton);
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
             }));
 
-        let viewButton =
-            this.toolbar.add_button(null, _("View"), false);
+        let viewButton = new Gd.HeaderSimpleButton({ label: _("View"),
+                                                     action_name: 'app.view-current' });
         viewButton.get_style_context().add_class('suggested-action');
-        viewButton.set_action_name('app.view-current');
+        this.toolbar.pack_end(viewButton);
 
         this._setToolbarTitle();
         this.widget.show_all();
@@ -215,6 +217,6 @@ const EditToolbar = new Lang.Class({
         if (doc)
             primary = doc.name;
 
-        this.toolbar.set_labels(primary, null);
+        this.toolbar.set_title(primary);
     }
 });

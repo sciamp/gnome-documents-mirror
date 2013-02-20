@@ -43,8 +43,7 @@ const MainToolbar = new Lang.Class({
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
         this.widget.show();
 
-        this.toolbar = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU });
-        this.toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
+        this.toolbar = new Gd.HeaderBar();
         this.widget.add(this.toolbar);
         this.toolbar.show();
 
@@ -59,9 +58,10 @@ const MainToolbar = new Lang.Class({
     },
 
     addSearchButton: function() {
-        let searchButton =
-            this.toolbar.add_toggle('edit-find-symbolic', _("Search"), false);
-        searchButton.action_name = 'app.search';
+        let searchButton = new Gd.HeaderToggleButton({ symbolic_icon_name: 'edit-find-symbolic',
+                                                       label: _("Search"),
+                                                       action_name: 'app.search' });
+        this.toolbar.pack_end(searchButton);
     }
 });
 
@@ -74,6 +74,7 @@ const OverviewToolbar = new Lang.Class({
         this._collBackButton = null;
         this._collectionId = 0;
         this._selectionChangedId = 0;
+        this._selectionMenu = null;
 
         this.parent();
 
@@ -125,7 +126,6 @@ const OverviewToolbar = new Lang.Class({
         let selectionMode = Application.selectionController.getSelectionMode();
         let activeCollection = Application.collectionManager.getActiveItem();
         let primary = null;
-        let detail = null;
 
         if (!selectionMode) {
             if (activeCollection) {
@@ -144,41 +144,42 @@ const OverviewToolbar = new Lang.Class({
             }
         } else {
             let length = Application.selectionController.getSelection().length;
+            let label = null;
 
             if (length == 0)
-                detail = _("Click on items to select them");
+                label = _("Click on items to select them");
             else
-                detail = Gettext.ngettext("%d selected",
-                                          "%d selected",
-                                          length).format(length);
+                label = Gettext.ngettext("%d selected",
+                                         "%d selected",
+                                         length).format(length);
 
-            if (activeCollection) {
-                primary = activeCollection.name;
-            } else if (length != 0) {
-                primary = detail;
-                detail = null;
-            }
+            if (activeCollection)
+                primary = ("<b>%s</b>  (%s)").format(activeCollection.name, label);
+            else
+                primary = label;
         }
 
-        if (detail)
-            detail = '(' + detail + ')';
-
-        this.toolbar.set_labels(primary, detail);
+        if (this._selectionMenu)
+            this._selectionMenu.set_label(primary);
+        else
+            this.toolbar.set_title(primary);
     },
 
     _populateForSelectionMode: function() {
         this.toolbar.get_style_context().add_class('selection-mode');
-        this.toolbar.reset_style();
 
         this.addSearchButton();
 
         let builder = new Gtk.Builder();
         builder.add_from_resource('/org/gnome/documents/selection-menu.ui');
         let selectionMenu = builder.get_object('selection-menu');
-        this.toolbar.set_labels_menu(selectionMenu);
+        this._selectionMenu = new Gd.HeaderMenuButton({ menu_model: selectionMenu,
+                                                        use_markup: true });
+        this._selectionMenu.get_style_context().add_class('selection-menu');
+        this.toolbar.set_custom_title(this._selectionMenu);
 
-        let selectionButton =
-            this.toolbar.add_button(null, _("Done"), false);
+        let selectionButton = new Gd.HeaderSimpleButton({ label: _("Done") });
+        this.toolbar.pack_end(selectionButton);
         selectionButton.get_style_context().add_class('suggested-action');
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
@@ -195,8 +196,10 @@ const OverviewToolbar = new Lang.Class({
         let item = Application.collectionManager.getActiveItem();
 
         if (item && !this._collBackButton) {
-            this._collBackButton =
-                this.toolbar.add_button('go-previous-symbolic', _("Back"), true);
+            this._collBackButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: 'go-previous-symbolic',
+                                                               label: _("Back"),
+                                                               visible: true });
+            this.toolbar.pack_start(this._collBackButton);
             this._collBackButton.connect('clicked', Lang.bind(this,
                 function() {
                     Application.documentManager.activatePreviousCollection();
@@ -217,8 +220,9 @@ const OverviewToolbar = new Lang.Class({
         this._checkCollectionBackButton();
         this.addSearchButton();
 
-        let selectionButton =
-            this.toolbar.add_button('object-select-symbolic', _("Select Items"), false);
+        let selectionButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: 'object-select-symbolic',
+                                                          label: _("Select Items") });
+        this.toolbar.pack_end(selectionButton);
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.selectionController.setSelectionMode(true);
@@ -232,7 +236,8 @@ const OverviewToolbar = new Lang.Class({
 
     _clearStateData: function() {
         this._collBackButton = null;
-        this.toolbar.set_labels_menu(null);
+        this._selectionMenu = null;
+        this.toolbar.set_custom_title(null);
 
         if (this._collectionId != 0) {
             Application.collectionManager.disconnect(this._collectionId);
@@ -249,8 +254,8 @@ const OverviewToolbar = new Lang.Class({
         this._clearStateData();
 
         this.toolbar.get_style_context().remove_class('selection-mode');
-        this.toolbar.reset_style();
-        this.toolbar.clear();
+        let children = this.toolbar.get_children();
+        children.forEach(function(child) { child.destroy(); });
     },
 
     _resetToolbarMode: function() {

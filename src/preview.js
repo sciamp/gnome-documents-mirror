@@ -785,8 +785,9 @@ const PreviewToolbar = new Lang.Class({
         let iconName =
             (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
             'go-next-symbolic' : 'go-previous-symbolic';
-        let backButton =
-            this.toolbar.add_button(iconName, _("Back"), true);
+        let backButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: iconName,
+                                                     label: _("Back") });
+        this.toolbar.pack_start(backButton);
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
@@ -798,9 +799,10 @@ const PreviewToolbar = new Lang.Class({
 
         // menu button, on the right of the toolbar
         let previewMenu = this._getPreviewMenu();
-        let menuButton = this.toolbar.add_menu('emblem-system-symbolic', null, false);
-        menuButton.set_menu_model(previewMenu);
-        menuButton.set_action_name('app.gear-menu');
+        let menuButton = new Gd.HeaderMenuButton({ menu_model: previewMenu,
+                                                   action_name: 'app.gear-menu',
+                                                   symbolic_icon_name: 'emblem-system-symbolic' });
+        this.toolbar.pack_end(menuButton);
 
         this._setToolbarTitle();
         this.toolbar.show_all();
@@ -855,7 +857,7 @@ const PreviewToolbar = new Lang.Class({
         if (doc)
             primary = doc.name;
 
-        this.toolbar.set_labels(primary, null);
+        this.toolbar.set_title(primary);
     },
 
     setModel: function(model) {
