@@ -1,3 +1,14 @@
+3.7.90 - "Romario"
+==================
+
+- Add a presentation mode (William Jon McCann)
+- Add Previous/Next overlay buttons in preview (William Jon McCann)
+- Add support to launch external links from documents (Fabiano Fidêncio)
+- Add support for PDF documents from Google (William Jon McCann)
+- Remove clutter and clutter-gtk dependencies
+- Fix a bug in the positioning of the preview overlay window
+- Lots of minor cleanups and bugfixes
+
 3.7.5 - "Eva"
 =============
 
