@@ -66,8 +66,7 @@ const PreviewView = new Lang.Class({
             this._onWindowModeChanged));
 
         this.widget = new Gtk.ScrolledWindow({ hexpand: true,
-                                               vexpand: true,
-                                               shadow_type: Gtk.ShadowType.IN });
+                                               vexpand: true });
         this.widget.get_style_context().add_class('documents-scrolledwin');
         this.widget.get_hscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));
         this.widget.get_vscrollbar().connect('button-press-event', Lang.bind(this, this._onScrollbarClick));

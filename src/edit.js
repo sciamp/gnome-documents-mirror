@@ -50,8 +50,7 @@ const EditView = new Lang.Class({
         this.widget = new Gtk.Overlay();
 
         this._scrolledWindow = new Gtk.ScrolledWindow({ hexpand: true,
-                                                        vexpand: true,
-                                                        shadow_type: Gtk.ShadowType.IN });
+                                                        vexpand: true });
         this.widget.get_style_context().add_class('documents-scrolledwin');
         this.widget.add(this._scrolledWindow);
 

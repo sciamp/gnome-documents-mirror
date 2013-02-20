@@ -187,7 +187,7 @@ const ViewContainer = new Lang.Class({
         this._model = new ViewModel();
 
         this.widget = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL });
-        this.view = new Gd.MainView();
+        this.view = new Gd.MainView({ shadow_type: Gtk.ShadowType.NONE });
         this.widget.add(this.view);
 
         this._loadMore = new LoadMoreButton();
