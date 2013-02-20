@@ -135,21 +135,11 @@ const OverviewToolbar = new Lang.Class({
 
                 if (string == '') {
                     let searchType = Application.searchTypeManager.getActiveItem();
-                    let searchSource = Application.sourceManager.getActiveItem();
 
                     if (searchType.id != 'all')
                         primary = searchType.name;
-
-                    if (searchSource.id != 'all')
-                        detail = searchSource.name;
                 } else {
-                    let searchMatch = Application.searchMatchManager.getActiveItem();
-
                     primary = _("Results for “%s”").format(string);
-                    if (searchMatch.id == 'title')
-                        detail = _("filtered by title");
-                    else if (searchMatch.id == 'author')
-                        detail = _("filtered by author");
                 }
             }
         } else {
