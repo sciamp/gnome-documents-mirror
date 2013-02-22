@@ -232,14 +232,16 @@ const Dropdown = new Lang.Class({
         this._matchView.connect('item-activated',
                                 Lang.bind(this, this._onItemActivated));
 
-        this.widget = new Gtk.Frame({ shadow_type: Gtk.ShadowType.IN,
-                                      halign: Gtk.Align.CENTER,
-                                      valign: Gtk.Align.START,
-                                      opacity: 0 });
-        this.widget.get_style_context().add_class('documents-dropdown');
+        let frame = new Gtk.Frame({ shadow_type: Gtk.ShadowType.IN,
+                                    opacity: 0.9 });
+        frame.get_style_context().add_class('documents-dropdown');
+
+        this.widget = new Gd.Revealer({ halign: Gtk.Align.CENTER,
+                                        valign: Gtk.Align.START });
+        this.widget.add(frame);
 
         this._grid = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL });
-        this.widget.add(this._grid);
+        frame.add(this._grid);
 
         this._grid.add(this._sourceView.widget);
         this._grid.add(this._typeView.widget);
@@ -247,6 +249,7 @@ const Dropdown = new Lang.Class({
         //this._grid.add(this._categoryView.widget);
 
         this.hide();
+        this.widget.show_all();
     },
 
     _onItemActivated: function() {
@@ -254,21 +257,11 @@ const Dropdown = new Lang.Class({
     },
 
     show: function() {
-        this.widget.show_all();
-
-        Tweener.addTween(this.widget, { opacity: 0.9,
-                                        time: 0.20,
-                                        transition: 'easeOutQuad' });
+        this.widget.reveal_child = true;
     },
 
     hide: function() {
-        Tweener.addTween(this.widget, { opacity: 0,
-                                        time: 0.20,
-                                        transition: 'easeOutQuad',
-                                        onComplete: function() {
-                                            this.widget.hide();
-                                        },
-                                        onCompleteScope: this });
+        this.widget.reveal_child = false;
     }
 });
 Signals.addSignalMethods(Dropdown.prototype);
@@ -312,7 +305,7 @@ const OverviewSearchbar = new Lang.Class({
 
         this._searchEntry.connect('destroy', Lang.bind(this,
             function() {
-                this._dropdown.hide();
+                this._dropdown.widget.reveal_child = false;
                 Application.searchController.disconnect(searchChangedId);
             }));
 
@@ -324,10 +317,7 @@ const OverviewSearchbar = new Lang.Class({
         this._dropdownButton.connect('toggled', Lang.bind(this,
             function() {
                 let active = this._dropdownButton.get_active();
-                if (active)
-                    this._dropdown.show();
-                else
-                    this._dropdown.hide();
+                this._dropdown.widget.reveal_child = active;
             }));
         this._dropdown.connect('item-activated', Lang.bind(this,
             function() {
