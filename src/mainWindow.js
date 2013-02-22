@@ -76,6 +76,8 @@ const MainWindow = new Lang.Class({
 
         this.window.connect('delete-event',
                             Lang.bind(this, this._quit));
+        this.window.connect('button-press-event',
+                            Lang.bind(this, this._onButtonPressEvent));
         this.window.connect('key-press-event',
                             Lang.bind(this, this._onKeyPressEvent));
         this.window.connect('configure-event',
@@ -141,6 +143,37 @@ const MainWindow = new Lang.Class({
             this.window.unfullscreen();
     },
 
+    _goBack: function() {
+        let windowMode = Application.modeController.getWindowMode();
+        let activeCollection = Application.collectionManager.getActiveItem();
+        let handled = true;
+
+        if (windowMode == WindowMode.WindowMode.PREVIEW ||
+            windowMode == WindowMode.WindowMode.EDIT) {
+            Application.documentManager.setActiveItem(null);
+        } else if (windowMode == WindowMode.WindowMode.OVERVIEW && activeCollection) {
+            Application.documentManager.activatePreviousCollection();
+        } else {
+            handled = false;
+        }
+
+        return handled;
+    },
+
+    _onButtonPressEvent: function(widget, event) {
+        let button = event.get_button()[1];
+        let clickCount = event.get_click_count()[1];
+
+        if (clickCount > 1)
+            return false;
+
+        // mouse back button
+        if (button != 8)
+            return false;
+
+        return this._goBack();
+    },
+
     _onKeyPressEvent: function(widget, event) {
         let toolbar = this._embed.getMainToolbar();
 
@@ -185,20 +218,7 @@ const MainWindow = new Lang.Class({
         if (!isBack)
             return false;
 
-        let windowMode = Application.modeController.getWindowMode();
-        let activeCollection = Application.collectionManager.getActiveItem();
-        let handled = true;
-
-        if (windowMode == WindowMode.WindowMode.PREVIEW ||
-            windowMode == WindowMode.WindowMode.EDIT) {
-            Application.documentManager.setActiveItem(null);
-        } else if (windowMode == WindowMode.WindowMode.OVERVIEW && activeCollection) {
-            Application.documentManager.activatePreviousCollection();
-        } else {
-            handled = false;
-        }
-
-        return handled;
+        return this._goBack();
     },
 
     _handleKeyPreview: function(event) {
