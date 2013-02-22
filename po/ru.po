@@ -6,26 +6,27 @@
 # Stas Solovey <whats_up@tut.by>, 2011.
 # Yuri Kozlov <yuray@komyakino.ru>, 2012.
 # Alexsey Nadtochey <irbis4lan@yandex.com>, 2012.
-# Yuri Myasoedov <omerta13@yandex.ru>, 2011, 2012.
+# Yuri Myasoedov <omerta13@yandex.ru>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:15+0000\n"
-"PO-Revision-Date: 2012-11-21 01:25+0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-02-20 01:27+0000\n"
+"PO-Revision-Date: 2013-02-22 09:22+0400\n"
 "Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-#: ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
 msgid "Documents"
 msgstr "Документы"
 
@@ -70,108 +71,151 @@ msgstr "Окно развёрнуто"
 msgid "Window maximized state"
 msgstr "Состояние развёрнутого окна"
 
-#: ../src/documents.js:640
-#: ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:407
 msgid "Local"
 msgstr "Локальные"
 
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:643
 msgid "Google Docs"
 msgstr "Документы Google"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:644
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758
-#: ../src/documents.js:857
+#: ../src/documents.js:708 ../src/documents.js:807
 msgid "Spreadsheet"
 msgstr "Таблица"
 
-#: ../src/documents.js:760
-#: ../src/documents.js:859
+#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Презентация"
 
-#: ../src/documents.js:762
-#: ../src/documents.js:861
+#: ../src/documents.js:712 ../src/documents.js:811
 msgid "Collection"
 msgstr "Коллекция"
 
-#: ../src/documents.js:764
-#: ../src/documents.js:863
+#: ../src/documents.js:714 ../src/documents.js:813
 msgid "Document"
 msgstr "Документ"
 
 #. overridden
-#: ../src/documents.js:791
-#: ../src/documents.js:792
+#: ../src/documents.js:741 ../src/documents.js:742
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:976
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "Не удалось загрузить «%s» для просмотра"
+#: ../src/documents.js:926
+msgid "Please check the network connection."
+msgstr "Проверьте подключение к сети."
 
-#: ../src/embed.js:74
-msgid "Loading..."
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "Проверьте параметры прокси-сервера."
+
+#: ../src/documents.js:932
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "Не удалось войти в службу документов."
+
+#: ../src/documents.js:935
+#, fuzzy
+#| msgid "Unable to load the document"
+msgid "Unable to locate this document."
+msgstr "Не удалось "
+
+#: ../src/documents.js:938
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr ""
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Ой! Не удалось загрузить «%s»"
+
+#: ../src/edit.js:189 ../src/mainToolbar.js:200
+msgid "Back"
+msgstr "Назад"
+
+#: ../src/edit.js:196
+#| msgid "View as"
+msgid "View"
+msgstr "Вид"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#| msgid "Loading..."
+msgid "Loading…"
 msgstr "Загрузка…"
 
-#: ../src/embed.js:220
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Документы не найдены"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:166
 #, c-format
-#| msgid "You can add your online accounts in"
 msgid "You can add your online accounts in %s"
 msgstr "Вы можете добавить сетевые учётные записи через приложение «%s»"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Системные параметры"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Страница %u из %u"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "Не удалось загрузить документ"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "Не удалось найти «unoconv», проверьте, установлен ли LibreOffice"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "Для просмотра этого документа нужен LibreOffice"
 
-#: ../src/mainToolbar.js:73
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "Страница %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "Нет закладок"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "Закладки"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "Нет содержания"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "Содержание"
+
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Поиск"
 
-#: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "Новые и недавние"
-
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:142
 #, c-format
-msgid "Results for \"%s\""
+#| msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "Результаты для «%s»"
 
-#: ../src/mainToolbar.js:167
-msgid "filtered by title"
-msgstr "отфильтровано по заголовку"
-
-#: ../src/mainToolbar.js:169
-msgid "filtered by author"
-msgstr "отфильтровано по автору"
-
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:150
 msgid "Click on items to select them"
 msgstr "Щёлкните по элементам, чтобы выбрать их"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:152
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -179,209 +223,98 @@ msgstr[0] "Выбрано: %d"
 msgstr[1] "Выбрано: %d"
 msgstr[2] "Выбрано: %d"
 
-#: ../src/mainToolbar.js:208
-#: ../src/properties.js:58
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:181 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Выполнено"
 
-#: ../src/mainToolbar.js:226
-msgid "Back"
-msgstr "Назад"
-
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:224
 msgid "Select Items"
 msgstr "Выбрать элементы"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:228
 msgid "translator-credits"
 msgstr "Юрий Мясоедов <omerta13@yandex.ru>, 2012"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:230
 msgid "A document manager application"
 msgstr "Приложение для управления документами"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+#| msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "Печать «%s»: %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "Документы проиндексированы"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "Некоторые документы могут быть недоступны во время данного процесса"
 
-#. Properties dialog heading
-#: ../src/properties.js:73
-#: ../src/selections.js:792
+#: ../src/notifications.js:164
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Получение документов из %s"
+
+#: ../src/notifications.js:166
+msgid "Fetching documents from online accounts"
+msgstr "Получение документов из сетевых учётных записей"
+
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "Запуск в режиме презентации"
+
+#: ../src/presentation.js:158
+#, fuzzy
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "Презентация"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "Свойства"
 
 #. Title item
-#: ../src/properties.js:81
-#: ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "Заголовок"
 
-#: ../src/properties.js:88
-#: ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "Автор"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "Источник"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "Дата последнего изменения"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "Дата создания"
 
 #. Document type item
-#: ../src/properties.js:115
-#: ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "Тип"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "Категория"
-
-#: ../src/searchbar.js:88
-#: ../src/searchbar.js:138
-#: ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "Все"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "Избранное"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "В открытом для вас доступе"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "Коллекции"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "Документы PDF"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "Презентации"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "Таблицы"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "Текстовые документы"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "Совпадение"
-
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "Печать"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "Удалить"
-
-#: ../src/selections.js:784
-msgid "Organize"
-msgstr "Создать"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
-#, c-format
-msgid "Open with %s"
-msgstr "Открыть с помощью %s"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876
-#: ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "Открыть"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "Безымянный документ"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "Источники"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Загрузить ещё %d документ"
-msgstr[1] "Загрузить ещё %d документа"
-msgstr[2] "Загрузить ещё %d документов"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "Вчера"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d день назад"
-msgstr[1] "%d дня назад"
-msgstr[2] "%d дней назад"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "На прошлой неделе"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d неделя назад"
-msgstr[1] "%d недели назад"
-msgstr[2] "%d недель назад"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "В прошлом месяце"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d месяц назад"
-msgstr[1] "%d месяца назад"
-msgstr[2] "%d месяцев назад"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "В прошлом году"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d год назад"
-msgstr[1] "%d года назад"
-msgstr[2] "%d лет назад"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -407,25 +340,43 @@ msgstr "Справка"
 msgid "Quit"
 msgstr "Закончить"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "Открыть"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
-msgstr "Печать…"
+msgid "Edit"
+msgstr "Правка"
 
 #: ../src/resources/preview-menu.ui.h:3
+#| msgid "Print"
+msgid "Print…"
+msgstr "Печать…"
+
+#: ../src/resources/preview-menu.ui.h:4
+#, fuzzy
+#| msgid "Presentation"
+msgid "Present"
+msgstr "Презентация"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "Увеличить"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "Уменьшить"
 
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "Повернуть влево"
+#: ../src/resources/preview-menu.ui.h:7
+#| msgid "Rotate Left"
+msgid "Rotate ↶"
+msgstr "Повернуть ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "Повернуть вправо"
+#: ../src/resources/preview-menu.ui.h:8
+#| msgid "Rotate Left"
+msgid "Rotate ↷"
+msgstr "Повернуть ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -434,6 +385,232 @@ msgstr "Выбрать все"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Отменить выбор"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "Категория"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:401
+msgid "All"
+msgstr "Все"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "Избранное"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "В открытом для вас доступе"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "Коллекции"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "Документы PDF"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "Презентации"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "Таблицы"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "Текстовые документы"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "Совпадение"
+
+#: ../src/search.js:397
+msgid "Sources"
+msgstr "Источники"
+
+#: ../src/selections.js:613 ../src/selections.js:771
+msgid "Organize"
+msgstr "Создать"
+
+#: ../src/selections.js:748
+msgid "Print"
+msgstr "Печать"
+
+#: ../src/selections.js:755
+msgid "Delete"
+msgstr "Удалить"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "Общий доступ"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "Открыть с помощью %s"
+
+#: ../src/sharing.js:89
+#| msgid "System Settings"
+msgid "Sharing Settings"
+msgstr "Параметры общего доступа"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+#| msgid "Documents"
+msgid "Document permissions"
+msgstr "Права доступа к документам"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "Изменение"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "Личное"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "Публичное"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "Все могут изменять"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "Добавить человека"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "Введите адрес эл. почты"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "Может изменять"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "Может просматривать"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "Добавить"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "Все могут читать"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "Сохранить"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "Владелец"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "Можно попросить %s для получения доступа"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "Документ не был обновлён"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "Безымянный документ"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "Загрузить ещё"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "Вчера"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d день назад"
+msgstr[1] "%d дня назад"
+msgstr[2] "%d дней назад"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "На прошлой неделе"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d неделя назад"
+msgstr[1] "%d недели назад"
+msgstr[2] "%d недель назад"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "В прошлом месяце"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d месяц назад"
+msgstr[1] "%d месяца назад"
+msgstr[2] "%d месяцев назад"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "В прошлом году"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d год назад"
+msgstr[1] "%d года назад"
+msgstr[2] "%d лет назад"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "Не удалось загрузить «%s» для просмотра"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr "Не удалось найти «unoconv», проверьте, установлен ли LibreOffice"
+
+#~ msgid "New and Recent"
+#~ msgstr "Новые и недавние"
+
+#~ msgid "filtered by title"
+#~ msgstr "отфильтровано по заголовку"
+
+#~ msgid "filtered by author"
+#~ msgstr "отфильтровано по автору"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "Загрузить ещё %d документ"
+#~ msgstr[1] "Загрузить ещё %d документа"
+#~ msgstr[2] "Загрузить ещё %d документов"
+
+#~ msgid "Print..."
+#~ msgstr "Печать…"
+
+#~ msgid "Rotate Right"
+#~ msgstr "Повернуть вправо"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "Удалить из избранного"
