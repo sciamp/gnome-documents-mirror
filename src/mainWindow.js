@@ -164,11 +164,22 @@ const MainWindow = new Lang.Class({
         return false;
     },
 
-    _handleKeyPreview: function(event) {
+    _isBackKey: function(event) {
+        let direction = this.window.get_direction();
         let keyval = event.get_keyval()[1];
         let state = event.get_state()[1];
+
+        let isBack = (((state & Gdk.ModifierType.MOD1_MASK) != 0 &&
+                       (direction == Gtk.TextDirection.LTR && keyval == Gdk.KEY_Left) ||
+                       (direction == Gtk.TextDirection.RTL && keyval == Gdk.KEY_Right)) ||
+                      keyval == Gdk.KEY_Back);
+
+        return isBack;
+    },
+
+    _handleKeyPreview: function(event) {
+        let keyval = event.get_keyval()[1];
         let fullscreen = Application.modeController.getFullscreen();
-        let direction = this.window.get_direction();
 
         if (keyval == Gdk.KEY_Escape) {
             let preview = this._embed.getPreview();
@@ -182,10 +193,8 @@ const MainWindow = new Lang.Class({
             return false;
         }
 
-        if (((state & Gdk.ModifierType.MOD1_MASK) != 0 &&
-             (direction == Gtk.TextDirection.LTR && keyval == Gdk.KEY_Left) ||
-             (direction == Gtk.TextDirection.RTL && keyval == Gdk.KEY_Right)) ||
-            keyval == Gdk.KEY_Back) {
+        let isBack = this._isBackKey(event);
+        if (isBack) {
             Application.documentManager.setActiveItem(null);
             return true;
         }
@@ -199,6 +208,13 @@ const MainWindow = new Lang.Class({
         if (Application.selectionController.getSelectionMode() &&
             keyval == Gdk.KEY_Escape) {
             Application.selectionController.setSelectionMode(false);
+            return true;
+        }
+
+        let isBack = this._isBackKey(event);
+        let activeCollection = Application.collectionManager.getActiveItem();
+        if (isBack && activeCollection != null) {
+            Application.documentManager.activatePreviousCollection();
             return true;
         }
 
