@@ -318,6 +318,8 @@ const OverviewSearchbar = new Lang.Class({
         // create the dropdown button
         this._dropdownButton = new Gtk.ToggleButton(
             { child: new Gtk.Arrow({ arrow_type: Gtk.ArrowType.DOWN }) });
+        this._dropdownButton.get_style_context().add_class('raised');
+        this._dropdownButton.get_style_context().add_class('image-button');
         this._dropdownButton.connect('toggled', Lang.bind(this,
             function() {
                 let active = this._dropdownButton.get_active();
@@ -333,6 +335,7 @@ const OverviewSearchbar = new Lang.Class({
 
         this._searchContainer = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL,
                                               halign: Gtk.Align.CENTER });
+        this._searchContainer.get_style_context().add_class('linked');
 
         this._searchContainer.add(this._searchEntry);
         this._searchContainer.add(this._dropdownButton);
