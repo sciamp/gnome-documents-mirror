@@ -62,6 +62,17 @@ const MainToolbar = new Lang.Class({
                                                        label: _("Search"),
                                                        action_name: 'app.search' });
         this.toolbar.pack_end(searchButton);
+        return searchButton;
+    },
+
+    addBackButton: function() {
+        let iconName =
+            (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
+            'go-next-symbolic' : 'go-previous-symbolic';
+        let backButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: iconName,
+                                                     label: _("Back") });
+        this.toolbar.pack_start(backButton);
+        return backButton;
     }
 });
 
@@ -196,10 +207,8 @@ const OverviewToolbar = new Lang.Class({
         let item = Application.collectionManager.getActiveItem();
 
         if (item && !this._collBackButton) {
-            this._collBackButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: 'go-previous-symbolic',
-                                                               label: _("Back"),
-                                                               visible: true });
-            this.toolbar.pack_start(this._collBackButton);
+            this._collBackButton = this.addBackButton();
+            this._collBackButton.show();
             this._collBackButton.connect('clicked', Lang.bind(this,
                 function() {
                     Application.documentManager.activatePreviousCollection();

@@ -781,12 +781,7 @@ const PreviewToolbar = new Lang.Class({
         this._gearMenu = Application.application.lookup_action('gear-menu');
 
         // back button, on the left of the toolbar
-        let iconName =
-            (this.toolbar.get_direction() == Gtk.TextDirection.RTL) ?
-            'go-next-symbolic' : 'go-previous-symbolic';
-        let backButton = new Gd.HeaderSimpleButton({ symbolic_icon_name: iconName,
-                                                     label: _("Back") });
-        this.toolbar.pack_start(backButton);
+        let backButton = this.addBackButton();
         backButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.documentManager.setActiveItem(null);
