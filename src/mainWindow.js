@@ -147,6 +147,9 @@ const MainWindow = new Lang.Class({
         if (toolbar.handleEvent(event))
             return true;
 
+        if (this._handleBackKey(event))
+            return true;
+
         switch (Application.modeController.getWindowMode()) {
         case WindowMode.WindowMode.NONE:
             return false;
@@ -177,6 +180,27 @@ const MainWindow = new Lang.Class({
         return isBack;
     },
 
+    _handleBackKey: function(event) {
+        let isBack = this._isBackKey(event);
+        if (!isBack)
+            return false;
+
+        let windowMode = Application.modeController.getWindowMode();
+        let activeCollection = Application.collectionManager.getActiveItem();
+        let handled = true;
+
+        if (windowMode == WindowMode.WindowMode.PREVIEW ||
+            windowMode == WindowMode.WindowMode.EDIT) {
+            Application.documentManager.setActiveItem(null);
+        } else if (windowMode == WindowMode.WindowMode.OVERVIEW && activeCollection) {
+            Application.documentManager.activatePreviousCollection();
+        } else {
+            handled = false;
+        }
+
+        return handled;
+    },
+
     _handleKeyPreview: function(event) {
         let keyval = event.get_keyval()[1];
         let fullscreen = Application.modeController.getFullscreen();
@@ -189,14 +213,6 @@ const MainWindow = new Lang.Class({
                 preview.controlsVisible = false;
             else if (fullscreen)
                 Application.documentManager.setActiveItem(null);
-
-            return false;
-        }
-
-        let isBack = this._isBackKey(event);
-        if (isBack) {
-            Application.documentManager.setActiveItem(null);
-            return true;
         }
 
         return false;
@@ -208,13 +224,6 @@ const MainWindow = new Lang.Class({
         if (Application.selectionController.getSelectionMode() &&
             keyval == Gdk.KEY_Escape) {
             Application.selectionController.setSelectionMode(false);
-            return true;
-        }
-
-        let isBack = this._isBackKey(event);
-        let activeCollection = Application.collectionManager.getActiveItem();
-        if (isBack && activeCollection != null) {
-            Application.documentManager.activatePreviousCollection();
             return true;
         }
 
