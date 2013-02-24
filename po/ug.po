@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-15 21:57+0000\n"
-"PO-Revision-Date: 2013-02-16 13:06+0900\n"
+"POT-Creation-Date: 2013-02-20 01:27+0000\n"
+"PO-Revision-Date: 2013-02-24 13:15+0900\n"
 "Last-Translator: Gheyret Kenji <gheyret@gmail.com>\n"
 "Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
 "Language: \n"
@@ -80,7 +80,7 @@ msgstr "گۇگىل(Google)"
 msgid "Spreadsheet"
 msgstr "ئېلېكترونلۇق جەدۋەل"
 
-#: ../src/documents.js:710 ../src/documents.js:809
+#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "سۇنۇلما"
 
@@ -124,7 +124,7 @@ msgstr "ھىم، غەلىتە ئىشلار بار (%d)."
 msgid "Oops! Unable to load “%s”"
 msgstr "ئاپلا! «%s» نى ئوقۇغىلى بولمىدى"
 
-#: ../src/edit.js:189 ../src/mainToolbar.js:212
+#: ../src/edit.js:189 ../src/mainToolbar.js:200
 msgid "Back"
 msgstr "كەينى"
 
@@ -188,39 +188,31 @@ msgstr "مەزمۇن يوق"
 msgid "Contents"
 msgstr "مەزمۇنلار"
 
-#: ../src/mainToolbar.js:66
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "ئىزدە"
 
-#: ../src/mainToolbar.js:151
+#: ../src/mainToolbar.js:142
 #, c-format
 msgid "Results for “%s”"
 msgstr "«%s» نىڭ نەتىجىلىرى"
 
-#: ../src/mainToolbar.js:153
-msgid "filtered by title"
-msgstr "ماۋزۇ بويىچە تەرتىپلەنگەن"
-
-#: ../src/mainToolbar.js:155
-msgid "filtered by author"
-msgstr "ئاپتور بويىچە تەرتىپلەنگەن"
-
-#: ../src/mainToolbar.js:162
+#: ../src/mainToolbar.js:150
 msgid "Click on items to select them"
 msgstr "تاللاش ئۈچۈن تۈرنى چېكىڭ"
 
-#: ../src/mainToolbar.js:164
+#: ../src/mainToolbar.js:152
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d تاللاندى"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:194 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:181 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "تامام"
 
-#: ../src/mainToolbar.js:234
+#: ../src/mainToolbar.js:224
 msgid "Select Items"
 msgstr "تۈرلەرنى تاللاش"
 
@@ -256,6 +248,15 @@ msgstr "پۈتۈكلەرنى %s دىن ئېلىۋاتىدۇ"
 msgid "Fetching documents from online accounts"
 msgstr "پۈتۈكلەرنى توردىكى ھېساباتلاردىن ئېلىۋاتىدۇ"
 
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "كۆرسەتمە ھالىتىدە ئىجرا قىلىش"
+
+#: ../src/presentation.js:158
+#| msgid "Present"
+msgid "Present On"
+msgstr "پەيدا بولغان ۋاقىت"
+
 #: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:779
 msgid "Properties"
@@ -265,28 +266,28 @@ msgstr "خاسلىق"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/search.js:257
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "ماۋزۇ"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/search.js:260
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "ئاپتور"
 
 #. Source item
-#: ../src/properties.js:92
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "مەنبە"
 
 #. Date Modified item
-#: ../src/properties.js:98
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "ئۆزگەرتكەن چېسلا"
 
-#: ../src/properties.js:105
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "قۇرۇلغان چېسلا"
 
@@ -295,7 +296,7 @@ msgstr "قۇرۇلغان چېسلا"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/search.js:166
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "تىپى"
 
@@ -324,7 +325,7 @@ msgid "Quit"
 msgstr "ئاخىرلاشتۇر"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:873
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
 msgid "Open"
 msgstr "ئاچ"
 
@@ -337,7 +338,6 @@ msgid "Print…"
 msgstr "باس…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "ھازىر"
 
@@ -429,7 +429,7 @@ msgid "Share"
 msgstr "ھەمبەھىر"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:870
+#: ../src/selections.js:872
 #, c-format
 msgid "Open with %s"
 msgstr "%s دا ئاچ"
@@ -553,6 +553,12 @@ msgstr "ئۆتكەن يىلدىكىسى"
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d ئاي بۇرۇن"
+
+#~ msgid "filtered by title"
+#~ msgstr "ماۋزۇ بويىچە تەرتىپلەنگەن"
+
+#~ msgid "filtered by author"
+#~ msgstr "ئاپتور بويىچە تەرتىپلەنگەن"
 
 #~ msgid "Unable to load \"%s\" for preview"
 #~ msgstr "%s نى ئالدىن كۆرىدىغانغا ئاچالمىدى"
