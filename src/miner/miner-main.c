@@ -59,7 +59,7 @@ autoquit_timeout_cb (gpointer _unused)
 static void
 ensure_autoquit_off (void)
 {
-  if (g_getenv (MINER_NAME "MINER_PERSIST") != NULL)
+  if (g_getenv (MINER_NAME "_MINER_PERSIST") != NULL)
     return;
 
   if (autoquit_id != 0)
