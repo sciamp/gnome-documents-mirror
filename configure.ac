@@ -45,6 +45,7 @@ AC_PROG_LIBTOOL
 AC_CACHE_SAVE
 
 GLIB_GSETTINGS
+GETTING_STARTED_INIT
 
 AC_CHECK_LIBM
 AC_SUBST(LIBM)
@@ -119,6 +120,7 @@ src/Makefile
 data/Makefile
 data/icons/Makefile
 data/gnome-documents.desktop.in
+getting-started/Makefile
 po/Makefile.in
 ])
 
