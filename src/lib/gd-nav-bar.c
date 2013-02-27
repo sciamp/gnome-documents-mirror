@@ -480,6 +480,7 @@ gd_nav_bar_document_changed_cb (EvDocumentModel *model,
 
                 previews_create (self);
 
+                gtk_widget_set_sensitive (priv->scale, (priv->n_pages > 1));
                 gtk_range_set_range (GTK_RANGE (priv->scale), 0.0, priv->n_pages - 1);
 
                 update_page (self);

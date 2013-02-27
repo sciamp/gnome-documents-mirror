@@ -580,6 +580,10 @@ const PreviewNavBar = new Lang.Class({
         this.widget.document_model = model;
         if (!model)
             this.hide();
+
+        let hasMultiplePages = (model.document.get_n_pages() > 1);
+        Application.application.lookup_action('bookmark-page').enabled = hasMultiplePages;
+        Application.application.lookup_action('places').enabled = hasMultiplePages;
     },
 
     show: function() {
@@ -765,7 +769,7 @@ const PreviewNavButtons = new Lang.Class({
         this._visible = false;
         this._fadeOutButton(this.prev_widget);
         this._fadeOutButton(this.next_widget);
-    },
+    }
 });
 
 const PreviewToolbar = new Lang.Class({
