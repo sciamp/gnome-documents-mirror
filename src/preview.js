@@ -289,7 +289,7 @@ const PreviewView = new Lang.Class({
             uri = this._uriRewrite(uri);
 
         try {
-            Gio.AppInfo.launch_default_for_uri(uri, context)
+            Gio.AppInfo.launch_default_for_uri(uri, context);
         } catch (e) {
             log('Unable to open external link: ' + e.message);
         }

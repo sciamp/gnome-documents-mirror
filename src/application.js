@@ -375,7 +375,7 @@ const Application = new Lang.Class({
               window_mode: WindowMode.WindowMode.PREVIEW,
               callback: this._onActionToggle,
               state: GLib.Variant.new('b', false),
-              accel: 'F5',
+              accel: 'F5'
             },
             { name: 'print-current', accel: '<Primary>p',
               callback: this._onActionPrintCurrent,
