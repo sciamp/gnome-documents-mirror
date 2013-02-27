@@ -597,6 +597,19 @@ const LocalDocument = new Lang.Class({
             this.defaultAppName = defaultApp.get_name();
     },
 
+    populateFromCursor: function(cursor) {
+        this.parent(cursor);
+
+        if (!Application.application.gettingStartedLocation)
+            return;
+
+        let file = Gio.File.new_for_uri(this.uri);
+        if (file.has_parent(Application.application.gettingStartedLocation)) {
+            this.author = _("GNOME");
+            this.name = this.title = _("Getting Started with Documents");
+        }
+    },
+
     updateTypeDescription: function() {
         if (this.mimeType)
             this.typeDescription = Gio.content_type_get_description(this.mimeType);

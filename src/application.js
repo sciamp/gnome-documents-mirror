@@ -34,12 +34,14 @@ imports.gi.versions.EvinceDocument = '3.0';
 imports.gi.versions.Goa = '1.0';
 
 const EvDoc = imports.gi.EvinceDocument;
+const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const Goa = imports.gi.Goa;
 const Gtk = imports.gi.Gtk;
 const GLib = imports.gi.GLib;
 const Tracker = imports.gi.Tracker;
+const TrackerMiner = imports.gi.TrackerMiner;
 
 const ChangeMonitor = imports.changeMonitor;
 const Documents = imports.documents;
@@ -101,6 +103,48 @@ const Application = new Lang.Class({
         this.parent({ application_id: 'org.gnome.Documents',
                       flags: Gio.ApplicationFlags.HANDLES_COMMAND_LINE,
                       inactivity_timeout: 12000 });
+    },
+
+    _initGettingStarted: function() {
+        let manager = TrackerMiner.MinerManager.new_full(false);
+
+        let languages = GLib.get_language_names();
+        let files = languages.map(
+            function(language) {
+                return Gio.File.new_for_path(Path.RESOURCE_DIR + '/getting-started/' + language +
+                    '/gnome-documents-getting-started.pdf');
+            });
+
+        this.gettingStartedLocation = null;
+
+        function checkNextFile(obj) {
+            let file = files.shift();
+            if (!file) {
+                log('Can\'t find a valid getting started PDF document');
+                return;
+            }
+
+            file.query_info_async('standard::type', Gio.FileQueryInfoFlags.NONE, 0, null, Lang.bind(this,
+                function(object, res) {
+                    try {
+                        let info = object.query_info_finish(res);
+                        this.gettingStartedLocation = file.get_parent();
+
+                        GdPrivate.tracker_miner_manager_index_file_async(manager, file,
+                            function(object, res) {
+                                try {
+                                    GdPrivate.tracker_miner_manager_index_file_finish(object, res);
+                                } catch (e) {
+                                    log('Error indexing the getting started PDF: ' + e.message);
+                                }
+                            });
+                    } catch (e) {
+                        checkNextFile.apply(this);
+                    }
+                }));
+        }
+
+        checkNextFile.apply(this);
     },
 
     _fullscreenCreateHook: function(action) {
@@ -420,6 +464,7 @@ const Application = new Lang.Class({
 
         this._initActions();
         this._initAppMenu();
+        this._initGettingStarted();
     },
 
     _createWindow: function() {

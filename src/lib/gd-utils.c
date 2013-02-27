@@ -434,3 +434,40 @@ gd_ev_view_find_changed (EvView *view,
                         ev_job_find_get_results (job),
                         page);
 }
+
+static void
+miner_manager_index_file_thread (GTask *task,
+                                 gpointer source_object,
+                                 gpointer task_data,
+                                 GCancellable *cancellable)
+{
+  TrackerMinerManager *manager = source_object;
+  GFile *file = task_data;
+  GError *error = NULL;
+
+  tracker_miner_manager_index_file (manager, file, &error);
+  if (error != NULL)
+    g_task_return_error (task, error);
+  else
+    g_task_return_boolean (task, TRUE);
+}
+
+void
+gd_tracker_miner_manager_index_file_async (TrackerMinerManager *manager,
+                                           GFile *file,
+                                           GAsyncReadyCallback callback,
+                                           gpointer user_data)
+{
+  GTask *task = g_task_new (manager, NULL, callback, user_data);
+  g_task_set_task_data (task, g_object_ref (file), (GDestroyNotify) g_object_unref);
+  g_task_run_in_thread (task, miner_manager_index_file_thread);
+  g_object_unref (task);
+}
+
+gboolean
+gd_tracker_miner_manager_index_file_finish (TrackerMinerManager *manager,
+                                            GAsyncResult *result,
+                                            GError **error)
+{
+  return g_task_propagate_boolean (G_TASK (result), error);
+}

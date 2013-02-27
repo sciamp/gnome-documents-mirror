@@ -307,6 +307,13 @@ const Source = new Lang.Class({
         this.builtin = params.builtin;
     },
 
+    _getGettingStartedLocations: function() {
+        if (Application.application.gettingStartedLocation)
+            return Application.application.gettingStartedLocation;
+        else
+            return [];
+    },
+
     _getTrackerLocations: function() {
         let settings = new Gio.Settings({ schema: TRACKER_SCHEMA });
         let locations = settings.get_strv(TRACKER_KEY_RECURSIVE_DIRECTORIES);
@@ -351,7 +358,9 @@ const Source = new Lang.Class({
 
     _buildFilterLocal: function() {
         let locations = this._getBuiltinLocations();
-        locations = locations.concat(this._getTrackerLocations());
+        locations = locations.concat(
+            this._getTrackerLocations(),
+            this._getGettingStartedLocations());
 
         let filters = [];
         locations.forEach(Lang.bind(this,
