@@ -209,6 +209,7 @@ const Embed = new Lang.Class({
     _init: function() {
         this._queryErrorId = 0;
         this._noResultsChangeId = 0;
+        this._loadShowId = 0;
 
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL,
                                     visible: true });
