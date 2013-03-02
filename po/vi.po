@@ -1,7 +1,7 @@
 # Vietnamese translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2011-2012.
+# Nguyễn Thái Ngọc Duy <pclouds@gmail.com>, 2011-2013.
 #
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-02-20 01:27+0000\n"
-"PO-Revision-Date: 2013-03-02 21:08+0700\n"
+"PO-Revision-Date: 2013-03-02 21:16+0700\n"
 "Last-Translator: Nguyễn Thái Ngọc Duy <pclouds@gmail.com>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -100,51 +100,43 @@ msgstr "Skydrive"
 
 #: ../src/documents.js:926
 msgid "Please check the network connection."
-msgstr ""
+msgstr "Vui lòng kiểm tra kết nối mạng."
 
 #: ../src/documents.js:929
 msgid "Please check the network proxy settings."
-msgstr ""
+msgstr "Vui lòng kiểm tra thiết lập uỷ nhiệm mạng."
 
 #: ../src/documents.js:932
-#, fuzzy
-#| msgid "Unable to load the document"
 msgid "Unable to sign in to the document service."
-msgstr "Không thể tải tài liệu"
+msgstr "Không thể đăng nhập vào dịch vụ tài liệu."
 
 #: ../src/documents.js:935
-#, fuzzy
-#| msgid "Unable to load the document"
 msgid "Unable to locate this document."
-msgstr "Không thể tải tài liệu"
+msgstr "Không thể định vị tài liệu."
 
 #: ../src/documents.js:938
 #, c-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Hừm, có gì đó không ổn (%d)."
 
 #. Translators: %s is the title of a document
 #: ../src/documents.js:951
 #, c-format
 msgid "Oops! Unable to load “%s”"
-msgstr ""
+msgstr "Hic! Không thể nạp “%s”"
 
 #: ../src/edit.js:189 ../src/mainToolbar.js:200
 msgid "Back"
 msgstr "Lùi"
 
 #: ../src/edit.js:196
-#, fuzzy
-#| msgid "View as"
 msgid "View"
-msgstr "Xem kiểu"
+msgstr "Xem"
 
 #: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
-#, fuzzy
-#| msgid "Loading..."
 msgid "Loading…"
-msgstr "Đang nạp..."
+msgstr "Đang nạp…"
 
 #: ../src/embed.js:145
 msgid "No Documents Found"
@@ -153,10 +145,9 @@ msgstr "Không tìm thấy tài liệu"
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
 #: ../src/embed.js:166
-#, fuzzy, c-format
-#| msgid "You can add your online accounts in"
+#, c-format
 msgid "You can add your online accounts in %s"
-msgstr "Bạn có thể thêm tài khoản trực tuyến vào"
+msgstr "Bạn có thể thêm tài khoản trực tuyến trong %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
@@ -167,7 +158,7 @@ msgstr "Thiết lập hệ thống"
 #: ../src/lib/gd-nav-bar.c:235
 #, c-format
 msgid "Page %u of %u"
-msgstr ""
+msgstr "Trang %u trên %u"
 
 #: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
@@ -175,38 +166,37 @@ msgstr "Không thể tải tài liệu"
 
 #: ../src/lib/gd-pdf-loader.c:676
 msgid "LibreOffice is required to view this document"
-msgstr ""
+msgstr "Cần LibreOffice để xem tài liệu này"
 
 #: ../src/lib/gd-places-bookmarks.c:309
 #, c-format
 msgid "Page %s"
-msgstr ""
+msgstr "Trang %s"
 
 #: ../src/lib/gd-places-bookmarks.c:372
 msgid "No bookmarks"
-msgstr ""
+msgstr "Không có đánh dấu"
 
 #: ../src/lib/gd-places-bookmarks.c:644
 msgid "Bookmarks"
-msgstr ""
+msgstr "Đánh dấu"
 
 #: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
-msgstr ""
+msgstr "Không có mục lục"
 
 #: ../src/lib/gd-places-links.c:518
 msgid "Contents"
-msgstr ""
+msgstr "Mục lục"
 
 #: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Tìm"
 
 #: ../src/mainToolbar.js:142
-#, fuzzy, c-format
-#| msgid "Results for \"%s\""
+#, c-format
 msgid "Results for “%s”"
-msgstr "Kết quả của \"%s\""
+msgstr "Kết quả cho “%s”"
 
 #: ../src/mainToolbar.js:150
 msgid "Click on items to select them"
@@ -236,10 +226,9 @@ msgid "A document manager application"
 msgstr "Ứng dụng quản lý tài liệu"
 
 #: ../src/notifications.js:87
-#, fuzzy, c-format
-#| msgid "Printing \"%s\": %s"
+#, c-format
 msgid "Printing “%s”: %s"
-msgstr "In \"%s\": %s"
+msgstr "In “%s”: %s"
 
 #: ../src/notifications.js:143
 msgid "Your documents are being indexed"
@@ -252,23 +241,19 @@ msgstr "Vài tài liệu sẽ không thể dùng trong suốt quá trình này"
 #: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
-msgstr ""
+msgstr "Lấy tài liệu từ %s"
 
 #: ../src/notifications.js:166
-#, fuzzy
-#| msgid "You can add your online accounts in"
 msgid "Fetching documents from online accounts"
-msgstr "Bạn có thể thêm tài khoản trực tuyến vào"
+msgstr "Lấy tài liệu từ tài khoản trực tuyến"
 
 #: ../src/presentation.js:105
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "Chạy trong chế độ trình diễn"
 
 #: ../src/presentation.js:158
-#, fuzzy
-#| msgid "Presentation"
 msgid "Present On"
-msgstr "Trình diễn"
+msgstr "Trình diễn bật"
 
 #: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:779
@@ -331,7 +316,7 @@ msgstr "Giới thiệu Tài liệu"
 
 #: ../src/resources/app-menu.ui.h:6
 msgid "Help"
-msgstr ""
+msgstr "Trợ giúp"
 
 #: ../src/resources/app-menu.ui.h:7
 msgid "Quit"
@@ -344,17 +329,13 @@ msgstr "Mở"
 
 #: ../src/resources/preview-menu.ui.h:2
 msgid "Edit"
-msgstr ""
+msgstr "Sửa"
 
 #: ../src/resources/preview-menu.ui.h:3
-#, fuzzy
-#| msgid "Print"
 msgid "Print…"
-msgstr "In"
+msgstr "In…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#, fuzzy
-#| msgid "Presentation"
 msgid "Present"
 msgstr "Trình diễn"
 
@@ -367,16 +348,12 @@ msgid "Zoom Out"
 msgstr "Thu nhỏ"
 
 #: ../src/resources/preview-menu.ui.h:7
-#, fuzzy
-#| msgid "Rotate Left"
 msgid "Rotate ↶"
 msgstr "Quay trái"
 
 #: ../src/resources/preview-menu.ui.h:8
-#, fuzzy
-#| msgid "Rotate Left"
 msgid "Rotate ↷"
-msgstr "Quay trái"
+msgstr "Quay phải"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -447,7 +424,7 @@ msgstr "Xoá"
 
 #: ../src/selections.js:786
 msgid "Share"
-msgstr ""
+msgstr "Chia sẻ"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/selections.js:872
@@ -456,80 +433,76 @@ msgid "Open with %s"
 msgstr "Mở với %s"
 
 #: ../src/sharing.js:89
-#, fuzzy
-#| msgid "System Settings"
 msgid "Sharing Settings"
-msgstr "Thiết lập hệ thống"
+msgstr "Thiết lập chia sẻ"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:126
-#, fuzzy
-#| msgid "Documents"
 msgid "Document permissions"
-msgstr "Tài liệu"
+msgstr "Quyền tài liệu"
 
 #. Label for permission change in Sharing dialog
 #: ../src/sharing.js:133 ../src/sharing.js:311
 msgid "Change"
-msgstr ""
+msgstr "Thay đổi"
 
 #. Label for radiobutton that sets doc permission to private
 #: ../src/sharing.js:157 ../src/sharing.js:286
 msgid "Private"
-msgstr ""
+msgstr "Cá nhân"
 
 #: ../src/sharing.js:167 ../src/sharing.js:279
 msgid "Public"
-msgstr ""
+msgstr "Công khai"
 
 #. Label for checkbutton that sets doc permission to Can edit
 #: ../src/sharing.js:171 ../src/sharing.js:281
 msgid "Everyone can edit"
-msgstr ""
+msgstr "Mọi người có thể sửa"
 
 #. Label for widget group used for adding new contacts
 #: ../src/sharing.js:178
 msgid "Add people"
-msgstr ""
+msgstr "Thêm người"
 
 #. Editable text in entry field
 #: ../src/sharing.js:185
 msgid "Enter an email address"
-msgstr ""
+msgstr "Nhập địa chỉ email"
 
 #: ../src/sharing.js:200 ../src/sharing.js:367
 msgid "Can edit"
-msgstr ""
+msgstr "Có thể sửa"
 
 #: ../src/sharing.js:200 ../src/sharing.js:370
 msgid "Can view"
-msgstr ""
+msgstr "Có thể xem"
 
 #: ../src/sharing.js:207
 msgid "Add"
-msgstr ""
+msgstr "Thêm"
 
 #: ../src/sharing.js:283
 msgid "Everyone can read"
-msgstr ""
+msgstr "Mọi người có thể đọc"
 
 #: ../src/sharing.js:298
 msgid "Save"
-msgstr ""
+msgstr "Lưu"
 
 #: ../src/sharing.js:364
 msgid "Owner"
-msgstr ""
+msgstr "Chủ sở hữu"
 
 #: ../src/sharing.js:433
 #, c-format
 msgid "You can ask %s for access"
-msgstr ""
+msgstr "Bạn có thể yêu cầu %s cho phép truy cập"
 
 #: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
 #: ../src/sharing.js:580 ../src/sharing.js:599
 msgid "The document was not updated"
-msgstr ""
+msgstr "Tài liệu chưa cập nhật"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
@@ -537,7 +510,7 @@ msgstr "Tài liệu không tên"
 
 #: ../src/view.js:61 ../src/view.js:91
 msgid "Load More"
-msgstr ""
+msgstr "Nạp thêm"
 
 #: ../src/view.js:292
 msgid "Yesterday"
