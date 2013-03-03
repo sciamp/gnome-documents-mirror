@@ -218,7 +218,8 @@ const Embed = new Lang.Class({
         this.widget.pack_end(this._stackOverlay, true, true, 0);
 
         this._stack = new Gd.Stack({ visible: true,
-                                     homogeneous: true });
+                                     homogeneous: true,
+                                     transition_type: Gd.StackTransitionType.CROSSFADE });
         this._stackOverlay.add(this._stack);
 
         // create the OSD toolbar for selected items, it's hidden by default
