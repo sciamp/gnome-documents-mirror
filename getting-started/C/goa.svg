@@ -1504,9 +1504,7 @@
            height="270"
            width="565.83466"
            id="rect3898" /></flowRegion><flowPara
-         id="flowPara6970">To make Documents aware of the documents you have in the cloud, go to the <flowSpan
+         id="flowPara6970">To make Documents aware of the content you have in the cloud, go to the <flowSpan
    style="font-weight:bold;fill:#000000;fill-opacity:1"
-   id="flowSpan17222">Settings' Online Account</flowSpan> panel and add your cloud service provider, such as <flowSpan
-   style="font-weight:bold;fill:#000000;fill-opacity:1"
-   id="flowSpan17224">Google</flowSpan>. Once authenticated, make sure the Documents switch is turned on. From now on, your documents are available.</flowPara></flowRoot>  </g>
+   id="flowSpan17222">Online Accounts Settings</flowSpan> and add your cloud service provider. Then ensure the Documents switch is turned on for the new account. Your documents will automatically appear in the application.</flowPara></flowRoot>  </g>
 </svg>
