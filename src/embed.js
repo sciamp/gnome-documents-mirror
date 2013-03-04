@@ -445,8 +445,10 @@ const Embed = new Lang.Class({
     },
 
     getMainToolbar: function() {
+        let windowMode = Application.modeController.getWindowMode();
         let fullscreen = Application.modeController.getFullscreen();
-        if (fullscreen)
+
+        if (fullscreen && (windowMode == WindowMode.WindowMode.PREVIEW))
             return this._preview.getFullscreenToolbar();
         else
             return this._toolbar;
