@@ -1,3 +1,15 @@
+3.7.91 - "Trans-Siberia Express"
+===============================
+
+- Install a translatable Getting Started with Documents tutorial PDF
+- Use a linked style for the search dropdown button
+- Use a revealer animation for the search dropdown
+- Make page switch widgets insensitive for single-page documents
+- Fix search dropdown stuck after view mode switch
+- Fix back keybinding not working when going back from collections
+- Fix mouse back button not working
+- Fix searchbar appearing when fullscreen in edit mode
+
 3.7.90 - "Romario"
 ==================
 
