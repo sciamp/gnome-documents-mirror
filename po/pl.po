@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-17 17:52+0100\n"
-"PO-Revision-Date: 2013-02-17 17:53+0100\n"
+"POT-Creation-Date: 2013-03-04 22:48+0100\n"
+"PO-Revision-Date: 2013-03-04 22:49+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -23,8 +23,8 @@ msgstr ""
 "X-Poedit-Language: Polish\n"
 "X-Poedit-Country: Poland\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -69,72 +69,76 @@ msgstr "Maksymalizacja okna"
 msgid "Window maximized state"
 msgstr "Stan maksymalizacji okna"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Lokalne"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Wprowadzenie do menedżera dokumentów"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "Arkusz kalkulacyjny"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentacja"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "Kolekcja"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "SkyDrive"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:939
 msgid "Please check the network connection."
 msgstr "Proszę sprawdzić połączenie sieciowe."
 
-#: ../src/documents.js:929
+#: ../src/documents.js:942
 msgid "Please check the network proxy settings."
 msgstr "Proszę sprawdzić ustawienia pośrednika sieciowego."
 
-#: ../src/documents.js:932
+#: ../src/documents.js:945
 msgid "Unable to sign in to the document service."
 msgstr "Nie można zalogować się w usłudze dokumentów."
 
-#: ../src/documents.js:935
+#: ../src/documents.js:948
 msgid "Unable to locate this document."
 msgstr "Nie można ustalić położenia tego dokumentu."
 
-#: ../src/documents.js:938
+#: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Coś nie gra (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Nie można wczytać dokumentu \"%s\""
 
-#: ../src/edit.js:189 ../src/mainToolbar.js:209
-msgid "Back"
-msgstr "Wstecz"
-
-#: ../src/edit.js:196
+#: ../src/edit.js:191
 msgid "View"
 msgstr "Wyświetl"
 
@@ -194,28 +198,24 @@ msgstr "Brak spisu treści"
 msgid "Contents"
 msgstr "Spis treści"
 
-#: ../src/mainToolbar.js:63
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Znajdź"
 
-#: ../src/mainToolbar.js:148
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "Wstecz"
+
+#: ../src/mainToolbar.js:153
 #, c-format
 msgid "Results for “%s”"
 msgstr "Wyniki dla \"%s\""
 
-#: ../src/mainToolbar.js:150
-msgid "filtered by title"
-msgstr "filtrowane według tytułu"
-
-#: ../src/mainToolbar.js:152
-msgid "filtered by author"
-msgstr "filtrowane według autora"
-
-#: ../src/mainToolbar.js:159
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "Kliknięcie na elementach zaznacza je"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -224,21 +224,21 @@ msgstr[1] "Zaznaczono: %d"
 msgstr[2] "Zaznaczono: %d"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:191 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Gotowe"
 
-#: ../src/mainToolbar.js:231
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "Zaznacz elementy"
 
-#: ../src/mainWindow.js:228
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2011-2013\n"
 "Aviary.pl <gnomepl@aviary.pl>, 2011-2013"
 
-#: ../src/mainWindow.js:230
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "Program do zarządzania dokumentami"
 
@@ -385,7 +385,7 @@ msgid "Category"
 msgstr "Kategoria"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "Wszystko"
 
@@ -423,7 +423,7 @@ msgstr "Dokumenty tekstowe"
 msgid "Match"
 msgstr "Dopasowanie"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "Źródła"
 
