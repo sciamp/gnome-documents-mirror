@@ -9,9 +9,11 @@ SUBDIRS += getting-started
 dist-hook-getting-started:
 else
 dist-hook-getting-started:
-	@echo "*** gtk-doc must be installed and enabled in order to make dist"
+	@echo "*** --enable-getting-started must be specified in order to make dist"
 	@false
 endif
+
+DISTCHECK_CONFIGURE_FLAGS = --enable-getting-started
 
 EXTRA_DIST = \
     autogen.sh \
