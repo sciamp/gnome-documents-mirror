@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-09 20:07+0000\n"
-"PO-Revision-Date: 2013-01-12 13:18+0100\n"
+"POT-Creation-Date: 2013-02-24 00:02+0000\n"
+"PO-Revision-Date: 2013-02-24 22:35+0100\n"
 "Last-Translator: Adam Matoušek <adamatousek@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:219
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -84,7 +84,7 @@ msgstr "Google"
 msgid "Spreadsheet"
 msgstr "Sešit s tabulkami"
 
-#: ../src/documents.js:710 ../src/documents.js:809
+#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentace"
 
@@ -101,30 +101,56 @@ msgstr "Dokument"
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
 #: ../src/documents.js:926
-#, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "Nelze načíst „%s“ pro náhled"
+msgid "Please check the network connection."
+msgstr "Zkontrolujte prosím síťové připojení."
 
-#: ../src/embed.js:72 ../src/lib/gd-places-links.c:264 ../src/view.js:70
+#: ../src/documents.js:929
+msgid "Please check the network proxy settings."
+msgstr "Zkontrolujte prosím nastavení síťové proxy."
+
+#: ../src/documents.js:932
+msgid "Unable to sign in to the document service."
+msgstr "Nelze se přihlásit k dokumentové službě."
+
+#: ../src/documents.js:935
+msgid "Unable to locate this document."
+msgstr "Nelze nalézt tento dokument."
+
+#: ../src/documents.js:938
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, něco je špatně (%d)."
+
+#. Translators: %s is the title of a document
+#: ../src/documents.js:951
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Jejda! Nelze načíst „%s“"
+
+#: ../src/edit.js:191
+msgid "View"
+msgstr "Zobrazit"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Načítá se…"
 
-#: ../src/embed.js:222
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Nenalezen žádný dokument"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:245
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Své účty on-line můžete přidat v %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:249
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Nastaveních systému"
 
@@ -141,36 +167,45 @@ msgstr "Nelze načíst dokument"
 msgid "LibreOffice is required to view this document"
 msgstr "K prohlížení tohoto dokumentu je vyžadován LibreOffice"
 
-#: ../src/lib/gd-places-links.c:347
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "Strana %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "Žádné záložky"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "Záložky"
+
+#: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "Bez obsahu"
 
-#: ../src/lib/gd-places-links.c:410
+#: ../src/lib/gd-places-links.c:518
 msgid "Contents"
 msgstr "Obsah"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Hledat"
 
-#: ../src/mainToolbar.js:158
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "Zpět"
+
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "Výsledky pro „%s“"
 
-#: ../src/mainToolbar.js:160
-msgid "filtered by title"
-msgstr "filtrováno podle názvu"
-
-#: ../src/mainToolbar.js:162
-msgid "filtered by author"
-msgstr "filtrováno podle autora"
-
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "Klikáním na položky je vyberete"
 
-#: ../src/mainToolbar.js:171
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -178,31 +213,28 @@ msgstr[0] "%d vybrán"
 msgstr[1] "%d vybrány"
 msgstr[2] "%d vybráno"
 
-#: ../src/mainToolbar.js:201 ../src/properties.js:59
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Hotovo"
 
-#: ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "Zpět"
-
-#: ../src/mainToolbar.js:241
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "Vybrat položky"
 
-#: ../src/mainWindow.js:218
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "Marek Černocký <marek@manet.cz>\n"
 "Adam Matoušek <adamatousek@gmail.com>"
 
-#: ../src/mainWindow.js:220
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "Aplikace pro správu dokumentů"
 
-#: ../src/notifications.js:88
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "Tiskne se „%s“: %s"
 
 #: ../src/notifications.js:143
@@ -213,17 +245,26 @@ msgstr "Váš dokument je indexován"
 msgid "Some documents might not be available during this process"
 msgstr "Některé dokumenty nemusí být během tohoto procesu dostupné"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "Získávají se dokumenty z %s"
 
-#: ../src/notifications.js:162
+#: ../src/notifications.js:166
 msgid "Fetching documents from online accounts"
 msgstr "Získávají se dokumenty z účtů on-line"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:7
-#: ../src/selections.js:791
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "Probíhá režim prezentace"
+
+# Nadpis okna s výběrem
+#: ../src/presentation.js:158
+msgid "Present On"
+msgstr "Prezentovat na…"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "Vlastnosti"
 
@@ -231,28 +272,28 @@ msgstr "Vlastnosti"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/search.js:257
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "Název"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/search.js:260
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:92
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "Zdroj"
 
 #. Date Modified item
-#: ../src/properties.js:98
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "Datum změny"
 
-#: ../src/properties.js:105
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "Datum vytvoření"
 
@@ -261,7 +302,7 @@ msgstr "Datum vytvoření"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/search.js:166
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "Typ"
 
@@ -295,22 +336,30 @@ msgid "Open"
 msgstr "Otevřít"
 
 #: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "Upravit"
+
+#: ../src/resources/preview-menu.ui.h:3
 msgid "Print…"
 msgstr "Tisk…"
 
-#: ../src/resources/preview-menu.ui.h:3
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Present"
+msgstr "Prezentovat"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "Přiblížit"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "Oddálit"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
 msgstr "Otočit ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:8
 msgid "Rotate ↷"
 msgstr "Otočit ↷"
 
@@ -369,23 +418,99 @@ msgstr "Shoda"
 msgid "Sources"
 msgstr "Zdroje"
 
-#: ../src/selections.js:614 ../src/selections.js:783
+#: ../src/selections.js:613 ../src/selections.js:771
 msgid "Organize"
 msgstr "Organizovat"
 
-#: ../src/selections.js:760
+#: ../src/selections.js:748
 msgid "Print"
 msgstr "Tisk"
 
-#: ../src/selections.js:767
+#: ../src/selections.js:755
 msgid "Delete"
 msgstr "Smazat"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "Sdílet"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/selections.js:872
 #, c-format
 msgid "Open with %s"
 msgstr "Otevřít pomocí %s"
+
+#: ../src/sharing.js:89
+msgid "Sharing Settings"
+msgstr "Nastavení sdílení"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+msgid "Document permissions"
+msgstr "Oprávnění k dokumentu"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "Změnit"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "Soukromý"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "Veřejný"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "Kdokoli může měnit"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "Přidat osoby"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "Zadejte e-mailovou adresu"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "Může měnit"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "Může zobrazit"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "Přidat"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "Kdokoli může číst"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "Uložit"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "Vlastník"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "%s vám může udělit přistup"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "Dokument nebyl aktualizován"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
