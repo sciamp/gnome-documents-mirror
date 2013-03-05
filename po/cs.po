@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the gnome-documents package.
 #
 # Adam Matoušek <adydas95@gmail.com>, 2012, 2013.
-# Marek Černocký <marek@manet.cz>, 2011, 2012.
+# Marek Černocký <marek@manet.cz>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-24 00:02+0000\n"
+"POT-Creation-Date: 2013-03-05 13:39+0000\n"
 "PO-Revision-Date: 2013-02-24 22:35+0100\n"
 "Last-Translator: Adam Matoušek <adamatousek@gmail.com>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenty"
@@ -67,63 +67,71 @@ msgstr "Maximalizace okna"
 msgid "Window maximized state"
 msgstr "Stav maximalizace okna."
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Místní"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Začínáme s Dokumenty"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "Sešit s tabulkami"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentace"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "Sbírka"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:939
 msgid "Please check the network connection."
 msgstr "Zkontrolujte prosím síťové připojení."
 
-#: ../src/documents.js:929
+#: ../src/documents.js:942
 msgid "Please check the network proxy settings."
 msgstr "Zkontrolujte prosím nastavení síťové proxy."
 
-#: ../src/documents.js:932
+#: ../src/documents.js:945
 msgid "Unable to sign in to the document service."
 msgstr "Nelze se přihlásit k dokumentové službě."
 
-#: ../src/documents.js:935
+#: ../src/documents.js:948
 msgid "Unable to locate this document."
 msgstr "Nelze nalézt tento dokument."
 
-#: ../src/documents.js:938
+#: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, něco je špatně (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Jejda! Nelze načíst „%s“"
@@ -376,7 +384,7 @@ msgid "Category"
 msgstr "Kategorie"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "Vše"
 
@@ -414,7 +422,7 @@ msgstr "Textové dokumenty"
 msgid "Match"
 msgstr "Shoda"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "Zdroje"
 
