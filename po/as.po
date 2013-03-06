@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-01-24 16:59+0000\n"
-"PO-Revision-Date: 2013-01-25 15:08+0530\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-06 19:13+0530\n"
 "Last-Translator: Nilamdyuti Goswami <ngoswami@redhat.com>\n"
 "Language-Team: Assamese <kde-i18n-doc@kde.org>\n"
 "Language: as_IN\n"
@@ -20,8 +20,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:55 ../src/mainWindow.js:230
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "দস্তাবেজসমূহ"
 
@@ -66,73 +66,100 @@ msgstr "উইন্ডো সৰ্বাধিক আকাৰ"
 msgid "Window maximized state"
 msgstr "উইন্ডো সৰ্বাধিক অৱস্থা"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "স্থানীয়"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "দস্তাবেজসমূহৰ সৈতে আৰম্ভ কৰা"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Google দস্তাবেজসমূহ"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "স্প্ৰেডশ্বিট"
 
-#: ../src/documents.js:710 ../src/documents.js:809
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "পৰিৱেশন"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "সংগ্ৰহ"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "দস্তাবেজ"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:926
+#: ../src/documents.js:939
+msgid "Please check the network connection."
+msgstr "অনুগ্ৰহ কৰি নেটৱাৰ্ক সংযোগ নীৰিক্ষণ কৰক।"
+
+#: ../src/documents.js:942
+msgid "Please check the network proxy settings."
+msgstr "অনুগ্ৰহ কৰি নেটৱাৰ্ক প্ৰক্সি সংহতিসমূহ নীৰিক্ষণ কৰক।"
+
+#: ../src/documents.js:945
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "দস্তাবেজ সেৱালে ছাইন ইন কৰিবলে অক্ষম।"
+
+#: ../src/documents.js:948
+#| msgid "Unable to load the document"
+msgid "Unable to locate this document."
+msgstr "এই দস্তাবেজ অৱস্থিত কৰিবলে অক্ষম।"
+
+#: ../src/documents.js:951
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr " \"%s\" ক পূৰ্বদৰ্শনৰ বাবে ল'ড কৰিবলে অক্ষম"
+msgid "Hmm, something is fishy (%d)."
+msgstr "উমম, কিবা ঠিক যেন লগা নাই (%d)।"
 
-#: ../src/edit.js:192 ../src/mainToolbar.js:219
-msgid "Back"
-msgstr "পিছলৈ"
+#. Translators: %s is the title of a document
+#: ../src/documents.js:964
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "ইচ্চ! “%s” ল'ড কৰিবলে অক্ষম"
 
-#: ../src/edit.js:199
-#| msgid "View as"
+#: ../src/edit.js:191
 msgid "View"
 msgstr "দৰ্শন"
 
-#: ../src/embed.js:74 ../src/lib/gd-places-links.c:248 ../src/view.js:70
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "ল'ড কৰা হৈছে…"
 
-#: ../src/embed.js:224
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "কোনো দস্তাবেজ পোৱা নগল"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:247
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "আপুনি আপোনাৰ অনলাইন একাওন্টসমূহ %s ত যোগ কৰিব পাৰিব"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:251
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "চিস্টেম সংহতিসমূহ"
 
@@ -149,36 +176,47 @@ msgstr "দস্তাবেজ ল'ড কৰিবলে অক্ষম"
 msgid "LibreOffice is required to view this document"
 msgstr "এই দস্তাবেজ দৰ্শন কৰিবলে LibreOffice ৰ প্ৰয়োজন"
 
-#: ../src/lib/gd-places-links.c:334
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+#| msgid "Page %u of %u"
+msgid "Page %s"
+msgstr "পৃষ্ঠা %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "কোনো পত্ৰচিহ্ন নাই"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "পত্ৰচিহ্নসমূহ"
+
+#: ../src/lib/gd-places-links.c:342
 msgid "No table of contents"
 msgstr "কোনো সমলসমূহৰ টেবুল নাই"
 
-#: ../src/lib/gd-places-links.c:397
+#: ../src/lib/gd-places-links.c:518
 msgid "Contents"
 msgstr "সমলসমূহ"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "সন্ধান কৰক"
 
-#: ../src/mainToolbar.js:158
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "পিছলৈ"
+
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
-msgstr "\"%s\" ৰ বাবে ফলাফলসমূহ"
+#| msgid "Results for \"%s\""
+msgid "Results for “%s”"
+msgstr "“%s” ৰ বাবে ফলাফলসমূহ"
 
-#: ../src/mainToolbar.js:160
-msgid "filtered by title"
-msgstr "শীৰ্ষক দ্বাৰা পৰিস্ৰাৱিত"
-
-#: ../src/mainToolbar.js:162
-msgid "filtered by author"
-msgstr "লেখক দ্বাৰা পৰিস্ৰাৱিত"
-
-#: ../src/mainToolbar.js:169
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "বস্তুবোৰ নিৰ্বাচন কৰিবলে সিহতত ক্লিক কৰক"
 
-#: ../src/mainToolbar.js:171
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -186,26 +224,27 @@ msgstr[0] "%d নিৰ্বাচন কৰা হৈছে"
 msgstr[1] "%d নিৰ্বাচন কৰা হৈছে"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:201 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "কৰা হল"
 
-#: ../src/mainToolbar.js:241
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "বস্তুবোৰ বাছক"
 
-#: ../src/mainWindow.js:229
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr "নীলমদ্যুতি গোস্বামী (ngoswami@redhat.com)"
 
-#: ../src/mainWindow.js:231
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "এটা দস্তাবেজ ব্যৱস্থাপক এপ্লিকেচন"
 
-#: ../src/notifications.js:88
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
-msgstr "\"%s\" প্ৰিন্ট কৰা হৈছে: %s"
+#| msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
+msgstr "“%s” প্ৰিন্ট কৰা হৈছে: %s"
 
 #: ../src/notifications.js:143
 msgid "Your documents are being indexed"
@@ -215,17 +254,26 @@ msgstr "আপোনাৰ দস্তাবেজসমূহ সূচীত 
 msgid "Some documents might not be available during this process"
 msgstr "এই প্ৰক্ৰিয়াৰ সময়ত কিছুমান দস্তাবেজ উপলব্ধ নাথাকিব পাৰে"
 
-#: ../src/notifications.js:160
+#: ../src/notifications.js:164
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "%s ৰ পৰা দস্তাবেজসমূহ প্ৰাপ্ত কৰা হৈছে"
 
-#: ../src/notifications.js:162
+#: ../src/notifications.js:166
 msgid "Fetching documents from online accounts"
 msgstr "অনলাইন একাওন্টসমূহৰ পৰা দস্তাবেজসমূহ প্ৰাপ্ত কৰা হৈছে"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:8
-#: ../src/selections.js:792
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "উপস্থাপন অৱস্থাত চলি আছে"
+
+#: ../src/presentation.js:158
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "পৰিৱেশন চলি আছে"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "বৈশিষ্টসমূহ"
 
@@ -233,28 +281,28 @@ msgstr "বৈশিষ্টসমূহ"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:76 ../src/search.js:257
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "শীৰ্ষক"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:85 ../src/search.js:260
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "লেখক"
 
 #. Source item
-#: ../src/properties.js:92
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "উৎস"
 
 #. Date Modified item
-#: ../src/properties.js:98
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "পৰিবৰ্তনৰ তাৰিখ"
 
-#: ../src/properties.js:105
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "সৃষ্টি কৰাৰ তাৰিখ"
 
@@ -263,7 +311,7 @@ msgstr "সৃষ্টি কৰাৰ তাৰিখ"
 #. (PDF, spreadsheet, ...) in the properties dialog
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
-#: ../src/properties.js:114 ../src/search.js:166
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "ধৰণ"
 
@@ -292,7 +340,7 @@ msgid "Quit"
 msgstr "প্ৰস্থান কৰক"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:888
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
 msgid "Open"
 msgstr "খোলক"
 
@@ -305,18 +353,23 @@ msgid "Print…"
 msgstr "প্ৰিন্ট কৰক..."
 
 #: ../src/resources/preview-menu.ui.h:4
+#| msgid "Presentation"
+msgid "Present"
+msgstr "পৰিৱেশন"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "ডাঙৰ কৰি দেখুৱাওক"
 
-#: ../src/resources/preview-menu.ui.h:5
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "সৰু কৰি দেখুৱাওক"
 
-#: ../src/resources/preview-menu.ui.h:6
+#: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
 msgstr "ঘুৰাওক ↶"
 
-#: ../src/resources/preview-menu.ui.h:7
+#: ../src/resources/preview-menu.ui.h:8
 msgid "Rotate ↷"
 msgstr "ঘুৰাওক ↷"
 
@@ -333,7 +386,7 @@ msgid "Category"
 msgstr "বিভাগ"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "সকলো"
 
@@ -371,28 +424,28 @@ msgstr "লিখনী দস্তাবেজসমূহ"
 msgid "Match"
 msgstr "মিল"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "উৎসসমূহ"
 
-#: ../src/selections.js:615 ../src/selections.js:784
+#: ../src/selections.js:613 ../src/selections.js:771
 msgid "Organize"
 msgstr "সংঘঠিত কৰক"
 
-#: ../src/selections.js:761
+#: ../src/selections.js:748
 msgid "Print"
 msgstr "প্ৰিন্ট কৰক"
 
-#: ../src/selections.js:768
+#: ../src/selections.js:755
 msgid "Delete"
 msgstr "মচি পেলাওক"
 
-#: ../src/selections.js:799
+#: ../src/selections.js:786
 msgid "Share"
 msgstr "অংশীদাৰী কৰক"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:885
+#: ../src/selections.js:872
 #, c-format
 msgid "Open with %s"
 msgstr "%s ৰ সৈতে খোলক"
@@ -520,6 +573,15 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d বছৰ আগত"
 msgstr[1] "%d বছৰ আগত"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr " \"%s\" ক পূৰ্বদৰ্শনৰ বাবে ল'ড কৰিবলে অক্ষম"
+
+#~ msgid "filtered by title"
+#~ msgstr "শীৰ্ষক দ্বাৰা পৰিস্ৰাৱিত"
+
+#~ msgid "filtered by author"
+#~ msgstr "লেখক দ্বাৰা পৰিস্ৰাৱিত"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr ""
