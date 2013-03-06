@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-20 01:27+0000\n"
-"PO-Revision-Date: 2013-02-22 01:55+0000\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-06 17:45+0530\n"
 "Last-Translator: A S Alam <aalam@users.sf.net>\n"
 "Language-Team: Punjabi/Panjabi <punjabi-users@lists.sf.net>\n"
 "Language: pa\n"
@@ -19,8 +19,8 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "ਡੌਕੂਮੈਂਟ"
 
@@ -65,72 +65,76 @@ msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਕਰਨੀ"
 msgid "Window maximized state"
 msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਆਕਾਰ ਸਥਿਤੀ"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "ਲੋਕਲ"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "ਗਨੋਮ"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "ਡੌਕੂਮੈਂਟ ਨਾਲ ਸ਼ੁਰੂਆਤ"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "ਗੂਗਲ ਡੌਕਸ"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "ਗੂਗਲ"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "ਸਪਰੈਡਸ਼ੀਟ"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "ਪਰਿਜ਼ੈੱਨਟੇਸ਼ਨ"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "ਭੰਡਾਰ"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "ਡੌਕੂਮੈਂਟ"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "ਸਕਾਈਡਰਾਇਵ"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:939
 msgid "Please check the network connection."
 msgstr "ਨੈੱਟਵਰਕ ਕੁਨੈਕਸ਼ਨ ਚੈਕ ਕਰੋ ਜੀ।"
 
-#: ../src/documents.js:929
+#: ../src/documents.js:942
 msgid "Please check the network proxy settings."
 msgstr "ਨੈੱਟਵਰਕ ਪਰਾਕਸੀ ਸੈਟਿੰਗ ਜਾਂਚੋ।"
 
-#: ../src/documents.js:932
+#: ../src/documents.js:945
 msgid "Unable to sign in to the document service."
 msgstr "ਡੌਕੂਮੈਂਟ ਸਰਵਿਸ ਵਿੱਚ ਸਾਇਨ ਇਨ ਕਰਨ ਲਈ ਅਸਮਰੱਥ ਹੈ।"
 
-#: ../src/documents.js:935
+#: ../src/documents.js:948
 msgid "Unable to locate this document."
 msgstr "ਡੌਕੂਮੈਂਟ ਲੱਭਣ ਲਈ ਅਸਮਰੱਥ ਹੈ।"
 
-#: ../src/documents.js:938
+#: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "ਹੂੰ,  ਕੁਝ ਗੜਬੜ ਲੱਗਦਾ ਹੈ (%d)"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "ਓਹ! “%s” ਲੋਡ ਕਰਨ ਲਈ ਅਸਮਰੱਥ"
 
-#: ../src/edit.js:189 ../src/mainToolbar.js:200
-msgid "Back"
-msgstr "ਪਿੱਛੇ"
-
-#: ../src/edit.js:196
+#: ../src/edit.js:191
 msgid "View"
 msgstr "ਵੇਖੋ"
 
@@ -194,16 +198,20 @@ msgstr "ਸਮੱਗਰੀ"
 msgid "Search"
 msgstr "ਖੋਜ"
 
-#: ../src/mainToolbar.js:142
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "ਪਿੱਛੇ"
+
+#: ../src/mainToolbar.js:153
 #, c-format
 msgid "Results for “%s”"
 msgstr "“%s” ਲਈ ਨਤੀਜੇ"
 
-#: ../src/mainToolbar.js:150
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "ਆਈਟਮਾਂ ਨੂੰ ਚੁਣਨ ਲਈ ਉਹਨਾਂ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ"
 
-#: ../src/mainToolbar.js:152
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -211,22 +219,22 @@ msgstr[0] "%d ਚੁਣਿਆ"
 msgstr[1] "%d ਚੁਣੇ"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:181 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "ਮੁਕੰਮਲ"
 
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "ਆਈਟਮਾਂ ਚੁਣੋ"
 
-#: ../src/mainWindow.js:228
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
 "ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST) ੨੦੧੧-੨੦੧੨\n"
 "http://www.satuj.org"
 
-#: ../src/mainWindow.js:230
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "ਡੌਕੂਮੈਂਟ ਮੈਨੇਜਰ ਐਪਲੀਕੇਸ਼ਨ"
 
@@ -257,7 +265,6 @@ msgid "Running in presentation mode"
 msgstr "ਪਰਿਜ਼ੈਂਟੇਸ਼ਨ ਮੋਡ ਵਿੱਚ ਚੱਲ ਰਿਹਾ ਹੈ"
 
 #: ../src/presentation.js:158
-#| msgid "Presentation"
 msgid "Present On"
 msgstr "ਪਰਿਜੈਂਟ ਚਾਲੂ"
 
@@ -342,7 +349,6 @@ msgid "Print…"
 msgstr "…ਪਰਿੰਟ ਕਰੋ"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "ਪਰਿਜੈਂਟ"
 
@@ -375,7 +381,7 @@ msgid "Category"
 msgstr "ਕੈਟਾਗਰੀ"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "ਸਭ"
 
@@ -413,7 +419,7 @@ msgstr "ਟੈਕਸਟ ਡੌਕੂਮੈਂਟ"
 msgid "Match"
 msgstr "ਮਿਲਦਾ"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "ਸਰੋਤ"
 
