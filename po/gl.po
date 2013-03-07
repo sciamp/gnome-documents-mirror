@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-20 10:52+0100\n"
-"PO-Revision-Date: 2013-02-20 10:53+0200\n"
+"POT-Creation-Date: 2013-03-07 12:03+0100\n"
+"PO-Revision-Date: 2013-03-07 12:04+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -22,8 +22,8 @@ msgstr ""
 "X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Documentos"
 
@@ -68,72 +68,76 @@ msgstr "Xanela maximizada"
 msgid "Window maximized state"
 msgstr "Estado de xanela maximizada"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Locais"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Comezar con Documentos"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "Folla de cálculo"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Presentación"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "Colección"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:939
 msgid "Please check the network connection."
 msgstr "Comprobe a conexión á rede."
 
-#: ../src/documents.js:929
+#: ../src/documents.js:942
 msgid "Please check the network proxy settings."
 msgstr "Comprobe as preferencias do proxy da rede."
 
-#: ../src/documents.js:932
+#: ../src/documents.js:945
 msgid "Unable to sign in to the document service."
 msgstr "Non foi posíbel iniciar sesión no servizo de documentos."
 
-#: ../src/documents.js:935
+#: ../src/documents.js:948
 msgid "Unable to locate this document."
 msgstr "Non foi posíbel atopar este documento."
 
-#: ../src/documents.js:938
+#: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, algo cheira mal (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Oops! Non foi posíbel cargar «%s»"
 
-#: ../src/edit.js:189 ../src/mainToolbar.js:200
-msgid "Back"
-msgstr "Atrás"
-
-#: ../src/edit.js:196
+#: ../src/edit.js:191
 msgid "View"
 msgstr "Ver"
 
@@ -197,16 +201,20 @@ msgstr "Contidos"
 msgid "Search"
 msgstr "Buscar"
 
-#: ../src/mainToolbar.js:142
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "Atrás"
+
+#: ../src/mainToolbar.js:153
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultados para «%s»"
 
-#: ../src/mainToolbar.js:150
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "Prema nos elementos para seleccionalos"
 
-#: ../src/mainToolbar.js:152
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -214,15 +222,15 @@ msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:181 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Feito"
 
-#: ../src/mainToolbar.js:224
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "Seleccionar elementos"
 
-#: ../src/mainWindow.js:228
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "Leandro Regueiro <leandro.regueiro@gmail.com>, 2012.\n"
@@ -231,7 +239,7 @@ msgstr ""
 "Proxecto Trasno - Adaptación do software libre á lingua galega:  Se desexas\n"
 "colaborar connosco, podes atopar máis información en http://www.trasno.net"
 
-#: ../src/mainWindow.js:230
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "Un aplicativo para xestionar documentos"
 
@@ -378,7 +386,7 @@ msgid "Category"
 msgstr "Categoría"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "Todos"
 
@@ -416,7 +424,7 @@ msgstr "Documentos de texto"
 msgid "Match"
 msgstr "Coincidir"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "Fontes"
 
