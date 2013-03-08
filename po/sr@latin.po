@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-02-16 22:57+0000\n"
-"PO-Revision-Date: 2013-02-19 11:10+0200\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-08 20:33+0200\n"
 "Last-Translator: Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
@@ -19,8 +19,8 @@ msgstr ""
 "n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:229
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -65,72 +65,76 @@ msgstr "Uvećan prozor"
 msgid "Window maximized state"
 msgstr "Stanje uvećanja prozora"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Na računaru"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "Gnom"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Započnite rad sa Dokumentima"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Dokumenti Gugla"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Gugl"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "Tablica"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentacija"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "Zbirka"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skajdrajv"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:939
 msgid "Please check the network connection."
 msgstr "Molim proverite mrežnu vezu."
 
-#: ../src/documents.js:929
+#: ../src/documents.js:942
 msgid "Please check the network proxy settings."
 msgstr "Molim proverite podešavanja mrežnog posrednika."
 
-#: ../src/documents.js:932
+#: ../src/documents.js:945
 msgid "Unable to sign in to the document service."
 msgstr "Ne mogu da se prijavim na uslugu dokumenata."
 
-#: ../src/documents.js:935
+#: ../src/documents.js:948
 msgid "Unable to locate this document."
 msgstr "Ne mogu da pronađem ovaj dokument."
 
-#: ../src/documents.js:938
+#: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, nešto ovde nije kako treba (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Ne mogu da učitam „%s“"
 
-#: ../src/edit.js:189 ../src/mainToolbar.js:212
-msgid "Back"
-msgstr "Nazad"
-
-#: ../src/edit.js:196
+#: ../src/edit.js:191
 msgid "View"
 msgstr "Pregled"
 
@@ -190,28 +194,24 @@ msgstr "Nema tabele sadržaja"
 msgid "Contents"
 msgstr "Sadržaj"
 
-#: ../src/mainToolbar.js:66
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Potraži"
 
-#: ../src/mainToolbar.js:151
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "Nazad"
+
+#: ../src/mainToolbar.js:153
 #, c-format
 msgid "Results for “%s”"
 msgstr "Rezultati za „%s“"
 
-#: ../src/mainToolbar.js:153
-msgid "filtered by title"
-msgstr "izdvojeni prema naslovu"
-
-#: ../src/mainToolbar.js:155
-msgid "filtered by author"
-msgstr "izdvojeni prema autoru"
-
-#: ../src/mainToolbar.js:162
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "Kliknite na stavke da ih izaberete"
 
-#: ../src/mainToolbar.js:164
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -221,22 +221,22 @@ msgstr[2] "%d izabranih"
 msgstr[3] "Jedan izabran"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:194 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Obavljeno"
 
-#: ../src/mainToolbar.js:234
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "Izaberite stavke"
 
-#: ../src/mainWindow.js:228
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "  Miroslav Nikolić <miroslavnikolic@rocketmail.com>\n"
 "\n"
 "http://prevod.org — prevod na srpski jezik"
 
-#: ../src/mainWindow.js:230
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "Program za upravljanje dokumentima"
 
@@ -267,7 +267,6 @@ msgid "Running in presentation mode"
 msgstr "Pokretanje u režimu prezentacije"
 
 #: ../src/presentation.js:158
-#| msgid "Presentation"
 msgid "Present On"
 msgstr "Prezentacija"
 
@@ -352,7 +351,6 @@ msgid "Print…"
 msgstr "Štampaj…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "Predstavi"
 
@@ -385,7 +383,7 @@ msgid "Category"
 msgstr "Kategorija"
 
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "Sve"
 
@@ -423,7 +421,7 @@ msgstr "Dokumenti teksta"
 msgid "Match"
 msgstr "Poklopi"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "Izvori"
 
