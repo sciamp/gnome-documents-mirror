@@ -1,15 +1,15 @@
 # Estonian translation for gnome-documents.
 # Copyright (C) 2012 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Mattias Põldaru <mahfiaz@gmail.com>, 2012.
+# Mattias Põldaru <mahfiaz@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-12-19 15:29+0000\n"
-"PO-Revision-Date: 2012-12-19 17:38+0300\n"
+"POT-Creation-Date: 2013-03-12 18:17+0000\n"
+"PO-Revision-Date: 2013-03-12 22:29+0300\n"
 "Last-Translator: Mattias Põldaru <mahfiaz@gmail.com>\n"
 "Language-Team: Estonian <>\n"
 "Language: et\n"
@@ -54,6 +54,12 @@ msgstr "Akna maksimeeritud olek"
 msgid "Local"
 msgstr "Kohalik"
 
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "Getting Started with Documents"
+msgstr "GNOME dokumentide kasutamise õppimine"
+
 #. overridden
 msgid "Google Docs"
 msgstr "Google Docs"
@@ -77,10 +83,29 @@ msgstr "Dokument"
 msgid "Skydrive"
 msgstr "Skydrive"
 
+msgid "Please check the network connection."
+msgstr "Palun kontrolli võrguühendust."
+
+msgid "Please check the network proxy settings."
+msgstr "Palun kontrolli võrgu proksi sätteid."
+
+msgid "Unable to sign in to the document service."
+msgstr "Dokumenditeenusesse ei saanud sisse logida."
+
+msgid "Unable to locate this document."
+msgstr "Dokumenti ei leitud."
+
+#, c-format
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, miski on jama (%d)."
+
 #. Translators: %s is the title of a document
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "\"%s\" pole võimalik eelvaateks laadida"
+msgid "Oops! Unable to load “%s”"
+msgstr "Ups! “%s” pole võimalik laadida"
+
+msgid "View"
+msgstr "Vaade"
 
 msgid "Loading…"
 msgstr "Laadimine…"
@@ -99,24 +124,41 @@ msgstr "Sa võid lisada oma veebikontod %s alt"
 msgid "System Settings"
 msgstr "süsteemi sätete"
 
+#, c-format
+msgid "Page %u of %u"
+msgstr "Lehekülg %u / %u"
+
 msgid "Unable to load the document"
 msgstr "Dokumenti pole võimalik laadida"
 
 msgid "LibreOffice is required to view this document"
 msgstr "Selle dokumendi kuvamiseks on vajalik LibreOffice"
 
+#, c-format
+msgid "Page %s"
+msgstr "Lehekülg %s"
+
+msgid "No bookmarks"
+msgstr "Järjehoidjaid pole"
+
+msgid "Bookmarks"
+msgstr "Järjehoidjad"
+
+msgid "No table of contents"
+msgstr "Sisukorda pole"
+
+msgid "Contents"
+msgstr "Sisukord"
+
 msgid "Search"
 msgstr "Otsi"
 
+msgid "Back"
+msgstr "Tagasi"
+
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "\"%s\" otsingu tulemused"
-
-msgid "filtered by title"
-msgstr "pealkirja järgi filtreeritud"
-
-msgid "filtered by author"
-msgstr "autori järgi filtreeritud"
 
 msgid "Click on items to select them"
 msgstr "Kirjete märkimiseks klõpsa neil"
@@ -127,11 +169,9 @@ msgid_plural "%d selected"
 msgstr[0] "%d on valitud"
 msgstr[1] "%d on valitud"
 
+#. Label for Done button in Sharing dialog
 msgid "Done"
 msgstr "Valmis"
-
-msgid "Back"
-msgstr "Tagasi"
 
 msgid "Select Items"
 msgstr "Kirjete valimine"
@@ -143,8 +183,8 @@ msgid "A document manager application"
 msgstr "Dokumendihalduse rakendus"
 
 #, c-format
-msgid "Printing \"%s\": %s"
-msgstr "\"%s\" printimine: %s"
+msgid "Printing “%s”: %s"
+msgstr "“%s” printimine: %s"
 
 msgid "Your documents are being indexed"
 msgstr "Su dokumendid on indekseerimisel"
@@ -158,6 +198,12 @@ msgstr "Dokumentide hankimine serverist %s"
 
 msgid "Fetching documents from online accounts"
 msgstr "Dokumentide hankimine veebikontodest"
+
+msgid "Running in presentation mode"
+msgstr "Töötamine esitlusrežiimis"
+
+msgid "Present On"
+msgstr "Esitlus sees"
 
 msgid "Properties"
 msgstr "Omadused"
@@ -216,8 +262,14 @@ msgstr "Lõpeta"
 msgid "Open"
 msgstr "Ava"
 
+msgid "Edit"
+msgstr "Muuda"
+
 msgid "Print…"
 msgstr "Printimine…"
+
+msgid "Present"
+msgstr "Esitlus"
 
 msgid "Zoom In"
 msgstr "Suurenda"
@@ -281,10 +333,68 @@ msgstr "Prindi"
 msgid "Delete"
 msgstr "Kustuta"
 
+msgid "Share"
+msgstr "Jaga"
+
 #. Translators: this is the Open action in a context menu
 #, c-format
 msgid "Open with %s"
 msgstr "Ava programmiga %s"
+
+msgid "Sharing Settings"
+msgstr "Jagamise valikud"
+
+#. Label for widget group for changing document permissions
+msgid "Document permissions"
+msgstr "Dokumendi õigused"
+
+#. Label for permission change in Sharing dialog
+msgid "Change"
+msgstr "Muuda"
+
+#. Label for radiobutton that sets doc permission to private
+msgid "Private"
+msgstr "Privaatne"
+
+msgid "Public"
+msgstr "Avalik"
+
+#. Label for checkbutton that sets doc permission to Can edit
+msgid "Everyone can edit"
+msgstr "Kõik võivad muuta"
+
+#. Label for widget group used for adding new contacts
+msgid "Add people"
+msgstr "Lisa inimesi"
+
+#. Editable text in entry field
+msgid "Enter an email address"
+msgstr "Sisesta e-posti aadress"
+
+msgid "Can edit"
+msgstr "Võib muuta"
+
+msgid "Can view"
+msgstr "Võib vaadata"
+
+msgid "Add"
+msgstr "Lisa"
+
+msgid "Everyone can read"
+msgstr "Kõik võivad vaadata"
+
+msgid "Save"
+msgstr "Salvesta"
+
+msgid "Owner"
+msgstr "Omanik"
+
+#, c-format
+msgid "You can ask %s for access"
+msgstr "Sa võid küsida kasutajalt %s ligipääsu luba"
+
+msgid "The document was not updated"
+msgstr "Dokumenti ei uuendatud"
 
 msgid "Untitled Document"
 msgstr "Pealkirjata dokument"
@@ -327,6 +437,15 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d aasta tagasi"
 msgstr[1] "%d aastat tagasi"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "\"%s\" pole võimalik eelvaateks laadida"
+
+#~ msgid "filtered by title"
+#~ msgstr "pealkirja järgi filtreeritud"
+
+#~ msgid "filtered by author"
+#~ msgstr "autori järgi filtreeritud"
 
 #~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
 #~ msgstr ""
