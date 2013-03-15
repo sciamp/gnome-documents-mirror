@@ -5,15 +5,16 @@
 # Wylmer Wang <wantinghard@gmail.com>, 2011.
 # EL8LatSPQ <el8latspq@hotmail.com>, 2012.
 # tuhaihe <1132321739qq@gmail.com>, 2012.
-# YunQiang Su <wzssyqa@gmail.com>, 2011, 2012.
+# lainme <lainme993@gmail.com>, 2013
+# YunQiang Su <wzssyqa@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-15 10:46+0000\n"
-"PO-Revision-Date: 2012-09-23 04:21+0800\n"
+"POT-Creation-Date: 2013-03-04 22:46+0000\n"
+"PO-Revision-Date: 2013-03-16 03:09+0800\n"
 "Last-Translator: YunQiang Su <wzssyqa@gmail.com>\n"
 "Language-Team: Chinese (simplified) <i18n-zh@googlegroups.com>\n"
 "Language: zh_CN\n"
@@ -23,8 +24,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "文档"
 
@@ -69,297 +70,255 @@ msgstr "窗口已最大化"
 msgid "Window maximized state"
 msgstr "窗口最大化状态"
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "本地"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "开始使用“文档”"
+
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "谷歌文档"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "谷歌"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "电子表格"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "演示文档"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "合集"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "文档"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:939
+msgid "Please check the network connection."
+msgstr "请检查网络连接。"
+
+#: ../src/documents.js:942
+msgid "Please check the network proxy settings."
+msgstr "请检查网络的代理设置。"
+
+#: ../src/documents.js:945
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "无法登入文档服务。"
+
+#: ../src/documents.js:948
+msgid "Unable to locate this document."
+msgstr "无法定位文档。"
+
+#: ../src/documents.js:951
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "无法加载“%s”进行预览"
+msgid "Hmm, something is fishy (%d)."
+msgstr "有些东西不太对劲(%d)。"
 
-#: ../src/embed.js:74
-msgid "Loading..."
-msgstr "正在加载..."
+#. Translators: %s is the title of a document
+#: ../src/documents.js:964
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "糟糕！无法载入“%s”"
 
-#: ../src/embed.js:220
+#: ../src/edit.js:191
+msgid "View"
+msgstr "查看"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+msgid "Loading…"
+msgstr "正在加载…"
+
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "未发现文档"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:166
 #, c-format
-#| msgid "You can add your online accounts in"
 msgid "You can add your online accounts in %s"
 msgstr "您可以在 %s 中添加您的在线帐号"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "系统设置"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, fuzzy, c-format
+msgid "Page %u of %u"
+msgstr "%2$u 的第 %1$u 页"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "无法加载文档"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "无法找到“unoconv”，请检查你的 LibreOffice 安装"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "需要 LibreOffice 以阅读此文档"
 
-#: ../src/mainToolbar.js:73
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "第 %s 页"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "没有书签"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "书签"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "没有目录"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "目录"
+
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "搜索"
 
-#: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "新建及最近文档"
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "返回"
 
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "“%s”的结果"
 
-#: ../src/mainToolbar.js:167
-msgid "filtered by title"
-msgstr "按标题过滤"
-
-#: ../src/mainToolbar.js:169
-msgid "filtered by author"
-msgstr "按作者过滤"
-
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "点击项目来选择它们"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已选 %d 项"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "完成"
 
-#: ../src/mainToolbar.js:226
-msgid "Back"
-msgstr "返回"
-
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "选择项目"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "甘 露 <rhythm.gan@gmail.com>, 2011\n"
-"YunQiang Su <wzssyqa@gmail.com>, 2011\n"
+"YunQiang Su <wzssyqa@gmail.com>, 2011， 2013\n"
 "Wylmer Wang <wantinghard@gmail.com>, 2011\n"
 "EL8LatSPQ <el8latspq@hotmail.com>, 2012\n"
 "tuhaihe <1132321739qq@gmail.com>, 2012"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "一个文档管理程序"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "正在打印“%s”：%s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "您的文档正被索引"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "在该过程中部分文档可能不可用"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/notifications.js:164
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "从 %s 获取文档"
+
+#: ../src/notifications.js:166
+msgid "Fetching documents from online accounts"
+msgstr "从在线账户获取文档"
+
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "正在演示模式下运行"
+
+#: ../src/presentation.js:158
+#, fuzzy
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "演示文档"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "属性"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "标题"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "作者"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "源"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "修改日期"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "创建日期"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "类型"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "类别"
-
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "全部"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "收藏"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "分享给您的"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "合集"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "PDF 文档"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "演示文档"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "电子表格"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "文本文档"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "匹配"
-
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "打印"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "删除"
-
-#: ../src/selections.js:784
-msgid "Organize"
-msgstr "组织"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
-#, c-format
-msgid "Open with %s"
-msgstr "使用 %s 打开"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "打开"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "无标题文档"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "源"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "再加载 %d 份文档"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "昨天"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 天前"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "上周"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d 周前"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "上个月"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d 个月前"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "去年"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d 年前"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -385,25 +344,39 @@ msgstr "帮助"
 msgid "Quit"
 msgstr "退出"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "打开"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
-msgstr "打印..."
+msgid "Edit"
+msgstr "编辑"
 
 #: ../src/resources/preview-menu.ui.h:3
+msgid "Print…"
+msgstr "打印…"
+
+#: ../src/resources/preview-menu.ui.h:4
+#| msgid "Presentation"
+msgid "Present"
+msgstr "演示"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "放大"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "缩小"
 
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "向左旋转"
+#: ../src/resources/preview-menu.ui.h:7
+msgid "Rotate ↶"
+msgstr "旋转 ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "向右旋转"
+#: ../src/resources/preview-menu.ui.h:8
+msgid "Rotate ↷"
+msgstr "旋转 ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -412,6 +385,221 @@ msgstr "全选"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "不选"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "类别"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:410
+msgid "All"
+msgstr "全部"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "收藏"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "分享给您的"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "合集"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "PDF 文档"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "演示文档"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "电子表格"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "文本文档"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "匹配"
+
+#: ../src/search.js:406
+msgid "Sources"
+msgstr "源"
+
+#: ../src/selections.js:613 ../src/selections.js:771
+msgid "Organize"
+msgstr "组织"
+
+#: ../src/selections.js:748
+msgid "Print"
+msgstr "打印"
+
+#: ../src/selections.js:755
+msgid "Delete"
+msgstr "删除"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "分享"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "使用 %s 打开"
+
+#: ../src/sharing.js:89
+msgid "Sharing Settings"
+msgstr "分享设置"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+msgid "Document permissions"
+msgstr "文档权限"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "更改"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "私有"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "公开"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "任何人都可以编辑"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+#, fuzzy
+msgid "Add people"
+msgstr "添加联系人"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "输入一个电子邮件地址"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "可以编辑"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "可以查看"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "添加"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "任何人都可以阅读"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "保存"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "所有者"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "您可以向 %s 请求访问权限"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "文档没有被更新"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "无标题文档"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "载入更多"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "昨天"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 天前"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "上周"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d 周前"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "上个月"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d 个月前"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "去年"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d 年前"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "无法加载“%s”进行预览"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr "无法找到“unoconv”，请检查你的 LibreOffice 安装"
+
+#~ msgid "New and Recent"
+#~ msgstr "新建及最近文档"
+
+#~ msgid "filtered by title"
+#~ msgstr "按标题过滤"
+
+#~ msgid "filtered by author"
+#~ msgstr "按作者过滤"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "再加载 %d 份文档"
+
+#~ msgid "Print..."
+#~ msgstr "打印..."
+
+#~ msgid "Rotate Right"
+#~ msgstr "向右旋转"
 
 #~ msgid "The active source filter"
 #~ msgstr "活动的源过滤器"
