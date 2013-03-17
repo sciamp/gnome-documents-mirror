@@ -1,13 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012.
+# Rūdofls Mazurs <rudolfs.mazurs@gmail.com>, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-09-23 21:49+0300\n"
-"PO-Revision-Date: 2012-09-23 22:02+0300\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-17 12:30+0200\n"
 "Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
 "Language: lv\n"
@@ -18,8 +19,8 @@ msgstr ""
 "2);\n"
 "X-Generator: Lokalize 1.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -64,101 +65,158 @@ msgstr "Logs maksimizēts"
 msgid "Window maximized state"
 msgstr "Loga stāvoklis — maksimizēts"
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Lokāls"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Darba sākšana ar Dokumentiem"
+
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "Izklājlapa"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentācija"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "Kolekcija"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "Dokuments"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:939
+msgid "Please check the network connection."
+msgstr "Lūdzu, pārbaudiet tīkla savienojumu."
+
+#: ../src/documents.js:942
+msgid "Please check the network proxy settings."
+msgstr "Lūdzu, pārbaudiet tīkla starpnieka iestatījumus."
+
+#: ../src/documents.js:945
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "Nevar ierakstīties dokumentu servisā."
+
+#: ../src/documents.js:948
+#| msgid "Unable to load the document"
+msgid "Unable to locate this document."
+msgstr "Neizdevās atrast šo dokumentu."
+
+#: ../src/documents.js:951
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "Neizdevās ielādēt “%s” priekšskatīšanai"
+msgid "Hmm, something is fishy (%d)."
+msgstr "Hmm, kaut kas nav tā (%d)."
 
-#: ../src/embed.js:74
-msgid "Loading..."
-msgstr "Ielādē..."
+#. Translators: %s is the title of a document
+#: ../src/documents.js:964
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "Ak vai! Neizdevās ielādēt “%s”"
 
-#: ../src/embed.js:220
+#: ../src/edit.js:191
+#| msgid "View as"
+msgid "View"
+msgstr "Skats"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#| msgid "Loading..."
+msgid "Loading…"
+msgstr "Ielādē…"
+
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Nav atrastu dokumentu"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Savus tiešsaistes kontus var pievienot %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Sistēmas iestatījumos"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Lappuse %u no %u"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "Neizdevās ielādēt dokumentu"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "Nevar atrast “unoconv”; lūdzu, pārbaudiet savu LibreOffice instalāciju"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "Ir vajadzīgs LibreOffice, lai skatītu šo dokumentu"
 
-#: ../src/mainToolbar.js:73
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "Lappuse %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "Nav grāmatzīmju"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "Grāmatzīmes"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "Nav satura rādītāja"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "Saturs"
+
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "Meklēt"
 
-#: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "Jaunie un nesenie"
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "Atpakaļ"
 
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
+#| msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "“%s” rezultāti"
 
-#: ../src/mainToolbar.js:167
-msgid "filtered by title"
-msgstr "atlasīti pēc nosaukuma"
-
-#: ../src/mainToolbar.js:169
-msgid "filtered by author"
-msgstr "atlasīti pēc autora"
-
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "Spiediet uz vienumiem, lai tos izvēlētos"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -166,203 +224,99 @@ msgstr[0] "%d izvēlēts"
 msgstr[1] "%d izvēlēti"
 msgstr[2] "%d izvēlētu"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "Gatavs"
 
-#: ../src/mainToolbar.js:226
-msgid "Back"
-msgstr "Atpakaļ"
-
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "Izvēlēties vienumus"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
 "Anita Reitere <nitalynx@gmail.com>"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "Dokumentu pārvaldības lietotne"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+#| msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "Drukā “%s” — %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "Dokumenti tiek indeksēti"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "Šajā laikā daži dokumenti varētu nebūt pieejami"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/notifications.js:164
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Saņem dokumentus no %s"
+
+#: ../src/notifications.js:166
+msgid "Fetching documents from online accounts"
+msgstr "Saņem dokumentus no tiešsaistes kontiem"
+
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "Darbojas prezentācijas režīmā"
+
+#: ../src/presentation.js:158
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "Parādīt"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "Īpašības"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "Nosaukums"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "Autors"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "Avots"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "Izmaiņu datums"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "Izveidošanas datums"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "Tips"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "Kategorija"
-
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "Visi"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "Izlase"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "Ar jums koplietots"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "Kolekcijas"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "PDF dokumenti"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "Prezentācijas"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "Izklājlapas"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "Teksta dokumenti"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "Atbilst"
-
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "Drukāt"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "Dzēst"
-
-#: ../src/selections.js:784
-msgid "Organize"
-msgstr "Organizēt"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
-#, c-format
-msgid "Open with %s"
-msgstr "Atvērt ar %s"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "Atvērt"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "Nenosaukts dokuments"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "Avoti"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "Ielādēt vēl %d dokumentu"
-msgstr[1] "Ielādēt vēl %d dokumentus"
-msgstr[2] "Ielādēt vēl %d dokumentu"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "Vakar"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "Pirms %d dienas"
-msgstr[1] "Pirms %d dienām"
-msgstr[2] "Pirms %d dienām"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "Pagājušajā nedēļā"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "Pirms %d nedēļas"
-msgstr[1] "Pirms %d nedēļām"
-msgstr[2] "Pirms %d nedēļām"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "Pagājušajā mēnesī"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "Pirms %d mēneša"
-msgstr[1] "Pirms %d mēnešiem"
-msgstr[2] "Pirms %d mēnešiem"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "Pagājušajā gadā"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "Pirms %d gada"
-msgstr[1] "Pirms %d gadiem"
-msgstr[2] "Pirms %d gadiem"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -388,25 +342,42 @@ msgstr "Palīdzība"
 msgid "Quit"
 msgstr "Iziet"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "Atvērt"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
-msgstr "Drukāt..."
+msgid "Edit"
+msgstr "Rediģēt"
 
 #: ../src/resources/preview-menu.ui.h:3
+#| msgid "Print"
+msgid "Print…"
+msgstr "Drukāt…"
+
+#: ../src/resources/preview-menu.ui.h:4
+#| msgid "Presentation"
+msgid "Present"
+msgstr "Parādīt"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "Tuvināt"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "Tālināt"
 
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "Pagriezt pa kreisi"
+#: ../src/resources/preview-menu.ui.h:7
+#| msgid "Rotate Left"
+msgid "Rotate ↶"
+msgstr "Pagriezt ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "Pagriezt pa labi"
+#: ../src/resources/preview-menu.ui.h:8
+#| msgid "Rotate Left"
+msgid "Rotate ↷"
+msgstr "Pagriezt ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -415,6 +386,233 @@ msgstr "Izvēlēties visus"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Neizvēlēties nevienu"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "Kategorija"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:410
+msgid "All"
+msgstr "Visi"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "Izlase"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "Ar jums koplietots"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "Kolekcijas"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "PDF dokumenti"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "Prezentācijas"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "Izklājlapas"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "Teksta dokumenti"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "Atbilst"
+
+#: ../src/search.js:406
+msgid "Sources"
+msgstr "Avoti"
+
+#: ../src/selections.js:613 ../src/selections.js:771
+msgid "Organize"
+msgstr "Organizēt"
+
+#: ../src/selections.js:748
+msgid "Print"
+msgstr "Drukāt"
+
+#: ../src/selections.js:755
+msgid "Delete"
+msgstr "Dzēst"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "Koplietot"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "Atvērt ar %s"
+
+#: ../src/sharing.js:89
+#| msgid "System Settings"
+msgid "Sharing Settings"
+msgstr "Koplietošanas iestatījumi"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+#| msgid "Documents"
+msgid "Document permissions"
+msgstr "Dokumenta atļaujas"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "Mainīt"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "Privāts"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "Publisks"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "Jebkurš var rediģēt"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "Pievienot cilvēkus"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "Ievadiet e-pasta adresi"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "Var rediģēt"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "Var skatīt"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "Pievienot"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "Jebkurš var lasīt"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "Saglabāt"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "Īpašnieks"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "Jūs varat prasīt %s piekļuvei"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "Dokuments netika augšupielādēts"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "Nenosaukts dokuments"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "Ielādēt vairāk"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "Vakar"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "Pirms %d dienas"
+msgstr[1] "Pirms %d dienām"
+msgstr[2] "Pirms %d dienām"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "Pagājušajā nedēļā"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "Pirms %d nedēļas"
+msgstr[1] "Pirms %d nedēļām"
+msgstr[2] "Pirms %d nedēļām"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "Pagājušajā mēnesī"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "Pirms %d mēneša"
+msgstr[1] "Pirms %d mēnešiem"
+msgstr[2] "Pirms %d mēnešiem"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "Pagājušajā gadā"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "Pirms %d gada"
+msgstr[1] "Pirms %d gadiem"
+msgstr[2] "Pirms %d gadiem"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "Neizdevās ielādēt “%s” priekšskatīšanai"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr ""
+#~ "Nevar atrast “unoconv”; lūdzu, pārbaudiet savu LibreOffice instalāciju"
+
+#~ msgid "New and Recent"
+#~ msgstr "Jaunie un nesenie"
+
+#~ msgid "filtered by title"
+#~ msgstr "atlasīti pēc nosaukuma"
+
+#~ msgid "filtered by author"
+#~ msgstr "atlasīti pēc autora"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "Ielādēt vēl %d dokumentu"
+#~ msgstr[1] "Ielādēt vēl %d dokumentus"
+#~ msgstr[2] "Ielādēt vēl %d dokumentu"
+
+#~ msgid "Print..."
+#~ msgstr "Drukāt..."
+
+#~ msgid "Rotate Right"
+#~ msgstr "Pagriezt pa labi"
 
 #~ msgid "The active source filter"
 #~ msgstr "Aktīvais avotu filtrs"
@@ -441,6 +639,3 @@ msgstr "Neizvēlēties nevienu"
 
 #~ msgid "Enable list view"
 #~ msgstr "Aktivēt saraksta skatu"
-
-#~ msgid "Private"
-#~ msgstr "Privāts"
