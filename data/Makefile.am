@@ -9,6 +9,9 @@ searchprovider_DATA = gnome-documents-search-provider.ini
 
 @INTLTOOL_DESKTOP_RULE@
 
+check-local: gnome-documents.desktop
+	$(DESKTOP_FILE_VALIDATE) gnome-documents.desktop
+
 servicedir = $(datadir)/dbus-1/services
 service_DATA = $(service_in_files:.service.in=.service)
 
