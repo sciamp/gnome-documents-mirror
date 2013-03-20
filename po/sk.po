@@ -1,16 +1,16 @@
 # Slovak translation for gnome-documents.
-# Copyright (C) 2011-2012 Free Software Foundation, Inc.
+# Copyright (C) 2011-2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-documents package.
 # Stanislav Petrek <stanislav.petrek@gmail.com>, 2011.
-# Dušan Kazik <prescott66@gmail.com>, 2012.
+# Dušan Kazik <prescott66@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:13+0000\n"
-"PO-Revision-Date: 2013-02-03 16:43+0000\n"
+"POT-Creation-Date: 2013-03-19 22:22+0000\n"
+"PO-Revision-Date: 2013-03-20 10:35+0000\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -79,22 +79,21 @@ msgstr "Maximalizované okno"
 msgid "Window maximized state"
 msgstr "Maximalizovaný stav okna"
 
-# PM: vzťahuje sa na dokument; v kóde je zle zapísaný komentár pre prekladateľov - nahlás bug
+# https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #: ../src/documents.js:590 ../src/search.js:416
-#, fuzzy
 msgid "Local"
-msgstr "Lokálny"
+msgstr "Lokálne"
 
 # PM:dosť dobre nechápem prečo je toto určené na preklad - prosím opýtaj sa vývojárov
+# https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #: ../src/documents.js:608
 #, fuzzy
 msgid "GNOME"
 msgstr "GNOME"
 
-# PM: vyzeráto ako názov príručky, nechápem čo to robí tu
 #: ../src/documents.js:609
 msgid "Getting Started with Documents"
-msgstr ""
+msgstr "Začíname s aplikáciou Dokumenty"
 
 # PM: toto je preklad služby na stránkach Google
 #. overridden
@@ -137,31 +136,28 @@ msgid "Please check the network proxy settings."
 msgstr "Skontrolujte prosím nastavenia sieťového sprostredkovateľa (proxy)."
 
 #: ../src/documents.js:945
-#, fuzzy
-#| msgid "Unable to load the document"
 msgid "Unable to sign in to the document service."
-msgstr "Nepodarilo sa načítať dokument"
+msgstr "Nepodarilo sa prihlásiť k službe dokumentov."
 
+# PK: dal by som najst
 #: ../src/documents.js:948
 #, fuzzy
-#| msgid "Unable to load the document"
 msgid "Unable to locate this document."
-msgstr "Nepodarilo sa načítať dokument"
+msgstr "Nepodarilo sa lokalizovať tento dokument."
 
 #: ../src/documents.js:951
 #, c-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Zdá sa, že niekde nastal problém (%d)."
 
 #. Translators: %s is the title of a document
 #: ../src/documents.js:964
 #, c-format
 msgid "Oops! Unable to load “%s”"
-msgstr ""
+msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
 
 # button
 #: ../src/edit.js:191
-#| msgid "View as"
 msgid "View"
 msgstr "Zobraziť"
 
@@ -174,13 +170,12 @@ msgstr "Načítava sa…"
 msgid "No Documents Found"
 msgstr "Neboli nájdené žiadne dokumenty"
 
-# PM: nebude lepšie zmeniť slovosled: Vaše... môžete pridať v... ?
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
 #: ../src/embed.js:166
-#, fuzzy, c-format
+#, c-format
 msgid "You can add your online accounts in %s"
-msgstr "Môžete pridať vaše online účty v %s"
+msgstr "Vaše online účty môžete pridať v %s"
 
 # gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
 #. Translators: this should be translated in the context of the
@@ -202,29 +197,27 @@ msgstr "Nepodarilo sa načítať dokument"
 msgid "LibreOffice is required to view this document"
 msgstr "Na zobrazenie tohoto dokumentu je potrebná aplikácia LibreOffice"
 
-# PM: čo sa môže zobraziť ako %s? bolo by dobré aby vývojári uviedli príklad
-# %s je label
+# DK: %s je cislo strany.predosly preklad bol strana c. 1 z 2, napr.
+# PK: preco potom nie č. %s?
+# https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #: ../src/lib/gd-places-bookmarks.c:309
 #, fuzzy, c-format
-#| msgid "Page %u of %u"
 msgid "Page %s"
 msgstr "Strana %s"
 
 # list store item
 #: ../src/lib/gd-places-bookmarks.c:372
 msgid "No bookmarks"
-msgstr ""
+msgstr "Žiadne záložky"
 
 #: ../src/lib/gd-places-bookmarks.c:644
 msgid "Bookmarks"
 msgstr "Záložky"
 
-# PM: table of contents prekladáme len ako Obsah
 # list store item
 #: ../src/lib/gd-places-links.c:342
-#, fuzzy
 msgid "No table of contents"
-msgstr "Žiadna tabuľka s obsahom"
+msgstr "Žiadny obsah"
 
 #: ../src/lib/gd-places-links.c:518
 msgid "Contents"
@@ -242,7 +235,6 @@ msgstr "Späť"
 # DK: skusal som tuto aplikaciu a su to vysledky pre hladany vyraz
 #: ../src/mainToolbar.js:153
 #, c-format
-#| msgid "Results for \"%s\""
 msgid "Results for “%s”"
 msgstr "Výsledky pre výraz „%s“"
 
@@ -263,10 +255,8 @@ msgstr[2] "%d vybrané"
 msgid "Done"
 msgstr "Hotovo"
 
-# DK: ide o tooltip nad tlacidlom
-# PM: ja vidím v kóde ... label: _("Select Items") });
+# DK: je to tooltip.prelozene na 100% spravne-overene
 #: ../src/mainToolbar.js:233
-#, fuzzy
 msgid "Select Items"
 msgstr "Umožní výber položiek"
 
@@ -280,7 +270,6 @@ msgstr "Aplikácia na správu dokumentov"
 
 #: ../src/notifications.js:87
 #, c-format
-#| msgid "Printing \"%s\": %s"
 msgid "Printing “%s”: %s"
 msgstr "Tlačí sa „%s“: %s"
 
@@ -292,7 +281,7 @@ msgstr "Vaše dokumenty sa práve indexujú"
 msgid "Some documents might not be available during this process"
 msgstr "Niektoré dokumenty nemusia byť počas tohto procesu dostupné"
 
-# PM: bolo by užitočné vedieť čo vlastne je %s 
+# DK:https://bugzilla.gnome.org/show_bug.cgi?id=695555
 #: ../src/notifications.js:164
 #, fuzzy, c-format
 msgid "Fetching documents from %s"
@@ -305,12 +294,10 @@ msgstr "Získavajú sa dokumenty z online účtov"
 # správa pre potlačenie
 #: ../src/presentation.js:105
 msgid "Running in presentation mode"
-msgstr "Beží v režime prezentácie"
+msgstr "Spustené v režime prezentácie"
 
 # GtkDialog title
 #: ../src/presentation.js:158
-#, fuzzy
-#| msgid "Presentation"
 msgid "Present On"
 msgstr "Prezentácia"
 
@@ -400,7 +387,6 @@ msgid "Print…"
 msgstr "Tlačiť…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "Prezentovať"
 
@@ -432,10 +418,9 @@ msgstr "Zrušiť výber"
 msgid "Category"
 msgstr "Kategória"
 
-# PM: v kóde je zle zapísaný komentár pre prekladateľov - nahlás bug
+# https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
 #: ../src/search.js:410
-#, fuzzy
 msgid "All"
 msgstr "Všetky"
 
@@ -443,11 +428,9 @@ msgstr "Všetky"
 msgid "Favorites"
 msgstr "Obľúbené"
 
-# PM: zdieľané je nespisovné slovo 
 #: ../src/search.js:128
-#, fuzzy
 msgid "Shared with you"
-msgstr "Zdieľané s vami"
+msgstr "V spoločnom používaní s vami"
 
 #: ../src/search.js:171
 msgid "Collections"
@@ -480,31 +463,27 @@ msgid "Sources"
 msgstr "Zdroje"
 
 # PM: treba rozdeliť prekladáme to iným štýlom - nahlás bug; a čo to robí? nebude lepšie usporiada?
+# DK: https://bugzilla.gnome.org/show_bug.cgi?id=695554
 # GtkDialog title; button tooltip
 #: ../src/selections.js:613 ../src/selections.js:771
 #, fuzzy
 msgid "Organize"
 msgstr "Organizovať"
 
-# PM: tooltipy treba preložiť popisne - viackrát
 # button tooltip
 #: ../src/selections.js:748
-#, fuzzy
 msgid "Print"
-msgstr "Tlačiť"
+msgstr "Uskutoční tlač"
 
 # button tooltip
 #: ../src/selections.js:755
-#, fuzzy
 msgid "Delete"
-msgstr "Odstrániť"
+msgstr "Uskutoční odstránenie"
 
-# PM: nespisovné
 # button tooltip
 #: ../src/selections.js:786
-#, fuzzy
 msgid "Share"
-msgstr "Zdieľať"
+msgstr "Podeliť sa"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/selections.js:872
@@ -512,19 +491,14 @@ msgstr "Zdieľať"
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
 
-# PM: tu by sa dalo použiť "spoločného používania"
-# gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
 #: ../src/sharing.js:89
-#, fuzzy
 msgid "Sharing Settings"
-msgstr "Nastaveniach zdieľania"
+msgstr "Nastaveniach spoločného používania"
 
-# PM: asi "k dokumentu"
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:126
-#, fuzzy
 msgid "Document permissions"
-msgstr "Oprávnenia dokumentu"
+msgstr "Oprávnenia k dokumentu"
 
 # button label
 #. Label for permission change in Sharing dialog
@@ -548,12 +522,10 @@ msgstr "Verejný"
 msgid "Everyone can edit"
 msgstr "Upravovať môže ktokoľvek"
 
-# PM: nebude lepšie pridajte?
 #. Label for widget group used for adding new contacts
 #: ../src/sharing.js:178
-#, fuzzy
 msgid "Add people"
-msgstr "Pridať ľudí"
+msgstr "Pridajte ľudí"
 
 #. Editable text in entry field
 #: ../src/sharing.js:185
