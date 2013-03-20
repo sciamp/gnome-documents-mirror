@@ -605,6 +605,9 @@ const LocalDocument = new Lang.Class({
 
         let file = Gio.File.new_for_uri(this.uri);
         if (file.has_parent(Application.application.gettingStartedLocation)) {
+            // Translators: Documents ships a "Getting Started with Documents"
+            // tutorial PDF. The "GNOME" string below is displayed as the author name
+            // of that document, and doesn't normally need to be translated.
             this.author = _("GNOME");
             this.name = this.title = _("Getting Started with Documents");
         }

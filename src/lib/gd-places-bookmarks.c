@@ -306,6 +306,9 @@ load_bookmark_model (GdPlacesBookmarks *self,
                 }
 
                 if (markup == NULL) {
+                        /* Translators: %s is the number of the page, already formatted
+                         * as a string, for example "Page 5".
+                         */
                         markup = g_strdup_printf (_("Page %s"), label);
                 }
 

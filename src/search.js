@@ -112,19 +112,19 @@ const SearchCategoryManager = new Lang.Class({
         this.parent(_("Category"), context);
 
         let category, recent;
-        // Translators: this refers to new and recent documents
         recent = new SearchCategory({ id: SearchCategoryStock.ALL,
+        // Translators: this refers to new and recent documents
                                       name: _("All"),
                                       icon: '' });
         this.addItem(recent);
 
-        // Translators: this refers to favorite documents
         category = new SearchCategory({ id: SearchCategoryStock.FAVORITES,
+        // Translators: this refers to favorite documents
                                         name: _("Favorites"),
                                         icon: 'emblem-favorite-symbolic' });
         this.addItem(category);
-        // Translators: this refers to shared documents
         category = new SearchCategory({ id: SearchCategoryStock.SHARED,
+        // Translators: this refers to shared documents
                                         name: _("Shared with you"),
                                         icon: 'emblem-shared-symbolic' });
         this.addItem(category);
@@ -405,14 +405,14 @@ const SourceManager = new Lang.Class({
     _init: function(context) {
         this.parent(_("Sources"), context);
 
-        // Translators: this refers to documents
         let source = new Source({ id: SourceStock.ALL,
+        // Translators: this refers to documents
                                   name: _("All"),
                                   builtin: true });
         this.addItem(source);
 
-        // Translators: this refers to local documents
         source = new Source({ id: SourceStock.LOCAL,
+        // Translators: this refers to local documents
                               name: _("Local"),
                               builtin: true });
         this.addItem(source);
