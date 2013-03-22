@@ -1,15 +1,15 @@
 # Persian translation for gnome-documents.
 # Copyright (C) 2011 gnome-documents's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-documents package.
-# Arash Mousavi <mousavi.arash@gmail.com>, 2011, 2012.
+# Arash Mousavi <mousavi.arash@gmail.com>, 2011, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-26 16:18+0000\n"
-"PO-Revision-Date: 2012-10-17 11:27+0330\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-22 11:48+0330\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian\n"
 "Language: fa_IR\n"
@@ -18,9 +18,10 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "سندها"
 
@@ -65,297 +66,255 @@ msgstr "پنجره بیشینه شد"
 msgid "Window maximized state"
 msgstr "وضعیت بیشینه شده‌ی پنجره"
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "محلی"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "گنوم"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "شروع کردن با سندها"
+
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "اسناد گوگل"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "گوگل"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "صفحه‌گسترده"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "ارائه"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "مجموعه"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "سند"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "اسکای‌درایو"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:939
+msgid "Please check the network connection."
+msgstr "لطفا اتصال شبکه را بررسی کنید."
+
+#: ../src/documents.js:942
+msgid "Please check the network proxy settings."
+msgstr "لطفا تنظیمات پیشکار شبکه را بررسی کنید."
+
+#: ../src/documents.js:945
+#| msgid "Unable to load the document"
+msgid "Unable to sign in to the document service."
+msgstr "نمی‌توان وارد سرویس سند شد."
+
+#: ../src/documents.js:948
+#| msgid "Unable to load the document"
+msgid "Unable to locate this document."
+msgstr "نمی‌توان مکان سند را پیدا کرد."
+
+#: ../src/documents.js:951
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "نمی‌توان «%s» را برای پیش‌نمایش بارگیری کرد"
+msgid "Hmm, something is fishy (%d)."
+msgstr "هممم، یک چیزی مشکوک است (%Id)."
 
-#: ../src/embed.js:73
-msgid "Loading..."
-msgstr "در حال بارگیری..."
+#. Translators: %s is the title of a document
+#: ../src/documents.js:964
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "اوه! نمی‌توان «%s» را بارگیری کرد"
 
-#: ../src/embed.js:223
+#: ../src/edit.js:191
+#| msgid "View as"
+msgid "View"
+msgstr "نما"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#| msgid "Loading..."
+msgid "Loading…"
+msgstr "درحال بارگیری..."
+
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "سندی پیدا نشد"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:246
+#: ../src/embed.js:166
 #, c-format
-#| msgid "You can add your online accounts in"
 msgid "You can add your online accounts in %s"
 msgstr "شما می‌توانید حساب‌های برخط خود را  در %s اضافه کنید"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:250
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "تنظیمات سیستم"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "صفحه %Iu از %Iu"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "نمی‌توان سند را بارگیری کرد"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "نمی‌توان «unoconv» را پیدا کرد، لطفا صحت نصب لیبره‌آفیس را بررسی کنید"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "برای نمایش این سند به LibreOffice احتیاج است"
 
-#: ../src/mainToolbar.js:73
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "صفحه %s"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "بدون نشانک"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "نشانک‌ها"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "بدون فهرست محتوا"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "محتوا"
+
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "جست‌وجو"
 
-#: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "جدید و اخیر"
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "برگشت"
 
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
+#| msgid "Results for \"%s\""
+msgid "Results for “%s”"
 msgstr "نتایج برای «%s»"
 
-#: ../src/mainToolbar.js:167
-msgid "filtered by title"
-msgstr "براساس عنوان فیلتر شد"
-
-#: ../src/mainToolbar.js:169
-msgid "filtered by author"
-msgstr "براساس نویسنده فیلتر شد"
-
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "برای انتخاب موارد روی آنها کلیک کنید"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%Id انتخاب شد"
 msgstr[1] "%Id انتخاب شد"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:59
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "انجام شد"
 
-#: ../src/mainToolbar.js:226
-msgid "Back"
-msgstr "برگشت"
-
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "انتخاب موارد"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr "آرش موسوی <mousavi.arash@gmail.com>"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "یک برنامه مدیریت سندها"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
+#| msgid "Printing \"%s\": %s"
+msgid "Printing “%s”: %s"
 msgstr "درحال چاپ «%s»: %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "سندهای شما درحال فهرست شدن هستند"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "تعدادی از سندها ممکن است در حین انجام این پروسه موجود نباشند"
 
-#: ../src/properties.js:57 ../src/selections.js:793
+#: ../src/notifications.js:164
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "گرفتن سند از %s"
+
+#: ../src/notifications.js:166
+msgid "Fetching documents from online accounts"
+msgstr "دریافت سندها از طریق حساب‌های برخط"
+
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "اجرا در حالت ارائه"
+
+#: ../src/presentation.js:158
+#| msgid "Presentation"
+msgid "Present On"
+msgstr "ارائه بر روی"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "ترجیحات"
 
 #. Title item
-#: ../src/properties.js:74 ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "عنوان"
 
-#: ../src/properties.js:81 ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "نویسنده"
 
 #. Source item
-#: ../src/properties.js:88
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "منبع"
 
 #. Date Modified item
-#: ../src/properties.js:94
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "تاریخ تغییر"
 
-#: ../src/properties.js:101
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "تاریخ ساخت"
 
 #. Document type item
-#: ../src/properties.js:108 ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "نوع"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "دسته"
-
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "همه"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "علاقه‌مندی‌ها"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "اشتراک‌شده با شما"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "مجموعه"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "سندهای PDF"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "ارائه‌ها"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "صفحه‌گسترده‌ها"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "سندهای متنی"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "تطابق"
-
-#: ../src/selections.js:616 ../src/selections.js:785
-msgid "Organize"
-msgstr "سازماندهی"
-
-#: ../src/selections.js:762
-msgid "Print"
-msgstr "چاپ..."
-
-#: ../src/selections.js:769
-msgid "Delete"
-msgstr "حذف"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:874
-#, c-format
-msgid "Open with %s"
-msgstr "باز کردن با %s"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:877 ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "باز کردن"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "سند بی‌عنوان"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "منابع"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "بارگیری %Id سند دیگر"
-msgstr[1] "بارگیری %Id سند دیگر"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "دیروز"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%Id روز گذشته"
-msgstr[1] "%Id روز گذشته"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "هفته گذشته"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%Id هفته گذشته"
-msgstr[1] "%Id هفته گذشته"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "ماه گذشته"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%Id ماه گذشته"
-msgstr[1] "%Id ماه گذشته"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "سال گذشته"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%Id سال گذشته"
-msgstr[1] "%Id سال گذشته"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -381,25 +340,42 @@ msgstr "راهنما"
 msgid "Quit"
 msgstr "خروج"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "باز کردن"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
-msgstr "چاپ..."
+msgid "Edit"
+msgstr "ویرایش"
 
 #: ../src/resources/preview-menu.ui.h:3
+#| msgid "Print"
+msgid "Print…"
+msgstr "چاپ..."
+
+#: ../src/resources/preview-menu.ui.h:4
+#| msgid "Presentation"
+msgid "Present"
+msgstr "ارائه"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "بزرگنمایی"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "کوچکنمایی"
 
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "چرخش به چپ"
+#: ../src/resources/preview-menu.ui.h:7
+#| msgid "Rotate Left"
+msgid "Rotate ↶"
+msgstr "چرخش ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "چرخش به راست"
+#: ../src/resources/preview-menu.ui.h:8
+#| msgid "Rotate Left"
+msgid "Rotate ↷"
+msgstr "چرخش ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -408,6 +384,227 @@ msgstr "انتخاب همه"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "انتخاب هیچکدام"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "دسته"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:410
+msgid "All"
+msgstr "همه"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "علاقه‌مندی‌ها"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "اشتراک‌شده با شما"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "مجموعه"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "سندهای PDF"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "ارائه‌ها"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "صفحه‌گسترده‌ها"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "سندهای متنی"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "تطابق"
+
+#: ../src/search.js:406
+msgid "Sources"
+msgstr "منابع"
+
+#: ../src/selections.js:613 ../src/selections.js:771
+msgid "Organize"
+msgstr "سازماندهی"
+
+#: ../src/selections.js:748
+msgid "Print"
+msgstr "چاپ..."
+
+#: ../src/selections.js:755
+msgid "Delete"
+msgstr "حذف"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "اشتراک‌گذاری"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "باز کردن با %s"
+
+#: ../src/sharing.js:89
+#| msgid "System Settings"
+msgid "Sharing Settings"
+msgstr "تنظیمات اشتراک‌گذاری"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+#| msgid "Documents"
+msgid "Document permissions"
+msgstr "مجوزهای سند"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "تغییر"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "خصوصی"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "عمومی"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "همه می‌توانند ویرایش کنند"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "اضافه کردن دیگران"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "یک آدرس پست‌الکترونیکی وارد کنید"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "می‌تواند ویرایش کند"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "می‌تواند ببیند"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "اضافه کردن"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "همه می‌توانند بخوانند"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "ذخیره کردن"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "مالک"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "شما می‌توانید از %s درخواست دسترسی کنید"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "سند بروزرسانی نشد"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "سند بی‌عنوان"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "بارگیری بیشتر"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "دیروز"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%Id روز گذشته"
+msgstr[1] "%Id روز گذشته"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "هفته گذشته"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%Id هفته گذشته"
+msgstr[1] "%Id هفته گذشته"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "ماه گذشته"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%Id ماه گذشته"
+msgstr[1] "%Id ماه گذشته"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "سال گذشته"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%Id سال گذشته"
+msgstr[1] "%Id سال گذشته"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "نمی‌توان «%s» را برای پیش‌نمایش بارگیری کرد"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr "نمی‌توان «unoconv» را پیدا کرد، لطفا صحت نصب لیبره‌آفیس را بررسی کنید"
+
+#~ msgid "New and Recent"
+#~ msgstr "جدید و اخیر"
+
+#~ msgid "filtered by title"
+#~ msgstr "براساس عنوان فیلتر شد"
+
+#~ msgid "filtered by author"
+#~ msgstr "براساس نویسنده فیلتر شد"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "بارگیری %Id سند دیگر"
+#~ msgstr[1] "بارگیری %Id سند دیگر"
+
+#~ msgid "Print..."
+#~ msgstr "چاپ..."
+
+#~ msgid "Rotate Right"
+#~ msgstr "چرخش به راست"
 
 #~ msgid "The active source filter"
 #~ msgstr "فیلتر فعال منبع"
