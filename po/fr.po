@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2013-03-20 19:37+0000\n"
-"PO-Revision-Date: 2013-03-23 19:15+0100\n"
+"PO-Revision-Date: 2013-03-23 19:18+0100\n"
 "Last-Translator: Bruno Brouard <annoa.b@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "Language: fr\n"
@@ -79,11 +79,11 @@ msgstr "Local"
 #. of that document, and doesn't normally need to be translated.
 #: ../src/documents.js:611
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: ../src/documents.js:612
 msgid "Getting Started with Documents"
-msgstr ""
+msgstr "Premiers pas avec Documents"
 
 #. overridden
 #: ../src/documents.js:659
