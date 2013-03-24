@@ -3,15 +3,15 @@
 # This file is distributed under the same license as the gnome-documents package.
 # Nishio Futoshi <fut_nis@d3.dion.ne.jp>, 2011.
 # Hideki Yamane <henrich@debian.org>, 2011.
-# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012.
+# Jiro Matsuzawa <jmatsuzawa@gnome.org>, 2012, 2013.
 # Noriko Mizumoto <noriko@fedoraproject.org>, 2012.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2012-09-14 15:44+0000\n"
-"PO-Revision-Date: 2012-09-15 01:24+0900\n"
+"POT-Creation-Date: 2013-03-04 21:13+0000\n"
+"PO-Revision-Date: 2013-03-24 05:41+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -21,8 +21,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-DamnedLies-Scope: partial\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/mainWindow.js:51
-#: ../src/mainWindow.js:205
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "ドキュメント"
 
@@ -67,293 +67,249 @@ msgstr "ウィンドウ最大化"
 msgid "Window maximized state"
 msgstr "ウィンドウを最大化状態にします"
 
-#: ../src/documents.js:640 ../src/sources.js:95
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "ローカル"
 
+#: ../src/documents.js:608
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:609
+msgid "Getting Started with Documents"
+msgstr "Getting Started with Documents"
+
 #. overridden
-#: ../src/documents.js:693
+#: ../src/documents.js:656
 msgid "Google Docs"
 msgstr "Google ドキュメント"
 
-#: ../src/documents.js:694
+#: ../src/documents.js:657
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:758 ../src/documents.js:857
+#: ../src/documents.js:721 ../src/documents.js:820
 msgid "Spreadsheet"
 msgstr "スプレッドシート"
 
-#: ../src/documents.js:760 ../src/documents.js:859
+#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "プレゼンテーション"
 
-#: ../src/documents.js:762 ../src/documents.js:861
+#: ../src/documents.js:725 ../src/documents.js:824
 msgid "Collection"
 msgstr "コレクション"
 
-#: ../src/documents.js:764 ../src/documents.js:863
+#: ../src/documents.js:727 ../src/documents.js:826
 msgid "Document"
 msgstr "ドキュメント"
 
 #. overridden
-#: ../src/documents.js:791 ../src/documents.js:792
+#: ../src/documents.js:754 ../src/documents.js:755
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#. Translators: %s is the title of a document
-#: ../src/documents.js:976
+#: ../src/documents.js:939
+msgid "Please check the network connection."
+msgstr "ネットワーク接続を確認してください。"
+
+#: ../src/documents.js:942
+msgid "Please check the network proxy settings."
+msgstr "ネットワークプロキシの設定を確認してください。"
+
+#: ../src/documents.js:945
+msgid "Unable to sign in to the document service."
+msgstr "ドキュメントサービスにサインインできません。"
+
+#: ../src/documents.js:948
+msgid "Unable to locate this document."
+msgstr "ドキュメントが見つかりません。"
+
+#: ../src/documents.js:951
 #, c-format
-msgid "Unable to load \"%s\" for preview"
-msgstr "プレビュー状態で %s を開けませんでした"
+msgid "Hmm, something is fishy (%d)."
+msgstr "何か問題があります (%d)。"
 
-#: ../src/embed.js:74
-msgid "Loading..."
-msgstr "読み込み中..."
+#. Translators: %s is the title of a document
+#: ../src/documents.js:964
+#, c-format
+msgid "Oops! Unable to load “%s”"
+msgstr "“%s”を読み込めません"
 
-#: ../src/embed.js:220
+#: ../src/edit.js:191
+msgid "View"
+msgstr "表示"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+msgid "Loading…"
+msgstr "読み込み中…"
+
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "ドキュメントが見つかりません"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:243
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "%sでオンラインアカウントを追加できます"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:247
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "システム設定"
 
-#: ../src/lib/gd-pdf-loader.c:224
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "%u / %u ページ"
+
+#: ../src/lib/gd-pdf-loader.c:226
 msgid "Unable to load the document"
 msgstr "ドキュメントを読み込めませんでした"
 
-#: ../src/lib/gd-pdf-loader.c:673
-msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
-msgstr "\"unoconv\" が見つかりません。LibreOffice のインストール構成を確認してください。"
+#: ../src/lib/gd-pdf-loader.c:676
+msgid "LibreOffice is required to view this document"
+msgstr "このドキュメントを表示するには LibreOffice が必要です。"
 
-#: ../src/mainToolbar.js:73
+#: ../src/lib/gd-places-bookmarks.c:309
+#, c-format
+msgid "Page %s"
+msgstr "%s ページ"
+
+#: ../src/lib/gd-places-bookmarks.c:372
+msgid "No bookmarks"
+msgstr "ブックマークなし"
+
+#: ../src/lib/gd-places-bookmarks.c:644
+msgid "Bookmarks"
+msgstr "ブックマーク"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "目次なし"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "目次"
+
+#: ../src/mainToolbar.js:62
 msgid "Search"
 msgstr "検索"
 
-#: ../src/mainToolbar.js:158
-msgid "New and Recent"
-msgstr "新規・最近のドキュメント"
+#: ../src/mainToolbar.js:73
+msgid "Back"
+msgstr "戻る"
 
-#: ../src/mainToolbar.js:165
+#: ../src/mainToolbar.js:153
 #, c-format
-msgid "Results for \"%s\""
-msgstr "\"%s\" の検索結果"
+msgid "Results for “%s”"
+msgstr "“%s”の検索結果"
 
-#: ../src/mainToolbar.js:167
-msgid "filtered by title"
-msgstr "タイトルで絞り込み"
-
-#: ../src/mainToolbar.js:169
-msgid "filtered by author"
-msgstr "作者で絞り込み"
-
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:161
 msgid "Click on items to select them"
 msgstr "選択するアイテムをクリックします"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:163
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d 件選択"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:58
+#. Label for Done button in Sharing dialog
+#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
 msgid "Done"
 msgstr "完了"
 
-#: ../src/mainToolbar.js:226
-msgid "Back"
-msgstr "戻る"
-
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:233
 msgid "Select Items"
 msgstr "アイテムを選択"
 
-#: ../src/mainWindow.js:204
+#: ../src/mainWindow.js:273
 msgid "translator-credits"
 msgstr ""
 "松澤二郎 <jmatsuzawa@gnome.org>\n"
 "日本GNOMEユーザー会 <http://www.gnome.gr.jp/>"
 
-#: ../src/mainWindow.js:206
+#: ../src/mainWindow.js:275
 msgid "A document manager application"
 msgstr "ドキュメント管理アプリケーション"
 
-#: ../src/notifications.js:86
+#: ../src/notifications.js:87
 #, c-format
-msgid "Printing \"%s\": %s"
-msgstr "\"%s\" を印刷中: %s"
+msgid "Printing “%s”: %s"
+msgstr "“%s”を印刷中: %s"
 
-#: ../src/notifications.js:151
+#: ../src/notifications.js:143
 msgid "Your documents are being indexed"
 msgstr "ドキュメントのインデックスを作成中です"
 
-#: ../src/notifications.js:155
+#: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
 msgstr "この処理中は、ドキュメントにより利用できない場合があります。"
 
-#. Properties dialog heading
-#: ../src/properties.js:73 ../src/selections.js:792
+#: ../src/notifications.js:164
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "%s からドキュメントを取得中"
+
+#: ../src/notifications.js:166
+msgid "Fetching documents from online accounts"
+msgstr "オンラインアカウントからドキュメントを取得中"
+
+#: ../src/presentation.js:105
+msgid "Running in presentation mode"
+msgstr "プレゼンテーションモードで実行中"
+
+#: ../src/presentation.js:158
+msgid "Present On"
+msgstr "プレゼンテーション オン"
+
+#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:779
 msgid "Properties"
 msgstr "プロパティ"
 
 #. Title item
-#: ../src/properties.js:81 ../src/searchbar.js:225
+#. Translators: "Title" is the label next to the document title
+#. in the properties dialog
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/properties.js:78 ../src/search.js:257
 msgid "Title"
 msgstr "タイトル"
 
-#: ../src/properties.js:88 ../src/searchbar.js:227
+#. Translators: "Author" is the label next to the document author
+#. in the properties dialog
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/properties.js:87 ../src/search.js:260
 msgid "Author"
 msgstr "作者"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:94
 msgid "Source"
 msgstr "ソース"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:100
 msgid "Date Modified"
 msgstr "更新日時"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:107
 msgid "Date Created"
 msgstr "作成日時"
 
 #. Document type item
-#: ../src/properties.js:115 ../src/searchbar.js:135
+#. Translators: "Type" is the label next to the document type
+#. (PDF, spreadsheet, ...) in the properties dialog
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/properties.js:116 ../src/search.js:166
 msgid "Type"
 msgstr "種類"
-
-#: ../src/searchbar.js:83
-msgid "Category"
-msgstr "カテゴリー"
-
-#: ../src/searchbar.js:88 ../src/searchbar.js:138 ../src/searchbar.js:223
-#: ../src/sources.js:89
-msgid "All"
-msgstr "すべて"
-
-#: ../src/searchbar.js:94
-msgid "Favorites"
-msgstr "お気に入り"
-
-#: ../src/searchbar.js:99
-msgid "Shared with you"
-msgstr "共有ドキュメント"
-
-#: ../src/searchbar.js:140
-msgid "Collections"
-msgstr "コレクション"
-
-#: ../src/searchbar.js:144
-msgid "PDF Documents"
-msgstr "PDF ドキュメント"
-
-#: ../src/searchbar.js:148
-msgid "Presentations"
-msgstr "プレゼンテーション"
-
-#: ../src/searchbar.js:151
-msgid "Spreadsheets"
-msgstr "スプレッドシート"
-
-#: ../src/searchbar.js:154
-msgid "Text Documents"
-msgstr "テキストドキュメント"
-
-#. Translators: this is a verb that refers to "All", "Title" and "Author",
-#. as in "Match All", "Match Title" and "Match Author"
-#: ../src/searchbar.js:220
-msgid "Match"
-msgstr "一致項目"
-
-#: ../src/selections.js:761
-msgid "Print"
-msgstr "印刷"
-
-#: ../src/selections.js:768
-msgid "Delete"
-msgstr "削除する"
-
-#: ../src/selections.js:784
-msgid "Organize"
-msgstr "整理する"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:873
-#, c-format
-msgid "Open with %s"
-msgstr "%s で開く"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:876 ../src/resources/preview-menu.ui.h:1
-msgid "Open"
-msgstr "開く"
-
-#: ../src/shellSearchProvider.js:281
-msgid "Untitled Document"
-msgstr "無題のドキュメント"
-
-#: ../src/sources.js:85
-msgid "Sources"
-msgstr "ソース"
-
-#: ../src/view.js:79
-#, c-format
-msgid "Load %d more document"
-msgid_plural "Load %d more documents"
-msgstr[0] "%d 個のドキュメントをロードします"
-
-#: ../src/view.js:283
-msgid "Yesterday"
-msgstr "昨日"
-
-#: ../src/view.js:285
-#, c-format
-msgid "%d day ago"
-msgid_plural "%d days ago"
-msgstr[0] "%d 日前"
-
-#: ../src/view.js:289
-msgid "Last week"
-msgstr "先週"
-
-#: ../src/view.js:291
-#, c-format
-msgid "%d week ago"
-msgid_plural "%d weeks ago"
-msgstr[0] "%d 週間前"
-
-#: ../src/view.js:295
-msgid "Last month"
-msgstr "先月"
-
-#: ../src/view.js:297
-#, c-format
-msgid "%d month ago"
-msgid_plural "%d months ago"
-msgstr[0] "%d か月前"
-
-#: ../src/view.js:301
-msgid "Last year"
-msgstr "昨年"
-
-#: ../src/view.js:303
-#, c-format
-msgid "%d year ago"
-msgid_plural "%d years ago"
-msgstr[0] "%d 年前"
 
 #: ../src/resources/app-menu.ui.h:2
 msgid "Grid"
@@ -379,25 +335,38 @@ msgstr "ヘルプ"
 msgid "Quit"
 msgstr "終了"
 
+#. Translators: this is the Open action in a context menu
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+msgid "Open"
+msgstr "開く"
+
 #: ../src/resources/preview-menu.ui.h:2
-msgid "Print..."
-msgstr "印刷..."
+msgid "Edit"
+msgstr "編集"
 
 #: ../src/resources/preview-menu.ui.h:3
+msgid "Print…"
+msgstr "印刷…"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Present"
+msgstr "プレゼンテーション"
+
+#: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
 msgstr "拡大"
 
-#: ../src/resources/preview-menu.ui.h:4
+#: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
 msgstr "縮小"
 
-#: ../src/resources/preview-menu.ui.h:5
-msgid "Rotate Left"
-msgstr "左回転"
+#: ../src/resources/preview-menu.ui.h:7
+msgid "Rotate ↶"
+msgstr "回転 ↶"
 
-#: ../src/resources/preview-menu.ui.h:6
-msgid "Rotate Right"
-msgstr "右回転"
+#: ../src/resources/preview-menu.ui.h:8
+msgid "Rotate ↷"
+msgstr "回転 ↷"
 
 #: ../src/resources/selection-menu.ui.h:1
 msgid "Select All"
@@ -406,6 +375,220 @@ msgstr "すべて選択"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "何も選択しない"
+
+#: ../src/search.js:112
+msgid "Category"
+msgstr "カテゴリー"
+
+#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
+#: ../src/search.js:410
+msgid "All"
+msgstr "すべて"
+
+#: ../src/search.js:123
+msgid "Favorites"
+msgstr "お気に入り"
+
+#: ../src/search.js:128
+msgid "Shared with you"
+msgstr "共有ドキュメント"
+
+#: ../src/search.js:171
+msgid "Collections"
+msgstr "コレクション"
+
+#: ../src/search.js:175
+msgid "PDF Documents"
+msgstr "PDF ドキュメント"
+
+#: ../src/search.js:179
+msgid "Presentations"
+msgstr "プレゼンテーション"
+
+#: ../src/search.js:182
+msgid "Spreadsheets"
+msgstr "スプレッドシート"
+
+#: ../src/search.js:185
+msgid "Text Documents"
+msgstr "テキストドキュメント"
+
+#. Translators: this is a verb that refers to "All", "Title" and "Author",
+#. as in "Match All", "Match Title" and "Match Author"
+#: ../src/search.js:251
+msgid "Match"
+msgstr "一致項目"
+
+#: ../src/search.js:406
+msgid "Sources"
+msgstr "ソース"
+
+#: ../src/selections.js:613 ../src/selections.js:771
+msgid "Organize"
+msgstr "整理する"
+
+#: ../src/selections.js:748
+msgid "Print"
+msgstr "印刷する"
+
+#: ../src/selections.js:755
+msgid "Delete"
+msgstr "削除する"
+
+#: ../src/selections.js:786
+msgid "Share"
+msgstr "共有する"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/selections.js:872
+#, c-format
+msgid "Open with %s"
+msgstr "%s で開く"
+
+#: ../src/sharing.js:89
+msgid "Sharing Settings"
+msgstr "共有設定"
+
+#. Label for widget group for changing document permissions
+#: ../src/sharing.js:126
+msgid "Document permissions"
+msgstr "ドキュメントのアクセス権"
+
+#. Label for permission change in Sharing dialog
+#: ../src/sharing.js:133 ../src/sharing.js:311
+msgid "Change"
+msgstr "変更"
+
+#. Label for radiobutton that sets doc permission to private
+#: ../src/sharing.js:157 ../src/sharing.js:286
+msgid "Private"
+msgstr "プライベート"
+
+#: ../src/sharing.js:167 ../src/sharing.js:279
+msgid "Public"
+msgstr "公開"
+
+#. Label for checkbutton that sets doc permission to Can edit
+#: ../src/sharing.js:171 ../src/sharing.js:281
+msgid "Everyone can edit"
+msgstr "誰でも編集可能"
+
+#. Label for widget group used for adding new contacts
+#: ../src/sharing.js:178
+msgid "Add people"
+msgstr "共有する相手を追加"
+
+#. Editable text in entry field
+#: ../src/sharing.js:185
+msgid "Enter an email address"
+msgstr "メールアドレスを入力"
+
+#: ../src/sharing.js:200 ../src/sharing.js:367
+msgid "Can edit"
+msgstr "編集可能"
+
+#: ../src/sharing.js:200 ../src/sharing.js:370
+msgid "Can view"
+msgstr "閲覧可能"
+
+#: ../src/sharing.js:207
+msgid "Add"
+msgstr "追加"
+
+#: ../src/sharing.js:283
+msgid "Everyone can read"
+msgstr "誰でも閲覧可能"
+
+#: ../src/sharing.js:298
+msgid "Save"
+msgstr "保存"
+
+#: ../src/sharing.js:364
+msgid "Owner"
+msgstr "所有者"
+
+#: ../src/sharing.js:433
+#, c-format
+msgid "You can ask %s for access"
+msgstr "アクセス許可を %s に求めることができます"
+
+#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
+#: ../src/sharing.js:580 ../src/sharing.js:599
+msgid "The document was not updated"
+msgstr "ドキュメントは更新されませんでした"
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "無題のドキュメント"
+
+#: ../src/view.js:61 ../src/view.js:91
+msgid "Load More"
+msgstr "さらに読み込む"
+
+#: ../src/view.js:292
+msgid "Yesterday"
+msgstr "昨日"
+
+#: ../src/view.js:294
+#, c-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d 日前"
+
+#: ../src/view.js:298
+msgid "Last week"
+msgstr "先週"
+
+#: ../src/view.js:300
+#, c-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d 週間前"
+
+#: ../src/view.js:304
+msgid "Last month"
+msgstr "先月"
+
+#: ../src/view.js:306
+#, c-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d か月前"
+
+#: ../src/view.js:310
+msgid "Last year"
+msgstr "昨年"
+
+#: ../src/view.js:312
+#, c-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d 年前"
+
+#~ msgid "Unable to load \"%s\" for preview"
+#~ msgstr "プレビュー状態で %s を開けませんでした"
+
+#~ msgid "Cannot find \"unoconv\", please check your LibreOffice installation"
+#~ msgstr "\"unoconv\" が見つかりません。LibreOffice のインストール構成を確認してください。"
+
+#~ msgid "New and Recent"
+#~ msgstr "新規・最近のドキュメント"
+
+#~ msgid "filtered by title"
+#~ msgstr "タイトルで絞り込み"
+
+#~ msgid "filtered by author"
+#~ msgstr "作者で絞り込み"
+
+#~ msgid "Load %d more document"
+#~ msgid_plural "Load %d more documents"
+#~ msgstr[0] "%d 個のドキュメントをロードします"
+
+#~ msgid "Print..."
+#~ msgstr "印刷..."
+
+#~ msgid "Rotate Right"
+#~ msgstr "右回転"
 
 #~ msgid "Remove from favorites"
 #~ msgstr "お気に入りから削除する"
