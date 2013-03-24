@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-19 22:22+0000\n"
-"PO-Revision-Date: 2013-03-20 10:35+0000\n"
+"POT-Creation-Date: 2013-03-22 19:15+0000\n"
+"PO-Revision-Date: 2013-03-23 12:11+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -80,78 +80,79 @@ msgid "Window maximized state"
 msgstr "Maximalizovaný stav okna"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
+#. Translators: this refers to local documents
 #: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Lokálne"
 
-# PM:dosť dobre nechápem prečo je toto určené na preklad - prosím opýtaj sa vývojárov
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
-#: ../src/documents.js:608
-#, fuzzy
+# DK:reprezentuje autora navodu pre Dokumenty.cize ostava tak ako je
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:611
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:609
+#: ../src/documents.js:612
 msgid "Getting Started with Documents"
 msgstr "Začíname s aplikáciou Dokumenty"
 
 # PM: toto je preklad služby na stránkach Google
 #. overridden
-#: ../src/documents.js:656
+#: ../src/documents.js:659
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:657
+#: ../src/documents.js:660
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:721 ../src/documents.js:820
+#: ../src/documents.js:724 ../src/documents.js:823
 msgid "Spreadsheet"
 msgstr "Tabuľkový zošit"
 
-#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
+#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentácia"
 
-#: ../src/documents.js:725 ../src/documents.js:824
+#: ../src/documents.js:728 ../src/documents.js:827
 msgid "Collection"
 msgstr "Zbierka"
 
-#: ../src/documents.js:727 ../src/documents.js:826
+#: ../src/documents.js:730 ../src/documents.js:829
 msgid "Document"
 msgstr "Dokument"
 
 # Sluzba od Microsoftu
 #. overridden
-#: ../src/documents.js:754 ../src/documents.js:755
+#: ../src/documents.js:757 ../src/documents.js:758
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:939
+#: ../src/documents.js:942
 msgid "Please check the network connection."
 msgstr "Skontrolujte, prosím, sieťové pripojenie."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:945
 msgid "Please check the network proxy settings."
 msgstr "Skontrolujte prosím nastavenia sieťového sprostredkovateľa (proxy)."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:948
 msgid "Unable to sign in to the document service."
 msgstr "Nepodarilo sa prihlásiť k službe dokumentov."
 
-# PK: dal by som najst
-#: ../src/documents.js:948
-#, fuzzy
-msgid "Unable to locate this document."
-msgstr "Nepodarilo sa lokalizovať tento dokument."
-
 #: ../src/documents.js:951
+msgid "Unable to locate this document."
+msgstr "Nepodarilo sa nájsť tento dokument."
+
+#: ../src/documents.js:954
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Zdá sa, že niekde nastal problém (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:964
+#: ../src/documents.js:967
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
@@ -161,7 +162,7 @@ msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
 msgid "View"
 msgstr "Zobraziť"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Načítava sa…"
@@ -197,20 +198,21 @@ msgstr "Nepodarilo sa načítať dokument"
 msgid "LibreOffice is required to view this document"
 msgstr "Na zobrazenie tohoto dokumentu je potrebná aplikácia LibreOffice"
 
-# DK: %s je cislo strany.predosly preklad bol strana c. 1 z 2, napr.
-# PK: preco potom nie č. %s?
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
-#: ../src/lib/gd-places-bookmarks.c:309
-#, fuzzy, c-format
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
+#, c-format
 msgid "Page %s"
-msgstr "Strana %s"
+msgstr "Strana č. %s"
 
 # list store item
-#: ../src/lib/gd-places-bookmarks.c:372
+#: ../src/lib/gd-places-bookmarks.c:375
 msgid "No bookmarks"
 msgstr "Žiadne záložky"
 
-#: ../src/lib/gd-places-bookmarks.c:644
+#: ../src/lib/gd-places-bookmarks.c:647
 msgid "Bookmarks"
 msgstr "Záložky"
 
@@ -419,15 +421,19 @@ msgid "Category"
 msgstr "Kategória"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
 #: ../src/search.js:410
 msgid "All"
 msgstr "Všetky"
 
+#. Translators: this refers to favorite documents
 #: ../src/search.js:123
 msgid "Favorites"
 msgstr "Obľúbené"
 
+#. Translators: this refers to shared documents
 #: ../src/search.js:128
 msgid "Shared with you"
 msgstr "V spoločnom používaní s vami"
@@ -483,7 +489,7 @@ msgstr "Uskutoční odstránenie"
 # button tooltip
 #: ../src/selections.js:786
 msgid "Share"
-msgstr "Podeliť sa"
+msgstr "Nastaví spoločné používanie"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/selections.js:872
