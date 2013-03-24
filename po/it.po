@@ -6,9 +6,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-03 00:55+0100\n"
-"PO-Revision-Date: 2012-03-13 00:47+0100\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"documents&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2013-03-24 17:58+0000\n"
+"PO-Revision-Date: 2013-03-24 21:10+0100\n"
 "Last-Translator: Luca Ferretti <lferrett@gnome.org>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "Language: it\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:99
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Documenti"
@@ -63,72 +64,84 @@ msgstr "Finestra massimizzata"
 msgid "Window maximized state"
 msgstr "Stato massimizzato della finestra"
 
-#: ../src/documents.js:590 ../src/search.js:407
+#. Translators: this refers to local documents
+#: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "Locali"
 
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:611
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:612
+msgid "Getting Started with Documents"
+msgstr "Introduzione a Documenti"
+
 #. overridden
-#: ../src/documents.js:643
+#: ../src/documents.js:659
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:644
+#: ../src/documents.js:660
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:708 ../src/documents.js:807
+#: ../src/documents.js:724 ../src/documents.js:823
 msgid "Spreadsheet"
 msgstr "Foglio di calcolo"
 
-#: ../src/documents.js:710 ../src/documents.js:809 ../src/presentation.js:48
+#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Presentazione"
 
-#: ../src/documents.js:712 ../src/documents.js:811
+#: ../src/documents.js:728 ../src/documents.js:827
 msgid "Collection"
 msgstr "Raccolta"
 
-#: ../src/documents.js:714 ../src/documents.js:813
+#: ../src/documents.js:730 ../src/documents.js:829
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:741 ../src/documents.js:742
+#: ../src/documents.js:757 ../src/documents.js:758
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:926
+#: ../src/documents.js:942
 msgid "Please check the network connection."
 msgstr "Controllare la connessione di rete."
 
-#: ../src/documents.js:929
+#: ../src/documents.js:945
 msgid "Please check the network proxy settings."
 msgstr "Controllare le impostazioni del proxy di rete."
 
-#: ../src/documents.js:932
+#: ../src/documents.js:948
 msgid "Unable to sign in to the document service."
 msgstr "Impossibile accedere al servizio di documenti."
 
-#: ../src/documents.js:935
+#: ../src/documents.js:951
 msgid "Unable to locate this document."
 msgstr "Impossibile localizzare questo documento."
 
-#: ../src/documents.js:938
+#: ../src/documents.js:954
 #, c-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Qualcosa è andato a male (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:951
+#: ../src/documents.js:967
 #, c-format
 msgid "Oops! Unable to load “%s”"
-msgstr ""
+msgstr "Impossibile caricare «%s»"
 
 #: ../src/edit.js:191
 msgid "View"
 msgstr "Visualizza"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "Caricamento…"
@@ -163,16 +176,19 @@ msgstr "Impossibile caricare il documento"
 msgid "LibreOffice is required to view this document"
 msgstr "È richiesto LibreOffice per visualizzare questo documento"
 
-#: ../src/lib/gd-places-bookmarks.c:309
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
 #, c-format
 msgid "Page %s"
 msgstr "Pagina %s"
 
-#: ../src/lib/gd-places-bookmarks.c:372
+#: ../src/lib/gd-places-bookmarks.c:375
 msgid "No bookmarks"
 msgstr "Nessun segnalibro"
 
-#: ../src/lib/gd-places-bookmarks.c:644
+#: ../src/lib/gd-places-bookmarks.c:647
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
@@ -236,7 +252,8 @@ msgstr "È in corso l'indicizzazione dei documenti"
 
 #: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
-msgstr "Alcuni documenti potrebbero non essere disponibili durante questo processo"
+msgstr ""
+"Alcuni documenti potrebbero non essere disponibili durante questo processo"
 
 #: ../src/notifications.js:164
 #, c-format
@@ -253,7 +270,7 @@ msgstr "Esecuzione in modalità presentazione"
 
 #: ../src/presentation.js:158
 msgid "Present On"
-msgstr ""
+msgstr "Presentazione su"
 
 #: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:779
@@ -337,15 +354,15 @@ msgstr "Stampa…"
 
 #: ../src/resources/preview-menu.ui.h:4
 msgid "Present"
-msgstr ""
+msgstr "Presentazione"
 
 #: ../src/resources/preview-menu.ui.h:5
 msgid "Zoom In"
-msgstr ""
+msgstr "Aumenta ingrandimento"
 
 #: ../src/resources/preview-menu.ui.h:6
 msgid "Zoom Out"
-msgstr ""
+msgstr "Riduci ingrandimento"
 
 #: ../src/resources/preview-menu.ui.h:7
 msgid "Rotate ↶"
@@ -368,15 +385,19 @@ msgid "Category"
 msgstr "Categoria"
 
 # FIXME: commento, riferito a?
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:401
+#: ../src/search.js:410
 msgid "All"
 msgstr "Tutte"
 
+#. Translators: this refers to favorite documents
 #: ../src/search.js:123
 msgid "Favorites"
 msgstr "Preferiti"
 
+#. Translators: this refers to shared documents
 #: ../src/search.js:128
 msgid "Shared with you"
 msgstr "Condivisi con te"
@@ -407,7 +428,7 @@ msgstr "Documenti di testo"
 msgid "Match"
 msgstr "Corrispondenza"
 
-#: ../src/search.js:397
+#: ../src/search.js:406
 msgid "Sources"
 msgstr "Sorgenti"
 
@@ -498,7 +519,7 @@ msgstr "Proprietario"
 #: ../src/sharing.js:433
 #, c-format
 msgid "You can ask %s for access"
-msgstr ""
+msgstr "È possibile richiedere l'accesso a %s"
 
 #: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
 #: ../src/sharing.js:580 ../src/sharing.js:599
