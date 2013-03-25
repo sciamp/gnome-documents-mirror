@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-09 23:19+0200\n"
+"POT-Creation-Date: 2013-03-25 03:06+0200\n"
 "PO-Revision-Date: 2013-03-09 23:19+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
@@ -67,71 +67,75 @@ msgstr "تكبير النافذة"
 msgid "Window maximized state"
 msgstr "حالة تكبير النافذة"
 
+#. Translators: this refers to local documents
 #: ../src/documents.js:590 ../src/search.js:416
 msgid "Local"
 msgstr "محلّي"
 
-#: ../src/documents.js:608
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:611
 msgid "GNOME"
 msgstr "جنوم"
 
-#: ../src/documents.js:609
+#: ../src/documents.js:612
 msgid "Getting Started with Documents"
 msgstr "ابدأ مع المستندات"
 
 #. overridden
-#: ../src/documents.js:656
+#: ../src/documents.js:659
 msgid "Google Docs"
 msgstr "مستندات جوجل"
 
-#: ../src/documents.js:657
+#: ../src/documents.js:660
 msgid "Google"
 msgstr "جوجل"
 
-#: ../src/documents.js:721 ../src/documents.js:820
+#: ../src/documents.js:724 ../src/documents.js:823
 msgid "Spreadsheet"
 msgstr "جدول ممتد"
 
-#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
+#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "عرض تقديمي"
 
-#: ../src/documents.js:725 ../src/documents.js:824
+#: ../src/documents.js:728 ../src/documents.js:827
 msgid "Collection"
 msgstr "تجميع"
 
-#: ../src/documents.js:727 ../src/documents.js:826
+#: ../src/documents.js:730 ../src/documents.js:829
 msgid "Document"
 msgstr "مستندات"
 
 #. overridden
-#: ../src/documents.js:754 ../src/documents.js:755
+#: ../src/documents.js:757 ../src/documents.js:758
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:939
+#: ../src/documents.js:942
 msgid "Please check the network connection."
 msgstr "افحص الاتصال الشبكي من فضلك."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:945
 msgid "Please check the network proxy settings."
 msgstr "افحص إعدادات وسيط الشبكة من فضلك."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:948
 msgid "Unable to sign in to the document service."
 msgstr "تعذّر الولوج إلى خدمة المستندات."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:951
 msgid "Unable to locate this document."
 msgstr "تعذّر إيجاد المُستند."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:954
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "شيء ما خطأ (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:964
+#: ../src/documents.js:967
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "تعذّر تحميل ”%s“"
@@ -140,7 +144,7 @@ msgstr "تعذّر تحميل ”%s“"
 msgid "View"
 msgstr "عرض"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
 msgid "Loading…"
 msgstr "يُحمّل…"
@@ -175,16 +179,19 @@ msgstr "تعذّر تحميل المُستند"
 msgid "LibreOffice is required to view this document"
 msgstr "تحتاج ليبرأوفيس لعرض هذا المستند"
 
-#: ../src/lib/gd-places-bookmarks.c:309
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
 #, c-format
 msgid "Page %s"
 msgstr "صفحة %s"
 
-#: ../src/lib/gd-places-bookmarks.c:372
+#: ../src/lib/gd-places-bookmarks.c:375
 msgid "No bookmarks"
 msgstr "لا علامات"
 
-#: ../src/lib/gd-places-bookmarks.c:644
+#: ../src/lib/gd-places-bookmarks.c:647
 msgid "Bookmarks"
 msgstr "العلامات"
 
@@ -387,15 +394,19 @@ msgstr "أزل الاختيار عن الكل"
 msgid "Category"
 msgstr "الفئة"
 
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
 #: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
 #: ../src/search.js:410
 msgid "All"
 msgstr "الكلّ"
 
+#. Translators: this refers to favorite documents
 #: ../src/search.js:123
 msgid "Favorites"
 msgstr "المفضّلة"
 
+#. Translators: this refers to shared documents
 #: ../src/search.js:128
 msgid "Shared with you"
 msgstr "مشتركة معك"
