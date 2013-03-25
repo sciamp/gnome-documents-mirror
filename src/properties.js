@@ -57,6 +57,7 @@ const PropertiesDialog = new Lang.Class({
                                         title: _("Properties"),
                                         hexpand: true });
         this.widget.add_button(_("Done"), Gtk.ResponseType.OK);
+        this.widget.set_default_response(Gtk.ResponseType.OK);
 
         let grid = new Gtk.Grid ({ orientation: Gtk.Orientation.VERTICAL,
                                    row_homogeneous: true,
@@ -120,7 +121,8 @@ const PropertiesDialog = new Lang.Class({
 
         // Title value
         if (doc instanceof Documents.LocalDocument) {
-            this._titleEntry = new Gtk.Entry({ text: doc.name,
+            this._titleEntry = new Gtk.Entry({ activates_default: true,
+                                               text: doc.name,
                                                editable: true,
                                                hexpand: true,
                                                width_chars: 40,
