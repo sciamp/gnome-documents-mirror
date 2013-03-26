@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:13+0000\n"
-"PO-Revision-Date: 2013-03-09 20:16+0200\n"
+"POT-Creation-Date: 2013-03-15 19:10+0000\n"
+"PO-Revision-Date: 2013-03-26 20:20+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -120,12 +120,10 @@ msgid "Please check the network proxy settings."
 msgstr "Tarkista verkkoyhteyden välityspalvelimen asetukset."
 
 #: ../src/documents.js:945
-#| msgid "Unable to load the document"
 msgid "Unable to sign in to the document service."
 msgstr "Asiakirjapalveluun kirjautuminen epäonnistui."
 
 #: ../src/documents.js:948
-#| msgid "Unable to load the document"
 msgid "Unable to locate this document."
 msgstr "Tämän asiakirjan paikantaminen epäonnistui."
 
@@ -141,13 +139,11 @@ msgid "Oops! Unable to load “%s”"
 msgstr "Hups! Kohteen \"%s\" lataus epäonnistui"
 
 #: ../src/edit.js:191
-#| msgid "View as"
 msgid "View"
 msgstr "Näkymä"
 
 #: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:70
-#| msgid "Loading..."
 msgid "Loading…"
 msgstr "Ladataan…"
 
@@ -212,7 +208,6 @@ msgstr "Takaisin"
 
 #: ../src/mainToolbar.js:153
 #, c-format
-#| msgid "Results for \"%s\""
 msgid "Results for “%s”"
 msgstr "Tulokset haulle \"%s\""
 
@@ -246,7 +241,6 @@ msgstr "Asiakirjojen hallintasovellus"
 
 #: ../src/notifications.js:87
 #, c-format
-#| msgid "Printing \"%s\": %s"
 msgid "Printing “%s”: %s"
 msgstr "Tulostetaan “%s”: %s"
 
@@ -274,7 +268,6 @@ msgid "Running in presentation mode"
 msgstr "Toimitaan esitystilassa"
 
 #: ../src/presentation.js:158
-#| msgid "Presentation"
 msgid "Present On"
 msgstr "Esitys näytöllä"
 
@@ -335,7 +328,7 @@ msgstr "Koko näyttö"
 
 #: ../src/resources/app-menu.ui.h:5
 msgid "About Documents"
-msgstr "Tietoja asiakirjoista"
+msgstr "Tietoja - Asiakirjat"
 
 #: ../src/resources/app-menu.ui.h:6
 msgid "Help"
@@ -355,12 +348,10 @@ msgid "Edit"
 msgstr "Muokkaa"
 
 #: ../src/resources/preview-menu.ui.h:3
-#| msgid "Print"
 msgid "Print…"
 msgstr "Tulosta…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "Esitys"
 
@@ -373,12 +364,10 @@ msgid "Zoom Out"
 msgstr "Loitonna"
 
 #: ../src/resources/preview-menu.ui.h:7
-#| msgid "Rotate Left"
 msgid "Rotate ↶"
 msgstr "Käännä ↶"
 
 #: ../src/resources/preview-menu.ui.h:8
-#| msgid "Rotate Left"
 msgid "Rotate ↷"
 msgstr "Käännä ↷"
 
@@ -460,13 +449,11 @@ msgid "Open with %s"
 msgstr "Avaa sovelluksella %s"
 
 #: ../src/sharing.js:89
-#| msgid "System Settings"
 msgid "Sharing Settings"
 msgstr "Jakamisen asetukset"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:126
-#| msgid "Documents"
 msgid "Document permissions"
 msgstr "Asiakirjan käyttöoikeudet"
 
