@@ -39,6 +39,7 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   gchar *resource = NULL;
   gchar *date, *resource_url, *identifier;
   const gchar *class = NULL;
+  const gchar *mimetype_override = NULL;
   gboolean mtime_changed, resource_exists;
   gint64 new_mtime;
 
@@ -127,6 +128,19 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
      job->cancellable, error,
      identifier, resource,
      "nie:url", alternate_uri);
+
+  if (*error != NULL)
+    goto out;
+
+  /* fake a drawing mimetype, so Documents can get the correct icon */
+  if (GDATA_IS_DOCUMENTS_DRAWING (doc_entry))
+    mimetype_override = "application/vnd.sun.xml.draw";
+
+  gd_miner_tracker_sparql_connection_insert_or_replace_triple
+    (job->connection,
+     job->cancellable, error,
+     identifier, resource,
+     "nie:mimeType", mimetype_override);
 
   if (*error != NULL)
     goto out;

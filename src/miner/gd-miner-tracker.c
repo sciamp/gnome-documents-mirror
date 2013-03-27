@@ -192,16 +192,23 @@ gd_miner_tracker_sparql_connection_insert_or_replace_triple (TrackerSparqlConnec
                                                              const gchar *property_value)
 {
   GString *insert;
-  gchar *graph_str;
+  gchar *graph_str, *quoted;
   gboolean retval = TRUE;
 
   graph_str = _tracker_utils_format_into_graph (graph);
 
+  /* the "null" value must not be quoted */
+  if (property_value == NULL)
+    quoted = g_strdup ("null");
+  else
+    quoted = g_strdup_printf ("\"%s\"", property_value);
+
   insert = g_string_new (NULL);
   g_string_append_printf
     (insert,
-     "INSERT OR REPLACE %s { <%s> a nie:InformationElement ; %s \"%s\" }",
-     graph_str, resource, property_name, property_value);
+     "INSERT OR REPLACE %s { <%s> a nie:InformationElement ; %s %s }",
+     graph_str, resource, property_name, quoted);
+  g_free (quoted);
 
   g_debug ("Insert or replace triple: query %s", insert->str);
 
