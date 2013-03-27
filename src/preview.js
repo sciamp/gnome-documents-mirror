@@ -80,7 +80,7 @@ const PreviewView = new Lang.Class({
         this._overlay.add_overlay(this._navBar.widget);
 
         // create page nav buttons
-        this._navButtons = new PreviewNavButtons(this._model, this._overlay);
+        this._navButtons = new PreviewNavButtons(this, this._overlay);
 
         this.widget.show_all();
 
@@ -611,8 +611,9 @@ const _AUTO_HIDE_TIMEOUT = 2;
 const PreviewNavButtons = new Lang.Class({
     Name: 'PreviewNavButtons',
 
-    _init: function(model, overlay) {
-        this._model = model;
+    _init: function(previewView, overlay) {
+        this._previewView = previewView;
+        this._model = previewView.getModel();
         this._overlay = overlay;
         this._visible = false;
         this._pageChangedId = 0;
@@ -674,14 +675,11 @@ const PreviewNavButtons = new Lang.Class({
     },
 
     _onPrevClicked: function() {
-        if (this._model.page > 0)
-            this._model.page--;
+        this._previewView.view.previous_page();
     },
 
     _onNextClicked: function() {
-        let doc = this._model.document;
-        if (doc.get_n_pages() > this._model.page + 1)
-            this._model.page++;
+        this._previewView.view.next_page();
     },
 
     _autoHide: function() {
