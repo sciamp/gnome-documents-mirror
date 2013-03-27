@@ -58,6 +58,7 @@ const LoadMoreButton = new Lang.Class({
         this._spinner.set_size_request(16, 16);
         child.add(this._spinner);
 
+        // Translators: "more" refers to documents in this context
         this._label = new Gtk.Label({ label: _("Load More"),
                                       visible: true });
         child.add(this._label);
@@ -88,6 +89,7 @@ const LoadMoreButton = new Lang.Class({
         this.widget.set_visible(visible);
 
         if (!visible) {
+            // Translators: "more" refers to documents in this context
             this._label.label = _("Load More");
             this._spinner.stop();
             this._spinner.hide();
