@@ -610,6 +610,7 @@ const OrganizeCollectionDialog = new Lang.Class({
                                        destroy_with_parent: true,
                                        default_width: 400,
                                        default_height: 250,
+        // Translators: "Organize" refers to documents in this context
                                        title: _("Organize") });
 
         this.widget.add_button('gtk-add', OrganizeCollectionDialogResponse.ADD);
@@ -768,6 +769,7 @@ const SelectionToolbar = new Lang.Class({
         // organize button
         this._toolbarCollection = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'list-add-symbolic',
                                                                            pixel_size: 16 })});
+        // Translators: "Organize" refers to documents in this context
         this._toolbarCollection.set_tooltip_text(_("Organize"));
         this._rightBox.add(this._toolbarCollection);
         this._toolbarCollection.connect('clicked', Lang.bind(this, this._onToolbarCollection));
