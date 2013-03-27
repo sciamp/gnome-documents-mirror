@@ -161,6 +161,8 @@ const IndexingNotification = new Lang.Class({
         }
 
         if (miner && miner.DisplayName) {
+            // Translators: %s refers to an online account provider, e.g.
+            // "Google", or "Windows Live".
             primary = _("Fetching documents from %s").format(miner.DisplayName);
         } else {
             primary = _("Fetching documents from online accounts");
