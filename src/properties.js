@@ -77,7 +77,7 @@ const PropertiesDialog = new Lang.Class({
         // Title item
         // Translators: "Title" is the label next to the document title
         // in the properties dialog
-        this._title = new Gtk.Label({ label: _("Title"),
+        this._title = new Gtk.Label({ label: C_("Document Title", "Title"),
                                       halign: Gtk.Align.END });
         this._title.get_style_context ().add_class('dim-label');
         grid.add(this._title);
@@ -86,7 +86,7 @@ const PropertiesDialog = new Lang.Class({
         if (doc.author) {
             // Translators: "Author" is the label next to the document author
             // in the properties dialog
-            this._author = new Gtk.Label({ label: _("Author"),
+            this._author = new Gtk.Label({ label: C_("Document Author", "Author"),
                                            halign: Gtk.Align.END });
             this._author.get_style_context ().add_class('dim-label');
             grid.add(this._author);

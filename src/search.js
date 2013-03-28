@@ -255,10 +255,10 @@ const SearchMatchManager = new Lang.Class({
                                        name: _("All") }));
         this.addItem(new SearchMatch({ id: SearchMatchStock.TITLE,
         //Translators: "Title" refers to "Match Title" when searching
-                                       name: _("Title") }));
+                                       name: C_("Search Filter", "Title") }));
         this.addItem(new SearchMatch({ id: SearchMatchStock.AUTHOR,
         //Translators: "Author" refers to "Match Author" when searching
-                                       name: _("Author") }));
+                                       name: C_("Search Filter", "Author") }));
 
         this.setActiveItemById(SearchMatchStock.ALL);
     },
