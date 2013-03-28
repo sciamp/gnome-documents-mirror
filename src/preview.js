@@ -75,6 +75,11 @@ const PreviewView = new Lang.Class({
 
         this._createView();
 
+        // create context menu
+        let model = this._getPreviewContextMenu();
+        this._previewContextMenu = Gtk.Menu.new_from_model(model);
+        this._previewContextMenu.attach_to_widget(this.widget, null);
+
         // create page nav bar
         this._navBar = new PreviewNavBar(this._model);
         this._overlay.add_overlay(this._navBar.widget);
@@ -113,6 +118,11 @@ const PreviewView = new Lang.Class({
             function() {
                 this.view.find_next();
             }));
+        this._copy = Application.application.lookup_action('copy');
+        this._copy.connect('activate', Lang.bind(this,
+            function() {
+                this.view.copy();
+            }));
 
         let rotLeft = Application.application.lookup_action('rotate-left');
         rotLeft.connect('activate', Lang.bind(this,
@@ -141,6 +151,7 @@ const PreviewView = new Lang.Class({
 
     _onLoadStarted: function() {
         this._showPlaces.enabled = false;
+        this._copy.enabled = false;
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
@@ -240,7 +251,9 @@ const PreviewView = new Lang.Class({
 
     _onViewSelectionChanged: function() {
         this._viewSelectionChanged = true;
-        if (!this.view.get_has_selection())
+        let has_selection = this.view.get_has_selection();
+        this._copy.enabled = has_selection;
+        if (!has_selection)
             this._cancelControlsFlip();
     },
 
@@ -327,6 +340,12 @@ const PreviewView = new Lang.Class({
             this._onViewSelectionChanged));
         this.view.connect('external-link', Lang.bind(this,
             this._handleExternalLink));
+    },
+
+    _getPreviewContextMenu: function() {
+        let builder = new Gtk.Builder();
+        builder.add_from_resource('/org/gnome/documents/preview-context-menu.ui');
+        return builder.get_object('preview-context-menu');
     },
 
     _syncControlsVisible: function() {
@@ -428,9 +447,15 @@ const PreviewView = new Lang.Class({
      },
 
     _onButtonPressEvent: function(widget, event) {
+        let button = event.get_button()[1];
+
+        if (button == 3) {
+            let time = event.get_time();
+            this._previewContextMenu.popup(null, null, null, button, time);
+            return true;
+        }
 
         this._viewSelectionChanged = false;
-
         return false;
    },
 

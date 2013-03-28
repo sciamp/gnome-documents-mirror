@@ -458,6 +458,9 @@ const Application = new Lang.Class({
               window_mode: WindowMode.WindowMode.PREVIEW },
             { name: 'places',
               accel: '<Primary>b',
+              window_mode: WindowMode.WindowMode.PREVIEW },
+            { name: 'copy',
+              accel: '<Primary>c',
               window_mode: WindowMode.WindowMode.PREVIEW }
         ];
 

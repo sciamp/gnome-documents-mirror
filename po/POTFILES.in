@@ -17,6 +17,7 @@ src/properties.js
 [type: gettext/glade]src/resources/app-menu.ui
 [type: gettext/glade]src/resources/preview-menu.ui
 [type: gettext/glade]src/resources/selection-menu.ui
+[type: gettext/glade]src/resources/preview-context-menu.ui
 src/searchbar.js
 src/search.js
 src/selections.js

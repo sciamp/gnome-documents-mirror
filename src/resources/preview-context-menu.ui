@@ -1,0 +1,11 @@
+<interface>
+  <menu id="preview-context-menu">
+    <section>
+      <item>
+        <attribute name="action">app.copy</attribute>
+        <attribute name="label" translatable="yes">_Copy</attribute>
+        <attribute name="accel">&lt;Primary&gt;c</attribute>
+      </item>
+    </section>
+  </menu>
+</interface>

@@ -4,6 +4,7 @@
     <file alias="app-menu.ui" preprocess="xml-stripblanks">resources/app-menu.ui</file>
     <file alias="preview-menu.ui" preprocess="xml-stripblanks">resources/preview-menu.ui</file>
     <file alias="selection-menu.ui" preprocess="xml-stripblanks">resources/selection-menu.ui</file>
+    <file alias="preview-context-menu.ui" preprocess="xml-stripblanks">resources/preview-context-menu.ui</file>
     <file alias="thumbnail-frame.png" preprocess="to-pixdata">resources/thumbnail-frame.png</file>
   </gresource>
 </gresources>
