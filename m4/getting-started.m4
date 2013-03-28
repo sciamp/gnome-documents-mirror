@@ -73,7 +73,7 @@ $(_HELP_C_PDFS): $(_HELP_C_FILES)
 	svgname=$(srcdir)/$(patsubst %.pdf,%.svg,[$]@); \
 	inkscape -z -A "[$]@" "$$svgname"
 
-$(_HELP_PDF_OUTPUTS): $(_HELP_LC_PDFS)
+$(_HELP_PDF_OUTPUTS): $(_HELP_LC_PDFS) $(_HELP_C_PDFS)
 	lc=`dirname [$]@`; \
 	files="$(foreach f,$(_HELP_PDFFILES),$$lc/$(f))"; \
 	pdfunite $$files "$$lc/$(_HELP_OUTPUT)"; \
