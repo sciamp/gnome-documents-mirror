@@ -27,6 +27,7 @@ const GObject = imports.gi.GObject;
 const Gtk = imports.gi.Gtk;
 const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
+const C_ = imports.gettext.pgettext;
 
 const Application = imports.application;
 const Documents = imports.documents;
@@ -611,7 +612,7 @@ const OrganizeCollectionDialog = new Lang.Class({
                                        default_width: 400,
                                        default_height: 250,
         // Translators: "Organize" refers to documents in this context
-                                       title: _("Organize") });
+                                       title: C_("Dialog Title", "Organize") });
 
         this.widget.add_button('gtk-add', OrganizeCollectionDialogResponse.ADD);
         let okButton = this.widget.add_button('gtk-ok', Gtk.ResponseType.OK);
@@ -770,7 +771,7 @@ const SelectionToolbar = new Lang.Class({
         this._toolbarCollection = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'list-add-symbolic',
                                                                            pixel_size: 16 })});
         // Translators: "Organize" refers to documents in this context
-        this._toolbarCollection.set_tooltip_text(_("Organize"));
+        this._toolbarCollection.set_tooltip_text(C_("Toolbar button tooltip", "Organize"));
         this._rightBox.add(this._toolbarCollection);
         this._toolbarCollection.connect('clicked', Lang.bind(this, this._onToolbarCollection));
         this._toolbarCollection.show_all();
