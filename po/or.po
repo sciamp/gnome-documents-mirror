@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-04 21:13+0000\n"
-"PO-Revision-Date: 2013-03-25 17:00+0530\n"
+"POT-Creation-Date: 2013-03-28 14:14+0000\n"
+"PO-Revision-Date: 2013-03-28 22:14+0530\n"
 "Last-Translator: Manoj Kumar Giri <mgiri@redhat.com>\n"
 "Language-Team: Oriya <oriya-it@googlegroups.com>\n"
 "Language: or\n"
@@ -29,7 +29,6 @@ msgid "Access, manage and share documents"
 msgstr "ଦଲିଲଗୁଡ଼ିକୁ ଅଭିଗମ୍ୟ କରନ୍ତୁ, ପରିଚାଳନା କରନ୍ତୁ ଏବଂ ସହଭାଗ କରନ୍ତୁ"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
-#| msgid "Document"
 msgid "Docs;PDF;Document;"
 msgstr "ଦଲିଲ;PDF;ଦଲିଲ;"
 
@@ -66,73 +65,75 @@ msgstr "ୱିଣ୍ଡୋର ବୃହତ୍ତମ ଅବସ୍ଥା"
 msgid "Window maximized state"
 msgstr "ୱିଣ୍ଡୋର ବୃହତ୍ତମ ଅବସ୍ଥା"
 
-#: ../src/documents.js:590 ../src/search.js:416
+#. Translators: this refers to local documents
+#: ../src/documents.js:590 ../src/search.js:417
 msgid "Local"
 msgstr "ସ୍ଥାନୀୟ"
 
-#: ../src/documents.js:608
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:611
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:609
+#: ../src/documents.js:612
 msgid "Getting Started with Documents"
 msgstr "ଦଲିଲ ଆରମ୍ଭ କରୁଅଛି"
 
 #. overridden
-#: ../src/documents.js:656
+#: ../src/documents.js:659
 msgid "Google Docs"
 msgstr "Google ଦଲିଲଗୁଡ଼ିକ"
 
-#: ../src/documents.js:657
+#: ../src/documents.js:660
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:721 ../src/documents.js:820
+#: ../src/documents.js:724 ../src/documents.js:823
 msgid "Spreadsheet"
 msgstr "ସ୍ପ୍ରେଡଶୀଟ"
 
-#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
+#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "ଉପସ୍ଥାପନା"
 
-#: ../src/documents.js:725 ../src/documents.js:824
+#: ../src/documents.js:728 ../src/documents.js:827
 msgid "Collection"
 msgstr "ସଂଗ୍ରହ"
 
-#: ../src/documents.js:727 ../src/documents.js:826
+#: ../src/documents.js:730 ../src/documents.js:829
 msgid "Document"
 msgstr "ଦଲିଲ"
 
 #. overridden
-#: ../src/documents.js:754 ../src/documents.js:755
+#: ../src/documents.js:757 ../src/documents.js:758
 msgid "Skydrive"
 msgstr "ସ୍କାୟଡ୍ରାଇଭ୍‌"
 
-#: ../src/documents.js:939
+#: ../src/documents.js:942
 msgid "Please check the network connection."
 msgstr "ଦୟାକରି ନେଟୱର୍କ୍‌  ସଂଯୋଗ ଯାଞ୍ଚ କରନ୍ତୁ।"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:945
 msgid "Please check the network proxy settings."
 msgstr "ଦୟାକରି ନେଟୱର୍କ ପ୍ରକ୍ସି ସଂରଚନା ଯାଞ୍ଚ କରନ୍ତୁ।"
 
-#: ../src/documents.js:945
-#| msgid "Unable to fetch the list of documents"
+#: ../src/documents.js:948
 msgid "Unable to sign in to the document service."
 msgstr "ଦଲିଲସର୍ଭିସରେ ସାଇନ ଇନ୍‌ କରିବାରେ ଅସମର୍ଥ।"
 
-#: ../src/documents.js:948
-#| msgid "Unable to fetch the list of documents"
+#: ../src/documents.js:951
 msgid "Unable to locate this document."
 msgstr "ଏହି ଦଲିଲକୁ ପାଇବାରେ ଅସମର୍ଥ।"
 
-#: ../src/documents.js:951
+#: ../src/documents.js:954
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "ଆଚ୍ଛା, କିଛି ଗୋଟିଏ ସନ୍ଦେହ ଜନକ ଅଛି (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:964
+#: ../src/documents.js:967
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "ଆହା! “%s” କୁ ଧାରଣ କରିବାରେ ଅସମର୍ଥ"
@@ -141,14 +142,12 @@ msgstr "ଆହା! “%s” କୁ ଧାରଣ କରିବାରେ ଅସମ�
 msgid "View"
 msgstr "ଦୃଶ୍ଯ"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
-#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
-#| msgid "Loading..."
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "ଧାରଣ କରୁଅଛି..."
 
 #: ../src/embed.js:145
-#| msgid "Documents"
 msgid "No Documents Found"
 msgstr "କୌଣସି ଦଲିଲ ମିଳିଲା ନାହିଁ"
 
@@ -171,7 +170,6 @@ msgid "Page %u of %u"
 msgstr "ପୃଷ୍ଠା %u ର %u"
 
 #: ../src/lib/gd-pdf-loader.c:226
-#| msgid "Unable to fetch the list of documents"
 msgid "Unable to load the document"
 msgstr "ଦଲିଲକୁ ଧାରଣ କରିବାରେ ଅସମର୍ଥ"
 
@@ -179,16 +177,19 @@ msgstr "ଦଲିଲକୁ ଧାରଣ କରିବାରେ ଅସମର୍ଥ
 msgid "LibreOffice is required to view this document"
 msgstr "ଏହି ଦଲିଲକୁ ଦେଖିବା ପାଇଁ LibreOffice ଆବଶ୍ୟକ"
 
-#: ../src/lib/gd-places-bookmarks.c:309
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
 #, c-format
 msgid "Page %s"
 msgstr "ପ୍ରୁଷ୍ଠା %s"
 
-#: ../src/lib/gd-places-bookmarks.c:372
+#: ../src/lib/gd-places-bookmarks.c:375
 msgid "No bookmarks"
 msgstr "କୌଣସି ପୃଷ୍ଠା ସଂକେତ ନାହିଁ"
 
-#: ../src/lib/gd-places-bookmarks.c:644
+#: ../src/lib/gd-places-bookmarks.c:647
 msgid "Bookmarks"
 msgstr "ପୃଷ୍ଠା ସଂକେତଗୁଡିକ"
 
@@ -225,7 +226,7 @@ msgstr[0] "%d ବଚ୍ଛିତ"
 msgstr[1] "%d ବଚ୍ଛିତ"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "ସମ୍ପନ୍ନ"
 
@@ -254,12 +255,14 @@ msgstr "ଆପଣଙ୍କର ଦଲିଲଗୁଡ଼ିକରେ ଅନୁକ�
 msgid "Some documents might not be available during this process"
 msgstr "ଏହି କାର୍ଯ୍ୟ ସମୟରେ କିଛି ଦଲିଲ ହୁଏତଃ ଉପଲବ୍ଧ ହୋଇନପାରେ"
 
-#: ../src/notifications.js:164
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:166
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "%s ରୁ ଦଲିଲଗୁଡ଼ିକୁ ଆଣୁଅଛି"
 
-#: ../src/notifications.js:166
+#: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "ଅନଲାଇନ୍‌ ଖାତାରୁ ଦଲିଲଗୁଡ଼ିକୁ ଆଣୁଅଛି"
 
@@ -268,51 +271,51 @@ msgid "Running in presentation mode"
 msgstr "ଉପସ୍ଥାପନ ଧାରାରେ ଚାଲୁଅଛି"
 
 #: ../src/presentation.js:158
-#| msgid "Presentation"
 msgid "Present On"
 msgstr "ଉପସ୍ଥିତ"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:779
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:782
 msgid "Properties"
 msgstr "ଗୁଣଧର୍ମ"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:78 ../src/search.js:257
+#: ../src/properties.js:80
+#| msgid "Title"
+msgctxt "Document Title"
 msgid "Title"
 msgstr "ଶୀର୍ଷକ"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:87 ../src/search.js:260
+#: ../src/properties.js:89
+#| msgid "Author"
+msgctxt "Document Author"
 msgid "Author"
 msgstr "ଲେଖକ"
 
 #. Source item
-#: ../src/properties.js:94
-#| msgid "Sources"
+#: ../src/properties.js:96
 msgid "Source"
 msgstr "ଉତ୍ସ"
 
 #. Date Modified item
-#: ../src/properties.js:100
+#: ../src/properties.js:102
 msgid "Date Modified"
 msgstr "ପରିବର୍ତ୍ତିତ ତାରିଖ"
 
-#: ../src/properties.js:107
+#: ../src/properties.js:109
 msgid "Date Created"
 msgstr "ସୃଷ୍ଟିହୋଇଥିବା ତାରିଖ"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:116 ../src/search.js:166
+#: ../src/properties.js:118
+#| msgid "Type"
+msgctxt "Document Type"
 msgid "Type"
 msgstr "ପ୍ରକାର"
 
@@ -321,7 +324,6 @@ msgid "Grid"
 msgstr "ଜାଲ"
 
 #: ../src/resources/app-menu.ui.h:3
-#| msgid "List view"
 msgid "List"
 msgstr "ତାଲିକା"
 
@@ -330,7 +332,6 @@ msgid "Fullscreen"
 msgstr "ସମ୍ପୂର୍ଣ ପରଦା"
 
 #: ../src/resources/app-menu.ui.h:5
-#| msgid "Documents"
 msgid "About Documents"
 msgstr "ଦଲିଲଗୁଡିକ ବିଷୟରେ"
 
@@ -343,7 +344,7 @@ msgid "Quit"
 msgstr "ବିଦାୟ ନିଅନ୍ତୁ"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
 msgid "Open"
 msgstr "ଖୋଲନ୍ତୁ"
 
@@ -356,7 +357,6 @@ msgid "Print…"
 msgstr "ମୂଦ୍ରଣ କରନ୍ତୁ…"
 
 #: ../src/resources/preview-menu.ui.h:4
-#| msgid "Presentation"
 msgid "Present"
 msgstr "ଉପସ୍ଥିତ"
 
@@ -384,75 +384,107 @@ msgstr "ସବୁକିଛି ଚୟନ କରନ୍ତୁ"
 msgid "Select None"
 msgstr "କାହାକୁ ବାଛନ୍ତୁ ନାହିଁ"
 
-#: ../src/search.js:112
+#: ../src/search.js:113
 msgid "Category"
 msgstr "ବିଭାଗ"
 
-#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:410
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "ସମସ୍ତ"
 
-#: ../src/search.js:123
+#. Translators: this refers to favorite documents
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "ମନପସନ୍ଦଗୁଡ଼ିକ"
 
-#: ../src/search.js:128
+#. Translators: this refers to shared documents
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "ଆପଣଙ୍କ ସହିତ ସହଭାଗ କରନ୍ତୁ"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+#| msgid "Type"
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "ପ୍ରକାର"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "ସଂଗ୍ରହ"
 
-#: ../src/search.js:175
-#| msgid "Documents"
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "PDF ଦଲିଲ"
 
-#: ../src/search.js:179
-#| msgid "Presentation"
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "ଉପସ୍ଥାପନାଗୁଡିକ"
 
-#: ../src/search.js:182
-#| msgid "Spreadsheet"
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "ସ୍ପ୍ରେଡସିଟଗୁଡିକ"
 
-#: ../src/search.js:185
-#| msgid "Documents"
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "ଟେକ୍ସଟ ଦଲିଲଗୁଡିକ"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "ମେଳକ"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+#| msgid "Title"
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "ଶୀର୍ଷକ"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+#| msgid "Author"
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "ଲେଖକ"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "ଉତ୍ସ"
 
-#: ../src/selections.js:613 ../src/selections.js:771
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:615
+#| msgid "Organize"
+msgctxt "Dialog Title"
 msgid "Organize"
 msgstr "ସଂଗଠନ କରନ୍ତୁ"
 
-#: ../src/selections.js:748
+#: ../src/selections.js:750
 msgid "Print"
 msgstr "ମୂଦ୍ରଣ କରନ୍ତୁ"
 
-#: ../src/selections.js:755
+#: ../src/selections.js:757
 msgid "Delete"
 msgstr "ଅପସାରଣ କରନ୍ତୁ"
 
-#: ../src/selections.js:786
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:774
+#| msgid "Organize"
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "ସଂଗଠନ କରନ୍ତୁ"
+
+#: ../src/selections.js:789
 msgid "Share"
 msgstr "ସହଭାଗ"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:875
 #, c-format
 msgid "Open with %s"
 msgstr "%s ସହିତ ଖୋଲନ୍ତୁ"
@@ -463,7 +495,6 @@ msgstr "ସହଭାଗ ସେଟିଙ୍ଗଗୁଡିକ"
 
 #. Label for widget group for changing document permissions
 #: ../src/sharing.js:126
-#| msgid "Documents"
 msgid "Document permissions"
 msgstr "ଦଲିଲ ଅନୁମତି"
 
@@ -531,52 +562,52 @@ msgid "The document was not updated"
 msgstr "ଦଲିଲ ଅଦ୍ୟତିତ ହୋଇନାହିଁ"
 
 #: ../src/shellSearchProvider.js:293
-#| msgid "Document"
 msgid "Untitled Document"
 msgstr "ଶୀର୍ଷକ ହୀନ ଦଲିଲ"
 
-#: ../src/view.js:61 ../src/view.js:91
+#. Translators: "more" refers to documents in this context
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "ଅଧିକ ଧାରଣ କରନ୍ତୁ"
 
-#: ../src/view.js:292
+#: ../src/view.js:294
 msgid "Yesterday"
 msgstr "ଗତକାଲି"
 
-#: ../src/view.js:294
+#: ../src/view.js:296
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d ଦିନ ପୂର୍ବେ"
 msgstr[1] "%d ଦିନ ପୂର୍ବେ"
 
-#: ../src/view.js:298
+#: ../src/view.js:300
 msgid "Last week"
 msgstr "ଗତ ସପ୍ତାହ"
 
-#: ../src/view.js:300
+#: ../src/view.js:302
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d ସପ୍ତାହ ପୂର୍ବେ"
 msgstr[1] "%d ସପ୍ତାହ ପୂର୍ବେ"
 
-#: ../src/view.js:304
+#: ../src/view.js:306
 msgid "Last month"
 msgstr "ଗତ ମାସ"
 
-#: ../src/view.js:306
+#: ../src/view.js:308
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ମାସ ପୂର୍ବେ"
 msgstr[1] "%d ମାସ ପୂର୍ବେ"
 
-#: ../src/view.js:310
+#: ../src/view.js:312
 msgid "Last year"
 msgstr "ଗତ ବର୍ଷ"
 
-#: ../src/view.js:312
+#: ../src/view.js:314
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
