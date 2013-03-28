@@ -30,6 +30,7 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Tracker = imports.gi.Tracker;
 const _ = imports.gettext.gettext;
+const C_ = imports.gettext.pgettext;
 
 function initSearch(context) {
     context.collectionManager = new Manager.BaseManager(context);
@@ -163,7 +164,7 @@ const SearchTypeManager = new Lang.Class({
     _init: function(context) {
         // Translators: "Type" refers to a search filter on the document type
         // (PDF, spreadsheet, ...)
-        this.parent(_("Type"), context);
+        this.parent(C_("Search Filter", "Type"), context);
 
         this.addItem(new SearchType({ id: 'all',
                                       name: _("All") }));

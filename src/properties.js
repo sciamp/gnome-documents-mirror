@@ -23,6 +23,7 @@ const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
 const _ = imports.gettext.gettext;
+const C_ = imports.gettext.pgettext;
 
 const Application = imports.application;
 const Documents = imports.documents;
@@ -114,7 +115,7 @@ const PropertiesDialog = new Lang.Class({
         // Document type item
         // Translators: "Type" is the label next to the document type
         // (PDF, spreadsheet, ...) in the properties dialog
-        this._docType = new Gtk.Label({ label: _("Type"),
+        this._docType = new Gtk.Label({ label: C_("Document Type", "Type"),
                                         halign: Gtk.Align.END });
         this._docType.get_style_context ().add_class('dim-label');
         grid.add (this._docType);
