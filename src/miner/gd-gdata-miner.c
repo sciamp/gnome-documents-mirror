@@ -135,6 +135,8 @@ account_miner_job_process_entry (GdAccountMinerJob *job,
   /* fake a drawing mimetype, so Documents can get the correct icon */
   if (GDATA_IS_DOCUMENTS_DRAWING (doc_entry))
     mimetype_override = "application/vnd.sun.xml.draw";
+  else if (GDATA_IS_DOCUMENTS_PDF (doc_entry))
+    mimetype_override = "application/pdf";
 
   gd_miner_tracker_sparql_connection_insert_or_replace_triple
     (job->connection,
@@ -367,7 +369,7 @@ gd_gdata_miner_class_init (GdGDataMinerClass *klass)
 
   miner_class->goa_provider_type = "google";
   miner_class->miner_identifier = MINER_IDENTIFIER;
-  miner_class->version = 1;
+  miner_class->version = 2;
 
   miner_class->create_service = create_service;
   miner_class->query = query_gdata;
