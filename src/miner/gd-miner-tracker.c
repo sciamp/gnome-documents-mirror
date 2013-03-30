@@ -43,8 +43,8 @@ gd_miner_tracker_sparql_connection_get_string_attribute (TrackerSparqlConnection
   const gchar *string_value = NULL;
   gboolean res;
 
-  g_string_append_printf (select, "SELECT ?val { ?urn %s ?val . FILTER (?urn IN (<%s>)) }",
-                          attribute, resource);
+  g_string_append_printf (select, "SELECT ?val { <%s> %s ?val }",
+                          resource, attribute);
   cursor = tracker_sparql_connection_query (connection,
                                             select->str,
                                             cancellable, error);
