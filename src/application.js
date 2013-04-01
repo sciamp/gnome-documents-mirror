@@ -285,7 +285,9 @@ const Application = new Lang.Class({
                 this.emitJS('miners-changed', this.minersRunning);
 
                 if (error) {
-                    log('Error updating the cache: ' + error.toString());
+                    if (!error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
+                        log('Error updating the cache: ' + error.toString());
+
                     return;
                 }
 
