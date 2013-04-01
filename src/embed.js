@@ -303,6 +303,10 @@ const Embed = new Lang.Class({
     },
 
     _onItemCountChanged: function() {
+        let windowMode = Application.modeController.getWindowMode();
+        if (windowMode != WindowMode.WindowMode.OVERVIEW)
+            return;
+
         let itemCount = Application.offsetController.getItemCount();
 
         if (itemCount == 0) {
