@@ -281,6 +281,7 @@ gd_zpj_miner_class_init (GdZpjMinerClass *klass)
 
   miner_class->goa_provider_type = "windows_live";
   miner_class->miner_identifier = MINER_IDENTIFIER;
+  miner_class->version = 1;
 
   miner_class->create_service = create_service;
   miner_class->query = query_zpj;

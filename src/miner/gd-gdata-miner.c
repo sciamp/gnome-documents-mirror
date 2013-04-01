@@ -367,6 +367,7 @@ gd_gdata_miner_class_init (GdGDataMinerClass *klass)
 
   miner_class->goa_provider_type = "google";
   miner_class->miner_identifier = MINER_IDENTIFIER;
+  miner_class->version = 1;
 
   miner_class->create_service = create_service;
   miner_class->query = query_gdata;

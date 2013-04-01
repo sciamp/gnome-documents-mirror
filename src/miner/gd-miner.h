@@ -57,6 +57,7 @@ typedef struct {
 
   GHashTable *previous_resources;
   gchar *datasource_urn;
+  gchar *root_element_urn;
 } GdAccountMinerJob;
 
 struct _GdMiner
@@ -72,6 +73,7 @@ struct _GdMinerClass
 
   char *goa_provider_type;
   char *miner_identifier;
+  gint  version;
 
   GObject * (*create_service) (GdMiner *self,
                                GoaObject *object);

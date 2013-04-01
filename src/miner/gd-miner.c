@@ -54,6 +54,7 @@ gd_account_miner_job_free (GdAccountMinerJob *job)
   g_clear_object (&job->async_result);
 
   g_free (job->datasource_urn);
+  g_free (job->root_element_urn);
 
   g_hash_table_unref (job->previous_resources);
 
@@ -172,15 +173,17 @@ gd_account_miner_job_ensure_datasource (GdAccountMinerJob *job,
                                         GError **error)
 {
   GString *datasource_insert;
+  GdMinerClass *klass = GD_MINER_GET_CLASS (job->miner);
 
   datasource_insert = g_string_new (NULL);
   g_string_append_printf (datasource_insert,
                           "INSERT OR REPLACE INTO <%s> {"
-                          "  <%s> a nie:DataSource ; nao:identifier \"%s\""
+                          "  <%s> a nie:DataSource ; nao:identifier \"%s\" . "
+                          "  <%s> a nie:InformationElement ; nie:rootElementOf <%s> ; nie:version \"%d\""
                           "}",
                           job->datasource_urn,
-                          job->datasource_urn,
-                          GD_MINER_GET_CLASS (job->miner)->miner_identifier);
+                          job->datasource_urn, klass->miner_identifier,
+                          job->root_element_urn, job->datasource_urn, klass->version);
 
   tracker_sparql_connection_update (job->connection,
                                     datasource_insert->str,
@@ -376,6 +379,8 @@ gd_account_miner_job_new (GdMiner *self,
   retval->service = miner_class->create_service (self, object);
   retval->datasource_urn = g_strdup_printf ("gd:goa-account:%s",
                                             goa_account_get_id (retval->account));
+  retval->root_element_urn = g_strdup_printf ("gd:goa-account:%s:root-element",
+                                              goa_account_get_id (retval->account));
 
   return retval;
 }
@@ -543,16 +548,20 @@ cleanup_job (GIOSchedulerJob *sched_job,
   GString *select;
   GError *error = NULL;
   TrackerSparqlCursor *cursor;
-  const gchar *datasource;
+  const gchar *datasource, *old_version_str;
+  gint old_version;
   GList *element;
   CleanupJob *job = user_data;
   GdMiner *self = job->self;
+  GdMinerClass *klass = GD_MINER_GET_CLASS (self);
 
   /* find all our datasources in the tracker DB */
   select = g_string_new (NULL);
-  g_string_append_printf (select, "SELECT ?datasource WHERE { ?datasource a nie:DataSource . "
-                          "?datasource nao:identifier \"%s\" }",
-                          GD_MINER_GET_CLASS (self)->miner_identifier);
+  g_string_append_printf (select, "SELECT ?datasource nie:version(?root) WHERE { "
+                          "?datasource a nie:DataSource . "
+                          "?datasource nao:identifier \"%s\" . "
+                          "OPTIONAL { ?root nie:rootElementOf ?datasource } }",
+                          klass->miner_identifier);
 
   cursor = tracker_sparql_connection_query (self->priv->connection,
                                             select->str,
@@ -574,6 +583,8 @@ cleanup_job (GIOSchedulerJob *sched_job,
        * documents, in case the switch has been disabled in System Settings.
        * In fact, we only remove all the account data in case the account
        * is really removed from the panel.
+       *
+       * Also, cleanup sources for which the version has increased.
        */
       datasource = tracker_sparql_cursor_get_string (cursor, 0, NULL);
       element = g_list_find_custom (job->acc_objects, datasource,
@@ -582,6 +593,20 @@ cleanup_job (GIOSchedulerJob *sched_job,
       if (element == NULL)
         job->old_datasources = g_list_prepend (job->old_datasources,
                                                g_strdup (datasource));
+
+      old_version_str = tracker_sparql_cursor_get_string (cursor, 1, NULL);
+      if (old_version_str == NULL)
+        old_version = 1;
+      else
+        sscanf (old_version_str, "%d", &old_version);
+
+      g_debug ("Stored version: %d - new version %d", old_version, klass->version);
+
+      if ((element == NULL) || (old_version < klass->version))
+        {
+          job->old_datasources = g_list_prepend (job->old_datasources,
+                                                 g_strdup (datasource));
+        }
     }
 
   g_object_unref (cursor);
