@@ -94,6 +94,7 @@ const Application = new Lang.Class({
 
     _init: function() {
         this.minersRunning = [];
+        this._activationTimestamp = Gdk.CURRENT_TIME;
 
         Gettext.bindtextdomain('gnome-documents', Path.LOCALE_DIR);
         Gettext.textdomain('gnome-documents');
@@ -481,8 +482,10 @@ const Application = new Lang.Class({
     },
 
     vfunc_activate: function() {
-        if (this._mainWindow)
-            this._mainWindow.window.present();
+        if (this._mainWindow) {
+            this._mainWindow.window.present_with_time(this._activationTimestamp);
+            this._activationTimestamp = Gdk.CURRENT_TIME;
+        }
     },
 
     vfunc_command_line: function(cmdline) {
@@ -521,9 +524,10 @@ const Application = new Lang.Class({
         Mainloop.idle_add(Lang.bind(this, this._clearState));
     },
 
-    _onActivateResult: function(provider, urn, terms) {
+    _onActivateResult: function(provider, urn, terms, timestamp) {
         this._createWindow();
         modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+        this._activationTimestamp = timestamp;
         this.activate();
 
         searchController.setString(terms.join(' '));
@@ -544,12 +548,13 @@ const Application = new Lang.Class({
         }
     },
 
-    _onLaunchSearch: function(provider, terms) {
+    _onLaunchSearch: function(provider, terms, timestamp) {
         this._createWindow();
         modeController.setWindowMode(WindowMode.WindowMode.OVERVIEW);
         searchController.setString(terms.join(' '));
         this.change_action_state('search', GLib.Variant.new('b', true));
 
+        this._activationTimestamp = timestamp;
         this.activate();
     }
 });

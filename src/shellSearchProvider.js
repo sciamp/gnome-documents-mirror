@@ -461,11 +461,11 @@ const ShellSearchProvider = new Lang.Class({
     },
 
     ActivateResult: function(id, terms, timestamp) {
-        this.emit('activate-result', id, terms);
+        this.emit('activate-result', id, terms, timestamp);
     },
 
     LaunchSearch: function(terms, timestamp) {
-        this.emit('launch-search', terms);
+        this.emit('launch-search', terms, timestamp);
     }
 });
 Signals.addSignalMethods(ShellSearchProvider.prototype);
