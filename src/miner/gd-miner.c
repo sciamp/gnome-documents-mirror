@@ -200,8 +200,8 @@ gd_account_miner_job_query_existing (GdAccountMinerJob *job,
 
   select = g_string_new (NULL);
   g_string_append_printf (select,
-                          "SELECT ?urn nao:identifier(?urn) WHERE { ?urn nie:dataSource <gd:goa-account:%s> }",
-                          goa_account_get_id (job->account));
+                          "SELECT ?urn nao:identifier(?urn) WHERE { ?urn nie:dataSource <%s> }",
+                          job->datasource_urn);
 
   cursor = tracker_sparql_connection_query (job->connection,
                                             select->str,
