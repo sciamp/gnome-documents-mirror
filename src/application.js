@@ -529,23 +529,37 @@ const Application = new Lang.Class({
     _onActivateResult: function(provider, urn, terms, timestamp) {
         this._createWindow();
         modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
-        this._activationTimestamp = timestamp;
-        this.activate();
-
-        searchController.setString(terms.join(' '));
 
         let doc = documentManager.getItemById(urn);
         if (doc) {
-            documentManager.setActiveItem(doc);
+            doActivate.apply(this, [doc]);
         } else {
             let job = new TrackerUtils.SingleItemJob(urn, queryBuilder);
             job.run(Query.QueryFlags.UNFILTERED, Lang.bind(this,
                 function(cursor) {
-                    if (!cursor)
+                    if (cursor)
+                        doc = documentManager.addDocumentFromCursor(cursor);
+
+                    doActivate.apply(this, [doc]);
+                }));
+        }
+
+        function doActivate(doc) {
+            documentManager.setActiveItem(doc);
+
+            this._activationTimestamp = timestamp;
+            this.activate();
+
+            // forward the search terms next time we enter the overview
+            let modeChangeId = modeController.connect('window-mode-changed', Lang.bind(this,
+                function(object, newMode) {
+                    if (newMode != WindowMode.WindowMode.OVERVIEW)
                         return;
 
-                    let doc = documentManager.addDocumentFromCursor(cursor);
-                    documentManager.setActiveItem(doc);
+                    modeController.disconnect(modeChangeId);
+
+                    searchController.setString(terms.join(' '));
+                    this.change_action_state('search', GLib.Variant.new('b', true));
                 }));
         }
     },
