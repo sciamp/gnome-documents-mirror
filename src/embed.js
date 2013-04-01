@@ -259,7 +259,7 @@ const Embed = new Lang.Class({
                                               Lang.bind(this, this._onQueryError));
 
         Application.offsetController.connect('item-count-changed',
-                                        Lang.bind(this, this._onItemCountChanged));
+                                             Lang.bind(this, this._onItemCountChanged));
 
         Application.documentManager.connect('active-changed',
                                             Lang.bind(this, this._onActiveItemChanged));
