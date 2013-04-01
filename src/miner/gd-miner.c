@@ -497,9 +497,7 @@ cleanup_job_do_cleanup (CleanupJob *job)
                               "DELETE {"
                               "  ?u a rdfs:Resource"
                               "} WHERE {"
-                              "  GRAPH <%s> {"
-                              "    ?u a rdfs:Resource"
-                              "  }"
+                              "  ?u nie:dataSource <%s>"
                               "}",
                               resource);
     }
