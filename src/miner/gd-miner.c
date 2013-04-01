@@ -53,6 +53,8 @@ gd_account_miner_job_free (GdAccountMinerJob *job)
   g_clear_object (&job->account);
   g_clear_object (&job->async_result);
 
+  g_free (job->datasource_urn);
+
   g_hash_table_unref (job->previous_resources);
 
   g_slice_free (GdAccountMinerJob, job);
