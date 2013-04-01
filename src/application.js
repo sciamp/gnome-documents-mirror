@@ -491,10 +491,11 @@ const Application = new Lang.Class({
 
     vfunc_command_line: function(cmdline) {
         let args = cmdline.get_arguments();
-        if (args.indexOf('--no-default-window') == -1)
+        if (args.indexOf('--no-default-window') == -1) {
             this._createWindow();
+            modeController.setWindowMode(WindowMode.WindowMode.OVERVIEW);
+        }
 
-        modeController.setWindowMode(WindowMode.WindowMode.OVERVIEW);
         this.activate();
         return 0;
     },
