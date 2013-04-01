@@ -279,6 +279,18 @@ thumbnail_job_completed_cb (EvJobThumbnail *job,
 }
 
 static void
+preview_item_clear_thumbnail_job (GdNavBar *self,
+                                  PreviewItem *item)
+{
+        if (item->job != NULL) {
+                g_signal_handlers_disconnect_by_func (item->job, thumbnail_job_completed_cb, self);
+                ev_job_cancel (item->job);
+        }
+
+        g_clear_object (&item->job);
+}
+
+static void
 previews_clear_range (GdNavBar *self,
                       int       start_page,
                       int       end_page)
@@ -290,10 +302,8 @@ previews_clear_range (GdNavBar *self,
         for (i = start_page; i < end_page; i++) {
                 PreviewItem *item = &self->priv->previews[i];
 
-                if (item != NULL && item->job != NULL) {
-                        g_signal_handlers_disconnect_by_func (item->job, thumbnail_job_completed_cb, self);
-                        ev_job_cancel (item->job);
-                        g_clear_object (&item->job);
+                if (item != NULL) {
+                        preview_item_clear_thumbnail_job (self, item);
                 }
         }
 }
@@ -395,15 +405,6 @@ previews_create (GdNavBar *self)
 }
 
 static void
-preview_item_clear (PreviewItem *item)
-{
-        g_clear_object (&item->job);
-        g_clear_object (&item->pixbuf);
-        g_free (item->label);
-        item->label = NULL;
-}
-
-static void
 previews_clear (GdNavBar *self)
 {
         int i;
@@ -415,7 +416,11 @@ previews_clear (GdNavBar *self)
         for (i = 0; i < self->priv->n_pages; i++) {
                 PreviewItem *item = &self->priv->previews[i];
 
-                preview_item_clear (item);
+                preview_item_clear_thumbnail_job (self, item);
+
+                g_clear_object (&item->pixbuf);
+                g_free (item->label);
+                item->label = NULL;
         }
 
         g_free (self->priv->previews);
