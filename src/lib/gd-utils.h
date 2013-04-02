@@ -32,9 +32,6 @@ void gd_queue_thumbnail_job_for_file_async (GFile *file,
 
 gboolean gd_queue_thumbnail_job_for_file_finish (GAsyncResult *res);
 
-void gd_gtk_tree_view_set_activate_on_single_click (GtkTreeView *tree_view,
-                                                    gboolean should_activate);
-
 const char *gd_filename_get_extension_offset (const char *filename);
 
 char *gd_filename_strip_extension (const char * filename_with_extension);

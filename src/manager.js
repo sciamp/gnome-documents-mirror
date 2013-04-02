@@ -230,10 +230,10 @@ const BaseView = new Lang.Class({
         this._model = new BaseModel(manager);
         this._manager = manager;
 
-        this.widget = new Gtk.TreeView({ headers_visible: false,
+        this.widget = new Gtk.TreeView({ activate_on_single_click: true,
+                                         headers_visible: false,
                                          enable_search: false });
         this._treeView = this.widget;
-        GdPrivate.gtk_tree_view_set_activate_on_single_click(this._treeView, true);
         this._treeView.set_model(this._model.model);
 
         let selection = this._treeView.get_selection();
