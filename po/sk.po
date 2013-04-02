@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-22 19:15+0000\n"
-"PO-Revision-Date: 2013-03-23 12:11+0100\n"
+"POT-Creation-Date: 2013-04-01 16:30+0000\n"
+"PO-Revision-Date: 2013-03-29 10:33+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 # desktop entry name
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenty"
@@ -81,7 +81,7 @@ msgstr "Maximalizovaný stav okna"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:416
+#: ../src/documents.js:590 ../src/search.js:417
 msgid "Local"
 msgstr "Lokálne"
 
@@ -163,7 +163,7 @@ msgid "View"
 msgstr "Zobraziť"
 
 #: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
-#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Načítava sa…"
 
@@ -253,7 +253,7 @@ msgstr[1] "%d vybraná"
 msgstr[2] "%d vybrané"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "Hotovo"
 
@@ -284,12 +284,14 @@ msgid "Some documents might not be available during this process"
 msgstr "Niektoré dokumenty nemusia byť počas tohto procesu dostupné"
 
 # DK:https://bugzilla.gnome.org/show_bug.cgi?id=695555
-#: ../src/notifications.js:164
-#, fuzzy, c-format
-msgid "Fetching documents from %s"
-msgstr "Získavajú sa dokumenty z %s"
-
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
 #: ../src/notifications.js:166
+#, c-format
+msgid "Fetching documents from %s"
+msgstr "Získavajú sa dokumenty od poskytovateľa %s"
+
+#: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "Získavajú sa dokumenty z online účtov"
 
@@ -303,51 +305,45 @@ msgstr "Spustené v režime prezentácie"
 msgid "Present On"
 msgstr "Prezentácia"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:779
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:782
 msgid "Properties"
 msgstr "Vlastnosti"
 
-# PM: potrebné rozdeliť - nahlas nový bug nech k tomu priradia msgctx a rozdelia reťazce
-# *https://bugzilla.gnome.org/show_bug.cgi?id=685753
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:78 ../src/search.js:257
-#, fuzzy
+#: ../src/properties.js:80
+msgctxt "Document Title"
 msgid "Title"
-msgstr "Názvu"
+msgstr "Názov"
 
-# *https://bugzilla.gnome.org/show_bug.cgi?id=685753
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:87 ../src/search.js:260
-#, fuzzy
+#: ../src/properties.js:89
+msgctxt "Document Author"
 msgid "Author"
-msgstr "Autora"
+msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:94
+#: ../src/properties.js:96
 msgid "Source"
 msgstr "Zdroj"
 
 #. Date Modified item
-#: ../src/properties.js:100
+#: ../src/properties.js:102
 msgid "Date Modified"
 msgstr "Dátum zmeny"
 
-#: ../src/properties.js:107
+#: ../src/properties.js:109
 msgid "Date Created"
 msgstr "Dátum vytvorenia"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:116 ../src/search.js:166
+#: ../src/properties.js:118
+msgctxt "Document Type"
 msgid "Type"
 msgstr "Typ"
 
@@ -376,7 +372,7 @@ msgid "Quit"
 msgstr "Ukončiť"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
 msgid "Open"
 msgstr "Otvoriť"
 
@@ -416,83 +412,106 @@ msgstr "Vybrať všetko"
 msgid "Select None"
 msgstr "Zrušiť výber"
 
-#: ../src/search.js:112
+#: ../src/search.js:113
 msgid "Category"
 msgstr "Kategória"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:410
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "Všetky"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:123
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "Obľúbené"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:128
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "V spoločnom používaní s vami"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Typu"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "Zbierky"
 
-#: ../src/search.js:175
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "Dokumenty PDF"
 
-#: ../src/search.js:179
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "Prezentácie"
 
-#: ../src/search.js:182
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "Tabuľkové zošity"
 
-#: ../src/search.js:185
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "Textové dokumenty"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "Hľadať podľa"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Názvu"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Autora"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "Zdroje"
 
-# PM: treba rozdeliť prekladáme to iným štýlom - nahlás bug; a čo to robí? nebude lepšie usporiada?
-# DK: https://bugzilla.gnome.org/show_bug.cgi?id=695554
-# GtkDialog title; button tooltip
-#: ../src/selections.js:613 ../src/selections.js:771
-#, fuzzy
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:615
+msgctxt "Dialog Title"
 msgid "Organize"
-msgstr "Organizovať"
+msgstr "Usporiadanie"
 
 # button tooltip
-#: ../src/selections.js:748
+#: ../src/selections.js:750
 msgid "Print"
 msgstr "Uskutoční tlač"
 
 # button tooltip
-#: ../src/selections.js:755
+#: ../src/selections.js:757
 msgid "Delete"
 msgstr "Uskutoční odstránenie"
 
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:774
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "Usporiada dokumenty"
+
 # button tooltip
-#: ../src/selections.js:786
+#: ../src/selections.js:789
 msgid "Share"
 msgstr "Nastaví spoločné používanie"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:875
 #, c-format
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
@@ -582,15 +601,16 @@ msgstr "Dokument nebol aktualizovaný"
 msgid "Untitled Document"
 msgstr "Nepomenovaný dokument"
 
-#: ../src/view.js:61 ../src/view.js:91
+#. Translators: "more" refers to documents in this context
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "Načítať viac"
 
-#: ../src/view.js:292
+#: ../src/view.js:294
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/view.js:294
+#: ../src/view.js:296
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -598,11 +618,11 @@ msgstr[0] "Pred %d dňami"
 msgstr[1] "Pred %d dňom"
 msgstr[2] "Pred %d dňami"
 
-#: ../src/view.js:298
+#: ../src/view.js:300
 msgid "Last week"
 msgstr "Minulý týždeň"
 
-#: ../src/view.js:300
+#: ../src/view.js:302
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -610,11 +630,11 @@ msgstr[0] "Pred %d týždňami"
 msgstr[1] "Pred %d týždňom"
 msgstr[2] "Pred %d týždňami"
 
-#: ../src/view.js:304
+#: ../src/view.js:306
 msgid "Last month"
 msgstr "Minulý mesiac"
 
-#: ../src/view.js:306
+#: ../src/view.js:308
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -622,11 +642,11 @@ msgstr[0] "Pred %d mesiacmi"
 msgstr[1] "Pred %d mesiacom"
 msgstr[2] "Pred %d mesiacmi"
 
-#: ../src/view.js:310
+#: ../src/view.js:312
 msgid "Last year"
 msgstr "Minulý rok"
 
-#: ../src/view.js:312
+#: ../src/view.js:314
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
