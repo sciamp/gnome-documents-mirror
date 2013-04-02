@@ -54,14 +54,5 @@ void gd_ev_view_find_changed (EvView *view,
                               EvJobFind *job,
                               gint page);
 
-void gd_tracker_miner_manager_index_file_async (TrackerMinerManager *manager,
-                                                GFile *file,
-                                                GAsyncReadyCallback callback,
-                                                gpointer user_data);
-
-gboolean gd_tracker_miner_manager_index_file_finish (TrackerMinerManager *manager,
-                                                     GAsyncResult *result,
-                                                     GError **error);
-
 #endif /* __GD_UTILS_H__ */
                                   

@@ -131,10 +131,10 @@ const Application = new Lang.Class({
                         let info = object.query_info_finish(res);
                         this.gettingStartedLocation = file.get_parent();
 
-                        GdPrivate.tracker_miner_manager_index_file_async(manager, file,
+                        manager.index_file_async(file, null,
                             function(object, res) {
                                 try {
-                                    GdPrivate.tracker_miner_manager_index_file_finish(object, res);
+                                    manager.index_file_finish(res);
                                 } catch (e) {
                                     log('Error indexing the getting started PDF: ' + e.message);
                                 }
