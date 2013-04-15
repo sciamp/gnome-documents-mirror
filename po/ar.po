@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-25 03:06+0200\n"
-"PO-Revision-Date: 2013-03-09 23:19+0200\n"
+"POT-Creation-Date: 2013-04-15 04:07+0200\n"
+"PO-Revision-Date: 2013-04-15 04:07+0200\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Virtaal 0.7.0\n"
 "X-Project-Style: gnome\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "المستندات"
@@ -68,7 +68,7 @@ msgid "Window maximized state"
 msgstr "حالة تكبير النافذة"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:416
+#: ../src/documents.js:590 ../src/search.js:417
 msgid "Local"
 msgstr "محلّي"
 
@@ -145,7 +145,7 @@ msgid "View"
 msgstr "عرض"
 
 #: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
-#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "يُحمّل…"
 
@@ -232,7 +232,7 @@ msgstr[4] "%d عنصرا مُختارة"
 msgstr[5] "%d عنصر مُختارة"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "تم"
 
@@ -265,12 +265,14 @@ msgstr "يجري فهرسة مستنداتك"
 msgid "Some documents might not be available during this process"
 msgstr "قد لا تتاح بعض المستندات أثناء هذا"
 
-#: ../src/notifications.js:164
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:166
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "يجلب المستند من %s"
 
-#: ../src/notifications.js:166
+#: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "يجلب المستندات من حسابات الإنترنت"
 
@@ -282,46 +284,45 @@ msgstr "يعمل في نمط العرض التقديمي"
 msgid "Present On"
 msgstr "عرض تقديمي"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:779
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:782
 msgid "Properties"
 msgstr "الخصائص"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:78 ../src/search.js:257
+#: ../src/properties.js:80
+msgctxt "Document Title"
 msgid "Title"
 msgstr "العنوان"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:87 ../src/search.js:260
+#: ../src/properties.js:89
+msgctxt "Document Author"
 msgid "Author"
 msgstr "المؤلف"
 
 #. Source item
-#: ../src/properties.js:94
+#: ../src/properties.js:96
 msgid "Source"
 msgstr "المصدر"
 
 #. Date Modified item
-#: ../src/properties.js:100
+#: ../src/properties.js:102
 msgid "Date Modified"
 msgstr "تاريخ التعديل"
 
-#: ../src/properties.js:107
+#: ../src/properties.js:109
 msgid "Date Created"
 msgstr "تاريخ الإنشاء"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:116 ../src/search.js:166
+#: ../src/properties.js:118
+msgctxt "Document Type"
 msgid "Type"
 msgstr "النوع"
 
@@ -350,7 +351,7 @@ msgid "Quit"
 msgstr "أنهِ"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
 msgid "Open"
 msgstr "افتح"
 
@@ -390,75 +391,106 @@ msgstr "اختر الكل"
 msgid "Select None"
 msgstr "أزل الاختيار عن الكل"
 
-#: ../src/search.js:112
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "ا_نسخ"
+
+#: ../src/search.js:113
 msgid "Category"
 msgstr "الفئة"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:410
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "الكلّ"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:123
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "المفضّلة"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:128
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "مشتركة معك"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "النوع"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "تجميعات"
 
-#: ../src/search.js:175
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "مستندات PDF"
 
-#: ../src/search.js:179
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "عروض تقديميّة"
 
-#: ../src/search.js:182
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "جداول ممتدة"
 
-#: ../src/search.js:185
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "مستندات نصيّة"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "طابق"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "العنوان"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "المؤلف"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "المصادر"
 
-#: ../src/selections.js:613 ../src/selections.js:771
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:615
+msgctxt "Dialog Title"
 msgid "Organize"
 msgstr "نظّم"
 
-#: ../src/selections.js:748
+#: ../src/selections.js:750
 msgid "Print"
 msgstr "اطبع"
 
-#: ../src/selections.js:755
+#: ../src/selections.js:757
 msgid "Delete"
 msgstr "احذف"
 
-#: ../src/selections.js:786
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:774
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "نظّم"
+
+#: ../src/selections.js:789
 msgid "Share"
 msgstr "تشارَك"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
+#: ../src/selections.js:875
 #, c-format
 msgid "Open with %s"
 msgstr "افتح باستخدام %s"
@@ -539,15 +571,16 @@ msgstr "لم يُحدَّث المستند"
 msgid "Untitled Document"
 msgstr "مستند بلا عنوان"
 
-#: ../src/view.js:61 ../src/view.js:91
+#. Translators: "more" refers to documents in this context
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "حمّل المزيد"
 
-#: ../src/view.js:292
+#: ../src/view.js:294
 msgid "Yesterday"
 msgstr "بالأمس"
 
-#: ../src/view.js:294
+#: ../src/view.js:296
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -558,11 +591,11 @@ msgstr[3] "منذ %d أيام"
 msgstr[4] "منذ %d يوما"
 msgstr[5] "منذ %d يوم"
 
-#: ../src/view.js:298
+#: ../src/view.js:300
 msgid "Last week"
 msgstr "الأسبوع الماضي"
 
-#: ../src/view.js:300
+#: ../src/view.js:302
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -573,11 +606,11 @@ msgstr[3] "منذ %d أسابيع"
 msgstr[4] "منذ %d أسبوعا"
 msgstr[5] "منذ %d أسبوع"
 
-#: ../src/view.js:304
+#: ../src/view.js:306
 msgid "Last month"
 msgstr "الشهر الماضي"
 
-#: ../src/view.js:306
+#: ../src/view.js:308
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -588,11 +621,11 @@ msgstr[3] "منذ %d أشهر"
 msgstr[4] "منذ %d شهرا"
 msgstr[5] "منذ %d شهر"
 
-#: ../src/view.js:310
+#: ../src/view.js:312
 msgid "Last year"
 msgstr "السنة الماضية"
 
-#: ../src/view.js:312
+#: ../src/view.js:314
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
