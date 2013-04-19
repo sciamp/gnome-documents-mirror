@@ -449,7 +449,7 @@ const SourceManager = new Lang.Class({
         let sources = this.getItems();
         let filters = [];
 
-        for (idx in sources) {
+        for (let idx in sources) {
             let source = sources[idx];
             if (!source.builtin)
                 filters.push(source.getFilter());

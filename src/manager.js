@@ -137,7 +137,7 @@ const BaseManager = new Lang.Class({
     },
 
     forEachItem: function(func) {
-        for (idx in this._items)
+        for (let idx in this._items)
             func(this._items[idx]);
     },
 
@@ -154,6 +154,7 @@ const BaseManager = new Lang.Class({
 
     processNewItems: function(newItems) {
         let oldItems = this.getItems();
+        let idx;
 
         for (idx in oldItems) {
             let item = oldItems[idx];
@@ -213,7 +214,7 @@ const BaseModel = new Lang.Class({
         }
 
         let items = this._manager.getItems();
-        for (idx in items) {
+        for (let idx in items) {
             let item = items[idx];
             iter = this.model.append();
             this.model.set(iter,
