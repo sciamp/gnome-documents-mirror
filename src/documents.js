@@ -927,7 +927,7 @@ const DocumentManager = new Lang.Class({
 
     clear: function() {
         let items = this.getItems();
-        for (idx in items) {
+        for (let idx in items) {
             items[idx].destroy();
         };
 
