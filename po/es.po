@@ -9,18 +9,18 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-28 14:14+0000\n"
-"PO-Revision-Date: 2013-03-28 17:15+0100\n"
+"POT-Creation-Date: 2013-04-19 14:48+0000\n"
+"PO-Revision-Date: 2013-04-22 17:34+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
-"Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
+"Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: Gtranslator 2.91.5\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Documentos"
@@ -284,7 +284,6 @@ msgstr "Propiedades"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #: ../src/properties.js:80
-#| msgid "Title"
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Título"
@@ -292,7 +291,6 @@ msgstr "Título"
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #: ../src/properties.js:89
-#| msgid "Author"
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Autor"
@@ -315,7 +313,6 @@ msgstr "Fecha de creación"
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
 #: ../src/properties.js:118
-#| msgid "Type"
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Tipo"
@@ -385,6 +382,10 @@ msgstr "Seleccionar todo"
 msgid "Select None"
 msgstr "Seleccionar nada"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Copiar"
+
 #: ../src/search.js:113
 msgid "Category"
 msgstr "Categoría"
@@ -409,7 +410,6 @@ msgstr "Compartidos con usted"
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
 #: ../src/search.js:167
-#| msgid "Type"
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Tipo"
@@ -442,14 +442,12 @@ msgstr "Coincidencia"
 
 #. Translators: "Title" refers to "Match Title" when searching
 #: ../src/search.js:258
-#| msgid "Title"
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Título"
 
 #. Translators: "Author" refers to "Match Author" when searching
 #: ../src/search.js:261
-#| msgid "Author"
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Autor"
@@ -460,7 +458,6 @@ msgstr "Fuentes"
 
 #. Translators: "Organize" refers to documents in this context
 #: ../src/selections.js:615
-#| msgid "Organize"
 msgctxt "Dialog Title"
 msgid "Organize"
 msgstr "Organizar"
@@ -475,7 +472,6 @@ msgstr "Eliminar"
 
 #. Translators: "Organize" refers to documents in this context
 #: ../src/selections.js:774
-#| msgid "Organize"
 msgctxt "Toolbar button tooltip"
 msgid "Organize"
 msgstr "Organizar"
