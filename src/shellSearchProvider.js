@@ -257,7 +257,7 @@ const FetchMetasJob = new Lang.Class({
         job.run(Lang.bind(this,
             function(icon) {
                 if (icon)
-                    meta.pixbuf = icon;
+                    meta.icon = icon;
 
                 this._metas.push(meta);
                 this._jobCollector();
@@ -389,14 +389,8 @@ const ShellSearchProvider = new Lang.Class({
             let meta = { id: GLib.Variant.new('s', this._cache[id].id),
                          name: GLib.Variant.new('s', this._cache[id].title) };
 
-            let gicon = this._cache[id].icon;
-            let pixbuf = this._cache[id].pixbuf;
-            let iconstr = gicon ? gicon.to_string() : null;
-            if (iconstr)
-                meta['gicon'] = GLib.Variant.new('s', iconstr);
-            else if (pixbuf)
-                meta['icon-data'] = GdPrivate.create_variant_from_pixbuf(pixbuf);
-
+            let icon = this._cache[id].icon;
+            meta['icon'] = icon.serialize();
             metas.push(meta);
         }
 

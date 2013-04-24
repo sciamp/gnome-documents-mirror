@@ -45,8 +45,6 @@ gchar *gd_iso8601_from_timestamp (gint64 timestamp);
 GIcon *gd_create_collection_icon (gint base_size,
                                   GList *pixbufs);
 
-GVariant *gd_create_variant_from_pixbuf (GdkPixbuf *pixbuf);
-
 void gd_ev_view_find_changed (EvView *view,
                               EvJobFind *job,
                               gint page);
