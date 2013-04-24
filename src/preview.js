@@ -32,7 +32,6 @@ const _ = imports.gettext.gettext;
 const Lang = imports.lang;
 const Mainloop = imports.mainloop;
 const Signals = imports.signals;
-const Tweener = imports.tweener.tweener;
 
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
@@ -578,18 +577,21 @@ const PreviewNavBar = new Lang.Class({
 
     _init: function(model) {
         this._model = model;
-        this.widget = new GdPrivate.NavBar({ document_model: model,
-                                             margin: _PREVIEW_NAVBAR_MARGIN,
-                                             valign: Gtk.Align.END,
-                                             opacity: 0 });
-        this.widget.get_style_context().add_class('osd');
+
+        this._navbar = new GdPrivate.NavBar({ document_model: model });
+        this._navbar.get_style_context().add_class('osd');
+
+        this.widget = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                         child: this._navbar,
+                                         valign: Gtk.Align.END,
+                                         margin: _PREVIEW_NAVBAR_MARGIN });
 
         let button = new Gtk.Button({ action_name: 'app.places',
                                       child: new Gtk.Image({ icon_name: 'view-list-symbolic',
                                                              pixel_size: 16 }),
                                       valign: Gtk.Align.CENTER
                                     });
-        let buttonArea = this.widget.get_button_area();
+        let buttonArea = this._navbar.get_button_area();
         buttonArea.pack_start(button, false, false, 0);
 
         button = new Gtk.ToggleButton({ action_name: 'app.bookmark-page',
@@ -598,11 +600,13 @@ const PreviewNavBar = new Lang.Class({
                                         valign: Gtk.Align.CENTER
                                       });
         buttonArea.pack_start(button, false, false, 0);
+
+        this.widget.show_all();
     },
 
     setModel: function(model) {
         this._model = model;
-        this.widget.document_model = model;
+        this._navbar.document_model = model;
         if (!model)
             this.hide();
 
@@ -615,20 +619,11 @@ const PreviewNavBar = new Lang.Class({
         if (!this._model)
             return;
 
-        this.widget.show_all();
-        Tweener.addTween(this.widget, { opacity: 1,
-                                        time: 0.30,
-                                        transition: 'easeOutQuad' });
+        this.widget.reveal_child = true;
     },
 
     hide: function() {
-        Tweener.addTween(this.widget, { opacity: 0,
-                                        time: 0.30,
-                                        transition: 'easeOutQuad',
-                                        onComplete: function() {
-                                            this.widget.hide();
-                                        },
-                                        onCompleteScope: this });
+        this.widget.reveal_child = false;
     }
 });
 
@@ -640,36 +635,45 @@ const PreviewNavButtons = new Lang.Class({
         this._previewView = previewView;
         this._model = previewView.getModel();
         this._overlay = overlay;
+
         this._visible = false;
         this._pageChangedId = 0;
         this._autoHideId = 0;
         this._motionId = 0;
         this._hover = false;
 
-        this.prev_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_left: _PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.START,
-                                            valign: Gtk.Align.CENTER });
-        this.prev_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.prev_widget);
-        this.prev_widget.connect('clicked', Lang.bind(this, this._onPrevClicked));
-        this.prev_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.prev_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        let prevButton = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
+                                                                  pixel_size: 16 }) });
+        prevButton.get_style_context().add_class('osd');
+        prevButton.connect('clicked', Lang.bind(this, this._onPrevClicked));
+        prevButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        prevButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
 
-        this.next_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-next-symbolic',
-                                                                    pixel_size: 16 }),
-                                            margin_right: _PREVIEW_NAVBAR_MARGIN,
-                                            halign: Gtk.Align.END,
-                                            valign: Gtk.Align.CENTER });
-        this.next_widget.get_style_context().add_class('osd');
-        this._overlay.add_overlay(this.next_widget);
-        this.next_widget.connect('clicked', Lang.bind(this, this._onNextClicked));
-        this.next_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
-        this.next_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+        this._prev = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                        margin_left: _PREVIEW_NAVBAR_MARGIN,
+                                        halign: Gtk.Align.START,
+                                        valign: Gtk.Align.CENTER,
+                                        child: prevButton });
+        this._overlay.add_overlay(this._prev);
+
+        let nextButton = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-next-symbolic',
+                                                                  pixel_size: 16 }) });
+        nextButton.get_style_context().add_class('osd');
+        nextButton.connect('clicked', Lang.bind(this, this._onNextClicked));
+        nextButton.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
+        nextButton.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
+
+        this._next = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
+                                        margin_right: _PREVIEW_NAVBAR_MARGIN,
+                                        halign: Gtk.Align.END,
+                                        valign: Gtk.Align.CENTER,
+                                        child: nextButton });
+        this._overlay.add_overlay(this._next);
+
+        this._prev.show_all();
+        this._next.show_all();
 
         this._overlay.connect('motion-notify-event', Lang.bind(this, this._onMotion));
-
     },
 
     _onEnterNotify: function() {
@@ -708,8 +712,8 @@ const PreviewNavButtons = new Lang.Class({
     },
 
     _autoHide: function() {
-        this._fadeOutButton(this.prev_widget);
-        this._fadeOutButton(this.next_widget);
+        this._fadeOutButton(this._prev);
+        this._fadeOutButton(this._next);
         this._autoHideId = 0;
         return false;
     },
@@ -729,21 +733,21 @@ const PreviewNavButtons = new Lang.Class({
 
     _updateVisibility: function() {
         if (!this._model || !this._visible) {
-            this._fadeOutButton(this.prev_widget);
-            this._fadeOutButton(this.next_widget);
+            this._fadeOutButton(this._prev);
+            this._fadeOutButton(this._next);
             return;
         }
 
         if (this._model.page > 0)
-            this._fadeInButton(this.prev_widget);
+            this._fadeInButton(this._prev);
         else
-            this._fadeOutButton(this.prev_widget);
+            this._fadeOutButton(this._prev);
 
         let doc = this._model.document;
         if (doc.get_n_pages() > this._model.page + 1)
-            this._fadeInButton(this.next_widget);
+            this._fadeInButton(this._next);
         else
-            this._fadeOutButton(this.next_widget);
+            this._fadeOutButton(this._next);
 
         if (!this._hover)
             this._queueAutoHide();
@@ -766,32 +770,24 @@ const PreviewNavButtons = new Lang.Class({
     _fadeInButton: function(widget) {
         if (!this._model)
             return;
-        widget.show_all();
-        Tweener.addTween(widget, { opacity: 1,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad' });
+
+        widget.reveal_child = true;
     },
 
     _fadeOutButton: function(widget) {
-        Tweener.addTween(widget, { opacity: 0,
-                                   time: 0.30,
-                                   transition: 'easeOutQuad',
-                                   onComplete: function() {
-                                       widget.hide();
-                                   },
-                                   onCompleteScope: this });
+        widget.reveal_child = false;
     },
 
     show: function() {
         this._visible = true;
-        this._fadeInButton(this.prev_widget);
-        this._fadeInButton(this.next_widget);
+        this._fadeInButton(this._prev);
+        this._fadeInButton(this._next);
     },
 
     hide: function() {
         this._visible = false;
-        this._fadeOutButton(this.prev_widget);
-        this._fadeOutButton(this.next_widget);
+        this._fadeOutButton(this._prev);
+        this._fadeOutButton(this._next);
     }
 });
 
