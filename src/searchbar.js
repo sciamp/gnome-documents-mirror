@@ -32,6 +32,7 @@ const Signals = imports.signals;
 
 const Application = imports.application;
 const Manager = imports.manager;
+const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const _SEARCH_ENTRY_TIMEOUT = 200;

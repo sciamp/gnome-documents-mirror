@@ -36,6 +36,7 @@ const Notifications = imports.notifications;
 const Properties = imports.properties;
 const Query = imports.query;
 const Sharing = imports.sharing;
+const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const Lang = imports.lang;
@@ -724,14 +725,18 @@ const SelectionToolbar = new Lang.Class({
         this._itemListeners = {};
         this._insideRefresh = false;
 
-        this._toolbar = new Gtk.Toolbar({ show_arrow: false,
-                                          icon_size: Gtk.IconSize.LARGE_TOOLBAR });
-        this._toolbar.get_style_context().add_class('osd');
-        this._toolbar.set_size_request(_SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
+        this.widget = new Gtk.Toolbar({ show_arrow: false,
+                                        halign: Gtk.Align.CENTER,
+                                        valign: Gtk.Align.END,
+                                        margin_bottom: 40,
+                                        icon_size: Gtk.IconSize.LARGE_TOOLBAR,
+                                        opacity: 0 });
+        this.widget.get_style_context().add_class('osd');
+        this.widget.set_size_request(_SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
 
         this._leftBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
         this._leftGroup = new Gtk.ToolItem({ child: this._leftBox });
-        this._toolbar.insert(this._leftGroup, -1);
+        this.widget.insert(this._leftGroup, -1);
 
         // open button
         this._toolbarOpen = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'folder-symbolic',
@@ -756,11 +761,11 @@ const SelectionToolbar = new Lang.Class({
         this._separator = new Gtk.SeparatorToolItem({ draw: false,
                                                       visible: true });
         this._separator.set_expand(true);
-        this._toolbar.insert(this._separator, -1);
+        this.widget.insert(this._separator, -1);
 
         this._rightBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
         this._rightGroup = new Gtk.ToolItem({ child: this._rightBox });
-        this._toolbar.insert(this._rightGroup, -1);
+        this.widget.insert(this._rightGroup, -1);
 
         // organize button
         this._toolbarCollection = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'list-add-symbolic',
@@ -780,16 +785,11 @@ const SelectionToolbar = new Lang.Class({
 
         // share button
 	    this._toolbarShare = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'emblem-shared-symbolic',
-                                                                          pixel_size: 16 })});
+                                                                      pixel_size: 16 })});
         this._toolbarShare.set_tooltip_text(_("Share"));
         this._rightBox.add(this._toolbarShare);
         this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
 
-        this.widget = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.CROSSFADE,
-                                         halign: Gtk.Align.CENTER,
-                                         valign: Gtk.Align.END,
-                                         margin_bottom: 40,
-                                         child: this._toolbar });
         this.widget.show_all();
 
         Application.selectionController.connect('selection-mode-changed',
@@ -821,7 +821,7 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _setItemListeners: function(selection) {
-        for (let idx in this._itemListeners) {
+        for (idx in this._itemListeners) {
             let doc = this._itemListeners[idx];
             doc.disconnect(idx);
             delete this._itemListeners[idx];
@@ -889,7 +889,7 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _onToolbarCollection: function() {
-        let toplevel = this._toolbar.get_toplevel();
+        let toplevel = this.widget.get_toplevel();
         if (!toplevel.is_toplevel())
             return;
 
@@ -957,14 +957,23 @@ const SelectionToolbar = new Lang.Class({
             return;
 
         let doc = Application.documentManager.getItemById(selection[0]);
-        doc.print(this._toolbar.get_toplevel());
+        doc.print(this.widget.get_toplevel());
     },
 
     _fadeIn: function() {
-        this.widget.reveal_child = true;
+        this.widget.show();
+        Tweener.addTween(this.widget, { opacity: 1,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad' });
     },
 
     _fadeOut: function() {
-        this.widget.reveal_child = false;
+        Tweener.addTween(this.widget, { opacity: 0,
+                                        time: 0.30,
+                                        transition: 'easeOutQuad',
+                                        onComplete: function() {
+                                            this.widget.hide();
+                                        },
+                                        onCompleteScope: this });
     }
 });
