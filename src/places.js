@@ -53,32 +53,29 @@ const PlacesDialog = new Lang.Class({
                                         title: "",
                                         hexpand: true });
 
-        let box = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
-        let contentArea = this.widget.get_content_area();
-        contentArea.pack_start(box, true, true, 0);
+        this._header = new Gtk.HeaderBar();
+        this.widget.set_titlebar(this._header);
 
-        this._toolbar = new Gd.MainToolbar({ icon_size: Gtk.IconSize.MENU,
-                                             show_modes: true,
-                                             vexpand: false });
-        this._toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_MENUBAR);
-        let button = this._toolbar.add_button(null, _('Close'), false);
+        let button = new Gd.HeaderSimpleButton({ label: _("Close") });
+        this._header.pack_end(button);
         button.connect('clicked', Lang.bind(this,
             function() {
                 this.widget.response(Gtk.ResponseType.CLOSE);
             }));
 
-        box.pack_start(this._toolbar, false, false, 0);
-
+        let contentArea = this.widget.get_content_area();
         this._stack = new Gtk.Stack({ border_width: 5,
                                       homogeneous: true });
-        box.pack_start(this._stack, true, true, 0);
+        contentArea.pack_start(this._stack, true, true, 0);
+
+        let switcher = new Gtk.StackSwitcher({ stack: this._stack });
+        this._header.set_custom_title(switcher);
 
         this._linksPage = new GdPrivate.PlacesLinks();
         this._linksPage.connect('link-activated', Lang.bind(this,
             function(widget, link) {
                 this._handleLink(link);
             }));
-
         this._addPage(this._linksPage);
 
         this._bookmarksPage = new GdPrivate.PlacesBookmarks({ bookmarks: this._bookmarks });
@@ -120,15 +117,8 @@ const PlacesDialog = new Lang.Class({
     },
 
     _addPage: function(widget) {
-        let label = new Gtk.Label({ label: widget.name });
         widget.document_model = this._model;
         this._stack.add(widget);
-
-        let button = this._toolbar.add_mode(widget.name);
-        button.connect('toggled', Lang.bind(this,
-            function() {
-                this._stack.set_visible_child(widget);
-            }));
+        this._stack.child_set_property(widget, 'title', widget.name);
     }
-
 });
