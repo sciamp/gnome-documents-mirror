@@ -33,7 +33,6 @@ const WindowMode = imports.windowMode;
 const Documents = imports.documents;
 
 const EvView = imports.gi.EvinceView;
-const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
@@ -217,9 +216,9 @@ const Embed = new Lang.Class({
         this._stackOverlay = new Gtk.Overlay({ visible: true });
         this.widget.pack_end(this._stackOverlay, true, true, 0);
 
-        this._stack = new Gd.Stack({ visible: true,
-                                     homogeneous: true,
-                                     transition_type: Gd.StackTransitionType.CROSSFADE });
+        this._stack = new Gtk.Stack({ visible: true,
+                                      homogeneous: true,
+                                      transition_type: Gtk.StackTransitionType.CROSSFADE });
         this._stackOverlay.add(this._stack);
 
         // create the OSD toolbar for selected items, it's hidden by default

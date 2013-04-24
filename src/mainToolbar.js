@@ -43,7 +43,7 @@ const MainToolbar = new Lang.Class({
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
         this.widget.show();
 
-        this.toolbar = new Gd.HeaderBar();
+        this.toolbar = new Gtk.HeaderBar();
         this.widget.add(this.toolbar);
         this.toolbar.show();
 

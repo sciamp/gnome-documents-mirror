@@ -48,7 +48,7 @@ const Searchbar = new Lang.Class({
 
         this._in = false;
 
-        this.widget = new Gd.Revealer();
+        this.widget = new Gtk.Revealer();
 
         let toolbar = new Gtk.Toolbar();
         toolbar.get_style_context().add_class(Gtk.STYLE_CLASS_PRIMARY_TOOLBAR);
@@ -236,8 +236,8 @@ const Dropdown = new Lang.Class({
                                     opacity: 0.9 });
         frame.get_style_context().add_class('documents-dropdown');
 
-        this.widget = new Gd.Revealer({ halign: Gtk.Align.CENTER,
-                                        valign: Gtk.Align.START });
+        this.widget = new Gtk.Revealer({ halign: Gtk.Align.CENTER,
+                                         valign: Gtk.Align.START });
         this.widget.add(frame);
 
         this._grid = new Gtk.Grid({ orientation: Gtk.Orientation.HORIZONTAL });

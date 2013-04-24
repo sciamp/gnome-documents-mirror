@@ -975,7 +975,7 @@ const PreviewFullscreenToolbar = new Lang.Class({
     _init: function(previewView) {
         this.parent(previewView);
 
-        this.revealer = new Gd.Revealer({ valign: Gtk.Align.START });
+        this.revealer = new Gtk.Revealer({ valign: Gtk.Align.START });
         this.revealer.add(this.widget);
         this.revealer.show();
 
