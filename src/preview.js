@@ -640,15 +640,21 @@ const PreviewNavButtons = new Lang.Class({
         this._previewView = previewView;
         this._model = previewView.getModel();
         this._overlay = overlay;
+
         this._visible = false;
         this._pageChangedId = 0;
         this._autoHideId = 0;
         this._motionId = 0;
         this._hover = false;
 
-        this.prev_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-previous-symbolic',
+        let isRtl = (this._previewView.widget.get_direction() == Gtk.TextDirection.RTL);
+        let prevIconName = isRtl ? 'go-next-symbolic' : 'go-previous-symbolic';
+        let nextIconName = isRtl ? 'go-previous-symbolic' : 'go-next-symbolic';
+
+        this.prev_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: prevIconName,
                                                                     pixel_size: 16 }),
                                             margin_left: _PREVIEW_NAVBAR_MARGIN,
+                                            margin_right: _PREVIEW_NAVBAR_MARGIN,
                                             halign: Gtk.Align.START,
                                             valign: Gtk.Align.CENTER });
         this.prev_widget.get_style_context().add_class('osd');
@@ -657,8 +663,9 @@ const PreviewNavButtons = new Lang.Class({
         this.prev_widget.connect('enter-notify-event', Lang.bind(this, this._onEnterNotify));
         this.prev_widget.connect('leave-notify-event', Lang.bind(this, this._onLeaveNotify));
 
-        this.next_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'go-next-symbolic',
+        this.next_widget = new Gtk.Button({ child: new Gtk.Image ({ icon_name: nextIconName,
                                                                     pixel_size: 16 }),
+                                            margin_left: _PREVIEW_NAVBAR_MARGIN,
                                             margin_right: _PREVIEW_NAVBAR_MARGIN,
                                             halign: Gtk.Align.END,
                                             valign: Gtk.Align.CENTER });
