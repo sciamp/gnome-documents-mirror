@@ -590,7 +590,8 @@ const PreviewNavBar = new Lang.Class({
         let button = new Gtk.Button({ action_name: 'app.places',
                                       child: new Gtk.Image({ icon_name: 'view-list-symbolic',
                                                              pixel_size: 16 }),
-                                      valign: Gtk.Align.CENTER
+                                      valign: Gtk.Align.CENTER,
+                                      tooltip_text: _("Bookmarks")
                                     });
         let buttonArea = this.widget.get_button_area();
         buttonArea.pack_start(button, false, false, 0);
@@ -598,7 +599,8 @@ const PreviewNavBar = new Lang.Class({
         button = new Gtk.ToggleButton({ action_name: 'app.bookmark-page',
                                         child: new Gtk.Image({ icon_name: 'bookmark-add-symbolic',
                                                                pixel_size: 16 }),
-                                        valign: Gtk.Align.CENTER
+                                        valign: Gtk.Align.CENTER,
+                                        tooltip_text: _("Bookmark this page")
                                       });
         buttonArea.pack_start(button, false, false, 0);
     },
