@@ -35,13 +35,10 @@ const Manager = imports.manager;
 const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
-const _SEARCH_ENTRY_TIMEOUT = 200;
-
 const Searchbar = new Lang.Class({
     Name: 'Searchbar',
 
     _init: function() {
-        this._searchEntryTimeout = 0;
         this._searchTypeId = 0;
         this._searchMatchId = 0;
         this.searchChangeBlocked = false;
@@ -77,19 +74,10 @@ const Searchbar = new Lang.Class({
 
         this._searchEntry.connect('changed', Lang.bind(this,
             function() {
-                if (this._searchEntryTimeout != 0) {
-                    Mainloop.source_remove(this._searchEntryTimeout);
-                    this._searchEntryTimeout = 0;
-                }
-
                 if (this.searchChangeBlocked)
                     return;
 
-                this._searchEntryTimeout = Mainloop.timeout_add(_SEARCH_ENTRY_TIMEOUT, Lang.bind(this,
-                    function() {
-                        this._searchEntryTimeout = 0;
-                        this.entryChanged();
-                    }));
+                this.entryChanged();
             }));
 
         // connect to the search action state for visibility
