@@ -286,15 +286,13 @@ const OverviewSearchbar = new Lang.Class({
             Lang.bind(this, this._onTagClicked));
 
         // connect to search string changes in the controller
-        let searchChangedId = Application.searchController.connect('search-string-changed', Lang.bind(this,
-            function(controller, string) {
-                this._searchEntry.set_text(string);
-            }));
+        this._searchChangedId = Application.searchController.connect('search-string-changed',
+            Lang.bind(this, this._onSearchStringChanged));
 
         this._searchEntry.connect('destroy', Lang.bind(this,
             function() {
                 this._dropdown.widget.reveal_child = false;
-                Application.searchController.disconnect(searchChangedId);
+                Application.searchController.disconnect(this._searchChangedId);
             }));
 
         // create the dropdown button
@@ -323,7 +321,17 @@ const OverviewSearchbar = new Lang.Class({
 
     entryChanged: function() {
         let currentText = this._searchEntry.get_text().toLowerCase();
+
+        Application.searchController.disconnect(this._searchChangedId);
         Application.searchController.setString(currentText);
+
+        // connect to search string changes in the controller
+        this._searchChangedId = Application.searchController.connect('search-string-changed',
+            Lang.bind(this, this._onSearchStringChanged));
+    },
+
+    _onSearchStringChanged: function(controller, string) {
+        this._searchEntry.set_text(string);
     },
 
     _onActiveCollectionChanged: function() {
