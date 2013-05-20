@@ -373,9 +373,6 @@ const DocCommon = new Lang.Class({
         if (this._failedThumbnailing)
             return;
 
-        if (!this._triedThumbnailing)
-            this._triedThumbnailing = true;
-
         this._file = Gio.file_new_for_uri(this.uri);
         this._file.query_info_async(Gio.FILE_ATTRIBUTE_THUMBNAIL_PATH,
                                     0, 0, null,
@@ -583,7 +580,6 @@ const LocalDocument = new Lang.Class({
 
     _init: function(cursor) {
         this._failedThumbnailing = false;
-        this._triedThumbnailing = false;
 
         this.parent(cursor);
 
@@ -650,7 +646,6 @@ const GoogleDocument = new Lang.Class({
     Extends: DocCommon,
 
     _init: function(cursor) {
-        this._triedThumbnailing = true;
         this._failedThumbnailing = true;
 
         this.parent(cursor);
@@ -748,7 +743,6 @@ const SkydriveDocument = new Lang.Class({
     Extends: DocCommon,
 
     _init: function(cursor) {
-        this._triedThumbnailing = true;
         this._failedThumbnailing = true;
 
         this.parent(cursor);
