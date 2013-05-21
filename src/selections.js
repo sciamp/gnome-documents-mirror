@@ -43,6 +43,7 @@ const Lang = imports.lang;
 const Signals = imports.signals;
 
 const _COLLECTION_PLACEHOLDER_ID = 'collection-placeholder';
+const _SEPARATOR_PLACEHOLDER_ID = 'separator-placeholder';
 
 // fetch all the collections a given item is part of
 const FetchCollectionsJob = new Lang.Class({
@@ -324,12 +325,25 @@ const OrganizeCollectionModel = new Lang.Class({
             [ GObject.TYPE_STRING,
               GObject.TYPE_STRING,
               GObject.TYPE_INT ]);
-        this._placeholderRef = null;
 
         this._collAddedId = Application.collectionManager.connect('item-added',
             Lang.bind(this, this._onCollectionAdded));
         this._collRemovedId = Application.collectionManager.connect('item-removed',
             Lang.bind(this, this._onCollectionRemoved));
+
+        let iter;
+
+        // add the placeholder
+        iter = this.model.append();
+        this.model.set(iter,
+            [ 0, 1, 2 ],
+            [ _COLLECTION_PLACEHOLDER_ID, '', OrganizeCollectionState.ACTIVE ]);
+
+        // add the separator
+        iter = this.model.append();
+        this.model.set(iter,
+            [ 0, 1, 2 ],
+            [ _SEPARATOR_PLACEHOLDER_ID, '', OrganizeCollectionState.ACTIVE ]);
 
         // populate the model
         let job = new FetchCollectionStateForSelectionJob();
@@ -358,8 +372,6 @@ const OrganizeCollectionModel = new Lang.Class({
     },
 
     _onFetchCollectionStateForSelection: function(collectionState) {
-        this.removePlaceholder();
-
         for (idx in collectionState) {
             let item = Application.collectionManager.getItemById(idx);
 
@@ -397,45 +409,6 @@ const OrganizeCollectionModel = new Lang.Class({
         this._refreshState();
     },
 
-    addPlaceholder: function() {
-        this.removePlaceholder();
-
-        let iter = this.model.append();
-        this.model.set(iter,
-            [ 0, 1, 2 ],
-            [ _COLLECTION_PLACEHOLDER_ID, '', OrganizeCollectionState.ACTIVE ]);
-
-        let placeholderPath = this.model.get_path(iter);
-        if (placeholderPath != null)
-            this._placeholderRef = Gtk.TreeRowReference.new(this.model, placeholderPath);
-
-        return placeholderPath;
-    },
-
-    removePlaceholder: function() {
-        // remove the placeholder if it's here
-        if (this._placeholderRef) {
-            let placeholderPath = this._placeholderRef.get_path();
-            let placeholderIter = this.model.get_iter(placeholderPath)[1];
-
-            if (placeholderIter)
-                this.model.remove(placeholderIter);
-
-            this._placeholderRef = null;
-        }
-    },
-
-    getPlaceholder: function(forget) {
-        let ret = null;
-
-        if (this._placeholderRef)
-            ret = this._placeholderRef.get_path();
-        if (forget)
-            this._placeholderRef = null;
-
-        return ret;
-    },
-
     destroy: function() {
         if (this._collAddedId != 0) {
             Application.collectionManager.disconnect(this._collAddedId);
@@ -455,19 +428,68 @@ const OrganizeCollectionView = new Lang.Class({
     _init: function() {
         this._choiceConfirmed = false;
 
-        this._model = new OrganizeCollectionModel();
-        this.widget = new Gtk.TreeView({ headers_visible: false,
-                                         vexpand: true,
-                                         hexpand: true });
-        this.widget.set_model(this._model.model);
+        this.widget = new Gtk.Overlay();
 
-        this.widget.connect('destroy', Lang.bind(this,
+        this._sw = new Gtk.ScrolledWindow({ shadow_type: Gtk.ShadowType.IN,
+                                            margin_left: 5,
+                                            margin_right: 5,
+                                            margin_bottom: 3 });
+        this.widget.add(this._sw);
+
+        this._model = new OrganizeCollectionModel();
+        this._view = new Gtk.TreeView({ headers_visible: false,
+                                        vexpand: true,
+                                        hexpand: true });
+        this._view.set_model(this._model.model);
+        this._view.set_row_separator_func(Lang.bind(this,
+            function(model, iter) {
+                let id = model.get_value(iter, OrganizeModelColumns.ID);
+                return (id == _SEPARATOR_PLACEHOLDER_ID);
+            }));
+        this._sw.add(this._view);
+
+        this._msgGrid = new Gtk.Grid({ orientation: Gtk.Orientation.VERTICAL,
+                                       row_spacing: 12,
+                                       halign: Gtk.Align.CENTER,
+                                       margin_top: 64 });
+        this.widget.add_overlay(this._msgGrid);
+
+        this._icon = new Gtk.Image({ resource: '/org/gnome/documents/collections-placeholder.png' });
+        this._msgGrid.add(this._icon);
+
+        this._label = new Gtk.Label({
+            justify: Gtk.Justification.CENTER,
+            label: _("You don't have any collections yet. Enter a new collection name above."),
+            max_width_chars: 32,
+            wrap: true });
+        this._label.get_style_context().add_class('dim-label');
+        this._msgGrid.add(this._label);
+
+        // show the overlay only if there aren't any collections in the model
+        this._msgGrid.visible = (this._model.model.iter_n_children(null) < 2);
+        this._model.model.connect('row-inserted', Lang.bind(this,
+            function() {
+                this._msgGrid.hide();
+            }));
+
+        // force the editable row to be unselected
+        this.selection = this._view.get_selection();
+        let selectionChangedId = this.selection.connect('changed', Lang.bind(this,
+            function() {
+                this.selection.unselect_all();
+                if (selectionChangedId != 0) {
+                    this.selection.disconnect(selectionChangedId);
+                    selectionChangedId = 0;
+                }
+            }));
+
+        this._view.connect('destroy', Lang.bind(this,
             function() {
                 this._model.destroy();
             }));
 
         this._viewCol = new Gtk.TreeViewColumn();
-        this.widget.append_column(this._viewCol);
+        this._view.append_column(this._viewCol);
 
         // checkbox
         this._rendererCheck = new Gtk.CellRendererToggle();
@@ -476,11 +498,17 @@ const OrganizeCollectionView = new Lang.Class({
                                          Lang.bind(this, this._checkCellFunc));
         this._rendererCheck.connect('toggled', Lang.bind(this, this._onCheckToggled));
 
+        // icon
+        this._rendererIcon = new Gtk.CellRendererPixbuf();
+        this._viewCol.pack_start(this._rendererIcon, false);
+        this._viewCol.set_cell_data_func(this._rendererIcon,
+                                         Lang.bind(this, this._iconCellFunc));
+
         // item name
         this._rendererText = new Gtk.CellRendererText();
         this._viewCol.pack_start(this._rendererText, true);
-        this._viewCol.add_attribute(this._rendererText,
-                                    'text', OrganizeModelColumns.NAME);
+        this._viewCol.set_cell_data_func(this._rendererText,
+                                         Lang.bind(this, this._textCellFunc));
 
         this._rendererDetail = new Gd.StyledTextRenderer({ xpad: 16 });
         this._rendererDetail.add_class('dim-label');
@@ -491,7 +519,7 @@ const OrganizeCollectionView = new Lang.Class({
         this._rendererText.connect('edited', Lang.bind(this, this._onTextEdited));
         this._rendererText.connect('editing-canceled', Lang.bind(this, this._onTextEditCanceled));
 
-        this.widget.show();
+        this._view.show();
     },
 
     _onCheckToggled: function(renderer, pathStr) {
@@ -508,43 +536,37 @@ const OrganizeCollectionView = new Lang.Class({
             }));
     },
 
-    _onNewCollectionCreated: function(createdUrn) {
-        if (!createdUrn) {
-            this._model.removePlaceholder();
-            return;
-        }
-
-        let path = this._model.getPlaceholder(true);
-        if (!path)
-            return;
-
-        let iter = this._model.model.get_iter(path)[1];
-        this._model.model.set_value(iter, OrganizeModelColumns.ID, createdUrn);
-
-        let job = new SetCollectionForSelectionJob(createdUrn, true);
-        job.run(null);
-    },
-
-    _onTextEditedReal: function(cell, path, newText) {
-        cell.editable = false;
+    _onTextEditedReal: function(cell, newText) {
+        //cell.editable = false;
 
         if (!newText || newText == '') {
             // don't insert collections with empty names
-            this._model.removePlaceholder();
             return;
         }
 
         // update the new name immediately
-        let iter = this._model.model.get_iter(path)[1];
+        let iter = this._model.model.append();
         this._model.model.set_value(iter, OrganizeModelColumns.NAME, newText);
+
+        // force the editable row to be unselected
+        this.selection.unselect_all();
 
         // actually create the new collection
         let job = new CreateCollectionJob(newText);
-        job.run(Lang.bind(this, this._onNewCollectionCreated));
+        job.run(Lang.bind(this,
+            function(createdUrn) {
+                if (!createdUrn)
+                    return;
+
+                this._model.model.set_value(iter, OrganizeModelColumns.ID, createdUrn);
+
+                let job = new SetCollectionForSelectionJob(createdUrn, true);
+                job.run(null);
+            }));
     },
 
     _onTextEdited: function(cell, pathStr, newText) {
-        this._onTextEditedReal(cell, Gtk.TreePath.new_from_string(pathStr), newText);
+        this._onTextEditedReal(cell, newText);
     },
 
     _onTextEditCanceled: function(cell) {
@@ -552,12 +574,8 @@ const OrganizeCollectionView = new Lang.Class({
             this._choiceConfirmed = false;
 
             let entry = this._viewCol.cell_area.get_edit_widget();
-            let path = this._model.getPlaceholder(false);
-
-            if (entry && path)
-                this._onTextEditedReal(cell, path, entry.get_text());
-        } else {
-            this._model.removePlaceholder();
+            if (entry)
+                this._onTextEditedReal(cell, entry.get_text());
         }
     },
 
@@ -568,6 +586,27 @@ const OrganizeCollectionView = new Lang.Class({
         cell.active = (state & OrganizeCollectionState.ACTIVE);
         cell.inconsistent = (state & OrganizeCollectionState.INCONSISTENT);
         cell.visible = (id != _COLLECTION_PLACEHOLDER_ID);
+    },
+
+    _iconCellFunc: function(col, cell, model, iter) {
+        let id = model.get_value(iter, OrganizeModelColumns.ID);
+
+        cell.icon_name = "gtk-add";
+        cell.visible = (id == _COLLECTION_PLACEHOLDER_ID);
+    },
+
+    _textCellFunc: function(col, cell, model, iter) {
+        let id = model.get_value(iter, OrganizeModelColumns.ID);
+        let name = model.get_value(iter, OrganizeModelColumns.NAME);
+
+        if (id == _COLLECTION_PLACEHOLDER_ID) {
+            cell.editable = true;
+            cell.text = '';
+            cell.placeholder_text = _("Create new collection");
+        } else {
+            cell.editable = false;
+            cell.text = name;
+        }
     },
 
     _detailCellFunc: function(col, cell, model, iter) {
@@ -583,24 +622,10 @@ const OrganizeCollectionView = new Lang.Class({
         }
     },
 
-    addCollection: function() {
-        let path = this._model.addPlaceholder();
-
-        if (!path)
-            return;
-
-        this._rendererText.editable = true;
-        this.widget.set_cursor_on_cell(path, this._viewCol, this._rendererText, true);
-    },
-
     confirmedChoice: function() {
         this._choiceConfirmed = true;
     }
 });
-
-const OrganizeCollectionDialogResponse = {
-    ADD: 1
-};
 
 const OrganizeCollectionDialog = new Lang.Class({
     Name: 'OrganizeCollectionDialog',
@@ -611,41 +636,29 @@ const OrganizeCollectionDialog = new Lang.Class({
                                        destroy_with_parent: true,
                                        default_width: 400,
                                        default_height: 250,
-        // Translators: "Organize" refers to documents in this context
-                                       title: C_("Dialog Title", "Organize") });
+        // Translators: "Collections" refers to documents in this context
+                                       title: C_("Dialog Title", "Collections") });
 
-        this.widget.add_button('gtk-add', OrganizeCollectionDialogResponse.ADD);
-        let okButton = this.widget.add_button('gtk-ok', Gtk.ResponseType.OK);
-        this.widget.set_default_response(Gtk.ResponseType.OK);
+        let closeButton = this.widget.add_button('gtk-close', Gtk.ResponseType.CLOSE);
+        this.widget.set_default_response(Gtk.ResponseType.CLOSE);
 
         let contentArea = this.widget.get_content_area();
-        let sw = new Gtk.ScrolledWindow({ shadow_type: Gtk.ShadowType.IN,
-                                          margin_left: 5,
-                                          margin_right: 5,
-                                          margin_bottom: 3 });
         let collView = new OrganizeCollectionView();
-
-        sw.add(collView.widget);
-        contentArea.add(sw);
+        contentArea.add(collView.widget);
 
         // HACK:
-        // - We want clicking on "OK" to add the typed-in collection if we're editing.
+        // - We want clicking on "Close" to add the typed-in collection if we're
+        //   editing.
         // - Unfortunately, since we focus out of the editable entry in order to
         //   click the button, we'll get an editing-canceled signal on the renderer
         //   from GTK. As this handler will run before focus-out, we here signal the
         //   view to ignore the next editing-canceled signal and add the collection in
         //   that case instead.
         //
-        okButton.connect('button-press-event', Lang.bind(this,
+        closeButton.connect('button-press-event', Lang.bind(this,
             function() {
                 collView.confirmedChoice();
                 return false;
-            }));
-
-        this.widget.connect('response', Lang.bind(this,
-            function(widget, response) {
-                if (response == OrganizeCollectionDialogResponse.ADD)
-                    collView.addCollection();
             }));
 
         this.widget.show_all();
@@ -898,10 +911,8 @@ const SelectionToolbar = new Lang.Class({
 
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
-                if (response == Gtk.ResponseType.OK) {
-                    dialog.widget.destroy();
-                    this._fadeIn();
-                }
+                dialog.widget.destroy();
+                this._fadeIn();
             }));
     },
 
