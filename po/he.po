@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-28 14:02+0200\n"
-"PO-Revision-Date: 2013-03-28 14:02+0200\n"
+"POT-Creation-Date: 2013-05-25 11:30+0300\n"
+"PO-Revision-Date: 2013-05-25 11:31+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1
-#: ../src/application.js:101
+#: ../src/application.js:103
 #: ../src/mainWindow.js:53
 #: ../src/mainWindow.js:274
 msgid "Documents"
@@ -69,81 +69,81 @@ msgid "Window maximized state"
 msgstr "Window maximized state"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590
-#: ../src/search.js:416
+#: ../src/documents.js:586
+#: ../src/search.js:417
 msgid "Local"
 msgstr "מקומי"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "צעדים ראשונים עם מסמכים"
 
 #. overridden
-#: ../src/documents.js:659
+#: ../src/documents.js:654
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:660
+#: ../src/documents.js:655
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:724
-#: ../src/documents.js:823
+#: ../src/documents.js:719
+#: ../src/documents.js:817
 msgid "Spreadsheet"
 msgstr "גיליון אלקטרוני"
 
-#: ../src/documents.js:726
-#: ../src/documents.js:825
+#: ../src/documents.js:721
+#: ../src/documents.js:819
 #: ../src/presentation.js:48
 msgid "Presentation"
 msgstr "מצגת"
 
-#: ../src/documents.js:728
-#: ../src/documents.js:827
+#: ../src/documents.js:723
+#: ../src/documents.js:821
 msgid "Collection"
 msgstr "אוסף"
 
-#: ../src/documents.js:730
-#: ../src/documents.js:829
+#: ../src/documents.js:725
+#: ../src/documents.js:823
 msgid "Document"
 msgstr "מסמך"
 
 #. overridden
-#: ../src/documents.js:757
-#: ../src/documents.js:758
+#: ../src/documents.js:751
+#: ../src/documents.js:752
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:936
 msgid "Please check the network connection."
 msgstr "נא לבדוק את החיבור לרשת."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:939
 msgid "Please check the network proxy settings."
 msgstr "נא לבדוק את הגדרות המתווך של הרשת."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:942
 msgid "Unable to sign in to the document service."
 msgstr "לא ניתן להיכנס לשירות המסמכים."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:945
 msgid "Unable to locate this document."
 msgstr "לא ניתן לאתר מסמך זה."
 
-#: ../src/documents.js:954
+#: ../src/documents.js:948
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "המממ, משהו פה מסריח (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:961
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "אופס! לא ניתן לטעון את „%s“"
@@ -152,27 +152,27 @@ msgstr "אופס! לא ניתן לטעון את „%s“"
 msgid "View"
 msgstr "צפייה"
 
-#: ../src/embed.js:63
+#: ../src/embed.js:62
 #: ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257
 #: ../src/view.js:71
 msgid "Loading…"
 msgstr "בטעינה…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:144
 msgid "No Documents Found"
 msgstr "לא נמצאו מסמכים"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:165
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:169
 msgid "System Settings"
 msgstr "הגדרות מערכת"
 
@@ -240,7 +240,7 @@ msgstr[2] "נבחרו 2"
 
 #. Label for Done button in Sharing dialog
 #: ../src/mainToolbar.js:192
-#: ../src/properties.js:59
+#: ../src/properties.js:60
 #: ../src/sharing.js:93
 msgid "Done"
 msgstr "בוצע"
@@ -289,50 +289,46 @@ msgstr "רץ במצב מצגת"
 msgid "Present On"
 msgstr "מצב מצגת מופעל"
 
-#: ../src/properties.js:57
+#: ../src/properties.js:58
 #: ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:781
+#: ../src/selections.js:782
 msgid "Properties"
 msgstr "מאפיינים"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:79
-#: ../src/search.js:257
+#: ../src/properties.js:80
+msgctxt "Document Title"
 msgid "Title"
 msgstr "כותרת"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:88
-#: ../src/search.js:260
+#: ../src/properties.js:89
+msgctxt "Document Author"
 msgid "Author"
 msgstr "מאת"
 
 #. Source item
-#: ../src/properties.js:95
+#: ../src/properties.js:96
 msgid "Source"
 msgstr "מקור"
 
 #. Date Modified item
-#: ../src/properties.js:101
+#: ../src/properties.js:102
 msgid "Date Modified"
 msgstr "מועד השינוי"
 
-#: ../src/properties.js:108
+#: ../src/properties.js:109
 msgid "Date Created"
 msgstr "מועד היצירה"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:117
-#: ../src/search.js:166
+#: ../src/properties.js:118
+msgctxt "Document Type"
 msgid "Type"
 msgstr "סוג"
 
@@ -362,7 +358,7 @@ msgstr "יציאה"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/resources/preview-menu.ui.h:1
-#: ../src/selections.js:877
+#: ../src/selections.js:878
 msgid "Open"
 msgstr "פתיחה"
 
@@ -402,79 +398,108 @@ msgstr "בחירת הכול"
 msgid "Select None"
 msgstr "ביטול הבחירה"
 
-#: ../src/search.js:112
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "ה_עתקה"
+
+#: ../src/search.js:113
 msgid "Category"
 msgstr "קטגוריה"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:117
-#: ../src/search.js:169
-#: ../src/search.js:254
-#: ../src/search.js:410
+#: ../src/search.js:118
+#: ../src/search.js:170
+#: ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "הכול"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:123
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "מועדפים"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:128
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "משותף אתך"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "סוג"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "אוספים"
 
-#: ../src/search.js:175
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "מסמכי PDF"
 
-#: ../src/search.js:179
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "מצגות"
 
-#: ../src/search.js:182
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "גיליונות אלקטרוניים"
 
-#: ../src/search.js:185
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "מסמכי טקסט"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "התאמה"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "כותרת"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "מאת"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "מקורות"
 
 #. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:614
-#: ../src/selections.js:773
+#: ../src/selections.js:615
+msgctxt "Dialog Title"
 msgid "Organize"
 msgstr "ארגון"
 
-#: ../src/selections.js:749
+#: ../src/selections.js:750
 msgid "Print"
 msgstr "הדפסה"
 
-#: ../src/selections.js:756
+#: ../src/selections.js:757
 msgid "Delete"
 msgstr "מחיקה"
 
-#: ../src/selections.js:788
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:774
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "ארגון"
+
+#: ../src/selections.js:789
 msgid "Share"
 msgstr "שיתוף"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:874
+#: ../src/selections.js:875
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
