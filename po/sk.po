@@ -29,7 +29,7 @@ msgstr "Dokumenty"
 # desktop entry comment
 #: ../data/gnome-documents.desktop.in.in.h:2
 msgid "Access, manage and share documents"
-msgstr "Prístupuje, spravuje a umožňuje deliť sa o dokumenty"
+msgstr "Prístupuje, spravuje a sprístupňuje dokumenty"
 
 # nie som si isty ci su pod "Docs" myslene "Dokumenty" (kvoli kratsej fraze)
 # PM: sú ale pre dohľadanie to veľký význam nemá teda uvádzať Dokument keď sú uvedené Dokumenty
@@ -436,7 +436,7 @@ msgstr "Obľúbené"
 #. Translators: this refers to shared documents
 #: ../src/search.js:129
 msgid "Shared with you"
-msgstr "V spoločnom používaní s vami"
+msgstr "Vám sprístupnené"
 
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
@@ -512,7 +512,7 @@ msgstr "Usporiada dokumenty"
 # button tooltip
 #: ../src/selections.js:789
 msgid "Share"
-msgstr "Nastaví spoločné používanie"
+msgstr "Sprístupní"
 
 #. Translators: this is the Open action in a context menu
 #: ../src/selections.js:875
