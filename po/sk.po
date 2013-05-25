@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-01 16:30+0000\n"
-"PO-Revision-Date: 2013-03-29 10:33+0100\n"
+"POT-Creation-Date: 2013-05-20 16:06+0000\n"
+"PO-Revision-Date: 2013-05-03 11:09+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 # desktop entry name
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "Dokumenty"
@@ -81,7 +81,7 @@ msgstr "Maximalizovaný stav okna"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Lokálne"
 
@@ -90,69 +90,69 @@ msgstr "Lokálne"
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Začíname s aplikáciou Dokumenty"
 
 # PM: toto je preklad služby na stránkach Google
 #. overridden
-#: ../src/documents.js:659
+#: ../src/documents.js:654
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:660
+#: ../src/documents.js:655
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:724 ../src/documents.js:823
+#: ../src/documents.js:719 ../src/documents.js:817
 msgid "Spreadsheet"
 msgstr "Tabuľkový zošit"
 
-#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
+#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentácia"
 
-#: ../src/documents.js:728 ../src/documents.js:827
+#: ../src/documents.js:723 ../src/documents.js:821
 msgid "Collection"
 msgstr "Zbierka"
 
-#: ../src/documents.js:730 ../src/documents.js:829
+#: ../src/documents.js:725 ../src/documents.js:823
 msgid "Document"
 msgstr "Dokument"
 
 # Sluzba od Microsoftu
 #. overridden
-#: ../src/documents.js:757 ../src/documents.js:758
+#: ../src/documents.js:751 ../src/documents.js:752
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:936
 msgid "Please check the network connection."
 msgstr "Skontrolujte, prosím, sieťové pripojenie."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:939
 msgid "Please check the network proxy settings."
 msgstr "Skontrolujte prosím nastavenia sieťového sprostredkovateľa (proxy)."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:942
 msgid "Unable to sign in to the document service."
 msgstr "Nepodarilo sa prihlásiť k službe dokumentov."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:945
 msgid "Unable to locate this document."
 msgstr "Nepodarilo sa nájsť tento dokument."
 
-#: ../src/documents.js:954
+#: ../src/documents.js:948
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Zdá sa, že niekde nastal problém (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:961
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
@@ -162,18 +162,18 @@ msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
 msgid "View"
 msgstr "Zobraziť"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Načítava sa…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:144
 msgid "No Documents Found"
 msgstr "Neboli nájdené žiadne dokumenty"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:165
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Vaše online účty môžete pridať v %s"
@@ -181,7 +181,7 @@ msgstr "Vaše online účty môžete pridať v %s"
 # gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:169
 msgid "System Settings"
 msgstr "Nastaveniach systému"
 
@@ -411,6 +411,10 @@ msgstr "Vybrať všetko"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Zrušiť výber"
+
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopírovať"
 
 #: ../src/search.js:113
 msgid "Category"
