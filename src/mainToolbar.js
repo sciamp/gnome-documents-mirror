@@ -39,6 +39,7 @@ const MainToolbar = new Lang.Class({
 
     _init: function() {
         this._model = null;
+        this._handleEvent = true;
 
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL });
         this.widget.show();
@@ -50,9 +51,23 @@ const MainToolbar = new Lang.Class({
         this._searchbar = this.createSearchbar();
         if (this._searchbar)
             this.widget.add(this._searchbar.widget);
+
+        Application.documentManager.connect('load-started', Lang.bind(this,
+            function() {
+                this._handleEvent = true;
+            }));
+
+        Application.documentManager.connect('load-error', Lang.bind(this, this._onLoadErrorOrPassword));
+    },
+
+    _onLoadErrorOrPassword: function() {
+        this._handleEvent = false;
     },
 
     handleEvent: function(event) {
+        if (!this._handleEvent)
+            return false;
+
         let res = this._searchbar.handleEvent(event);
         return res;
     },
