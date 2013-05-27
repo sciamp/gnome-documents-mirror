@@ -225,13 +225,10 @@ ev_load_job_done (EvJob *ev_job,
                                                         G_IO_ERROR_FAILED,
                                                         _("Unable to load the document")));
 
-    g_clear_object (&ev_job);
     return;
   }
 
   job->document = g_object_ref (ev_job->document);
-  g_object_unref (ev_job);
-
   pdf_load_job_complete_success (job);
 }
 
@@ -254,6 +251,7 @@ pdf_load_job_from_pdf (PdfLoadJob *job)
 
   ev_job_scheduler_push_job (ev_job, EV_JOB_PRIORITY_NONE);
 
+  g_object_unref (ev_job);
   g_free (uri);
 }
 
