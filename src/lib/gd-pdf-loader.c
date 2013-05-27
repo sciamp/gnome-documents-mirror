@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, 2012 Red Hat, Inc.
+ * Copyright (c) 2011, 2012, 2013 Red Hat, Inc.
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU Lesser General Public License as published by 
@@ -40,6 +40,9 @@ typedef struct {
   gchar *uri;
   gchar *pdf_path;
   GPid unoconv_pid;
+
+  gchar *passwd;
+  gboolean passwd_tried;
 
   GFile *download_file;
   GInputStream *stream;
@@ -135,6 +138,7 @@ pdf_load_job_free (PdfLoadJob *job)
   g_clear_object (&job->zpj_entry);
 
   g_free (job->uri);
+  g_free (job->passwd);
   g_free (job->resource_id);
 
   if (job->pdf_path != NULL) {
@@ -157,6 +161,7 @@ pdf_load_job_new (GSimpleAsyncResult *result,
                   const gchar *uri,
                   GDataEntry *gdata_entry,
                   ZpjSkydriveEntry *zpj_entry,
+                  const gchar *passwd,
                   GCancellable *cancellable)
 {
   PdfLoadJob *retval;
@@ -169,6 +174,8 @@ pdf_load_job_new (GSimpleAsyncResult *result,
 
   if (uri != NULL)
     retval->uri = g_strdup (uri);
+  if (passwd != NULL)
+    retval->passwd = g_strdup (passwd);
   if (gdata_entry != NULL)
     retval->gdata_entry = g_object_ref (gdata_entry);
   if (zpj_entry != NULL)
@@ -222,14 +229,23 @@ ev_load_job_done (EvJob *ev_job,
   PdfLoadJob *job = user_data;
 
   if (ev_job_is_failed (ev_job) || (ev_job->document == NULL)) {
-    if (job->from_old_cache)
+    if (job->from_old_cache) {
       pdf_load_job_force_refresh_cache (job);
-    else
+    } else if (g_error_matches (ev_job->error, EV_DOCUMENT_ERROR, EV_DOCUMENT_ERROR_ENCRYPTED)
+               && job->passwd != NULL
+               && !job->passwd_tried) {
+      /* EvJobLoad tries using the password only after the job has
+       * failed once.
+       */
+      ev_job_scheduler_push_job (ev_job, EV_JOB_PRIORITY_NONE);
+      job->passwd_tried = TRUE;
+    } else {
       pdf_load_job_complete_error (job, (ev_job->error != NULL) ? 
                                    g_error_copy (ev_job->error) :
                                    g_error_new_literal (G_IO_ERROR,
                                                         G_IO_ERROR_FAILED,
                                                         _("Unable to load the document")));
+    }
 
     return;
   }
@@ -252,6 +268,9 @@ pdf_load_job_from_pdf (PdfLoadJob *job)
   }
 
   ev_job = ev_job_load_new ((uri != NULL) ? (uri) : (job->uri));
+  if (job->passwd != NULL)
+    ev_job_load_set_password (EV_JOB_LOAD (ev_job), job->passwd);
+
   g_signal_connect (ev_job, "finished",
                     G_CALLBACK (ev_load_job_done), job);
 
@@ -1013,8 +1032,17 @@ pdf_load_job_start (PdfLoadJob *job)
     pdf_load_job_from_regular_file (job);
 }
 
+/**
+ * gd_pdf_loader_load_uri_async:
+ * @uri:
+ * @passwd: (allow-none):
+ * @cancellable: (allow-none):
+ * @callback:
+ * @user_data:
+ */
 void
 gd_pdf_loader_load_uri_async (const gchar *uri,
+                              const gchar *passwd,
                               GCancellable *cancellable,
                               GAsyncReadyCallback callback,
                               gpointer user_data)
@@ -1025,7 +1053,7 @@ gd_pdf_loader_load_uri_async (const gchar *uri,
   result = g_simple_async_result_new (NULL, callback, user_data,
                                       gd_pdf_loader_load_uri_async);
 
-  job = pdf_load_job_new (result, uri, NULL, NULL, cancellable);
+  job = pdf_load_job_new (result, uri, NULL, NULL, passwd, cancellable);
 
   pdf_load_job_start (job);
 
@@ -1066,7 +1094,7 @@ gd_pdf_loader_load_gdata_entry_async (GDataEntry *entry,
   result = g_simple_async_result_new (NULL, callback, user_data,
                                       gd_pdf_loader_load_gdata_entry_async);
 
-  job = pdf_load_job_new (result, NULL, entry, NULL, cancellable);
+  job = pdf_load_job_new (result, NULL, entry, NULL, NULL, cancellable);
   job->gdata_service = g_object_ref (service);
 
   pdf_load_job_start (job);
@@ -1108,7 +1136,7 @@ gd_pdf_loader_load_zpj_entry_async (ZpjSkydriveEntry *entry,
   result = g_simple_async_result_new (NULL, callback, user_data,
                                       gd_pdf_loader_load_zpj_entry_async);
 
-  job = pdf_load_job_new (result, NULL, NULL, entry, cancellable);
+  job = pdf_load_job_new (result, NULL, NULL, entry, NULL, cancellable);
   job->zpj_service = g_object_ref (service);
 
   pdf_load_job_start (job);

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Red Hat, Inc.
+ * Copyright (c) 2011, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -58,6 +58,7 @@ const MainToolbar = new Lang.Class({
             }));
 
         Application.documentManager.connect('load-error', Lang.bind(this, this._onLoadErrorOrPassword));
+        Application.documentManager.connect('password-needed', Lang.bind(this, this._onLoadErrorOrPassword));
     },
 
     _onLoadErrorOrPassword: function() {

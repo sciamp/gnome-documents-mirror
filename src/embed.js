@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Red Hat, Inc.
+ * Copyright (c) 2011, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -25,6 +25,7 @@ const Mainloop = imports.mainloop;
 const Application = imports.application;
 const MainToolbar = imports.mainToolbar;
 const Notifications = imports.notifications;
+const Password = imports.password;
 const Preview = imports.preview;
 const Edit = imports.edit;
 const Selections = imports.selections;
@@ -268,6 +269,8 @@ const Embed = new Lang.Class({
                                             Lang.bind(this, this._onLoadFinished));
         Application.documentManager.connect('load-error',
                                             Lang.bind(this, this._onLoadError));
+        Application.documentManager.connect('password-needed',
+                                            Lang.bind(this, this._onPasswordNeeded));
 
         this._onQueryStatusChanged();
 
@@ -353,15 +356,13 @@ const Embed = new Lang.Class({
     },
 
     _onActiveItemChanged: function(manager, doc) {
-        let newMode = WindowMode.WindowMode.OVERVIEW;
-
         if (doc) {
             let collection = Application.collectionManager.getItemById(doc.id);
             if (!collection)
-                newMode = WindowMode.WindowMode.PREVIEW;
+                return;
         }
 
-        Application.modeController.setWindowMode(newMode);
+        Application.modeController.setWindowMode(WindowMode.WindowMode.OVERVIEW);
     },
 
     _clearLoadTimer: function() {
@@ -384,6 +385,8 @@ const Embed = new Lang.Class({
     },
 
     _onLoadFinished: function(manager, doc, docModel) {
+        Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+
         docModel.set_sizing_mode(EvView.SizingMode.AUTOMATIC);
         docModel.set_page_layout(EvView.PageLayout.AUTOMATIC);
         this._toolbar.setModel(docModel);
@@ -396,9 +399,24 @@ const Embed = new Lang.Class({
     },
 
     _onLoadError: function(manager, doc, message, exception) {
+        Application.modeController.setWindowMode(WindowMode.WindowMode.PREVIEW);
+
         this._clearLoadTimer();
         this._spinnerBox.stop();
         this._setError(message, exception.message);
+    },
+
+    _onPasswordNeeded: function(manager, doc) {
+        this._clearLoadTimer();
+        this._spinnerBox.stop();
+
+        let dialog = new Password.PasswordDialog(doc);
+        dialog.widget.connect('response', Lang.bind(this,
+            function(widget, response) {
+                dialog.widget.destroy();
+                if (response == Gtk.ResponseType.CANCEL)
+                    Application.documentManager.setActiveItem(null);
+            }));
     },
 
     _prepareForOverview: function() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011, 2012 Red Hat, Inc.
+ * Copyright (c) 2011, 2012, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -19,6 +19,7 @@
  *
  */
 
+const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const GdkPixbuf = imports.gi.GdkPixbuf;
 const Gio = imports.gi.Gio;
@@ -548,7 +549,7 @@ const DocCommon = new Lang.Class({
     },
 
     print: function(toplevel) {
-        this.load(null, Lang.bind(this,
+        this.load(null, null, Lang.bind(this,
             function(doc, docModel, error) {
                 if (error) {
                     log('Unable to print document ' + this.uri + ': ' + error);
@@ -621,8 +622,8 @@ const LocalDocument = new Lang.Class({
             this.typeDescription = Gio.content_type_get_description(this.mimeType);
     },
 
-    load: function(cancellable, callback) {
-        GdPrivate.pdf_loader_load_uri_async(this.uri, cancellable, Lang.bind(this,
+    load: function(passwd, cancellable, callback) {
+        GdPrivate.pdf_loader_load_uri_async(this.uri, passwd, cancellable, Lang.bind(this,
             function(source, res) {
                 try {
                     let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
@@ -687,7 +688,7 @@ const GoogleDocument = new Lang.Class({
                  }));
     },
 
-    load: function(cancellable, callback) {
+    load: function(passwd, cancellable, callback) {
         this._createGDataEntry(cancellable, Lang.bind(this,
             function(entry, service, exception) {
                 if (exception) {
@@ -839,7 +840,7 @@ const SkydriveDocument = new Lang.Class({
                  }));
     },
 
-    load: function(cancellable, callback) {
+    load: function(passwd, cancellable, callback) {
         this._createZpjEntry(cancellable, Lang.bind(this,
             function(entry, service, exception) {
                 if (exception) {
@@ -1018,6 +1019,11 @@ const DocumentManager = new Lang.Class({
         if (error.matches(Gio.IOErrorEnum, Gio.IOErrorEnum.CANCELLED))
             return;
 
+        if (error.matches(EvDocument.DocumentError, EvDocument.DocumentError.ENCRYPTED)) {
+            this.emit('password-needed', doc);
+            return;
+        }
+
         // Translators: %s is the title of a document
         let message = _("Oops! Unable to load “%s”").format(doc.name);
         let exception = this._humanizeError(error);
@@ -1042,7 +1048,7 @@ const DocumentManager = new Lang.Class({
         this.emit('load-finished', doc, docModel);
     },
 
-    reloadActiveItem: function() {
+    reloadActiveItem: function(passwd) {
         let doc = this.getActiveItem();
 
         if (!doc)
@@ -1055,7 +1061,7 @@ const DocumentManager = new Lang.Class({
         this._clearActiveDocModel();
 
         this._loaderCancellable = new Gio.Cancellable();
-        doc.load(this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+        doc.load(passwd, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
         this.emit('load-started', doc);
     },
 
@@ -1079,7 +1085,7 @@ const DocumentManager = new Lang.Class({
         recentManager.add_item(doc.uri);
 
         this._loaderCancellable = new Gio.Cancellable();
-        doc.load(this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
+        doc.load(null, this._loaderCancellable, Lang.bind(this, this._onDocumentLoaded));
         this.emit('load-started', doc);
     },
 

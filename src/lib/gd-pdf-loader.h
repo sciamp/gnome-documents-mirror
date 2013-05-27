@@ -33,6 +33,7 @@
 G_BEGIN_DECLS
 
 void gd_pdf_loader_load_uri_async (const gchar *uri,
+                                   const gchar *passwd,
                                    GCancellable *cancellable,
                                    GAsyncReadyCallback callback,
                                    gpointer user_data);

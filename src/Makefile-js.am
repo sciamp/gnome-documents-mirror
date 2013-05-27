@@ -11,6 +11,7 @@ dist_js_DATA = \
     manager.js \
     miners.js \
     notifications.js \
+    password.js \
     places.js \
     presentation.js \
     preview.js \
