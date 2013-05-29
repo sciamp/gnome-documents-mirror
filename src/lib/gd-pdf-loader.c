@@ -34,6 +34,7 @@
 typedef struct {
   GSimpleAsyncResult *result;
   GCancellable *cancellable;
+  gulong cancelled_id;
 
   EvDocument *document;
   gchar *uri;
@@ -118,6 +119,11 @@ content_type_is_native (const gchar *content_type)
 static void
 pdf_load_job_free (PdfLoadJob *job)
 {
+  if (job->cancellable != NULL) {
+    g_cancellable_disconnect (job->cancellable, job->cancelled_id);
+    job->cancelled_id = 0;
+  }
+
   g_clear_object (&job->document);
   g_clear_object (&job->result);
   g_clear_object (&job->cancellable);
@@ -625,11 +631,27 @@ pdf_load_job_from_zpj_cache (PdfLoadJob *job)
 }
 
 static void
+unoconv_cancelled_cb (GCancellable *cancellable,
+                      gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+
+  /* job->unoconv_pid will be reset by unoconv_child_watch_cb */
+  if (job->unoconv_pid != -1)
+    kill (job->unoconv_pid, SIGKILL);
+}
+
+static void
 unoconv_child_watch_cb (GPid pid,
                         gint status,
                         gpointer user_data)
 {
   PdfLoadJob *job = user_data;
+
+  if (job->cancellable != NULL) {
+    g_cancellable_disconnect (job->cancellable, job->cancelled_id);
+    job->cancelled_id = 0;
+  }
 
   g_spawn_close_pid (pid);
   job->unoconv_pid = -1;
@@ -772,6 +794,9 @@ pdf_load_job_openoffice_refresh_cache (PdfLoadJob *job)
   /* now watch when the unoconv child process dies */
   g_child_watch_add (pid, unoconv_child_watch_cb, job);
   job->unoconv_pid = pid;
+
+  if (job->cancellable != NULL)
+    job->cancelled_id = g_cancellable_connect (job->cancellable, G_CALLBACK (unoconv_cancelled_cb), job, NULL);
 }
 
 static void
