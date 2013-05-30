@@ -383,9 +383,9 @@ const Application = new Lang.Class({
 
         changeMonitor = new ChangeMonitor.TrackerChangeMonitor();
         documentManager = new Documents.DocumentManager();
+        modeController = new WindowMode.ModeController();
         trackerController = new TrackerController.TrackerController();
         selectionController = new Selections.SelectionController();
-        modeController = new WindowMode.ModeController();
 
         this._actionEntries = [
             { name: 'quit',

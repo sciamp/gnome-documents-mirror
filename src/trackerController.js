@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Red Hat, Inc.
+ * Copyright (c) 2011, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -25,6 +25,7 @@ const Signals = imports.signals;
 const Application = imports.application;
 const Query = imports.query;
 const Utils = imports.utils;
+const WindowMode = imports.windowMode;
 
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
@@ -117,6 +118,7 @@ const TrackerController = new Lang.Class({
         this._queryQueuedFlags = RefreshFlags.NONE;
         this._querying = false;
         this._isStarted = false;
+        this._refreshPending = false;
 
         // useful for debugging
         this._lastQueryTime = 0;
@@ -124,6 +126,12 @@ const TrackerController = new Lang.Class({
         Application.sourceManager.connect('item-added', Lang.bind(this, this._onSourceAddedRemoved));
         Application.sourceManager.connect('item-removed', Lang.bind(this, this._onSourceAddedRemoved));
         Application.sourceManager.connect('active-changed', Lang.bind(this, this._refreshForObject));
+
+        Application.modeController.connect('window-mode-changed', Lang.bind(this,
+            function(object, newMode) {
+                if (this._refreshPending && newMode == WindowMode.WindowMode.OVERVIEW)
+                    this._refreshForSource();
+            }));
 
         Application.offsetController.connect('offset-changed', Lang.bind(this, this._performCurrentQuery));
 
@@ -243,6 +251,18 @@ const TrackerController = new Lang.Class({
         this._refreshInternal(RefreshFlags.RESET_OFFSET);
     },
 
+    _refreshForSource: function() {
+        // When a source is added or removed, refresh the model only if
+        // the current source is All.
+        // If it was the current source to be removed, we will get an
+        // 'active-changed' signal, so avoid refreshing twice
+        if (this._currentQuery.activeSource &&
+            this._currentQuery.activeSource.id == 'all')
+            this._refreshInternal(RefreshFlags.NONE);
+
+        this._refreshPending = false;
+    },
+
     _onSearchMatchChanged: function() {
         // when the "match" search setting changes, refresh only if
         // the search string is not empty
@@ -251,13 +271,12 @@ const TrackerController = new Lang.Class({
     },
 
     _onSourceAddedRemoved: function(manager, item) {
-        // When a source is added or removed, refresh the model only if
-        // the current source is All.
-        // If it was the current source to be removed, we will get an
-        // 'active-changed' signal, so avoid refreshing twice
-        if (this._currentQuery.activeSource &&
-            this._currentQuery.activeSource.id == 'all')
-            this._refreshInternal(RefreshFlags.NONE);
+        let mode = Application.modeController.getWindowMode();
+
+        if (mode == WindowMode.WindowMode.OVERVIEW)
+            this._refreshForSource();
+        else
+            this._refreshPending = true;
     },
 
     start: function() {
