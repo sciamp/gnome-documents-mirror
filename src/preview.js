@@ -859,9 +859,24 @@ const PreviewToolbar = new Lang.Class({
         this._searchAction.enabled = false;
     },
 
-    _onLoadFinished: function() {
+    _onLoadFinished: function(manager, doc, docModel) {
         this._gearMenu.enabled = true;
-        this._searchAction.enabled = true;
+
+        let evDoc = docModel.get_document();
+        let hasPages = (evDoc.get_n_pages() > 0);
+        let isFind = true;
+
+        try {
+            // This is a hack to find out if evDoc implements the
+            // EvDocument.DocumentFind interface or not. We don't expect
+            // the following invocation to work.
+            evDoc.find_text();
+        } catch (e if e instanceof TypeError) {
+            isFind = false;
+        } catch (e) {
+        }
+
+        this._searchAction.enabled = (hasPages && isFind);
     },
 
     _getPreviewMenu: function() {
