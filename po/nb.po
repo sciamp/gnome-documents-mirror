@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.8.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-20 14:12+0200\n"
-"PO-Revision-Date: 2013-05-20 14:12+0200\n"
+"POT-Creation-Date: 2013-06-02 02:01+0200\n"
+"PO-Revision-Date: 2013-06-02 02:01+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -64,74 +64,74 @@ msgid "Window maximized state"
 msgstr "Om vinduet er maksimert eller ikke"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Lokalt"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Kom i gang med Dokumenter"
 
 #. overridden
-#: ../src/documents.js:659
+#: ../src/documents.js:654
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:660
+#: ../src/documents.js:655
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:724 ../src/documents.js:823
+#: ../src/documents.js:719 ../src/documents.js:817
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
+#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Presentasjon"
 
-#: ../src/documents.js:728 ../src/documents.js:827
+#: ../src/documents.js:723 ../src/documents.js:821
 msgid "Collection"
 msgstr "Samling"
 
-#: ../src/documents.js:730 ../src/documents.js:829
+#: ../src/documents.js:725 ../src/documents.js:823
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:757 ../src/documents.js:758
+#: ../src/documents.js:751 ../src/documents.js:752
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:936
 msgid "Please check the network connection."
 msgstr "Sjekk nettverkstilkoblingen."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:939
 msgid "Please check the network proxy settings."
 msgstr "Sjekk proxyinnstillinger for nettverk."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:942
 msgid "Unable to sign in to the document service."
 msgstr "Kan ikke logge inn på dokumenttjenesten."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:945
 msgid "Unable to locate this document."
 msgstr "Kan ikke finne dette dokumentet."
 
-#: ../src/documents.js:954
+#: ../src/documents.js:948
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, noe er galt (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:961
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Opps! kan ikke laste «%s»"
@@ -167,11 +167,11 @@ msgstr "Systeminnstillinger"
 msgid "Page %u of %u"
 msgstr "Side %u av %u"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:232
 msgid "Unable to load the document"
 msgstr "Kan ikke laste dokumentet"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:696
 msgid "LibreOffice is required to view this document"
 msgstr "LibreOffice kreves for å vise dette dokumentet"
 
@@ -199,24 +199,24 @@ msgstr "Ingen innholdsfortegnelse"
 msgid "Contents"
 msgstr "Innhold"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:77
 msgid "Search"
 msgstr "Søk"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:88
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:168
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultater for «%s»"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -224,11 +224,11 @@ msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
+#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
@@ -274,7 +274,7 @@ msgid "Present On"
 msgstr "Presentasjonsmodus på"
 
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:782
+#: ../src/selections.js:795
 msgid "Properties"
 msgstr "Egenskaper"
 
@@ -340,7 +340,7 @@ msgid "Quit"
 msgstr "Avslutt"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
 msgstr "Åpne"
 
@@ -454,32 +454,40 @@ msgstr "Forfatter"
 msgid "Sources"
 msgstr "Kilder"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:615
-msgctxt "Dialog Title"
-msgid "Organize"
-msgstr "Organiser"
+#: ../src/selections.js:462
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "Du har ingen samlinger ennå. Skriv inn et nytt navn på en samling over."
 
-#: ../src/selections.js:750
+#: ../src/selections.js:605
+msgid "Create new collection"
+msgstr "Lag ny samling"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:640
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Samlinger"
+
+#: ../src/selections.js:763
 msgid "Print"
 msgstr "Skriv ut"
 
-#: ../src/selections.js:757
+#: ../src/selections.js:770
 msgid "Delete"
 msgstr "Slett"
 
 #. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:774
+#: ../src/selections.js:787
 msgctxt "Toolbar button tooltip"
 msgid "Organize"
 msgstr "Organiser"
 
-#: ../src/selections.js:789
+#: ../src/selections.js:802
 msgid "Share"
 msgstr "Del"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:875
+#: ../src/selections.js:888
 #, c-format
 msgid "Open with %s"
 msgstr "Åpne med %s"
