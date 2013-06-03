@@ -70,6 +70,8 @@ TRACKER_MIN_VERSION=0.13.1
 ZAPOJIT_MIN_VERSION=0.0.2
 SOUP_MIN_VERSION=2.41.3
 
+AC_PATH_PROG([XSLTPROC], [xsltproc])
+
 PKG_CHECK_MODULES(DOCUMENTS,
                   evince-document-3.0 >= $EVINCE_MIN_VERSION
                   evince-view-3.0 >= $EVINCE_MIN_VERSION
@@ -124,6 +126,7 @@ data/Makefile
 data/icons/Makefile
 data/gnome-documents.desktop.in
 getting-started/Makefile
+man/Makefile
 po/Makefile.in
 ])
 
