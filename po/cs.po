@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-04-24 20:04+0000\n"
-"PO-Revision-Date: 2013-04-26 07:09+0200\n"
+"POT-Creation-Date: 2013-06-01 21:17+0000\n"
+"PO-Revision-Date: 2013-06-03 13:57+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -68,74 +68,74 @@ msgid "Window maximized state"
 msgstr "Stav maximalizace okna."
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Místní"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Začínáme s Dokumenty"
 
 #. overridden
-#: ../src/documents.js:659
+#: ../src/documents.js:654
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:660
+#: ../src/documents.js:655
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:724 ../src/documents.js:823
+#: ../src/documents.js:719 ../src/documents.js:817
 msgid "Spreadsheet"
 msgstr "Sešit s tabulkami"
 
-#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
+#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
 msgid "Presentation"
 msgstr "Prezentace"
 
-#: ../src/documents.js:728 ../src/documents.js:827
+#: ../src/documents.js:723 ../src/documents.js:821
 msgid "Collection"
 msgstr "Sbírka"
 
-#: ../src/documents.js:730 ../src/documents.js:829
+#: ../src/documents.js:725 ../src/documents.js:823
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:757 ../src/documents.js:758
+#: ../src/documents.js:751 ../src/documents.js:752
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:936
 msgid "Please check the network connection."
 msgstr "Zkontrolujte prosím síťové připojení."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:939
 msgid "Please check the network proxy settings."
 msgstr "Zkontrolujte prosím nastavení síťové proxy."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:942
 msgid "Unable to sign in to the document service."
 msgstr "Nelze se přihlásit k dokumentové službě."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:945
 msgid "Unable to locate this document."
 msgstr "Nelze nalézt tento dokument."
 
-#: ../src/documents.js:954
+#: ../src/documents.js:948
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, něco je špatně (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:961
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Jejda! Nelze načíst „%s“"
@@ -144,25 +144,25 @@ msgstr "Jejda! Nelze načíst „%s“"
 msgid "View"
 msgstr "Zobrazit"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:382
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Načítá se…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:144
 msgid "No Documents Found"
 msgstr "Nenalezen žádný dokument"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:165
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Své účty on-line můžete přidat v %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:169
 msgid "System Settings"
 msgstr "Nastaveních systému"
 
@@ -171,11 +171,11 @@ msgstr "Nastaveních systému"
 msgid "Page %u of %u"
 msgstr "Strana %u z %u"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:232
 msgid "Unable to load the document"
 msgstr "Nelze načíst dokument"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:696
 msgid "LibreOffice is required to view this document"
 msgstr "K prohlížení tohoto dokumentu je vyžadován LibreOffice"
 
@@ -203,24 +203,24 @@ msgstr "Bez obsahu"
 msgid "Contents"
 msgstr "Obsah"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:77
 msgid "Search"
 msgstr "Hledat"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:88
 msgid "Back"
 msgstr "Zpět"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:168
 #, c-format
 msgid "Results for “%s”"
 msgstr "Výsledky pro „%s“"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:176
 msgid "Click on items to select them"
 msgstr "Klikáním na položky je vyberete"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:178
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -229,11 +229,11 @@ msgstr[1] "%d vybrány"
 msgstr[2] "%d vybráno"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
+#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "Hotovo"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:248
 msgid "Select Items"
 msgstr "Vybrat položky"
 
@@ -281,7 +281,7 @@ msgid "Present On"
 msgstr "Prezentovat na…"
 
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:782
+#: ../src/selections.js:795
 msgid "Properties"
 msgstr "Vlastnosti"
 
@@ -347,7 +347,7 @@ msgid "Quit"
 msgstr "Ukončit"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
 msgstr "Otevřít"
 
@@ -461,32 +461,40 @@ msgstr "Autora"
 msgid "Sources"
 msgstr "Zdroje"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:615
-msgctxt "Dialog Title"
-msgid "Organize"
-msgstr "Organizování"
+#: ../src/selections.js:462
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "Zatím nemáte žádnou sbírku. Výše zadejte název nové sbírky."
 
-#: ../src/selections.js:750
+#: ../src/selections.js:605
+msgid "Create new collection"
+msgstr "Vytvořit novou sbírku"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:640
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Sbírky"
+
+#: ../src/selections.js:763
 msgid "Print"
 msgstr "Tisk"
 
-#: ../src/selections.js:757
+#: ../src/selections.js:770
 msgid "Delete"
 msgstr "Smazat"
 
 #. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:774
+#: ../src/selections.js:787
 msgctxt "Toolbar button tooltip"
 msgid "Organize"
-msgstr "Organizovat"
+msgstr "Uspořádat"
 
-#: ../src/selections.js:789
+#: ../src/selections.js:802
 msgid "Share"
 msgstr "Sdílet"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/selections.js:875
+#: ../src/selections.js:888
 #, c-format
 msgid "Open with %s"
 msgstr "Otevřít pomocí %s"
