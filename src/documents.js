@@ -357,6 +357,10 @@ const DocCommon = new Lang.Class({
         }
     },
 
+    createThumbnail: function(callback) {
+        log('Error: DocCommon implementations must override createThumbnail');
+    },
+
     refreshIcon: function() {
         if (this._thumbPath) {
             this._refreshThumbPath();
@@ -396,16 +400,11 @@ const DocCommon = new Lang.Class({
             this._refreshThumbPath();
         } else {
             this.thumbnailed = false;
-
-            // try to create the thumbnail
-            GdPrivate.queue_thumbnail_job_for_file_async(this._file,
-                                                         Lang.bind(this, this._onQueueThumbnailJob));
+            this.createThumbnail(Lang.bind(this, this._onCreateThumbnail));
         }
     },
 
-    _onQueueThumbnailJob: function(object, res) {
-        let thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
-
+    _onCreateThumbnail: function(thumbnailed) {
         if (!thumbnailed) {
             this._failedThumbnailing = true;
             return;
@@ -609,6 +608,14 @@ const LocalDocument = new Lang.Class({
         }
     },
 
+    createThumbnail: function(callback) {
+        GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
+            function(object, res) {
+                let thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                callback(thumbnailed);
+            }));
+    },
+
     updateTypeDescription: function() {
         if (this.mimeType)
             this.typeDescription = Gio.content_type_get_description(this.mimeType);
@@ -646,7 +653,7 @@ const GoogleDocument = new Lang.Class({
     Extends: DocCommon,
 
     _init: function(cursor) {
-        this._failedThumbnailing = true;
+        this._failedThumbnailing = false;
 
         this.parent(cursor);
 
@@ -708,6 +715,55 @@ const GoogleDocument = new Lang.Class({
                             } catch (e) {
                                 callback(this, null, e);
                             }
+                        }));
+            }));
+    },
+
+    createThumbnail: function(callback) {
+        this._createGDataEntry(null, Lang.bind(this,
+            function(entry, service, exception) {
+                if (exception) {
+                    callback(false);
+                    return;
+                }
+
+                let uri = entry.get_thumbnail_uri();
+                let authorizationDomain = service.get_primary_authorization_domain();
+                let inputStream = new GData.DownloadStream({ service: service,
+                                                             authorization_domain: authorizationDomain,
+                                                             download_uri: uri });
+
+                let checksum = new GLib.Checksum(GLib.ChecksumType.MD5);
+                checksum.update(this.uri, -1);
+                let basename = checksum.get_string() + '.png';
+                let path = GLib.build_filenamev([GLib.get_user_cache_dir(), "thumbnails", "normal", basename]);
+
+                let downloadFile = Gio.File.new_for_path(path);
+                downloadFile.replace_async
+                    (null, false, Gio.FileCreateFlags.PRIVATE, GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
+                        function(source, res) {
+                            let outputStream;
+
+                            try {
+                                outputStream = downloadFile.replace_finish(res);
+                            } catch (e) {
+                                callback(false);
+                                return;
+                            }
+
+                            outputStream.splice_async(inputStream,
+                                Gio.OutputStreamSpliceFlags.CLOSE_SOURCE | Gio.OutputStreamSpliceFlags.CLOSE_TARGET,
+                                GLib.PRIORITY_DEFAULT, null, Lang.bind(this,
+                                    function(source, res) {
+                                        try {
+                                            outputStream.splice_finish(res);
+                                        } catch (e) {
+                                            callback(false);
+                                            return;
+                                        }
+
+                                        callback(true);
+                                    }));
                         }));
             }));
     },
