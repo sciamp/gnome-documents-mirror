@@ -376,7 +376,8 @@ gd_places_bookmarks_update (GdPlacesBookmarks *self)
                                     COLUMN_PAGE_LABEL, NULL,
                                     COLUMN_BOOKMARK, NULL,
                                     -1);
-        } else if (ev_document_links_has_document_links (EV_DOCUMENT_LINKS (document))) {
+        } else if (EV_IS_DOCUMENT_LINKS (document) &&
+                   ev_document_links_has_document_links (EV_DOCUMENT_LINKS (document))) {
                 gtk_list_store_append (model, &iter);
                 gtk_list_store_set (model, &iter,
                                     COLUMN_MARKUP, _("Loading…"),
