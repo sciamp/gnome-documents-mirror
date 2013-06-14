@@ -51,7 +51,7 @@ resource_DATA = gnome-documents.gresource
 
 CLEANFILES += gnome-documents.gresource
 
-gir_DATA += ../egg-list-box/Egg-1.0.gir $(INTROSPECTION_GIRS)
+gir_DATA += $(INTROSPECTION_GIRS)
 typelib_DATA += $(gir_DATA:.gir=.typelib)
 
 CLEANFILES += $(gir_DATA) $(typelib_DATA)

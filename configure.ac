@@ -50,19 +50,10 @@ GETTING_STARTED_INIT
 AC_CHECK_LIBM
 AC_SUBST(LIBM)
 
-# EggListBox submodule
-prev_top_build_prefix=$ac_top_build_prefix
-prev_ac_configure_args=$ac_configure_args
-AX_CONFIG_DIR([egg-list-box])
-ac_top_build_prefix=$prev_top_build_prefix
-ac_configure_args=$prev_ac_configure_args
-
-export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:"$ac_top_build_prefix"egg-list-box
-
 EVINCE_MIN_VERSION=3.7.4
 WEBKITGTK_MIN_VERSION=1.10.0
 GLIB_MIN_VERSION=2.37.0
-GTK_MIN_VERSION=3.9.1
+GTK_MIN_VERSION=3.9.3
 GOBJECT_INTROSPECTION_MIN_VERSION=1.31.6
 GDATA_MIN_VERSION=0.13.3
 GOA_MIN_VERSION=3.2.0
@@ -86,8 +77,7 @@ PKG_CHECK_MODULES(DOCUMENTS,
                   tracker-sparql-0.16 >= $TRACKER_MIN_VERSION
                   goa-1.0 >= $GOA_MIN_VERSION
                   libgdata >= $GDATA_MIN_VERSION
-                  zapojit-0.0 >= $ZAPOJIT_MIN_VERSION
-                  egg-list-box)
+                  zapojit-0.0 >= $ZAPOJIT_MIN_VERSION)
 
 PKG_CHECK_MODULES(MINER,
                   tracker-sparql-0.16 >= $TRACKER_MIN_VERSION

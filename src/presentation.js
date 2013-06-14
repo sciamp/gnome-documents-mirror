@@ -17,7 +17,6 @@
  *
  */
 
-const Egg = imports.gi.Egg;
 const EvDocument = imports.gi.EvinceDocument;
 const EvView = imports.gi.EvinceView;
 const GnomeDesktop = imports.gi.GnomeDesktop;
@@ -139,8 +138,8 @@ const PresentationOutputChooser = new Lang.Class({
         }
     },
 
-    _onActivated: function(box, child) {
-        this.output = child.output;
+    _onActivated: function(box, row) {
+        this.output = row.get_child().output;
         this.emit('output-activated', this.output);
         this.close();
     },
@@ -164,8 +163,8 @@ const PresentationOutputChooser = new Lang.Class({
                 this.emit('output-activated', null);
             }));
 
-        this._box = new Egg.ListBox({ valign: Gtk.Align.CENTER });
-        this._box.connect('child-activated', Lang.bind(this, this._onActivated));
+        this._box = new Gtk.ListBox({ valign: Gtk.Align.CENTER });
+        this._box.connect('row-activated', Lang.bind(this, this._onActivated));
         let contentArea = this.window.get_content_area();
         contentArea.pack_start(this._box, true, false, 0);
     }

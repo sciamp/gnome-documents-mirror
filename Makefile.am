@@ -1,6 +1,6 @@
 ACLOCAL_AMFLAGS = -I m4 -I libgd ${ACLOCAL_FLAGS}
 
-SUBDIRS = libgd egg-list-box src data man po
+SUBDIRS = libgd src data man po
 
 if ENABLE_GETTING_STARTED
 
