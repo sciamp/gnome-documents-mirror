@@ -728,6 +728,11 @@ const GoogleDocument = new Lang.Class({
                 }
 
                 let uri = entry.get_thumbnail_uri();
+                if (!uri) {
+                    callback(false);
+                    return;
+                }
+
                 let authorizationDomain = service.get_primary_authorization_domain();
                 let inputStream = new GData.DownloadStream({ service: service,
                                                              authorization_domain: authorizationDomain,
