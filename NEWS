@@ -1,3 +1,58 @@
+3.9.3 - "Man on a Mission"
+==========================
+
+- Revamp Organize Collections view for new designs (Debarshi Ray)
+- Port to GtkListBox (Giovanni Campagna)
+- Add tooltips for preview navbar buttons (Alessandro Campagni)
+- Add page navigation with Left/Right buttons (Alessandro Campagni)
+- Port the search provider to use serialized GIcons
+- Port to GtkHeaderBar, GtkStack and GtkRevealer
+
+3.8.3.1 - "Nostalgia"
+=====================
+
+- Ignore Google documents without a thumbnail URI (Debarshi Ray)
+
+3.8.3 - "The Bridge"
+====================
+
+- Show thumbnails for Google Documents (Debarshi Ray)
+- Add a manual page (Debarshi Ray)
+- Don't forward key events to search bar on error (Debarshi Ray)
+- Fix crash when trying to load links on a document that does not
+  support them (Debarshi Ray)
+- Fix crash when trying to search into a document that does not support
+  it (Debarshi Ray)
+- Fix hang when going back to overview after disabling a GOA
+  account while previewing or editing (Debarshi Ray)
+- Fix stray unoconv process when loading is cancelled in-flight (Debarshi Ray)
+- Fix <Primary>a not working in overview (Debarshi Ray)
+- Fix user input being incorrectly overwritten with the lowercase version
+  used internally (Debarshi Ray)
+
+3.8.2.1
+=======
+
+- Fix build
+
+3.8.2 - "Moving"
+================
+
+- Flip navigation buttons in RTL
+- Update to latest libgd
+- Translation updates
+
+3.8.1 - "Duster"
+================
+
+- Support rubberband selection in views (Alexander Larsson)
+- Fix default response in Properties (Debarshi Ray)
+- Fix prev/next page buttons not working in dual mode
+- Fix bugs when launched from a search provider result
+- Fix PDF from Google Drive not using the right document type
+- Fix icon for Google Drawings
+- Fix a crash when closing the preview soon after show
+
 3.8.0 - "Talkin' in My Sleep"
 =============================
 
