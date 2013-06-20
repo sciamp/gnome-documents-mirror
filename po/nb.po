@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-documents 3.8.x\n"
+"Project-Id-Version: gnome-documents 3.9.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-02 02:01+0200\n"
-"PO-Revision-Date: 2013-06-02 02:01+0200\n"
+"POT-Creation-Date: 2013-06-20 10:39+0200\n"
+"PO-Revision-Date: 2013-06-20 10:40+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -64,74 +64,74 @@ msgid "Window maximized state"
 msgstr "Om vinduet er maksimert eller ikke"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:585 ../src/search.js:417
 msgid "Local"
 msgstr "Lokalt"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:606
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:607
 msgid "Getting Started with Documents"
 msgstr "Kom i gang med Dokumenter"
 
 #. overridden
-#: ../src/documents.js:654
+#: ../src/documents.js:661
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:655
+#: ../src/documents.js:662
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:719 ../src/documents.js:817
+#: ../src/documents.js:780 ../src/documents.js:878
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
+#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Presentasjon"
 
-#: ../src/documents.js:723 ../src/documents.js:821
+#: ../src/documents.js:784 ../src/documents.js:882
 msgid "Collection"
 msgstr "Samling"
 
-#: ../src/documents.js:725 ../src/documents.js:823
+#: ../src/documents.js:786 ../src/documents.js:884
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:751 ../src/documents.js:752
+#: ../src/documents.js:812 ../src/documents.js:813
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:936
+#: ../src/documents.js:997
 msgid "Please check the network connection."
 msgstr "Sjekk nettverkstilkoblingen."
 
-#: ../src/documents.js:939
+#: ../src/documents.js:1000
 msgid "Please check the network proxy settings."
 msgstr "Sjekk proxyinnstillinger for nettverk."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1003
 msgid "Unable to sign in to the document service."
 msgstr "Kan ikke logge inn på dokumenttjenesten."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1006
 msgid "Unable to locate this document."
 msgstr "Kan ikke finne dette dokumentet."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1009
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, noe er galt (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:961
+#: ../src/documents.js:1022
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Opps! kan ikke laste «%s»"
@@ -140,7 +140,7 @@ msgstr "Opps! kan ikke laste «%s»"
 msgid "View"
 msgstr "Vis"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Laster …"
@@ -187,7 +187,7 @@ msgstr "Side %s"
 msgid "No bookmarks"
 msgstr "Ingen bokmerker"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "Bokmerker"
 
@@ -265,13 +265,35 @@ msgstr "Henter dokumenter fra %s"
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra kontoer på nettet"
 
-#: ../src/presentation.js:105
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Lukk"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "Kjører i presentasjonsmodus"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "Presentasjonsmodus på"
+
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "Lag bokmerke for denne siden"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:891 ../src/selections.js:888
+#, c-format
+msgid "Open with %s"
+msgstr "Åpne med %s"
+
+#: ../src/preview.js:952
+msgid "Find Previous"
+msgstr "Finn forrige"
+
+#: ../src/preview.js:959
+msgid "Find Next"
+msgstr "Finn neste"
 
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:795
@@ -339,6 +361,10 @@ msgstr "Hjelp"
 msgid "Quit"
 msgstr "Avslutt"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopier"
+
 #. Translators: this is the Open action in a context menu
 #: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
@@ -379,10 +405,6 @@ msgstr "Velg alle"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Velg ingen"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Kopier"
 
 #: ../src/search.js:113
 msgid "Category"
@@ -456,7 +478,8 @@ msgstr "Kilder"
 
 #: ../src/selections.js:462
 msgid "You don't have any collections yet. Enter a new collection name above."
-msgstr "Du har ingen samlinger ennå. Skriv inn et nytt navn på en samling over."
+msgstr ""
+"Du har ingen samlinger ennå. Skriv inn et nytt navn på en samling over."
 
 #: ../src/selections.js:605
 msgid "Create new collection"
@@ -485,12 +508,6 @@ msgstr "Organiser"
 #: ../src/selections.js:802
 msgid "Share"
 msgstr "Del"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:888
-#, c-format
-msgid "Open with %s"
-msgstr "Åpne med %s"
 
 #: ../src/sharing.js:89
 msgid "Sharing Settings"
@@ -567,6 +584,10 @@ msgstr "Dokumentet ble ikke oppdatert"
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
 msgstr "Dokument uten navn"
+
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "Kan ikke hente listen med dokumenter"
 
 #. Translators: "more" refers to documents in this context
 #: ../src/view.js:62 ../src/view.js:93
