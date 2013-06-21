@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-01 23:16+0200\n"
-"PO-Revision-Date: 2013-06-01 23:16+0200\n"
+"POT-Creation-Date: 2013-06-22 01:27+0200\n"
+"PO-Revision-Date: 2013-06-22 01:27+0200\n"
 "Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
 "Language-Team: gnome-l10n-gl@gnome.org\n"
 "Language: gl\n"
@@ -69,74 +69,74 @@ msgid "Window maximized state"
 msgstr "Estado de xanela maximizada"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:585 ../src/search.js:417
 msgid "Local"
 msgstr "Locais"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:606
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:607
 msgid "Getting Started with Documents"
 msgstr "Comezar con Documentos"
 
 #. overridden
-#: ../src/documents.js:654
+#: ../src/documents.js:661
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:655
+#: ../src/documents.js:662
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:719 ../src/documents.js:817
+#: ../src/documents.js:780 ../src/documents.js:878
 msgid "Spreadsheet"
 msgstr "Folla de cálculo"
 
-#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
+#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Presentación"
 
-#: ../src/documents.js:723 ../src/documents.js:821
+#: ../src/documents.js:784 ../src/documents.js:882
 msgid "Collection"
 msgstr "Colección"
 
-#: ../src/documents.js:725 ../src/documents.js:823
+#: ../src/documents.js:786 ../src/documents.js:884
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:751 ../src/documents.js:752
+#: ../src/documents.js:812 ../src/documents.js:813
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:936
+#: ../src/documents.js:997
 msgid "Please check the network connection."
 msgstr "Comprobe a conexión á rede."
 
-#: ../src/documents.js:939
+#: ../src/documents.js:1000
 msgid "Please check the network proxy settings."
 msgstr "Comprobe as preferencias do proxy da rede."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1003
 msgid "Unable to sign in to the document service."
 msgstr "Non foi posíbel iniciar sesión no servizo de documentos."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1006
 msgid "Unable to locate this document."
 msgstr "Non foi posíbel atopar este documento."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1009
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, algo cheira mal (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:961
+#: ../src/documents.js:1022
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Oops! Non foi posíbel cargar «%s»"
@@ -145,7 +145,7 @@ msgstr "Oops! Non foi posíbel cargar «%s»"
 msgid "View"
 msgstr "Ver"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Cargando…"
@@ -192,7 +192,7 @@ msgstr "Páxina %s"
 msgid "No bookmarks"
 msgstr "Non hai marcadores"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "Marcadores"
 
@@ -271,13 +271,35 @@ msgstr "Obtendo os documentos desde %s"
 msgid "Fetching documents from online accounts"
 msgstr "Obtendo os documentos das contas en liña"
 
-#: ../src/presentation.js:105
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Pechar"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "Executando no modo presentación"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "Presentación activada"
+
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "Marcar esta páxina"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:891 ../src/selections.js:888
+#, c-format
+msgid "Open with %s"
+msgstr "Abrir con %s"
+
+#: ../src/preview.js:952
+msgid "Find Previous"
+msgstr "Buscar anterior"
+
+#: ../src/preview.js:959
+msgid "Find Next"
+msgstr "Buscar seguinte"
 
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:795
@@ -345,6 +367,10 @@ msgstr "Axuda"
 msgid "Quit"
 msgstr "Saír"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Copiar"
+
 #. Translators: this is the Open action in a context menu
 #: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
@@ -385,10 +411,6 @@ msgstr "Seleccionar todos"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Deseleccionar todos"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Copiar"
 
 #: ../src/search.js:113
 msgid "Category"
@@ -463,8 +485,7 @@ msgstr "Fontes"
 #: ../src/selections.js:462
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr ""
-"Non ten ningunha colección aínda. Escriba o nome dunha nova colección "
-"arriba."
+"Non ten ningunha colección aínda. Escriba o nome dunha nova colección arriba."
 
 #: ../src/selections.js:605
 msgid "Create new collection"
@@ -493,12 +514,6 @@ msgstr "Organizar"
 #: ../src/selections.js:802
 msgid "Share"
 msgstr "Compartir"
-
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:888
-#, c-format
-msgid "Open with %s"
-msgstr "Abrir con %s"
 
 #: ../src/sharing.js:89
 msgid "Sharing Settings"
@@ -575,6 +590,10 @@ msgstr "O documento non foi actualizado"
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
 msgstr "Documento sen título"
+
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "Non foi posíbel obter a lista de documentos"
 
 #. Translators: "more" refers to documents in this context
 #: ../src/view.js:62 ../src/view.js:93
@@ -662,9 +681,6 @@ msgstr[1] "fai %d anos"
 
 #~ msgid "Add to favorites"
 #~ msgstr "Engadir aos marcadores"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "Non foi posíbel obter a lista de documentos"
 
 #~ msgid "%d of %d"
 #~ msgstr "%d de %d"
