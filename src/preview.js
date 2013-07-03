@@ -231,6 +231,11 @@ const PreviewView = new Lang.Class({
             this._presentation.setOutput(output);
     },
 
+    _showPresenter: function(console) {
+        this._presenter = new Presentation.PresenterWindow(this._presentation.view);
+        this._presenter.setOutput(console);
+    },
+
     _promptPresentation: function() {
         let outputs = new Presentation.PresentationOutputs();
         if (outputs.list.length < 2) {
@@ -241,11 +246,23 @@ const PreviewView = new Lang.Class({
                 function(chooser, output) {
                     if (output) {
                         this._showPresentation(output);
+                        if (outputs.list.length == 2) {
+                            console = outputs[0] == output ? outputs[1] : outputs[0];
+                            this._showPresenter(console);
+                        } else {
+                            outputs.splice(outputs.indexOf(output), 1);
+                            let console_chooser =
+                                new Presentation.PresentationOutputChooser(outputs);
+                            console_chooser.connect(
+                                'output-activated',
+                                Lang.bind(this,
+                                          function(chooser, output) {
+                                              this._showPresenter(output); }));
+                        }                                     
                     } else {
                         this._hidePresentation();
                     }
                 }));
-
         }
     },
 

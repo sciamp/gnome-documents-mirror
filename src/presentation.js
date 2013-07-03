@@ -113,6 +113,48 @@ const PresentationWindow = new Lang.Class({
     }
 });
 
+const PresenterWindow = new Lang.Class({
+    Name: 'PresenterWindow',
+
+    _init: function(presentation) {
+        /* this should be presentation window right? */
+        this._presentation = presentation;
+        let toplevel = Application.application.get_windows()[0];
+        this.window = new Gtk.Window ({ type: Gtk.WindowType.TOPLEVEL,
+                                        transient_for: toplevel,
+                                        destroy_with_parent: true, /* false? */
+                                        title: _("Presenter console"),
+                                        hexpand: true });
+        this.window.connect('key-press-event',
+                            Lang.bind(this, this._onKeyPressEvent));
+        this._createView();
+        this.window.fullscreen();
+        this.window.show_all();
+    },
+
+    _onKeyPressEvent: function(widget, event) {
+        let keyval = event.get_keyval()[1];
+        if (keyval == Gdk.KEY_Escape)
+            this.close();
+    },
+
+    close: function() {
+        this.window.destroy();
+    },
+
+    _createView: function() {
+        this.view = new EvView.ViewPresenter({ presentation: this._presentation });
+        this.view.connect('finished', Lang.bind(this, this.close));
+
+        this.window.add(this.view);
+        this.view.show();
+    },
+
+    setOutput: function(output) {
+        this.window.move(output.x, output.y);
+    }
+});
+
 const PresentationOutputChooser = new Lang.Class({
     Name: 'PresentationOutputChooser',
 
