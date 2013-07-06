@@ -120,7 +120,7 @@ const PresenterWindow = new Lang.Class({
         this._presentation_window = presentation_window;
         this.window = new Gtk.Window ({ type: Gtk.WindowType.TOPLEVEL,
                                         transient_for: presentation_window.window,
-                                        destroy_with_parent: true, /* false? */
+                                        destroy_with_parent: true,
                                         title: _("Presenter console"),
                                         hexpand: true });
         this.window.connect('key-press-event',
