@@ -232,7 +232,7 @@ const PreviewView = new Lang.Class({
     },
 
     _showPresenter: function(console) {
-        this._presenter = new Presentation.PresenterWindow(this._presentation.view);
+        this._presenter = new Presentation.PresenterWindow(this._presentation);
         this._presenter.setOutput(console);
     },
 

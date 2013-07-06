@@ -116,12 +116,10 @@ const PresentationWindow = new Lang.Class({
 const PresenterWindow = new Lang.Class({
     Name: 'PresenterWindow',
 
-    _init: function(presentation) {
-        /* this should be presentation window right? */
-        this._presentation = presentation;
-        let toplevel = Application.application.get_windows()[0];
+    _init: function(presentation_window) {
+        this._presentation_window = presentation_window;
         this.window = new Gtk.Window ({ type: Gtk.WindowType.TOPLEVEL,
-                                        transient_for: toplevel,
+                                        transient_for: presentation_window.window,
                                         destroy_with_parent: true, /* false? */
                                         title: _("Presenter console"),
                                         hexpand: true });
@@ -140,10 +138,11 @@ const PresenterWindow = new Lang.Class({
 
     close: function() {
         this.window.destroy();
+        this._presentation_window.close();
     },
 
     _createView: function() {
-        this.view = new EvView.ViewPresenter({ presentation: this._presentation });
+        this.view = new EvView.ViewPresenter({ presentation: this._presentation_window.view });
         this.view.connect('finished', Lang.bind(this, this.close));
 
         this.window.add(this.view);
