@@ -231,9 +231,9 @@ const PreviewView = new Lang.Class({
             this._presentation.setOutput(output);
     },
 
-    _showPresenter: function(console) {
+    _showPresenter: function(output) {
         this._presenter = new Presentation.PresenterWindow(this._presentation);
-        this._presenter.setOutput(console);
+        this._presenter.setOutput(output);
     },
 
     _promptPresentation: function() {
