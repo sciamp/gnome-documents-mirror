@@ -20,8 +20,6 @@ configure
 data/gnome-documents.desktop
 data/gnome-documents.desktop.in
 data/org.gnome.Documents.enums.xml
-data/org.gnome.Documents.GDataMiner.service
-data/org.gnome.Documents.ZpjMiner.service
 data/org.gnome.documents.gschema.valid
 data/org.gnome.documents.gschema.xml
 intltool-extract.in

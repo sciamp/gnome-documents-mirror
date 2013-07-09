@@ -38,7 +38,6 @@ do_subst = sed -e 's|@abs_top_srcdir[@]|$(abs_top_srcdir)|g' \
 
 include $(INTROSPECTION_MAKEFILE)
 include Makefile-lib.am
-include Makefile-miner.am
 include Makefile-js.am
 
 resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(srcdir) --generate-dependencies $(srcdir)/gnome-documents.gresource.xml)

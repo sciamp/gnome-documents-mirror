@@ -12,23 +12,6 @@ searchprovider_DATA = gnome-documents-search-provider.ini
 check-local: gnome-documents.desktop
 	$(DESKTOP_FILE_VALIDATE) gnome-documents.desktop
 
-servicedir = $(datadir)/dbus-1/services
-service_DATA = $(service_in_files:.service.in=.service)
-
-org.gnome.Documents.GDataMiner.service: org.gnome.Documents.GDataMiner.service.in Makefile
-	$(AM_V_GEN)	\
-		[ -d $(@D) ] || $(mkdir_p) $(@D) ; \
-		sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@.tmp && mv $@.tmp $@
-
-org.gnome.Documents.ZpjMiner.service: org.gnome.Documents.ZpjMiner.service.in Makefile
-	$(AM_V_GEN)	\
-		[ -d $(@D) ] || $(mkdir_p) $(@D) ; \
-		sed -e "s|\@libexecdir\@|$(libexecdir)|" $< > $@.tmp && mv $@.tmp $@
-
-service_in_files = \
-    org.gnome.Documents.GDataMiner.service.in \
-    org.gnome.Documents.ZpjMiner.service.in
-
 gsettings_ENUM_NAMESPACE = org.gnome.Documents
 gsettings_ENUM_FILES = \
     $(top_srcdir)/libgd/libgd/gd-main-view.h
@@ -42,12 +25,10 @@ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 
 EXTRA_DIST= \
     gnome-documents.desktop \
-    $(service_in_files) \
     $(desktop_in_files) \
     $(searchprovider_DATA) \
     $(gsettingsschema_in_files)
 
 CLEANFILES = \
     $(desktop_DATA) \
-    $(gsettings_SCHEMAS) \
-    $(service_DATA)
+    $(gsettings_SCHEMAS)

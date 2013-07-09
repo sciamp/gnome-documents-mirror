@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Red Hat, Inc.
+ * Copyright (c) 2012, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -23,7 +23,7 @@
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 
-const MinerIface = <interface name="org.gnome.Documents.Miner">
+const MinerIface = <interface name="org.gnome.OnlineMiners.Miner">
     <method name="RefreshDB" />
     <property name="DisplayName" type="s" access="read"/>
 </interface>;
@@ -37,11 +37,11 @@ function _makeMinerProxy(iface, path) {
 }
 
 function GDataMiner() {
-    return _makeMinerProxy('org.gnome.Documents.GDataMiner',
-                           '/org/gnome/Documents/GDataMiner');
+    return _makeMinerProxy('org.gnome.OnlineMiners.GData',
+                           '/org/gnome/OnlineMiners/GData');
 }
 
 function ZpjMiner() {
-    return _makeMinerProxy('org.gnome.Documents.ZpjMiner',
-                           '/org/gnome/Documents/ZpjMiner');
+    return _makeMinerProxy('org.gnome.OnlineMiners.Zpj',
+                           '/org/gnome/OnlineMiners/Zpj');
 }

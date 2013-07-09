@@ -1,3 +1,0 @@
-[D-BUS Service]
-Name=org.gnome.Documents.GDataMiner
-Exec=@libexecdir@/gd-tracker-gdata-miner
