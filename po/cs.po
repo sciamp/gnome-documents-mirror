@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-15 16:15+0000\n"
-"PO-Revision-Date: 2013-06-26 18:48+0200\n"
+"POT-Creation-Date: 2013-07-09 19:34+0000\n"
+"PO-Revision-Date: 2013-07-09 21:45+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -68,74 +68,74 @@ msgid "Window maximized state"
 msgstr "Stav maximalizace okna."
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:585 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Místní"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:606
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:607
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Začínáme s Dokumenty"
 
 #. overridden
-#: ../src/documents.js:661
+#: ../src/documents.js:662
 msgid "Google Docs"
 msgstr "Dokumenty Google"
 
-#: ../src/documents.js:662
+#: ../src/documents.js:663
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:780 ../src/documents.js:878
+#: ../src/documents.js:781 ../src/documents.js:879
 msgid "Spreadsheet"
 msgstr "Sešit s tabulkami"
 
-#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Prezentace"
 
-#: ../src/documents.js:784 ../src/documents.js:882
+#: ../src/documents.js:785 ../src/documents.js:883
 msgid "Collection"
 msgstr "Sbírka"
 
-#: ../src/documents.js:786 ../src/documents.js:884
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:812 ../src/documents.js:813
+#: ../src/documents.js:813 ../src/documents.js:814
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:997
+#: ../src/documents.js:998
 msgid "Please check the network connection."
 msgstr "Zkontrolujte prosím síťové připojení."
 
-#: ../src/documents.js:1000
+#: ../src/documents.js:1001
 msgid "Please check the network proxy settings."
 msgstr "Zkontrolujte prosím nastavení síťové proxy."
 
-#: ../src/documents.js:1003
+#: ../src/documents.js:1004
 msgid "Unable to sign in to the document service."
 msgstr "Nelze se přihlásit k dokumentové službě."
 
-#: ../src/documents.js:1006
+#: ../src/documents.js:1007
 msgid "Unable to locate this document."
 msgstr "Nelze nalézt tento dokument."
 
-#: ../src/documents.js:1009
+#: ../src/documents.js:1010
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, něco je špatně (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1022
+#: ../src/documents.js:1028
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Jejda! Nelze načíst „%s“"
@@ -144,25 +144,25 @@ msgstr "Jejda! Nelze načíst „%s“"
 msgid "View"
 msgstr "Zobrazit"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Načítá se…"
 
-#: ../src/embed.js:144
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Nenalezen žádný dokument"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Své účty on-line můžete přidat v %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Nastaveních systému"
 
@@ -171,11 +171,11 @@ msgstr "Nastaveních systému"
 msgid "Page %u of %u"
 msgstr "Strana %u z %u"
 
-#: ../src/lib/gd-pdf-loader.c:232
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Nelze načíst dokument"
 
-#: ../src/lib/gd-pdf-loader.c:696
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "K prohlížení tohoto dokumentu je vyžadován LibreOffice"
 
@@ -203,24 +203,24 @@ msgstr "Bez obsahu"
 msgid "Contents"
 msgstr "Obsah"
 
-#: ../src/mainToolbar.js:77
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Hledat"
 
-#: ../src/mainToolbar.js:88
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Zpět"
 
-#: ../src/mainToolbar.js:168
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Výsledky pro „%s“"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Klikáním na položky je vyberete"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -229,11 +229,11 @@ msgstr[1] "%d vybrány"
 msgstr[2] "%d vybráno"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:93
 msgid "Done"
 msgstr "Hotovo"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Vybrat položky"
 
@@ -270,6 +270,23 @@ msgstr "Získávají se dokumenty z %s"
 #: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "Získávají se dokumenty z účtů on-line"
+
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Požadováno heslo"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "Odemkno_ut"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokument %s je uzamčen a k otevření požaduje heslo."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Heslo"
 
 #: ../src/places.js:59
 msgid "Close"
