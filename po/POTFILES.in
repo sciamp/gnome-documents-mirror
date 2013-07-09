@@ -12,6 +12,7 @@ src/lib/gd-places-links.c
 src/mainToolbar.js
 src/mainWindow.js
 src/notifications.js
+src/password.js
 src/places.js
 src/presentation.js
 src/preview.js
