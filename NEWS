@@ -1,3 +1,9 @@
+3.9.4 - "Guacamole"
+==================
+
+- Support previewing of password-protected PDFs (Debarshi Ray)
+- Port to gnome-online-miners for remote accounts (Debarshi Ray)
+
 3.9.3 - "Man on a Mission"
 ==========================
 
