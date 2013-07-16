@@ -1,6 +1,12 @@
 /*
  * Copyright(c) 2012 Meg Ford
- * Except for Line 530:
+ *
+ * Except for _isValidEmail(), adapted from:
+ * http://rosskendall.com/files/rfc822validemail.js.txt
+ * with GPLv2+ license and the following copyright header.
+ *
+ * ====
+ *
  * JavaScript function to check an email address conforms to RFC822 (http://www.ietf.org/rfc/rfc0822.txt)
  *
  * Version: 0.2
@@ -12,6 +18,8 @@
  * http://iamcal.com/publish/articles/php/parsing_email/
  * Portions copyright (C) 2006  Ross Kendall - http://rosskendall.com
  * Portions copyright (C) 1993-2005 Cal Henderson - http://iamcal.com
+ *
+ * ====
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
