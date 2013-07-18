@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 3.9.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-20 10:39+0200\n"
-"PO-Revision-Date: 2013-06-20 10:40+0200\n"
+"POT-Creation-Date: 2013-07-18 14:03+0200\n"
+"PO-Revision-Date: 2013-07-18 14:03+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: \n"
@@ -64,74 +64,74 @@ msgid "Window maximized state"
 msgstr "Om vinduet er maksimert eller ikke"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:585 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Lokalt"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:606
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:607
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Kom i gang med Dokumenter"
 
 #. overridden
-#: ../src/documents.js:661
+#: ../src/documents.js:662
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:662
+#: ../src/documents.js:663
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:780 ../src/documents.js:878
+#: ../src/documents.js:781 ../src/documents.js:879
 msgid "Spreadsheet"
 msgstr "Regneark"
 
-#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Presentasjon"
 
-#: ../src/documents.js:784 ../src/documents.js:882
+#: ../src/documents.js:785 ../src/documents.js:883
 msgid "Collection"
 msgstr "Samling"
 
-#: ../src/documents.js:786 ../src/documents.js:884
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:812 ../src/documents.js:813
+#: ../src/documents.js:813 ../src/documents.js:814
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:997
+#: ../src/documents.js:998
 msgid "Please check the network connection."
 msgstr "Sjekk nettverkstilkoblingen."
 
-#: ../src/documents.js:1000
+#: ../src/documents.js:1001
 msgid "Please check the network proxy settings."
 msgstr "Sjekk proxyinnstillinger for nettverk."
 
-#: ../src/documents.js:1003
+#: ../src/documents.js:1004
 msgid "Unable to sign in to the document service."
 msgstr "Kan ikke logge inn på dokumenttjenesten."
 
-#: ../src/documents.js:1006
+#: ../src/documents.js:1007
 msgid "Unable to locate this document."
 msgstr "Kan ikke finne dette dokumentet."
 
-#: ../src/documents.js:1009
+#: ../src/documents.js:1010
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, noe er galt (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1022
+#: ../src/documents.js:1028
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Opps! kan ikke laste «%s»"
@@ -140,25 +140,25 @@ msgstr "Opps! kan ikke laste «%s»"
 msgid "View"
 msgstr "Vis"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Laster …"
 
-#: ../src/embed.js:144
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Ingen dokumenter funnet"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Du kan legge til dine kontoer på nettet i %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Systeminnstillinger"
 
@@ -167,11 +167,11 @@ msgstr "Systeminnstillinger"
 msgid "Page %u of %u"
 msgstr "Side %u av %u"
 
-#: ../src/lib/gd-pdf-loader.c:232
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Kan ikke laste dokumentet"
 
-#: ../src/lib/gd-pdf-loader.c:696
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "LibreOffice kreves for å vise dette dokumentet"
 
@@ -199,24 +199,24 @@ msgstr "Ingen innholdsfortegnelse"
 msgid "Contents"
 msgstr "Innhold"
 
-#: ../src/mainToolbar.js:77
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Søk"
 
-#: ../src/mainToolbar.js:88
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Tilbake"
 
-#: ../src/mainToolbar.js:168
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultater for «%s»"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Klikk på oppføringer for å velge dem"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -224,11 +224,11 @@ msgstr[0] "%d valgt"
 msgstr[1] "%d valgt"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
 msgid "Done"
 msgstr "Ferdig"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Velg oppføringer"
 
@@ -264,6 +264,23 @@ msgstr "Henter dokumenter fra %s"
 #: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra kontoer på nettet"
+
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Passord kreves"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Lås opp"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokumentet %s er låst og krever et passord for å åpnes."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Passord"
 
 #: ../src/places.js:59
 msgid "Close"
@@ -509,75 +526,75 @@ msgstr "Organiser"
 msgid "Share"
 msgstr "Del"
 
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Innstillinger for deling"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Rettigheter for dokument"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Endre"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Privat"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Offentlig"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Alle kan redigere"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Legg til personer"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Oppgi en e-postadresse"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Kan redigere"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Kan vise"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Legg til"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Alle kan lese"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Lagre"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Eier"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Du kan spørre %s om tilgang"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Dokumentet ble ikke oppdatert"
 
