@@ -72,7 +72,7 @@ const Searchbar = new Lang.Class({
                 return false;
             }));
 
-        this._searchEntry.connect('changed', Lang.bind(this,
+        this._searchEntry.connect('search-changed', Lang.bind(this,
             function() {
                 if (this.searchChangeBlocked)
                     return;
