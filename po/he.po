@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-25 11:30+0300\n"
-"PO-Revision-Date: 2013-05-25 11:31+0200\n"
+"POT-Creation-Date: 2013-07-31 11:51+0300\n"
+"PO-Revision-Date: 2013-07-31 11:52+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -16,14 +16,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n>2||n==0) ? 1 : 2;\n"
-"X-Poedit-Language: Hebrew\n"
-"X-Poedit-Country: ISRAEL\n"
 "X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 1.5.4\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1
-#: ../src/application.js:103
-#: ../src/mainWindow.js:53
-#: ../src/mainWindow.js:274
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "מסמכים"
 
@@ -69,8 +66,7 @@ msgid "Window maximized state"
 msgstr "Window maximized state"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586
-#: ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "מקומי"
 
@@ -86,64 +82,58 @@ msgid "Getting Started with Documents"
 msgstr "צעדים ראשונים עם מסמכים"
 
 #. overridden
-#: ../src/documents.js:654
+#: ../src/documents.js:662
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:655
+#: ../src/documents.js:663
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:719
-#: ../src/documents.js:817
+#: ../src/documents.js:781 ../src/documents.js:879
 msgid "Spreadsheet"
 msgstr "גיליון אלקטרוני"
 
-#: ../src/documents.js:721
-#: ../src/documents.js:819
-#: ../src/presentation.js:48
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "מצגת"
 
-#: ../src/documents.js:723
-#: ../src/documents.js:821
+#: ../src/documents.js:785 ../src/documents.js:883
 msgid "Collection"
 msgstr "אוסף"
 
-#: ../src/documents.js:725
-#: ../src/documents.js:823
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Document"
 msgstr "מסמך"
 
 #. overridden
-#: ../src/documents.js:751
-#: ../src/documents.js:752
+#: ../src/documents.js:813 ../src/documents.js:814
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:936
+#: ../src/documents.js:998
 msgid "Please check the network connection."
 msgstr "נא לבדוק את החיבור לרשת."
 
-#: ../src/documents.js:939
+#: ../src/documents.js:1001
 msgid "Please check the network proxy settings."
 msgstr "נא לבדוק את הגדרות המתווך של הרשת."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1004
 msgid "Unable to sign in to the document service."
 msgstr "לא ניתן להיכנס לשירות המסמכים."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1007
 msgid "Unable to locate this document."
 msgstr "לא ניתן לאתר מסמך זה."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1010
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "המממ, משהו פה מסריח (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:961
+#: ../src/documents.js:1028
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "אופס! לא ניתן לטעון את „%s“"
@@ -152,27 +142,25 @@ msgstr "אופס! לא ניתן לטעון את „%s“"
 msgid "View"
 msgstr "צפייה"
 
-#: ../src/embed.js:62
-#: ../src/lib/gd-places-bookmarks.c:382
-#: ../src/lib/gd-places-links.c:257
-#: ../src/view.js:71
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "בטעינה…"
 
-#: ../src/embed.js:144
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "לא נמצאו מסמכים"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "הגדרות מערכת"
 
@@ -181,11 +169,11 @@ msgstr "הגדרות מערכת"
 msgid "Page %u of %u"
 msgstr "עמוד %u מתוך %u"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "לא ניתן לטעון את המסמך"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "יש צורך ב־LibreOffice כדי לצפות במסמך זה"
 
@@ -201,7 +189,7 @@ msgstr "עמוד %s"
 msgid "No bookmarks"
 msgstr "אין סימניות"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "סימניות"
 
@@ -213,24 +201,24 @@ msgstr "אין טבלת תכנים"
 msgid "Contents"
 msgstr "תכנים"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "חיפוש"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "חזרה"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "תוצאות עבור „%s“"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "יש ללחוץ על פריטים כדי לבחור אותם"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -239,13 +227,11 @@ msgstr[1] "נבחרו %d"
 msgstr[2] "נבחרו 2"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192
-#: ../src/properties.js:60
-#: ../src/sharing.js:93
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
 msgid "Done"
 msgstr "בוצע"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
@@ -281,17 +267,55 @@ msgstr "מתקבל מסמך מ־%s"
 msgid "Fetching documents from online accounts"
 msgstr "מתקבלים מסמכים מחשבונות מקוונים"
 
-#: ../src/presentation.js:105
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "נדרשת ססמה"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_שחרור"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "המסמך %s נעול ונדרשת ססמה כדי לפתוח אותו."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_ססמה"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "סגירה"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "רץ במצב מצגת"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "מצב מצגת מופעל"
 
-#: ../src/properties.js:58
-#: ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:782
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "סימון דף זה"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:891 ../src/selections.js:888
+#, c-format
+msgid "Open with %s"
+msgstr "פתיחה באמצעות %s"
+
+#: ../src/preview.js:952
+msgid "Find Previous"
+msgstr "חיפוש הקודם"
+
+#: ../src/preview.js:959
+msgid "Find Next"
+msgstr "חיפוש הבא"
+
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:795
 msgid "Properties"
 msgstr "מאפיינים"
 
@@ -356,9 +380,12 @@ msgstr "עזרה"
 msgid "Quit"
 msgstr "יציאה"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "ה_עתקה"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1
-#: ../src/selections.js:878
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
 msgstr "פתיחה"
 
@@ -398,19 +425,13 @@ msgstr "בחירת הכול"
 msgid "Select None"
 msgstr "ביטול הבחירה"
 
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "ה_עתקה"
-
 #: ../src/search.js:113
 msgid "Category"
 msgstr "קטגוריה"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:118
-#: ../src/search.js:170
-#: ../src/search.js:255
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
 #: ../src/search.js:411
 msgid "All"
 msgstr "הכול"
@@ -474,114 +495,107 @@ msgstr "מאת"
 msgid "Sources"
 msgstr "מקורות"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:615
-msgctxt "Dialog Title"
-msgid "Organize"
-msgstr "ארגון"
+#: ../src/selections.js:462
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "אין לך אוספים עדיין. נא להזין שם אוסף חדש להלן."
 
-#: ../src/selections.js:750
+#: ../src/selections.js:605
+msgid "Create new collection"
+msgstr "יצירת אוסף חדש"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:640
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "אוספים"
+
+#: ../src/selections.js:763
 msgid "Print"
 msgstr "הדפסה"
 
-#: ../src/selections.js:757
+#: ../src/selections.js:770
 msgid "Delete"
 msgstr "מחיקה"
 
 #. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:774
+#: ../src/selections.js:787
 msgctxt "Toolbar button tooltip"
 msgid "Organize"
 msgstr "ארגון"
 
-#: ../src/selections.js:789
+#: ../src/selections.js:802
 msgid "Share"
 msgstr "שיתוף"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:875
-#, c-format
-msgid "Open with %s"
-msgstr "פתיחה באמצעות %s"
-
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "הגדרות שיתוף"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "הרשאות המסמך"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133
-#: ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "שינוי"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157
-#: ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "פרטי"
 
-#: ../src/sharing.js:167
-#: ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "ציבורי"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171
-#: ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "כולם יכולים לערוך"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "הוספת אנשים"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "נא להזין כתובת דוא״ל"
 
-#: ../src/sharing.js:200
-#: ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "יש הרשאות עריכה"
 
-#: ../src/sharing.js:200
-#: ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "יש הרשאות לצפייה"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "הוספה"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "כולם יכולים לקרוא"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "שמירה"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "בעלים"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "ניתן לבקש גישה מ־%s"
 
-#: ../src/sharing.js:470
-#: ../src/sharing.js:506
-#: ../src/sharing.js:563
-#: ../src/sharing.js:580
-#: ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "המסמך לא עודכן"
 
@@ -589,9 +603,12 @@ msgstr "המסמך לא עודכן"
 msgid "Untitled Document"
 msgstr "מסמך ללא שם"
 
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "לא ניתן לקבל את רשימת המסמכים"
+
 #. Translators: "more" refers to documents in this context
-#: ../src/view.js:62
-#: ../src/view.js:93
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "טעינת נוספים"
 
@@ -643,6 +660,10 @@ msgstr[0] "לפני שנה"
 msgstr[1] "לפני %d שנים"
 msgstr[2] "לפני שנתיים"
 
+#~ msgctxt "Dialog Title"
+#~ msgid "Organize"
+#~ msgstr "ארגון"
+
 #~ msgid "filtered by title"
 #~ msgstr "מסונן לפי כותרת"
 
@@ -659,7 +680,6 @@ msgstr[2] "לפני שנתיים"
 #~ msgstr "חדש ו"
 
 #~ msgid "Load %d more document"
-
 #~ msgid_plural "Load %d more documents"
 #~ msgstr[0] "טעינת מסמך נוסף"
 #~ msgstr[1] "טעינת %d מסמכים נוספים"
@@ -676,9 +696,6 @@ msgstr[2] "לפני שנתיים"
 
 #~ msgid "Add to favorites"
 #~ msgstr "הוספה למועדפים"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "לא ניתן לקבל את רשימת המסמכים"
 
 #~ msgid "%d of %d"
 #~ msgstr "%d מתוך %d"
