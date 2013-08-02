@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-22 21:31+0800\n"
-"PO-Revision-Date: 2013-03-22 19:49+0800\n"
+"POT-Creation-Date: 2013-08-02 10:48+0800\n"
+"PO-Revision-Date: 2013-07-26 22:22+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
 "Language: \n"
@@ -16,9 +16,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.5\n"
+"X-Generator: Poedit 1.5.3\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
 msgid "Documents"
 msgstr "文件"
@@ -65,74 +65,74 @@ msgid "Window maximized state"
 msgstr "視窗為最大化狀態"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:416
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "本地端"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "開始使用 Documents"
 
 #. overridden
-#: ../src/documents.js:659
+#: ../src/documents.js:662
 msgid "Google Docs"
 msgstr "Google 文件"
 
-#: ../src/documents.js:660
+#: ../src/documents.js:663
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:724 ../src/documents.js:823
+#: ../src/documents.js:781 ../src/documents.js:879
 msgid "Spreadsheet"
 msgstr "試算表"
 
-#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "簡報"
 
-#: ../src/documents.js:728 ../src/documents.js:827
+#: ../src/documents.js:785 ../src/documents.js:883
 msgid "Collection"
 msgstr "收藏"
 
-#: ../src/documents.js:730 ../src/documents.js:829
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Document"
 msgstr "文件"
 
 #. overridden
-#: ../src/documents.js:757 ../src/documents.js:758
+#: ../src/documents.js:813 ../src/documents.js:814
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:998
 msgid "Please check the network connection."
 msgstr "請檢查網路連線。"
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1001
 msgid "Please check the network proxy settings."
 msgstr "請檢查網路代理伺服器設定值。"
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1004
 msgid "Unable to sign in to the document service."
 msgstr "無法登入文件服務。"
 
-#: ../src/documents.js:951
+#: ../src/documents.js:1007
 msgid "Unable to locate this document."
 msgstr "無法定位這份文件。"
 
-#: ../src/documents.js:954
+#: ../src/documents.js:1010
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr ""
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:1028
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "噢！無法載入“%s”"
@@ -141,8 +141,8 @@ msgstr "噢！無法載入“%s”"
 msgid "View"
 msgstr "檢視"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
-#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "正在載入..."
 
@@ -168,11 +168,11 @@ msgstr "系統設定值"
 msgid "Page %u of %u"
 msgstr "第 %u 頁，共 %u 頁"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "無法載入文件"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "需要有 LibreOffice 才能檢視這份文件"
 
@@ -188,7 +188,7 @@ msgstr "頁 %s"
 msgid "No bookmarks"
 msgstr "沒有書籤"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "書籤"
 
@@ -200,35 +200,35 @@ msgstr "沒有目錄"
 msgid "Contents"
 msgstr "內容"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "搜尋"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "返回"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "「%s」的搜尋結果"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "點擊項目來選取它們"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選取 %d 個"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
 msgid "Done"
 msgstr "完成"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "選擇項目"
 
@@ -255,63 +255,103 @@ msgstr "您的文件已經索引"
 msgid "Some documents might not be available during this process"
 msgstr "在這個過程中有部分文件可能無法取用"
 
-#: ../src/notifications.js:164
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:166
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "正從 %s 擷取文件"
 
-#: ../src/notifications.js:166
+#: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "正從線上帳號擷取文件"
 
-#: ../src/presentation.js:105
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "需要密碼"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "解鎖(_U)"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "文件 %s 已鎖定，需要密碼才能開啟。"
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "密碼(_P)"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "關閉"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "以簡報模式執行"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "簡報開啟"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:779
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "這一頁的書籤"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:891 ../src/selections.js:888
+#, c-format
+msgid "Open with %s"
+msgstr "以 %s 開啟"
+
+#: ../src/preview.js:952
+msgid "Find Previous"
+msgstr "尋找上一筆"
+
+#: ../src/preview.js:959
+msgid "Find Next"
+msgstr "尋找下一筆"
+
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:795
 msgid "Properties"
 msgstr "屬性"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:78 ../src/search.js:257
+#: ../src/properties.js:80
+msgctxt "Document Title"
 msgid "Title"
-msgstr "標題"
+msgstr "題名"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:87 ../src/search.js:260
+#: ../src/properties.js:89
+msgctxt "Document Author"
 msgid "Author"
 msgstr "作者"
 
 #. Source item
-#: ../src/properties.js:94
+#: ../src/properties.js:96
 msgid "Source"
 msgstr "來源"
 
 #. Date Modified item
-#: ../src/properties.js:100
+#: ../src/properties.js:102
 msgid "Date Modified"
 msgstr "修改日期"
 
-#: ../src/properties.js:107
+#: ../src/properties.js:109
 msgid "Date Created"
 msgstr "建立日期"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:116 ../src/search.js:166
+#: ../src/properties.js:118
+msgctxt "Document Type"
 msgid "Type"
 msgstr "類型"
 
@@ -339,8 +379,12 @@ msgstr "求助"
 msgid "Quit"
 msgstr "結束"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "複製(_C)"
+
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
 msgid "Open"
 msgstr "開啟"
 
@@ -380,148 +424,177 @@ msgstr "全部選擇"
 msgid "Select None"
 msgstr "取消全選"
 
-#: ../src/search.js:112
+#: ../src/search.js:113
 msgid "Category"
 msgstr "分類"
 
 #. Translators: this refers to new and recent documents
 #. Translators: this refers to documents
-#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:410
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "全部"
 
 #. Translators: this refers to favorite documents
-#: ../src/search.js:123
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "喜好"
 
 #. Translators: this refers to shared documents
-#: ../src/search.js:128
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "與您分享"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "類型"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "收藏"
 
-#: ../src/search.js:175
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "PDF 文件"
 
-#: ../src/search.js:179
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "簡報"
 
-#: ../src/search.js:182
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "試算表"
 
-#: ../src/search.js:185
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "文字文件"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "符合"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "題名"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "作者"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "來源"
 
-#: ../src/selections.js:613 ../src/selections.js:771
-msgid "Organize"
-msgstr "整理"
+#: ../src/selections.js:462
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "您還沒有任何收藏集。請在上面輸入新收藏集的名稱。"
 
-#: ../src/selections.js:748
+#: ../src/selections.js:605
+msgid "Create new collection"
+msgstr "建立新收藏集"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:640
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "收藏集"
+
+#: ../src/selections.js:763
 msgid "Print"
 msgstr "列印"
 
-#: ../src/selections.js:755
+#: ../src/selections.js:770
 msgid "Delete"
 msgstr "刪除"
 
-#: ../src/selections.js:786
+#. Translators: "Organize" refers to documents in this context
+#: ../src/selections.js:787
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "整理"
+
+#: ../src/selections.js:802
 msgid "Share"
 msgstr "分享"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
-#, c-format
-msgid "Open with %s"
-msgstr "以 %s 開啟"
-
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "分享設定值"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "文件權限"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "變更"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "私人"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "公共"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "任何人都能編輯"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "加入人員"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "輸入電子郵件位址"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "可以編輯"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "可以檢視"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "加入"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "任何人都能閱讀"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "儲存"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "擁有者"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "您可以向 %s 要求存取"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "文件未更新"
 
@@ -529,45 +602,50 @@ msgstr "文件未更新"
 msgid "Untitled Document"
 msgstr "無標題文件"
 
-#: ../src/view.js:61 ../src/view.js:91
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "無法擷取文件清單"
+
+#. Translators: "more" refers to documents in this context
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "載入更多"
 
-#: ../src/view.js:292
+#: ../src/view.js:294
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/view.js:294
+#: ../src/view.js:296
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 天以前"
 
-#: ../src/view.js:298
+#: ../src/view.js:300
 msgid "Last week"
 msgstr "上週"
 
-#: ../src/view.js:300
+#: ../src/view.js:302
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d 週前"
 
-#: ../src/view.js:304
+#: ../src/view.js:306
 msgid "Last month"
 msgstr "上個月"
 
-#: ../src/view.js:306
+#: ../src/view.js:308
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d 個月以前"
 
-#: ../src/view.js:310
+#: ../src/view.js:312
 msgid "Last year"
 msgstr "去年"
 
-#: ../src/view.js:312
+#: ../src/view.js:314
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -606,9 +684,6 @@ msgstr[0] "%d 年以前"
 
 #~ msgid "%d of %d"
 #~ msgstr "%d / %d"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "無法擷取文件清單"
 
 #~ msgid "The active source filter"
 #~ msgstr "使用中來源過濾器"
