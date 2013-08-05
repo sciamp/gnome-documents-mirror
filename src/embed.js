@@ -214,6 +214,10 @@ const Embed = new Lang.Class({
         this.widget = new Gtk.Box({ orientation: Gtk.Orientation.VERTICAL,
                                     visible: true });
 
+        // create the toolbar for selected items, it's hidden by default
+        this._selectionToolbar = new Selections.SelectionToolbar();
+        this.widget.pack_end(this._selectionToolbar.widget, false, false, 0);
+
         this._stackOverlay = new Gtk.Overlay({ visible: true });
         this.widget.pack_end(this._stackOverlay, true, true, 0);
 
@@ -221,10 +225,6 @@ const Embed = new Lang.Class({
                                       homogeneous: true,
                                       transition_type: Gtk.StackTransitionType.CROSSFADE });
         this._stackOverlay.add(this._stack);
-
-        // create the OSD toolbar for selected items, it's hidden by default
-        this._selectionToolbar = new Selections.SelectionToolbar();
-        this._stackOverlay.add_overlay(this._selectionToolbar.widget);
 
         // pack the OSD notification widget
         this._stackOverlay.add_overlay(Application.notificationManager.widget);

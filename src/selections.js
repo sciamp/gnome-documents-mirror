@@ -36,7 +36,6 @@ const Notifications = imports.notifications;
 const Properties = imports.properties;
 const Query = imports.query;
 const Sharing = imports.sharing;
-const Tweener = imports.tweener.tweener;
 const Utils = imports.utils;
 
 const Lang = imports.lang;
@@ -738,69 +737,39 @@ const SelectionToolbar = new Lang.Class({
         this._itemListeners = {};
         this._insideRefresh = false;
 
-        this.widget = new Gtk.Toolbar({ show_arrow: false,
-                                        halign: Gtk.Align.CENTER,
-                                        valign: Gtk.Align.END,
-                                        margin_bottom: 40,
-                                        icon_size: Gtk.IconSize.LARGE_TOOLBAR,
-                                        opacity: 0 });
-        this.widget.get_style_context().add_class('osd');
-        this.widget.set_size_request(_SELECTION_TOOLBAR_DEFAULT_WIDTH, -1);
+        this.widget = new Gtk.Revealer({ transition_type: Gtk.RevealerTransitionType.SLIDE_UP });
 
-        this._leftBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
-        this._leftGroup = new Gtk.ToolItem({ child: this._leftBox });
-        this.widget.insert(this._leftGroup, -1);
+        let toolbar = new Gtk.HeaderBar();
+        this.widget.add(toolbar);
 
         // open button
-        this._toolbarOpen = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'folder-symbolic',
-                                                                     pixel_size: 16 })});
-        this._leftBox.add(this._toolbarOpen);
+        this._toolbarOpen = new Gd.HeaderSimpleButton({ label: _("Open") });
+        toolbar.pack_start(this._toolbarOpen);
         this._toolbarOpen.connect('clicked', Lang.bind(this, this._onToolbarOpen));
 
         // print button
-        this._toolbarPrint = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'printer-symbolic',
-                                                                      pixel_size: 16 })});
-        this._toolbarPrint.set_tooltip_text(_("Print"));
-        this._leftBox.add(this._toolbarPrint);
+        this._toolbarPrint = new Gd.HeaderSimpleButton({ label: _("Print") });
+        toolbar.pack_start(this._toolbarPrint);
         this._toolbarPrint.connect('clicked', Lang.bind(this, this._onToolbarPrint));
 
         // trash button
-        this._toolbarTrash = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'user-trash-symbolic',
-                                                                      pixel_size: 16 })});
-        this._toolbarTrash.set_tooltip_text(_("Delete"));
-        this._leftBox.add(this._toolbarTrash);
+        this._toolbarTrash = new Gd.HeaderSimpleButton({ label: _("Delete") });
+        toolbar.pack_start(this._toolbarTrash);
         this._toolbarTrash.connect('clicked', Lang.bind(this, this._onToolbarTrash));
 
-        this._separator = new Gtk.SeparatorToolItem({ draw: false,
-                                                      visible: true });
-        this._separator.set_expand(true);
-        this.widget.insert(this._separator, -1);
-
-        this._rightBox = new Gtk.Box({ orientation: Gtk.Orientation.HORIZONTAL });
-        this._rightGroup = new Gtk.ToolItem({ child: this._rightBox });
-        this.widget.insert(this._rightGroup, -1);
-
         // organize button
-        this._toolbarCollection = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'list-add-symbolic',
-                                                                           pixel_size: 16 })});
-        // Translators: "Organize" refers to documents in this context
-        this._toolbarCollection.set_tooltip_text(C_("Toolbar button tooltip", "Organize"));
-        this._rightBox.add(this._toolbarCollection);
+        this._toolbarCollection = new Gd.HeaderSimpleButton({ label: _("Add to Collection") });
+        toolbar.pack_end(this._toolbarCollection);
         this._toolbarCollection.connect('clicked', Lang.bind(this, this._onToolbarCollection));
-        this._toolbarCollection.show_all();
 
         // properties button
-        this._toolbarProperties = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'document-properties-symbolic',
-                                                                           pixel_size: 16 })});
-        this._toolbarProperties.set_tooltip_text(_("Properties"));
-        this._rightBox.add(this._toolbarProperties);
+        this._toolbarProperties = new Gd.HeaderSimpleButton({ label: _("Properties") });
+        toolbar.pack_end(this._toolbarProperties);
         this._toolbarProperties.connect('clicked', Lang.bind(this, this._onToolbarProperties));
 
         // share button
-	    this._toolbarShare = new Gtk.Button({ child: new Gtk.Image ({ icon_name: 'emblem-shared-symbolic',
-                                                                      pixel_size: 16 })});
-        this._toolbarShare.set_tooltip_text(_("Share"));
-        this._rightBox.add(this._toolbarShare);
+	this._toolbarShare = new Gd.HeaderSimpleButton({ label: _("Share") });
+        toolbar.pack_end(this._toolbarShare);
         this._toolbarShare.connect('clicked', Lang.bind(this, this._onToolbarShare));
 
         this.widget.show_all();
@@ -815,7 +784,7 @@ const SelectionToolbar = new Lang.Class({
         if (mode)
             this._onSelectionChanged();
         else
-            this._fadeOut();
+            this.widget.set_reveal_child(false);
     },
 
     _onSelectionChanged: function() {
@@ -825,12 +794,8 @@ const SelectionToolbar = new Lang.Class({
         let selection = Application.selectionController.getSelection();
         this._setItemListeners(selection);
 
-        if (selection.length > 0) {
-            this._setItemVisibility();
-            this._fadeIn();
-        } else {
-            this._fadeOut();
-        }
+        this._setItemVisibility();
+        this.widget.set_reveal_child(true);
     },
 
     _setItemListeners: function(selection) {
@@ -892,11 +857,11 @@ const SelectionToolbar = new Lang.Class({
         }
         this._toolbarOpen.set_tooltip_text(openLabel);
 
-        this._toolbarPrint.set_visible(showPrint);
-        this._toolbarProperties.set_visible(showProperties);
-        this._toolbarTrash.set_visible(showTrash);
-        this._toolbarOpen.set_visible(showOpen);
-        this._toolbarShare.set_visible(showShare);
+        this._toolbarPrint.set_sensitive(showPrint);
+        this._toolbarProperties.set_sensitive(showProperties);
+        this._toolbarTrash.set_sensitive(showTrash);
+        this._toolbarOpen.set_sensitive(showOpen);
+        this._toolbarShare.set_sensitive(showShare);
 
         this._insideRefresh = false;
     },
@@ -907,12 +872,12 @@ const SelectionToolbar = new Lang.Class({
             return;
 
         let dialog = new OrganizeCollectionDialog(toplevel);
-        this._fadeOut();
+        this.widget.set_reveal_child(false);
 
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.widget.destroy();
-                this._fadeIn();
+                this.widget.set_reveal_child(true);
             }));
     },
 
@@ -939,24 +904,24 @@ const SelectionToolbar = new Lang.Class({
     _onToolbarProperties: function(widget) {
         let selection = Application.selectionController.getSelection();
         let dialog = new Properties.PropertiesDialog(selection[0]);
-        this._fadeOut();
+        this.widget.set_reveal_child(false);
 
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.widget.destroy();
-                this._fadeIn();
+                this.widget.set_reveal_child(true);
             }));
     },
 
    _onToolbarShare: function(widget) {
        let dialog = new Sharing.SharingDialog();
-       this._fadeOut();
+       this.widget.set_reveal_child(false);
 
        dialog.widget.connect('response', Lang.bind(this,
            function(widget, response) {
                if (response == Gtk.ResponseType.OK) {
                    dialog.widget.destroy();
-                   this._fadeIn();
+                   this.widget.set_reveal_child(true);
                }
            }));
     },
@@ -970,21 +935,4 @@ const SelectionToolbar = new Lang.Class({
         let doc = Application.documentManager.getItemById(selection[0]);
         doc.print(this.widget.get_toplevel());
     },
-
-    _fadeIn: function() {
-        this.widget.show();
-        Tweener.addTween(this.widget, { opacity: 1,
-                                        time: 0.30,
-                                        transition: 'easeOutQuad' });
-    },
-
-    _fadeOut: function() {
-        Tweener.addTween(this.widget, { opacity: 0,
-                                        time: 0.30,
-                                        transition: 'easeOutQuad',
-                                        onComplete: function() {
-                                            this.widget.hide();
-                                        },
-                                        onCompleteScope: this });
-    }
 });
