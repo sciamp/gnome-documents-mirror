@@ -205,7 +205,7 @@ const OverviewToolbar = new Lang.Class({
         this._selectionMenu.get_style_context().add_class('selection-menu');
         this.toolbar.set_custom_title(this._selectionMenu);
 
-        let selectionButton = new Gd.HeaderSimpleButton({ label: _("Done") });
+        let selectionButton = new Gd.HeaderSimpleButton({ label: _("Cancel") });
         this.toolbar.pack_end(selectionButton);
         selectionButton.get_style_context().add_class('suggested-action');
         selectionButton.connect('clicked', Lang.bind(this,
