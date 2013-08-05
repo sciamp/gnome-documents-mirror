@@ -1,0 +1,625 @@
+# Irish translations for gnome-documents package.
+# Copyright (C) 2013 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-documents package.
+# Seán de Búrca <leftmostcat@gmail.com>, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-documents.master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-08-05 15:42-0600\n"
+"PO-Revision-Date: 2013-08-05 16:50-0600\n"
+"Last-Translator: Seán de Búrca <leftmostcat@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n<11 ? 3 : "
+"4;\n"
+
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
+#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+msgid "Documents"
+msgstr "Cáipéisí"
+
+#: ../data/gnome-documents.desktop.in.in.h:2
+msgid "Access, manage and share documents"
+msgstr "Déan rochtain ar, bainistigh agus comhroinn cáipéisí"
+
+#: ../data/gnome-documents.desktop.in.in.h:3
+msgid "Docs;PDF;Document;"
+msgstr "PDF;Cáipéis"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:1
+#: ../src/resources/app-menu.ui.h:1
+msgid "View as"
+msgstr "Amharc mar"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:2
+msgid "View as type"
+msgstr "Amharc mar cineál"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:3
+msgid "Window size"
+msgstr "Méid an fhuinneoige"
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:4
+msgid "Window size (width and height)."
+msgstr ""
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:5
+msgid "Window position"
+msgstr ""
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr ""
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:7
+msgid "Window maximized"
+msgstr ""
+
+#: ../data/org.gnome.documents.gschema.xml.in.h:8
+msgid "Window maximized state"
+msgstr ""
+
+#: ../src/documents.js:586 ../src/search.js:417
+msgid "Local"
+msgstr "Logánta"
+
+#: ../src/documents.js:607
+msgid "GNOME"
+msgstr "GNOME"
+
+#: ../src/documents.js:608
+msgid "Getting Started with Documents"
+msgstr "Cur Chun Siúil le Cáipéisí"
+
+#: ../src/documents.js:662
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:663
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:781 ../src/documents.js:879
+msgid "Spreadsheet"
+msgstr "Scarbhileog"
+
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Láithreoireacht"
+
+#: ../src/documents.js:785 ../src/documents.js:883
+msgid "Collection"
+msgstr "Bailíuchán"
+
+#: ../src/documents.js:787 ../src/documents.js:885
+msgid "Document"
+msgstr "Cáipéis"
+
+#: ../src/documents.js:813 ../src/documents.js:814
+msgid "Skydrive"
+msgstr "Skydrive"
+
+#: ../src/documents.js:998
+msgid "Please check the network connection."
+msgstr ""
+
+#: ../src/documents.js:1001
+msgid "Please check the network proxy settings."
+msgstr ""
+
+#: ../src/documents.js:1004
+msgid "Unable to sign in to the document service."
+msgstr ""
+
+#: ../src/documents.js:1007
+msgid "Unable to locate this document."
+msgstr "Níorbh fhéidir an cháipéis seo a aimsiú."
+
+#: ../src/documents.js:1010
+#, javascript-format
+msgid "Hmm, something is fishy (%d)."
+msgstr ""
+
+#: ../src/documents.js:1028
+#, javascript-format
+msgid "Oops! Unable to load “%s”"
+msgstr ""
+
+#: ../src/edit.js:191
+msgid "View"
+msgstr "Amharc"
+
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
+msgid "Loading…"
+msgstr "Á luchtú…"
+
+#: ../src/embed.js:145
+msgid "No Documents Found"
+msgstr "Cáipéis gan Aimsiú"
+
+#: ../src/embed.js:166
+#, javascript-format
+msgid "You can add your online accounts in %s"
+msgstr "Is féidir leat do chuid chuntas ar líne a chur leis i %s"
+
+#: ../src/embed.js:170
+msgid "System Settings"
+msgstr "Socruithe an Chórais"
+
+#: ../src/lib/gd-nav-bar.c:235
+#, c-format
+msgid "Page %u of %u"
+msgstr "Leathanach %u as %u"
+
+#: ../src/lib/gd-pdf-loader.c:247
+msgid "Unable to load the document"
+msgstr "Níorbh fhéidir an cháipéis a luchtú"
+
+#: ../src/lib/gd-pdf-loader.c:715
+msgid "LibreOffice is required to view this document"
+msgstr ""
+
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
+#, c-format
+msgid "Page %s"
+msgstr "Leathanach %s"
+
+#: ../src/lib/gd-places-bookmarks.c:375
+msgid "No bookmarks"
+msgstr "Gan leabharmharcanna"
+
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
+msgid "Bookmarks"
+msgstr "Leabharmharcanna"
+
+#: ../src/lib/gd-places-links.c:342
+msgid "No table of contents"
+msgstr "Gan inneachar"
+
+#: ../src/lib/gd-places-links.c:518
+msgid "Contents"
+msgstr "Inneachar"
+
+#: ../src/mainToolbar.js:78
+msgid "Search"
+msgstr "Cuardaigh"
+
+#: ../src/mainToolbar.js:89
+msgid "Back"
+msgstr "Siar"
+
+#: ../src/mainToolbar.js:169
+#, javascript-format
+msgid "Results for “%s”"
+msgstr "Torthaí do “%s”"
+
+#: ../src/mainToolbar.js:177
+msgid "Click on items to select them"
+msgstr "Cliceáil ar mhíreanna chun iad a roghnú"
+
+#: ../src/mainToolbar.js:179
+#, javascript-format
+msgid "%d selected"
+msgid_plural "%d selected"
+msgstr[0] "%d roghnaithe"
+msgstr[1] "%d roghnaithe"
+msgstr[2] "%d roghnaithe"
+msgstr[3] "%d roghnaithe"
+msgstr[4] "%d roghnaithe"
+
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
+msgid "Done"
+msgstr "Críochnaithe"
+
+#: ../src/mainToolbar.js:249
+msgid "Select Items"
+msgstr "Roghnaigh Míreanna"
+
+#: ../src/mainWindow.js:273
+msgid "translator-credits"
+msgstr "Seán de Búrca <leftmostcat@gmail.com>"
+
+#: ../src/mainWindow.js:275
+msgid "A document manager application"
+msgstr "Feidhmchlár bhainisteoireacht cháipéisí"
+
+#: ../src/notifications.js:87
+#, javascript-format
+msgid "Printing “%s”: %s"
+msgstr "“%s” á phriontáil: %s"
+
+#: ../src/notifications.js:143
+msgid "Your documents are being indexed"
+msgstr ""
+
+#: ../src/notifications.js:144
+msgid "Some documents might not be available during this process"
+msgstr ""
+
+#: ../src/notifications.js:166
+#, javascript-format
+msgid "Fetching documents from %s"
+msgstr ""
+
+#: ../src/notifications.js:168
+msgid "Fetching documents from online accounts"
+msgstr ""
+
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Focal Faire de Dhíth"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Díghlasáil"
+
+#: ../src/password.js:64
+#, javascript-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr ""
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Focal faire"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Dún"
+
+#: ../src/presentation.js:104
+msgid "Running in presentation mode"
+msgstr ""
+
+#: ../src/presentation.js:157
+msgid "Present On"
+msgstr "Cuir i Láthair Ar"
+
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "Cuir leabharmharc leis an leathanach seo"
+
+#: ../src/preview.js:891 ../src/selections.js:888
+#, javascript-format
+msgid "Open with %s"
+msgstr "Oscail le %s"
+
+#: ../src/preview.js:952
+msgid "Find Previous"
+msgstr "An Ceann Roimhe Seo"
+
+#: ../src/preview.js:959
+msgid "Find Next"
+msgstr "An Chéad Cheann Eile"
+
+#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:795
+msgid "Properties"
+msgstr "Airíonna"
+
+#: ../src/properties.js:80
+msgctxt "Document Title"
+msgid "Title"
+msgstr "Teideal"
+
+#: ../src/properties.js:89
+msgctxt "Document Author"
+msgid "Author"
+msgstr "Údar"
+
+#: ../src/properties.js:96
+msgid "Source"
+msgstr "Foinse"
+
+#: ../src/properties.js:102
+msgid "Date Modified"
+msgstr "Dáta Athraithe"
+
+#: ../src/properties.js:109
+msgid "Date Created"
+msgstr "Dátha Cruthaithe"
+
+#: ../src/properties.js:118
+msgctxt "Document Type"
+msgid "Type"
+msgstr "Cineál"
+
+#: ../src/resources/app-menu.ui.h:2
+msgid "Grid"
+msgstr "Greille"
+
+#: ../src/resources/app-menu.ui.h:3
+msgid "List"
+msgstr "Liosta"
+
+#: ../src/resources/app-menu.ui.h:4
+msgid "Fullscreen"
+msgstr "Lánscáileán"
+
+#: ../src/resources/app-menu.ui.h:5
+msgid "About Documents"
+msgstr "Maidir le Cáipéisí"
+
+#: ../src/resources/app-menu.ui.h:6
+msgid "Help"
+msgstr "Cabhair"
+
+#: ../src/resources/app-menu.ui.h:7
+msgid "Quit"
+msgstr "Scoir"
+
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Cóipeáil"
+
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+msgid "Open"
+msgstr "Oscail"
+
+#: ../src/resources/preview-menu.ui.h:2
+msgid "Edit"
+msgstr "Eagar"
+
+#: ../src/resources/preview-menu.ui.h:3
+msgid "Print…"
+msgstr "Priontáil…"
+
+#: ../src/resources/preview-menu.ui.h:4
+msgid "Present"
+msgstr "Cuir i Láthair"
+
+#: ../src/resources/preview-menu.ui.h:5
+msgid "Zoom In"
+msgstr "Súmáil Isteach"
+
+#: ../src/resources/preview-menu.ui.h:6
+msgid "Zoom Out"
+msgstr "Súmáil Amach"
+
+#: ../src/resources/preview-menu.ui.h:7
+msgid "Rotate ↶"
+msgstr "Rothlaigh ↶"
+
+#: ../src/resources/preview-menu.ui.h:8
+msgid "Rotate ↷"
+msgstr "Rothlaigh ↷"
+
+#: ../src/resources/selection-menu.ui.h:1
+msgid "Select All"
+msgstr "Roghnaigh Uile"
+
+#: ../src/resources/selection-menu.ui.h:2
+msgid "Select None"
+msgstr "Ná Roghnaigh"
+
+#: ../src/search.js:113
+msgid "Category"
+msgstr "Catagóir"
+
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
+msgid "All"
+msgstr "Gach rud"
+
+#: ../src/search.js:124
+msgid "Favorites"
+msgstr "Ceanáin"
+
+#: ../src/search.js:129
+msgid "Shared with you"
+msgstr "Comhroinnte leat"
+
+#: ../src/search.js:167
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Cineál"
+
+#: ../src/search.js:172
+msgid "Collections"
+msgstr "Bailiúcháin"
+
+#: ../src/search.js:176
+msgid "PDF Documents"
+msgstr "Cáipéisí PDF"
+
+#: ../src/search.js:180
+msgid "Presentations"
+msgstr "Láithreoireachtaí"
+
+#: ../src/search.js:183
+msgid "Spreadsheets"
+msgstr "Scarbhileoga"
+
+#: ../src/search.js:186
+msgid "Text Documents"
+msgstr "Cáipéisí Téacs"
+
+#: ../src/search.js:252
+msgid "Match"
+msgstr "Comhoiriúnaigh"
+
+#: ../src/search.js:258
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Teideal"
+
+#: ../src/search.js:261
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Údar"
+
+#: ../src/search.js:407
+msgid "Sources"
+msgstr "Foinsí"
+
+#: ../src/selections.js:462
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "Níl aon bhailiúchán agat fós. Iontráil ainm bailiúcháin thuas."
+
+#: ../src/selections.js:605
+msgid "Create new collection"
+msgstr "Cruthaigh bailiúchán nua"
+
+#: ../src/selections.js:640
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Bailiúcháin"
+
+#: ../src/selections.js:763
+msgid "Print"
+msgstr "Priontáil"
+
+#: ../src/selections.js:770
+msgid "Delete"
+msgstr "Scrios"
+
+#: ../src/selections.js:787
+msgctxt "Toolbar button tooltip"
+msgid "Organize"
+msgstr "Eagraigh"
+
+#: ../src/selections.js:802
+msgid "Share"
+msgstr "Comhroinn"
+
+#: ../src/sharing.js:97
+msgid "Sharing Settings"
+msgstr "Socruithe Comhroinnte"
+
+#: ../src/sharing.js:134
+msgid "Document permissions"
+msgstr "Ceadanna cáipéise"
+
+#: ../src/sharing.js:141 ../src/sharing.js:319
+msgid "Change"
+msgstr "Athraigh"
+
+#: ../src/sharing.js:165 ../src/sharing.js:294
+msgid "Private"
+msgstr "Príobháideach"
+
+#: ../src/sharing.js:175 ../src/sharing.js:287
+msgid "Public"
+msgstr "Poiblí"
+
+#: ../src/sharing.js:179 ../src/sharing.js:289
+msgid "Everyone can edit"
+msgstr "Is féidir le gach duine é a chur in eagar"
+
+#: ../src/sharing.js:186
+msgid "Add people"
+msgstr "Cuir daoine leis"
+
+#: ../src/sharing.js:193
+msgid "Enter an email address"
+msgstr "Iontráil seoladh ríomhphoist"
+
+#: ../src/sharing.js:208 ../src/sharing.js:375
+msgid "Can edit"
+msgstr ""
+
+#: ../src/sharing.js:208 ../src/sharing.js:378
+msgid "Can view"
+msgstr ""
+
+#: ../src/sharing.js:215
+msgid "Add"
+msgstr ""
+
+#: ../src/sharing.js:291
+msgid "Everyone can read"
+msgstr ""
+
+#: ../src/sharing.js:306
+msgid "Save"
+msgstr "Sábháil"
+
+#: ../src/sharing.js:372
+msgid "Owner"
+msgstr "Úinéir"
+
+#: ../src/sharing.js:441
+#, javascript-format
+msgid "You can ask %s for access"
+msgstr ""
+
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
+msgid "The document was not updated"
+msgstr ""
+
+#: ../src/shellSearchProvider.js:293
+msgid "Untitled Document"
+msgstr "Cáipéis gan Teideal"
+
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr ""
+
+#: ../src/view.js:62 ../src/view.js:93
+msgid "Load More"
+msgstr ""
+
+#: ../src/view.js:294
+msgid "Yesterday"
+msgstr "Inné"
+
+#: ../src/view.js:296
+#, javascript-format
+msgid "%d day ago"
+msgid_plural "%d days ago"
+msgstr[0] "%d lá ó shin"
+msgstr[1] "%d lá ó shin"
+msgstr[2] "%d lá ó shin"
+msgstr[3] "%d lá ó shin"
+msgstr[4] "%d lá ó shin"
+
+#: ../src/view.js:300
+msgid "Last week"
+msgstr "An tseachtain seo chaite"
+
+#: ../src/view.js:302
+#, javascript-format
+msgid "%d week ago"
+msgid_plural "%d weeks ago"
+msgstr[0] "%d seachtain ó shin"
+msgstr[1] "%d sheachtain ó shin"
+msgstr[2] "%d sheachtain ó shin"
+msgstr[3] "%d seachtain ó shin"
+msgstr[4] "%d seachtain ó shin"
+
+#: ../src/view.js:306
+msgid "Last month"
+msgstr "An mhí seo chaite"
+
+#: ../src/view.js:308
+#, javascript-format
+msgid "%d month ago"
+msgid_plural "%d months ago"
+msgstr[0] "%d mhí ó shin"
+msgstr[1] "%d mhí ó shin"
+msgstr[2] "%d mhí ó shin"
+msgstr[3] "%d mí ó shin"
+msgstr[4] "%d mí ó shin"
+
+#: ../src/view.js:312
+msgid "Last year"
+msgstr "An bhliain seo chaite"
+
+#: ../src/view.js:314
+#, javascript-format
+msgid "%d year ago"
+msgid_plural "%d years ago"
+msgstr[0] "%d bhliain ó shin"
+msgstr[1] "%d bhliain ó shin"
+msgstr[2] "%d bhliana ó shin"
+msgstr[3] "%d mbliana ó shin"
+msgstr[4] "%d bliain ó shin"
