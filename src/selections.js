@@ -872,17 +872,17 @@ const SelectionToolbar = new Lang.Class({
             return;
 
         let dialog = new OrganizeCollectionDialog(toplevel);
-        this.widget.set_reveal_child(false);
 
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.widget.destroy();
-                this.widget.set_reveal_child(true);
+                Application.selectionController.setSelectionMode(false);
             }));
     },
 
     _onToolbarOpen: function(widget) {
         let selection = Application.selectionController.getSelection();
+        Application.selectionController.setSelectionMode(false);
 
         selection.forEach(Lang.bind(this,
             function(urn) {
@@ -893,6 +893,7 @@ const SelectionToolbar = new Lang.Class({
 
     _onToolbarTrash: function(widget) {
         let selection = Application.selectionController.getSelection();
+        Application.selectionController.setSelectionMode(false);
 
         selection.forEach(Lang.bind(this,
             function(urn) {
@@ -904,24 +905,22 @@ const SelectionToolbar = new Lang.Class({
     _onToolbarProperties: function(widget) {
         let selection = Application.selectionController.getSelection();
         let dialog = new Properties.PropertiesDialog(selection[0]);
-        this.widget.set_reveal_child(false);
 
         dialog.widget.connect('response', Lang.bind(this,
             function(widget, response) {
                 dialog.widget.destroy();
-                this.widget.set_reveal_child(true);
+                Application.selectionController.setSelectionMode(false);
             }));
     },
 
    _onToolbarShare: function(widget) {
        let dialog = new Sharing.SharingDialog();
-       this.widget.set_reveal_child(false);
 
        dialog.widget.connect('response', Lang.bind(this,
            function(widget, response) {
                if (response == Gtk.ResponseType.OK) {
                    dialog.widget.destroy();
-                   this.widget.set_reveal_child(true);
+                   Application.selectionController.setSelectionMode(false);
                }
            }));
     },
