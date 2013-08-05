@@ -815,6 +815,7 @@ const PreviewToolbar = new Lang.Class({
         this._previewView = previewView;
 
         this.parent();
+        this.toolbar.set_show_close_button(true);
 
         this._searchAction = Application.application.lookup_action('search');
         this._gearMenu = Application.application.lookup_action('gear-menu');

@@ -180,6 +180,7 @@ const EditToolbar = new Lang.Class({
         this._editView = editView;
 
         this.parent();
+        this.toolbar.set_show_close_button(true);
 
         // back button, on the left of the toolbar
         let backButton = this.addBackButton();

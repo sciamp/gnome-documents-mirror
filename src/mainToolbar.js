@@ -242,6 +242,7 @@ const OverviewToolbar = new Lang.Class({
     },
 
     _populateForOverview: function() {
+        this.toolbar.set_show_close_button(true);
         this._checkCollectionBackButton();
         this.addSearchButton();
 
@@ -277,6 +278,7 @@ const OverviewToolbar = new Lang.Class({
 
     _clearToolbar: function() {
         this._clearStateData();
+        this.toolbar.set_show_close_button(false);
 
         this.toolbar.get_style_context().remove_class('selection-mode');
         let children = this.toolbar.get_children();

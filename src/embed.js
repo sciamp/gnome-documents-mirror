@@ -425,12 +425,10 @@ const Embed = new Lang.Class({
         if (this._edit)
             this._edit.setUri(null);
 
-        if (this._toolbar)
-            this._toolbar.widget.destroy();
-
         // pack the toolbar
         this._toolbar = new MainToolbar.OverviewToolbar(this._stackOverlay);
-        this.widget.pack_start(this._toolbar.widget, false, false, 0);
+        let toplevel = Application.application.get_windows()[0];
+        toplevel.set_titlebar(this._toolbar.widget);
 
         this._spinnerBox.stop();
         this._stack.set_visible_child_name('view');
@@ -439,23 +437,21 @@ const Embed = new Lang.Class({
     _prepareForPreview: function() {
         if (this._edit)
             this._edit.setUri(null);
-        if (this._toolbar)
-            this._toolbar.widget.destroy();
 
         // pack the toolbar
         this._toolbar = new Preview.PreviewToolbar(this._preview);
-        this.widget.pack_start(this._toolbar.widget, false, false, 0);
+        let toplevel = Application.application.get_windows()[0];
+        toplevel.set_titlebar(this._toolbar.widget);
     },
 
     _prepareForEdit: function() {
         if (this._preview)
             this._preview.setModel(null);
-        if (this._toolbar)
-            this._toolbar.widget.destroy();
 
         // pack the toolbar
         this._toolbar = new Edit.EditToolbar(this._preview);
-        this.widget.pack_start(this._toolbar.widget, false, false, 0);
+        let toplevel = Application.application.get_windows()[0];
+        toplevel.set_titlebar(this._toolbar.widget);
 
         this._stack.set_visible_child_name('edit');
     },
