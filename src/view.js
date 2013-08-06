@@ -19,9 +19,9 @@
  *
  */
 
+const Cairo = imports.gi.cairo;
 const Gd = imports.gi.Gd;
 const Gdk = imports.gi.Gdk;
-const GdkPixbuf = imports.gi.GdkPixbuf;
 const Gettext = imports.gettext;
 const GLib = imports.gi.GLib;
 const GObject = imports.gi.GObject;
@@ -114,7 +114,7 @@ const ViewModel = new Lang.Class({
               GObject.TYPE_STRING,
               GObject.TYPE_STRING,
               GObject.TYPE_STRING,
-              GdkPixbuf.Pixbuf,
+              Cairo.Surface,
               GObject.TYPE_LONG,
               GObject.TYPE_BOOLEAN,
               GObject.TYPE_UINT ]);
@@ -144,7 +144,7 @@ const ViewModel = new Lang.Class({
         this.model.set(iter,
             [ 0, 1, 2, 3, 4, 5 ],
             [ doc.id, doc.uri, doc.name,
-              doc.author, doc.pixbuf, doc.mtime ]);
+              doc.author, doc.surface, doc.mtime ]);
 
         let treePath = this.model.get_path(iter);
         let treeRowRef = Gtk.TreeRowReference.new(this.model, treePath);
@@ -160,7 +160,7 @@ const ViewModel = new Lang.Class({
                     this.model.set(objectIter,
                         [ 0, 1, 2, 3, 4, 5 ],
                         [ doc.id, doc.uri, doc.name,
-                          doc.author, doc.pixbuf, doc.mtime ]);
+                          doc.author, doc.surface, doc.mtime ]);
             }));
     },
 
