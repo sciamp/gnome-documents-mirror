@@ -11,16 +11,16 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-15 16:15+0000\n"
-"PO-Revision-Date: 2013-06-26 22:58-0300\n"
-"Last-Translator: Edson Silva <edsonlead@gmail.com>\n"
+"POT-Creation-Date: 2013-07-18 12:03+0000\n"
+"PO-Revision-Date: 2013-07-30 07:33-0300\n"
+"Last-Translator: Rafael Ferreira <rafael.f.f1@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.5.7\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
@@ -69,74 +69,74 @@ msgid "Window maximized state"
 msgstr "Estado maximizado da janela"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:585 ../src/search.js:417
+#: ../src/documents.js:586 ../src/search.js:417
 msgid "Local"
 msgstr "Local"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:606
+#: ../src/documents.js:607
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:607
+#: ../src/documents.js:608
 msgid "Getting Started with Documents"
 msgstr "Primeiros passos com o aplicativo Documentos"
 
 #. overridden
-#: ../src/documents.js:661
+#: ../src/documents.js:662
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:662
+#: ../src/documents.js:663
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:780 ../src/documents.js:878
+#: ../src/documents.js:781 ../src/documents.js:879
 msgid "Spreadsheet"
 msgstr "Planilha"
 
-#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
+#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Apresentação"
 
-#: ../src/documents.js:784 ../src/documents.js:882
+#: ../src/documents.js:785 ../src/documents.js:883
 msgid "Collection"
 msgstr "Coleção"
 
-#: ../src/documents.js:786 ../src/documents.js:884
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:812 ../src/documents.js:813
+#: ../src/documents.js:813 ../src/documents.js:814
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:997
+#: ../src/documents.js:998
 msgid "Please check the network connection."
 msgstr "Por favor, verifique a conexão de rede."
 
-#: ../src/documents.js:1000
+#: ../src/documents.js:1001
 msgid "Please check the network proxy settings."
 msgstr "Por favor, verifique as configurações do proxy de rede."
 
-#: ../src/documents.js:1003
+#: ../src/documents.js:1004
 msgid "Unable to sign in to the document service."
 msgstr "Não foi possível assinar o serviço do documento."
 
-#: ../src/documents.js:1006
+#: ../src/documents.js:1007
 msgid "Unable to locate this document."
 msgstr "Não foi possível localizar este documento."
 
-#: ../src/documents.js:1009
+#: ../src/documents.js:1010
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, alguma coisa não está certa (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1022
+#: ../src/documents.js:1028
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Opa! Não foi possível carregar \"%s\""
@@ -145,25 +145,25 @@ msgstr "Opa! Não foi possível carregar \"%s\""
 msgid "View"
 msgstr "Ver"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Carregando…"
 
-#: ../src/embed.js:144
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Nenhum documento encontrado"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Você pode adicionar suas contas online em %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Configurações do sistema"
 
@@ -172,11 +172,11 @@ msgstr "Configurações do sistema"
 msgid "Page %u of %u"
 msgstr "Página %u de %u"
 
-#: ../src/lib/gd-pdf-loader.c:232
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Não foi possível carregar o documento"
 
-#: ../src/lib/gd-pdf-loader.c:696
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "LibreOffice é necessário para visualizar este documento"
 
@@ -205,24 +205,24 @@ msgstr "Nenhum sumário"
 msgid "Contents"
 msgstr "Sumário"
 
-#: ../src/mainToolbar.js:77
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Pesquisar"
 
-#: ../src/mainToolbar.js:88
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Voltar"
 
-#: ../src/mainToolbar.js:168
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultados para \"%s\""
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Clique nos itens para seleciona-los"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -230,11 +230,11 @@ msgstr[0] "%d selecionado"
 msgstr[1] "%d selecionados"
 
 #. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
+#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
 msgid "Done"
 msgstr "Concluído"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Selecionar itens"
 
@@ -273,6 +273,23 @@ msgstr "Obtendo documentos de %s"
 msgid "Fetching documents from online accounts"
 msgstr "Obtendo documentos das contas online"
 
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Senha necessária"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Desbloquear"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "O documento %s está bloqueado e requer uma senha para ser aberto."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Senha"
+
 #: ../src/places.js:59
 msgid "Close"
 msgstr "Fechar"
@@ -286,7 +303,6 @@ msgid "Present On"
 msgstr "Apresentação"
 
 #: ../src/preview.js:603
-#| msgid "Bookmarks"
 msgid "Bookmark this page"
 msgstr "Adicionar aos favoritos"
 
@@ -491,13 +507,11 @@ msgstr ""
 "Você não possui nenhuma coleção ainda. Insira um novo nome de coleção, acima."
 
 #: ../src/selections.js:605
-#| msgid "Collection"
 msgid "Create new collection"
 msgstr "Criar nova coleção"
 
 #. Translators: "Collections" refers to documents in this context
 #: ../src/selections.js:640
-#| msgid "Collections"
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Coleções"
@@ -520,75 +534,75 @@ msgstr "Organizar documentos"
 msgid "Share"
 msgstr "Compartilhar"
 
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Configurações de compartilhamento"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Permissões do documento"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Alterar"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Privado"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Público"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Todos podem editar"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Adicionar pessoas"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Digitar um endereço de e-mail"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Pode editar"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Pode ver"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Adicionar"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Todos podem ler"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Salvar"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Dono"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Você pode solicitar acesso a %s"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "O documento não foi atualizado"
 
