@@ -192,7 +192,7 @@ const CollectionIconWatcher = new Lang.Class({
 
         this._docs.forEach(
             function(doc) {
-                pixbufs.push(doc.pristinePixbuf);
+                pixbufs.push(doc.origPixbuf);
             });
 
         this._pixbuf = GdPrivate.create_collection_icon(Utils.getIconSize(), pixbufs);
@@ -228,7 +228,7 @@ const DocCommon = new Lang.Class({
         this.mtime = null;
         this.resourceUrn = null;
         this.pixbuf = null;
-        this.pristinePixbuf = null;
+        this.origPixbuf = null;
         this.defaultAppName = null;
 
         this.mimeType = null;
@@ -330,15 +330,16 @@ const DocCommon = new Lang.Class({
                                                         Gtk.IconLookupFlags.FORCE_SIZE |
                                                         Gtk.IconLookupFlags.GENERIC_FALLBACK);
 
+        let pixbuf = null;
         if (iconInfo != null) {
             try {
-                this.pixbuf = iconInfo.load_icon();
+                pixbuf = iconInfo.load_icon();
             } catch (e) {
                 log('Unable to load pixbuf: ' + e.toString());
             }
         }
 
-        this.checkEffectsAndUpdateInfo();
+        this._setOrigPixbuf(pixbuf);
     },
 
     _refreshCollectionIcon: function() {
@@ -347,11 +348,7 @@ const DocCommon = new Lang.Class({
 
             this._collectionIconWatcher.connect('icon-updated', Lang.bind(this,
                 function(watcher, pixbuf) {
-                    if (!pixbuf)
-                        return;
-
-                    this.pixbuf = pixbuf;
-                    this.checkEffectsAndUpdateInfo();
+                    this._setOrigPixbuf(pixbuf);
                 }));
         } else {
             this._collectionIconWatcher.refresh();
@@ -447,10 +444,9 @@ const DocCommon = new Lang.Class({
                         true, null, Lang.bind(this,
                             function(object, res) {
                                 try {
-                                    this.pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
-
+                                    let pixbuf = GdkPixbuf.Pixbuf.new_from_stream_finish(res);
                                     this.thumbnailed = true;
-                                    this.checkEffectsAndUpdateInfo();
+                                    this._setOrigPixbuf(pixbuf);
                                 } catch (e) {
                                     this._failedThumbnailing = true;
                                 }
@@ -480,13 +476,18 @@ const DocCommon = new Lang.Class({
         return pix;
     },
 
-    checkEffectsAndUpdateInfo: function() {
-        let emblemIcons = [];
-        let pixbuf = this.pixbuf;
-        let activeItem;
+    _setOrigPixbuf: function(pixbuf) {
+        if (pixbuf) {
+            this.origPixbuf = pixbuf;
+        }
 
-        // save the pixbuf before modifications, to use in collection icons
-        this.pristinePixbuf = pixbuf;
+        this._checkEffectsAndUpdateInfo();
+    },
+
+    _checkEffectsAndUpdateInfo: function() {
+        let emblemIcons = [];
+        let emblemedPixbuf = null;
+        let activeItem;
 
         activeItem = Application.searchCategoryManager.getActiveItem();
 
@@ -496,7 +497,7 @@ const DocCommon = new Lang.Class({
             emblemIcons.push(this._createSymbolicEmblem('emblem-shared'));
 
         if (emblemIcons.length > 0) {
-            let emblemedIcon = new Gio.EmblemedIcon({ gicon: this.pixbuf });
+            let emblemedIcon = new Gio.EmblemedIcon({ gicon: this.origPixbuf });
 
             emblemIcons.forEach(
                 function(emblemIcon) {
@@ -508,24 +509,30 @@ const DocCommon = new Lang.Class({
 
             try {
                 let iconInfo = theme.lookup_by_gicon(emblemedIcon,
-                                                     Math.max(this.pixbuf.get_width(),
-                                                              this.pixbuf.get_height()),
+                                                     Math.max(this.origPixbuf.get_width(),
+                                                              this.origPixbuf.get_height()),
                                                      Gtk.IconLookupFlags.FORCE_SIZE);
 
-                pixbuf = iconInfo.load_icon();
+                emblemedPixbuf = iconInfo.load_icon();
             } catch (e) {
                 log('Unable to render the emblem: ' + e.toString());
             }
+        } else {
+            emblemedPixbuf = this.origPixbuf;
         }
+
+        let thumbnailedPixbuf = null;
 
         if (this.thumbnailed) {
             let [ slice, border ] = Utils.getThumbnailFrameBorder();
-            this.pixbuf = Gd.embed_image_in_frame(pixbuf,
+            thumbnailedPixbuf = Gd.embed_image_in_frame(emblemedPixbuf,
                 'resource:///org/gnome/documents/thumbnail-frame.png',
                 slice, border);
         } else {
-            this.pixbuf = pixbuf;
+            thumbnailedPixbuf = emblemedPixbuf;
         }
+
+        this.pixbuf = thumbnailedPixbuf;
 
         this.emit('info-updated');
     },
