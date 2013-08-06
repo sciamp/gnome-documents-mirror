@@ -116,7 +116,8 @@ const ViewModel = new Lang.Class({
               GObject.TYPE_STRING,
               GdkPixbuf.Pixbuf,
               GObject.TYPE_LONG,
-              GObject.TYPE_BOOLEAN ]);
+              GObject.TYPE_BOOLEAN,
+              GObject.TYPE_UINT ]);
         this.model.set_sort_column_id(Gd.MainColumns.MTIME,
                                       Gtk.SortType.DESCENDING);
 
