@@ -815,15 +815,18 @@ const SelectionToolbar = new Lang.Class({
 
     _setItemVisibility: function() {
         let apps = [];
-        let showTrash = true;
-        let showPrint = true;
-        let showProperties = true;
-        let showOpen = true;
-        let showShare = true;
+        let selection = Application.selectionController.getSelection();
+        let hasSelection = (selection.length > 0);
+
+        let showTrash = hasSelection;
+        let showPrint = hasSelection;
+        let showProperties = hasSelection;
+        let showOpen = hasSelection;
+        let showShare = hasSelection;
+        let showCollection = hasSelection;
 
         this._insideRefresh = true;
 
-        let selection = Application.selectionController.getSelection();
         selection.forEach(Lang.bind(this,
             function(urn) {
                 let doc = Application.documentManager.getItemById(urn);
@@ -862,6 +865,7 @@ const SelectionToolbar = new Lang.Class({
         this._toolbarTrash.set_sensitive(showTrash);
         this._toolbarOpen.set_sensitive(showOpen);
         this._toolbarShare.set_sensitive(showShare);
+        this._toolbarCollection.set_sensitive(showCollection);
 
         this._insideRefresh = false;
     },
