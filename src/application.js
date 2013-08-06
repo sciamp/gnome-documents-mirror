@@ -576,6 +576,14 @@ const Application = new Lang.Class({
 
         this._activationTimestamp = timestamp;
         this.activate();
+    },
+
+    getScaleFactor: function() {
+        return this._mainWindow.window.get_scale_factor();
+    },
+
+    getGdkWindow: function() {
+        return this._mainWindow.window.get_window();
     }
 });
 Utils.addJSSignalMethods(Application.prototype);
