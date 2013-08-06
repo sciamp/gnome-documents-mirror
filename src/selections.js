@@ -141,7 +141,7 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
         let collections = Application.collectionManager.getItems();
 
         // for all the registered collections...
-        for (collIdx in collections) {
+        for (let collIdx in collections) {
             let collection = collections[collIdx];
 
             let found = false;
@@ -158,7 +158,7 @@ const FetchCollectionStateForSelectionJob = new Lang.Class({
                     hidden = true;
             }
 
-            for (itemIdx in this._collectionsForItems) {
+            for (let itemIdx in this._collectionsForItems) {
                 let item = Application.documentManager.getItemById(itemIdx);
                 let collectionsForItem = this._collectionsForItems[itemIdx];
 
@@ -371,7 +371,7 @@ const OrganizeCollectionModel = new Lang.Class({
     },
 
     _onFetchCollectionStateForSelection: function(collectionState) {
-        for (idx in collectionState) {
+        for (let idx in collectionState) {
             let item = Application.collectionManager.getItemById(idx);
 
             if ((collectionState[item.id] & OrganizeCollectionState.HIDDEN) != 0)
@@ -799,7 +799,7 @@ const SelectionToolbar = new Lang.Class({
     },
 
     _setItemListeners: function(selection) {
-        for (idx in this._itemListeners) {
+        for (let idx in this._itemListeners) {
             let doc = this._itemListeners[idx];
             doc.disconnect(idx);
             delete this._itemListeners[idx];

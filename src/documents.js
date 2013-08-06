@@ -204,7 +204,7 @@ const CollectionIconWatcher = new Lang.Class({
     },
 
     destroy: function() {
-        for (id in this._docConnections) {
+        for (let id in this._docConnections) {
             let doc = this._docConnections[id];
             doc.disconnect(id);
         }
@@ -918,7 +918,7 @@ const DocumentManager = new Lang.Class({
     },
 
     _onChangesPending: function(monitor, changes) {
-        for (idx in changes) {
+        for (let idx in changes) {
             let changeEvent = changes[idx];
 
             if (changeEvent.type == ChangeMonitor.ChangeEventType.CHANGED) {
