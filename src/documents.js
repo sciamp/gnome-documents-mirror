@@ -195,7 +195,9 @@ const CollectionIconWatcher = new Lang.Class({
                 pixbufs.push(doc.origPixbuf);
             });
 
-        this._pixbuf = GdPrivate.create_collection_icon(Utils.getIconSize(), pixbufs);
+        this._pixbuf = GdPrivate.create_collection_icon(
+            Utils.getIconSize() * Application.application.getScaleFactor(),
+            pixbufs);
         this._emitRefresh();
     },
 

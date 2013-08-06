@@ -78,7 +78,9 @@ function iconFromRdfType(type) {
     else if (type.indexOf('nfo#Presentation') != -1)
         iconName = 'x-office-presentation';
     else if (type.indexOf('nfo#DataContainer') != -1)
-        return GdPrivate.create_collection_icon(getIconSize(), []);
+        return GdPrivate.create_collection_icon(
+            getIconSize() * Application.application.getScaleFactor(),
+            []);
     else
         iconName = 'x-office-document';
 
