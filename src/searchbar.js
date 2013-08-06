@@ -286,6 +286,10 @@ const OverviewSearchbar = new Lang.Class({
         this._searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
 
+        this._sourceTag = new Gd.TaggedEntryTag();
+        this._typeTag = new Gd.TaggedEntryTag();
+        this._matchTag = new Gd.TaggedEntryTag();
+
         // connect to search string changes in the controller
         this._searchChangedId = Application.searchController.connect('search-string-changed',
             Lang.bind(this, this._onSearchStringChanged));
@@ -345,35 +349,34 @@ const OverviewSearchbar = new Lang.Class({
         }
     },
 
-    _onActiveChangedCommon: function(id, manager) {
+    _onActiveChangedCommon: function(id, manager, tag) {
         let item = manager.getActiveItem();
 
         if (item.id == 'all') {
-            this._searchEntry.remove_tag(id);
+            this._searchEntry.remove_tag(tag);
         } else {
-            let res = this._searchEntry.add_tag(id, item.name);
+            tag.set_label(item.name);
+            let res = this._searchEntry.add_tag(tag);
 
             if (res) {
                 this._searchEntry.connect('tag-button-clicked::' + id, Lang.bind(this,
                     function() {
                         manager.setActiveItemById('all');
                     }));
-            } else {
-                this._searchEntry.set_tag_label(id, item.name);
             }
         }
     },
 
     _onActiveSourceChanged: function() {
-        this._onActiveChangedCommon('source', Application.sourceManager);
+        this._onActiveChangedCommon('source', Application.sourceManager, this._sourceTag);
     },
 
     _onActiveTypeChanged: function() {
-        this._onActiveChangedCommon('type', Application.searchTypeManager);
+        this._onActiveChangedCommon('type', Application.searchTypeManager, this._typeTag);
     },
 
     _onActiveMatchChanged: function() {
-        this._onActiveChangedCommon('match', Application.searchMatchManager);
+        this._onActiveChangedCommon('match', Application.searchMatchManager, this._matchTag);
     },
 
     _onTagClicked: function() {
