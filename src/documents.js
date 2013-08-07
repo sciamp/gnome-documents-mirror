@@ -229,7 +229,7 @@ const DocCommon = new Lang.Class({
         this.author = null;
         this.mtime = null;
         this.resourceUrn = null;
-        this.surface = null;
+        this.pixbuf = null;
         this.origPixbuf = null;
         this.defaultAppName = null;
 
@@ -328,10 +328,9 @@ const DocCommon = new Lang.Class({
             icon = Utils.iconFromRdfType(this.rdfType);
 
         let iconInfo =
-            Gtk.IconTheme.get_default().lookup_by_gicon_for_scale(icon, Utils.getIconSize(),
-                                                                  Application.application.getScaleFactor(),
-                                                                  Gtk.IconLookupFlags.FORCE_SIZE |
-                                                                  Gtk.IconLookupFlags.GENERIC_FALLBACK);
+            Gtk.IconTheme.get_default().lookup_by_gicon(icon, Utils.getIconSize(),
+                                                        Gtk.IconLookupFlags.FORCE_SIZE |
+                                                        Gtk.IconLookupFlags.GENERIC_FALLBACK);
 
         let pixbuf = null;
         if (iconInfo != null) {
@@ -442,9 +441,8 @@ const DocCommon = new Lang.Class({
             function(object, res) {
                 try {
                     let stream = object.read_finish(res);
-                    let scale = Application.application.getScaleFactor();
                     GdkPixbuf.Pixbuf.new_from_stream_at_scale_async(stream,
-                        Utils.getIconSize() * scale, Utils.getIconSize() * scale,
+                        Utils.getIconSize(), Utils.getIconSize(),
                         true, null, Lang.bind(this,
                             function(object, res) {
                                 try {
@@ -472,8 +470,7 @@ const DocCommon = new Lang.Class({
     },
 
     _createSymbolicEmblem: function(name) {
-        let pix = Gd.create_symbolic_icon(name, Utils.getIconSize() *
-                                          Application.application.getScaleFactor());
+        let pix = Gd.create_symbolic_icon(name, Utils.getIconSize());
 
         if (!pix)
             pix = new Gio.ThemedIcon({ name: name });
@@ -537,9 +534,7 @@ const DocCommon = new Lang.Class({
             thumbnailedPixbuf = emblemedPixbuf;
         }
 
-        this.surface = Gdk.cairo_surface_create_from_pixbuf(thumbnailedPixbuf,
-            Application.application.getScaleFactor(),
-            Application.application.getGdkWindow());
+        this.pixbuf = thumbnailedPixbuf;
 
         this.emit('info-updated');
     },
