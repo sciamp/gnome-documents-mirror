@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-02 10:48+0800\n"
-"PO-Revision-Date: 2013-08-02 10:49+0800\n"
+"POT-Creation-Date: 2013-08-07 12:43+0800\n"
+"PO-Revision-Date: 2013-08-07 12:43+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Hong Kong) <community@linuxhall.org>\n"
 "Language: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Poedit 1.5.3\n"
+"X-Generator: Poedit 1.5.5\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:53 ../src/mainWindow.js:274
@@ -65,74 +65,74 @@ msgid "Window maximized state"
 msgstr "視窗為最大化狀態"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "本地端"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "開始使用 Documents"
 
 #. overridden
-#: ../src/documents.js:662
+#: ../src/documents.js:675
 msgid "Google Docs"
 msgstr "Google 文件"
 
-#: ../src/documents.js:663
+#: ../src/documents.js:676
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:781 ../src/documents.js:879
+#: ../src/documents.js:794 ../src/documents.js:892
 msgid "Spreadsheet"
 msgstr "試算表"
 
-#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
+#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "簡報"
 
-#: ../src/documents.js:785 ../src/documents.js:883
+#: ../src/documents.js:798 ../src/documents.js:896
 msgid "Collection"
 msgstr "收藏"
 
-#: ../src/documents.js:787 ../src/documents.js:885
+#: ../src/documents.js:800 ../src/documents.js:898
 msgid "Document"
 msgstr "文件"
 
 #. overridden
-#: ../src/documents.js:813 ../src/documents.js:814
+#: ../src/documents.js:826 ../src/documents.js:827
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:998
+#: ../src/documents.js:1011
 msgid "Please check the network connection."
 msgstr "請檢查網絡連線。"
 
-#: ../src/documents.js:1001
+#: ../src/documents.js:1014
 msgid "Please check the network proxy settings."
 msgstr "請檢查網絡代理伺服器設定值。"
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1017
 msgid "Unable to sign in to the document service."
 msgstr "無法登入文件服務。"
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1020
 msgid "Unable to locate this document."
 msgstr "無法定位這份文件。"
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1023
 #, c-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "嗯，有些地方發生問題 (%d)。"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1028
+#: ../src/documents.js:1041
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "噢！無法載入“%s”"
@@ -223,10 +223,9 @@ msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "已選取 %d 個"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
-msgid "Done"
-msgstr "完成"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "取消"
 
 #: ../src/mainToolbar.js:249
 msgid "Select Items"
@@ -300,7 +299,7 @@ msgid "Bookmark this page"
 msgstr "這一頁的書籤"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:891 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "以 %s 開啟"
@@ -313,10 +312,16 @@ msgstr "尋找上一筆"
 msgid "Find Next"
 msgstr "尋找下一筆"
 
+#. properties button
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "屬性"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:60 ../src/sharing.js:101
+msgid "Done"
+msgstr "完成"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -383,8 +388,10 @@ msgstr "結束"
 msgid "_Copy"
 msgstr "複製(_C)"
 
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "開啟"
 
@@ -494,35 +501,37 @@ msgstr "作者"
 msgid "Sources"
 msgstr "來源"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "你還沒有任何收藏集。請在上面輸入新收藏集的名稱。"
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "建立新收藏集"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "收藏集"
 
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "列印"
 
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "刪除"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "整理"
+#. organize button
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "加入至收藏集"
 
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "分享"
 
@@ -611,45 +620,49 @@ msgstr "無法擷取文件清單"
 msgid "Load More"
 msgstr "載入更多"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d 天以前"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "上週"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d 週前"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "上個月"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d 個月以前"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "去年"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d 年以前"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "整理"
 
 #~ msgid "Unable to load \"%s\" for preview"
 #~ msgstr "無法載入「%s」以預覽"
