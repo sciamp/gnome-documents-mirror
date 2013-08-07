@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-31 11:51+0300\n"
-"PO-Revision-Date: 2013-07-31 11:52+0200\n"
+"POT-Creation-Date: 2013-08-07 20:17+0300\n"
+"PO-Revision-Date: 2013-08-07 20:18+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -66,74 +66,74 @@ msgid "Window maximized state"
 msgstr "Window maximized state"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "מקומי"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "צעדים ראשונים עם מסמכים"
 
 #. overridden
-#: ../src/documents.js:662
+#: ../src/documents.js:675
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:663
+#: ../src/documents.js:676
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:781 ../src/documents.js:879
+#: ../src/documents.js:794 ../src/documents.js:892
 msgid "Spreadsheet"
 msgstr "גיליון אלקטרוני"
 
-#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
+#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "מצגת"
 
-#: ../src/documents.js:785 ../src/documents.js:883
+#: ../src/documents.js:798 ../src/documents.js:896
 msgid "Collection"
 msgstr "אוסף"
 
-#: ../src/documents.js:787 ../src/documents.js:885
+#: ../src/documents.js:800 ../src/documents.js:898
 msgid "Document"
 msgstr "מסמך"
 
 #. overridden
-#: ../src/documents.js:813 ../src/documents.js:814
+#: ../src/documents.js:826 ../src/documents.js:827
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:998
+#: ../src/documents.js:1011
 msgid "Please check the network connection."
 msgstr "נא לבדוק את החיבור לרשת."
 
-#: ../src/documents.js:1001
+#: ../src/documents.js:1014
 msgid "Please check the network proxy settings."
 msgstr "נא לבדוק את הגדרות המתווך של הרשת."
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1017
 msgid "Unable to sign in to the document service."
 msgstr "לא ניתן להיכנס לשירות המסמכים."
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1020
 msgid "Unable to locate this document."
 msgstr "לא ניתן לאתר מסמך זה."
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1023
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "המממ, משהו פה מסריח (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1028
+#: ../src/documents.js:1041
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "אופס! לא ניתן לטעון את „%s“"
@@ -226,10 +226,9 @@ msgstr[0] "נבחר אחד"
 msgstr[1] "נבחרו %d"
 msgstr[2] "נבחרו 2"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
-msgid "Done"
-msgstr "בוצע"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "ביטול"
 
 #: ../src/mainToolbar.js:249
 msgid "Select Items"
@@ -301,7 +300,7 @@ msgid "Bookmark this page"
 msgstr "סימון דף זה"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:891 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
@@ -314,10 +313,16 @@ msgstr "חיפוש הקודם"
 msgid "Find Next"
 msgstr "חיפוש הבא"
 
+#. properties button
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "מאפיינים"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:60 ../src/sharing.js:101
+msgid "Done"
+msgstr "בוצע"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -384,8 +389,10 @@ msgstr "יציאה"
 msgid "_Copy"
 msgstr "ה_עתקה"
 
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "פתיחה"
 
@@ -495,35 +502,37 @@ msgstr "מאת"
 msgid "Sources"
 msgstr "מקורות"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "אין לך אוספים עדיין. נא להזין שם אוסף חדש להלן."
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "יצירת אוסף חדש"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "אוספים"
 
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "הדפסה"
 
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "מחיקה"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "ארגון"
+#. organize button
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "הוספה לאוסף"
 
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "שיתוף"
 
@@ -612,11 +621,11 @@ msgstr "לא ניתן לקבל את רשימת המסמכים"
 msgid "Load More"
 msgstr "טעינת נוספים"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "אתמול"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -624,11 +633,11 @@ msgstr[0] "אתמול"
 msgstr[1] "לפני %d ימים"
 msgstr[2] "שלשום"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "שבוע שעבר"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -636,11 +645,11 @@ msgstr[0] "לפני שבוע"
 msgstr[1] "לפני %d שבועות"
 msgstr[2] "לפני שבועיים"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "בחודש שעבר"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -648,17 +657,21 @@ msgstr[0] "לפני חודש"
 msgstr[1] "לפני %d חודשים"
 msgstr[2] "לפני חודשיים"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "שנה שעברה"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "לפני שנה"
 msgstr[1] "לפני %d שנים"
 msgstr[2] "לפני שנתיים"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "ארגון"
 
 #~ msgctxt "Dialog Title"
 #~ msgid "Organize"
