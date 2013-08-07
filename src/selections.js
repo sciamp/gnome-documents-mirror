@@ -858,7 +858,7 @@ const SelectionToolbar = new Lang.Class({
             // Translators: this is the Open action in a context menu
             openLabel = _("Open");
         }
-        this._toolbarOpen.set_tooltip_text(openLabel);
+        this._toolbarOpen.set_label(openLabel);
 
         this._toolbarPrint.set_sensitive(showPrint);
         this._toolbarProperties.set_sensitive(showProperties);
