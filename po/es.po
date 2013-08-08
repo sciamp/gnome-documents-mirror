@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-07-09 19:34+0000\n"
-"PO-Revision-Date: 2013-07-12 14:51+0200\n"
+"POT-Creation-Date: 2013-08-06 09:31+0000\n"
+"PO-Revision-Date: 2013-08-08 10:37+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -67,74 +67,74 @@ msgid "Window maximized state"
 msgstr "Estado maximizado de la ventana"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:592 ../src/search.js:417
 msgid "Local"
 msgstr "Locales"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:613
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:614
 msgid "Getting Started with Documents"
 msgstr "Primeros pasos con Documentos"
 
 #. overridden
-#: ../src/documents.js:662
+#: ../src/documents.js:668
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:663
+#: ../src/documents.js:669
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:781 ../src/documents.js:879
+#: ../src/documents.js:787 ../src/documents.js:885
 msgid "Spreadsheet"
 msgstr "Hoja de cálculo"
 
-#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
+#: ../src/documents.js:789 ../src/documents.js:887 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Presentación"
 
-#: ../src/documents.js:785 ../src/documents.js:883
+#: ../src/documents.js:791 ../src/documents.js:889
 msgid "Collection"
 msgstr "Colección"
 
-#: ../src/documents.js:787 ../src/documents.js:885
+#: ../src/documents.js:793 ../src/documents.js:891
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:813 ../src/documents.js:814
+#: ../src/documents.js:819 ../src/documents.js:820
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:998
+#: ../src/documents.js:1004
 msgid "Please check the network connection."
 msgstr "Compruebe la conexión de red."
 
-#: ../src/documents.js:1001
+#: ../src/documents.js:1007
 msgid "Please check the network proxy settings."
 msgstr "Compruebe la configuración del proxy de red."
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1010
 msgid "Unable to sign in to the document service."
 msgstr "No se pudo iniciar sesión en el servicio de documentos."
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1013
 msgid "Unable to locate this document."
 msgstr "No se pudo encontrar este documento."
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1016
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hay algo sospechoso (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1028
+#: ../src/documents.js:1034
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "No se pudo cargar «%s»"
@@ -226,10 +226,9 @@ msgid_plural "%d selected"
 msgstr[0] "%d seleccionado"
 msgstr[1] "%d seleccionados"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:93
-msgid "Done"
-msgstr "Hecho"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Cancelar"
 
 #: ../src/mainToolbar.js:249
 msgid "Select Items"
@@ -302,7 +301,7 @@ msgid "Bookmark this page"
 msgstr "añadir esta página a marcadores"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:891 ../src/selections.js:853
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
@@ -315,10 +314,16 @@ msgstr "Buscar anterior"
 msgid "Find Next"
 msgstr "Buscar siguiente"
 
+#. properties button
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Propiedades"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:60 ../src/sharing.js:101
+msgid "Done"
+msgstr "Hecho"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
@@ -385,8 +390,10 @@ msgstr "Salir"
 msgid "_Copy"
 msgstr "_Copiar"
 
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:856
 msgid "Open"
 msgstr "Abrir"
 
@@ -496,109 +503,112 @@ msgstr "Autor"
 msgid "Sources"
 msgstr "Fuentes"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr ""
 "Todavía no ha especificado ninguna colección. Introduzca el nombre de la "
 "colección más arriba."
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "Crear una colección nueva"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Colecciones"
 
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Imprimir"
 
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Eliminar"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Organizar"
+#. organize button
+#: ../src/selections.js:761
+#| msgid "Collection"
+msgid "Add to Collection"
+msgstr "Añadir a la colección"
 
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Compartir"
 
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Configuración de compartición"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Permisos del documento"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Cambiar"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Privado"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Público"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Cualquiera puede editar"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Añadir personas"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Introducir una dirección de correo-e"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Puede editar"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Puede ver"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Añadir"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Cualquiera puede leer"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Guardar"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Propietario"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Puede solicitar acceso a %s"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "El documento no se actualizó"
 
@@ -658,6 +668,10 @@ msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "hace %d año"
 msgstr[1] "hace %d años"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "Organizar"
 
 #~ msgctxt "Dialog Title"
 #~ msgid "Organize"
