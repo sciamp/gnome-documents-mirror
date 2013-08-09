@@ -796,12 +796,12 @@ const GoogleDocument = new Lang.Class({
     updateTypeDescription: function() {
         let description;
 
-        if (this.rdfType.indexOf('nfo#Spreadsheet') != -1)
+        if (this.collection)
+            description = _("Collection");
+        else if (this.rdfType.indexOf('nfo#Spreadsheet') != -1)
             description = _("Spreadsheet");
         else if (this.rdfType.indexOf('nfo#Presentation') != -1)
             description = _("Presentation");
-        else if (this.rdfType.indexOf('nfo#DataContainer') != -1)
-            description = _("Collection");
         else
             description = _("Document");
 
@@ -894,12 +894,12 @@ const SkydriveDocument = new Lang.Class({
     updateTypeDescription: function() {
         let description;
 
-        if (this.rdfType.indexOf('nfo#Spreadsheet') != -1)
+        if (this.collection)
+            description = _("Collection");
+        else if (this.rdfType.indexOf('nfo#Spreadsheet') != -1)
             description = _("Spreadsheet");
         else if (this.rdfType.indexOf('nfo#Presentation') != -1)
             description = _("Presentation");
-        else if (this.rdfType.indexOf('nfo#DataContainer') != -1)
-            description = _("Collection");
         else
             description = _("Document");
 
