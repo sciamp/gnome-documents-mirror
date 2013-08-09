@@ -171,12 +171,17 @@ const PropertiesDialog = new Lang.Class({
                                                     uri: 'https://skydrive.live.com',
                                                     halign: Gtk.Align.START });
         } else { // local document
-            let sourceLink = Gio.file_new_for_uri(doc.uri).get_parent();
-            let sourcePath = sourceLink.get_path();
+            if (doc.collection) {
+                this._sourceData = new Gtk.Label({ label: doc.sourceName,
+                                                   halign: Gtk.Align.START });
+            } else {
+                let sourceLink = Gio.file_new_for_uri(doc.uri).get_parent();
+                let sourcePath = sourceLink.get_path();
 
-            this._sourceData = new Gtk.LinkButton({ label: sourcePath,
-                                                    uri: sourceLink.get_uri(),
-                                                    halign: Gtk.Align.START });
+                this._sourceData = new Gtk.LinkButton({ label: sourcePath,
+                                                        uri: sourceLink.get_uri(),
+                                                        halign: Gtk.Align.START });
+            }
         }
 
         grid.attach_next_to (this._sourceData, this._source, Gtk.PositionType.RIGHT, 2, 1);
