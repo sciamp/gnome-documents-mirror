@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-05 15:42-0600\n"
-"PO-Revision-Date: 2013-08-05 16:50-0600\n"
+"POT-Creation-Date: 2013-08-10 15:04-0600\n"
+"PO-Revision-Date: 2013-08-10 15:50-0600\n"
 "Last-Translator: Seán de Búrca <leftmostcat@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "Language: ga\n"
@@ -34,7 +34,7 @@ msgstr "PDF;Cáipéis"
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
 msgid "View as"
-msgstr "Amharc mar"
+msgstr "Amharc Mar"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:2
 msgid "View as type"
@@ -46,89 +46,89 @@ msgstr "Méid an fhuinneoige"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:4
 msgid "Window size (width and height)."
-msgstr ""
+msgstr "Méid an fhuinneoige (leithead agus airde)."
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:5
 msgid "Window position"
-msgstr ""
+msgstr "Ionad an fhuinneoige"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:6
 msgid "Window position (x and y)."
-msgstr ""
+msgstr "Ionad an fhuinneoige (x agus y)."
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:7
 msgid "Window maximized"
-msgstr ""
+msgstr "Uasmhéadú an fhuinneoige"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:8
 msgid "Window maximized state"
-msgstr ""
+msgstr "Staid uasmhéadaithe an fhuinneoige"
 
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Logánta"
 
-#: ../src/documents.js:607
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Cur Chun Siúil le Cáipéisí"
 
-#: ../src/documents.js:662
+#: ../src/documents.js:675
 msgid "Google Docs"
 msgstr "Google Docs"
 
-#: ../src/documents.js:663
+#: ../src/documents.js:676
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:781 ../src/documents.js:879
+#: ../src/documents.js:794 ../src/documents.js:892
 msgid "Spreadsheet"
 msgstr "Scarbhileog"
 
-#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
+#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Láithreoireacht"
 
-#: ../src/documents.js:785 ../src/documents.js:883
+#: ../src/documents.js:798 ../src/documents.js:896
 msgid "Collection"
 msgstr "Bailíuchán"
 
-#: ../src/documents.js:787 ../src/documents.js:885
+#: ../src/documents.js:800 ../src/documents.js:898
 msgid "Document"
 msgstr "Cáipéis"
 
-#: ../src/documents.js:813 ../src/documents.js:814
+#: ../src/documents.js:826 ../src/documents.js:827
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:998
+#: ../src/documents.js:1011
 msgid "Please check the network connection."
-msgstr ""
+msgstr "Seiceáil an ceangal líonra, le do thoil."
 
-#: ../src/documents.js:1001
+#: ../src/documents.js:1014
 msgid "Please check the network proxy settings."
-msgstr ""
+msgstr "Seiceáil socruithe do sheachfhreastalaí líonra, le do thoil."
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1017
 msgid "Unable to sign in to the document service."
-msgstr ""
+msgstr "Ní féidir síniú isteach sa tseirbhís cháipéise."
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1020
 msgid "Unable to locate this document."
 msgstr "Níorbh fhéidir an cháipéis seo a aimsiú."
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1023
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
-msgstr ""
+msgstr "Tá rud éigin mícheart (%d)."
 
-#: ../src/documents.js:1028
+#: ../src/documents.js:1041
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
-msgstr ""
+msgstr "Úps! Ní féidir “%s” a luchtú"
 
 #: ../src/edit.js:191
 msgid "View"
@@ -163,7 +163,7 @@ msgstr "Níorbh fhéidir an cháipéis a luchtú"
 
 #: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
-msgstr ""
+msgstr "Tá LibreOffice de dhíth chun amharc ar an gcáipéis seo"
 
 #. Translators: %s is the number of the page, already formatted
 #. * as a string, for example "Page 5".
@@ -216,9 +216,9 @@ msgstr[2] "%d roghnaithe"
 msgstr[3] "%d roghnaithe"
 msgstr[4] "%d roghnaithe"
 
-#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:101
-msgid "Done"
-msgstr "Críochnaithe"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Cealaigh"
 
 #: ../src/mainToolbar.js:249
 msgid "Select Items"
@@ -239,20 +239,20 @@ msgstr "“%s” á phriontáil: %s"
 
 #: ../src/notifications.js:143
 msgid "Your documents are being indexed"
-msgstr ""
+msgstr "Tá do chuid chaípéisí á n-innéacsú"
 
 #: ../src/notifications.js:144
 msgid "Some documents might not be available during this process"
-msgstr ""
+msgstr "Is féidir nach mbeidh roinnt cháipéisí ar fáil agus é seo ar siúl"
 
 #: ../src/notifications.js:166
 #, javascript-format
 msgid "Fetching documents from %s"
-msgstr ""
+msgstr "Cáipéis á bhfáil ó %s"
 
 #: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
-msgstr ""
+msgstr "Cáipéisí á bhfáil ó chuntais ar líne"
 
 #: ../src/password.js:45
 msgid "Password Required"
@@ -266,6 +266,7 @@ msgstr "_Díghlasáil"
 #, javascript-format
 msgid "Document %s is locked and requires a password to be opened."
 msgstr ""
+"Tá an cháipéis %s faoi ghlas agus tá focal faire de dhíth chun í a oscailt."
 
 #: ../src/password.js:78
 msgid "_Password"
@@ -277,7 +278,7 @@ msgstr "Dún"
 
 #: ../src/presentation.js:104
 msgid "Running in presentation mode"
-msgstr ""
+msgstr "Á rith sa mhód láithreoireachta"
 
 #: ../src/presentation.js:157
 msgid "Present On"
@@ -287,7 +288,7 @@ msgstr "Cuir i Láthair Ar"
 msgid "Bookmark this page"
 msgstr "Cuir leabharmharc leis an leathanach seo"
 
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:891 ../src/selections.js:856
 #, javascript-format
 msgid "Open with %s"
 msgstr "Oscail le %s"
@@ -301,9 +302,13 @@ msgid "Find Next"
 msgstr "An Chéad Cheann Eile"
 
 #: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Airíonna"
+
+#: ../src/properties.js:60 ../src/sharing.js:101
+msgid "Done"
+msgstr "Críochnaithe"
 
 #: ../src/properties.js:80
 msgctxt "Document Title"
@@ -360,7 +365,8 @@ msgstr "Scoir"
 msgid "_Copy"
 msgstr "_Cóipeáil"
 
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Oscail"
 
@@ -460,33 +466,32 @@ msgstr "Údar"
 msgid "Sources"
 msgstr "Foinsí"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "Níl aon bhailiúchán agat fós. Iontráil ainm bailiúcháin thuas."
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "Cruthaigh bailiúchán nua"
 
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Bailiúcháin"
 
-#: ../src/selections.js:763
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Priontáil"
 
-#: ../src/selections.js:770
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Scrios"
 
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Eagraigh"
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "Cuir le Bailíuchán"
 
-#: ../src/selections.js:802
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Comhroinn"
 
@@ -524,19 +529,19 @@ msgstr "Iontráil seoladh ríomhphoist"
 
 #: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
-msgstr ""
+msgstr "Ineagarthóireachta"
 
 #: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
-msgstr ""
+msgstr "Inamhairc"
 
 #: ../src/sharing.js:215
 msgid "Add"
-msgstr ""
+msgstr "Cuir Leis"
 
 #: ../src/sharing.js:291
 msgid "Everyone can read"
-msgstr ""
+msgstr "Inléite do chách"
 
 #: ../src/sharing.js:306
 msgid "Save"
@@ -549,12 +554,12 @@ msgstr "Úinéir"
 #: ../src/sharing.js:441
 #, javascript-format
 msgid "You can ask %s for access"
-msgstr ""
+msgstr "Is féidir leat rochtain a iarraidh ar %s"
 
 #: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
 #: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
-msgstr ""
+msgstr "Níor nuashonraíodh an cháipéis"
 
 #: ../src/shellSearchProvider.js:293
 msgid "Untitled Document"
@@ -562,17 +567,17 @@ msgstr "Cáipéis gan Teideal"
 
 #: ../src/trackerController.js:170
 msgid "Unable to fetch the list of documents"
-msgstr ""
+msgstr "Níorbh fhéidir an liosta cáipéisí a fháil"
 
 #: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
-msgstr ""
+msgstr "Tuilleadh Cáipéisí"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Inné"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, javascript-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -582,11 +587,11 @@ msgstr[2] "%d lá ó shin"
 msgstr[3] "%d lá ó shin"
 msgstr[4] "%d lá ó shin"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "An tseachtain seo chaite"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, javascript-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -596,11 +601,11 @@ msgstr[2] "%d sheachtain ó shin"
 msgstr[3] "%d seachtain ó shin"
 msgstr[4] "%d seachtain ó shin"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "An mhí seo chaite"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, javascript-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -610,11 +615,11 @@ msgstr[2] "%d mhí ó shin"
 msgstr[3] "%d mí ó shin"
 msgstr[4] "%d mí ó shin"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "An bhliain seo chaite"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, javascript-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
