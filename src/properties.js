@@ -1,5 +1,6 @@
 /*
  * Copyright (c) 2012 Meg Ford
+ * Copyright (c) 2012, 2013 Red Hat, Inc.
  *
  * Gnome Documents is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by the
@@ -22,6 +23,7 @@
 const Gio = imports.gi.Gio;
 const GLib = imports.gi.GLib;
 const Gtk = imports.gi.Gtk;
+const Pango = imports.gi.Pango;
 const _ = imports.gettext.gettext;
 const C_ = imports.gettext.pgettext;
 
@@ -181,6 +183,8 @@ const PropertiesDialog = new Lang.Class({
                 this._sourceData = new Gtk.LinkButton({ label: sourcePath,
                                                         uri: sourceLink.get_uri(),
                                                         halign: Gtk.Align.START });
+                let label = this._sourceData.get_child();
+                label.set_ellipsize(Pango.EllipsizeMode.END);
             }
         }
 
