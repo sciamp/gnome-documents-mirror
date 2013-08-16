@@ -143,7 +143,7 @@ const PresenterWindow = new Lang.Class({
 
     _createView: function() {
         this.view = new EvView.ViewPresenter({ presentation: this._presentation_window.view });
-        this.view.connect('finished', Lang.bind(this, this.close));
+        // this.view.connect('finished', Lang.bind(this, this.close));
 
         this.window.add(this.view);
         this.view.show();
