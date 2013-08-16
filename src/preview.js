@@ -238,6 +238,7 @@ const PreviewView = new Lang.Class({
 
     _promptPresentation: function() {
         let outputs = new Presentation.PresentationOutputs();
+        let console;
         if (outputs.list.length < 2) {
             this._showPresentation();
         } else {
@@ -247,7 +248,10 @@ const PreviewView = new Lang.Class({
                     if (output) {
                         this._showPresentation(output);
                         if (outputs.list.length == 2) {
-                            console = outputs[0] == output ? outputs[1] : outputs[0];
+                            if (output == outputs[0])
+                                console = output[1];
+                            else
+                                console = output[0];
                             this._showPresenter(console);
                         } else {
                             outputs.splice(outputs.indexOf(output), 1);
