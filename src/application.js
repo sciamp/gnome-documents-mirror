@@ -311,6 +311,15 @@ const Application = new Lang.Class({
             }
         }
 
+        if (sourceManager.hasProviderType('owncloud')) {
+            try {
+                // startup a refresh of the owncloud cache
+                this._refreshMinerNow(this.owncloudMiner);
+            } catch (e) {
+                log('Unable to start Owncloud miner: ' + e.message);
+            }
+        }
+
         if (sourceManager.hasProviderType('windows_live')) {
             try {
                 // startup a refresh of the skydrive cache
@@ -466,6 +475,7 @@ const Application = new Lang.Class({
         ];
 
         this.gdataMiner = new Miners.GDataMiner();
+        this.owncloudMiner = new Miners.OwncloudMiner();
         this.zpjMiner = new Miners.ZpjMiner();
 
         this._initActions();
