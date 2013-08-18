@@ -41,6 +41,11 @@ function GDataMiner() {
                            '/org/gnome/OnlineMiners/GData');
 }
 
+function OwncloudMiner() {
+    return _makeMinerProxy('org.gnome.OnlineMiners.Owncloud',
+                           '/org/gnome/OnlineMiners/Owncloud');
+}
+
 function ZpjMiner() {
     return _makeMinerProxy('org.gnome.OnlineMiners.Zpj',
                            '/org/gnome/OnlineMiners/Zpj');
