@@ -819,6 +819,62 @@ const GoogleDocument = new Lang.Class({
     }
 });
 
+const OwncloudDocument = new Lang.Class({
+    Name: 'OwncloudDocument',
+    Extends: DocCommon,
+
+    _init: function(cursor) {
+        this._failedThumbnailing = true;
+
+        this.parent(cursor);
+
+        // overridden
+        this.sourceName = _("ownCloud");
+
+        let defaultApp = null;
+        if (this.mimeType)
+            defaultApp = Gio.app_info_get_default_for_type(this.mimeType, true);
+
+        if (defaultApp)
+            this.defaultAppName = defaultApp.get_name();
+    },
+
+    createThumbnail: function(callback) {
+        GdPrivate.queue_thumbnail_job_for_file_async(this._file, Lang.bind(this,
+            function(object, res) {
+                let thumbnailed = GdPrivate.queue_thumbnail_job_for_file_finish(res);
+                callback(thumbnailed);
+            }));
+    },
+
+    updateTypeDescription: function() {
+        let description = '';
+
+        if (this.collection)
+            description = _("Collection");
+        else if (this.mimeType)
+            description = Gio.content_type_get_description(this.mimeType);
+
+        this.typeDescription = description;
+    },
+
+    load: function(passwd, cancellable, callback) {
+        GdPrivate.pdf_loader_load_uri_async(this.uri, passwd, cancellable, Lang.bind(this,
+            function(source, res) {
+                try {
+                    let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
+                    callback(this, docModel, null);
+                } catch (e) {
+                    callback(this, null, e);
+                }
+            }));
+    },
+
+    canTrash: function() {
+        return false;
+    }
+});
+
 const SkydriveDocument = new Lang.Class({
     Name: 'SkydriveDocument',
     Extends: DocCommon,
