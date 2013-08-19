@@ -168,6 +168,13 @@ const PropertiesDialog = new Lang.Class({
             this._sourceData = new Gtk.LinkButton({ label: doc.sourceName,
                                                     uri: 'http://docs.google.com/',
                                                     halign: Gtk.Align.START });
+        } else if (doc instanceof Documents.OwncloudDocument) {
+            let source = Application.sourceManager.getItemById(doc.resourceUrn);
+            let account = source.object.get_account();
+            let presentation_identity = account.presentation_identity;
+            this._sourceData = new Gtk.LinkButton({ label: presentation_identity,
+                                                    uri: 'https://' + presentation_identity + '/',
+                                                    halign: Gtk.Align.START });
         } else if (doc instanceof Documents.SkydriveDocument) {
             this._sourceData = new Gtk.LinkButton({ label: doc.sourceName,
                                                     uri: 'https://skydrive.live.com',
