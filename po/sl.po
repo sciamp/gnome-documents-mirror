@@ -9,16 +9,15 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-03 16:39+0000\n"
-"PO-Revision-Date: 2013-06-03 21:22+0100\n"
+"POT-Creation-Date: 2013-08-13 13:46+0000\n"
+"PO-Revision-Date: 2013-08-19 22:23+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
-"%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
@@ -33,7 +32,7 @@ msgstr "Upravljanje, dostop in souporaba dokumentov"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Doc;PDF;Dokumenti;Word;"
+msgstr "Doc;PDF;Dokumenti;Word"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -69,101 +68,101 @@ msgid "Window maximized state"
 msgstr "Razpeto glavno okno"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Krajevno"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Kako začeti s programom"
 
-#. overridden
-#: ../src/documents.js:654
-msgid "Google Docs"
-msgstr "Google dokumenti"
-
-#: ../src/documents.js:655
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:719 ../src/documents.js:817
-msgid "Spreadsheet"
-msgstr "Preglednica"
-
-#: ../src/documents.js:721 ../src/documents.js:819 ../src/presentation.js:48
-msgid "Presentation"
-msgstr "Predstavitev"
-
-#: ../src/documents.js:723 ../src/documents.js:821
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:898
 msgid "Collection"
 msgstr "Zbirka"
 
-#: ../src/documents.js:725 ../src/documents.js:823
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google dokumenti"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:900
+msgid "Spreadsheet"
+msgstr "Preglednica"
+
+#: ../src/documents.js:804 ../src/documents.js:902 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Predstavitev"
+
+#: ../src/documents.js:806 ../src/documents.js:904
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:751 ../src/documents.js:752
+#: ../src/documents.js:832 ../src/documents.js:833
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:936
+#: ../src/documents.js:1017
 msgid "Please check the network connection."
 msgstr "Preveriti je treba nastavitve omrežne povezave."
 
-#: ../src/documents.js:939
+#: ../src/documents.js:1020
 msgid "Please check the network proxy settings."
 msgstr "Preveriti je treba nastavitve posredniškega strežnika."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1023
 msgid "Unable to sign in to the document service."
 msgstr "Ni se mogoče povezati s storitvijo dokumenta"
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1026
 msgid "Unable to locate this document."
 msgstr "Dokumenta ni mogoče najti"
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1029
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Zaznana je nepravilnost (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:961
+#: ../src/documents.js:1047
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Napaka! Ni mogoče naložiti dokumenta “%s”."
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Pogled"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Nalaganje ..."
 
-#: ../src/embed.js:144
+#: ../src/embed.js:145
 msgid "No Documents Found"
 msgstr "Ni najdenih dokumentov"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:166
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Spletne račune je mogoče dodati v meniju %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:170
 msgid "System Settings"
 msgstr "Sistemske nastavitve"
 
@@ -172,11 +171,11 @@ msgstr "Sistemske nastavitve"
 msgid "Page %u of %u"
 msgstr "Stran %u od %u"
 
-#: ../src/lib/gd-pdf-loader.c:232
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Dokumenta ni mogoče naložiti"
 
-#: ../src/lib/gd-pdf-loader.c:696
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "Za ogled tega dokumenta je treba uporabiti program LibreOffice"
 
@@ -192,7 +191,7 @@ msgstr "Stran %s"
 msgid "No bookmarks"
 msgstr "Ni zaznamkov"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "Zaznamki"
 
@@ -204,24 +203,24 @@ msgstr "Ni kazala vsebine"
 msgid "Contents"
 msgstr "Vsebina"
 
-#: ../src/mainToolbar.js:77
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Poišči"
 
-#: ../src/mainToolbar.js:88
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Nazaj"
 
-#: ../src/mainToolbar.js:168
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultati za “%s”"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "S klikom se predmeti izberejo."
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
@@ -230,12 +229,11 @@ msgstr[1] "%d izbran"
 msgstr[2] "%d izbrana"
 msgstr[3] "%d izbrani"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
-msgid "Done"
-msgstr "Končano"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Prekliči"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
@@ -271,52 +269,97 @@ msgstr "Pridobivanje dokumentov iz %s"
 msgid "Fetching documents from online accounts"
 msgstr "Pridobivanje dokumentov iz spletnih računov"
 
-#: ../src/presentation.js:105
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Zahtevano je geslo"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Odkleni"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokument %s je zaklenjen in zahteva geslo za odklep."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Geslo"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Zapri"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "Zagnano v predstavitvenem načinu"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "Predstavi na"
 
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "Ustvari zaznamek"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:892 ../src/selections.js:856
+#, c-format
+msgid "Open with %s"
+msgstr "Odpri z %s"
+
+#: ../src/preview.js:953
+msgid "Find Previous"
+msgstr "Najdi predhodno"
+
+#: ../src/preview.js:960
+msgid "Find Next"
+msgstr "Najdi naslednje"
+
+#. properties button
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Lastnosti"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:62 ../src/sharing.js:101
+msgid "Done"
+msgstr "Končano"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Naslov"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Avtor"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Vir"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Datum spremembe"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Datum ustvaritve"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Vrsta"
@@ -345,8 +388,14 @@ msgstr "Pomoč"
 msgid "Quit"
 msgstr "Končaj"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopiraj"
+
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Odpri"
 
@@ -385,10 +434,6 @@ msgstr "Izberi vse"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Odstrani izbor"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr "_Kopiraj"
 
 #: ../src/search.js:113
 msgid "Category"
@@ -460,113 +505,109 @@ msgstr "Avtor"
 msgid "Sources"
 msgstr "Viri"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "Ni še določene zbirke. Najprej je treba vpisati ime za ustvarjanje."
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "Ustvari novo zbirko"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Zbirke"
 
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Natisni"
 
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Izbriši"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Organiziraj"
+#. organize button
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "Dodaj v zbirko"
 
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Daj v souporabo"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:888
-#, c-format
-msgid "Open with %s"
-msgstr "Odpri z %s"
-
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Nastavitve souporabe"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Dovoljenja dokumentov"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Spremeni"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Zasebno"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Javno"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Vsi lahk urejejo"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Dodaj uporabnike"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Vnos elektronske pošte"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Lahko ureja"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Lahko vidi"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Dodaj"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Vsi lahko berejo"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Shrani"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Lastnik"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Za dostop je treba vprašati %s"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Dokument ni posodobljen"
 
@@ -574,16 +615,20 @@ msgstr "Dokument ni posodobljen"
 msgid "Untitled Document"
 msgstr "Neimenovan dokument"
 
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "Seznama dokumentov ni mogoče pridobiti"
+
 #. Translators: "more" refers to documents in this context
 #: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "Naloži več"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Včeraj"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -592,11 +637,11 @@ msgstr[1] "%d dan nazaj"
 msgstr[2] "%d dneva nazaj"
 msgstr[3] "%d dni nazaj"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Prejšnji teden"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -605,11 +650,11 @@ msgstr[1] "%d teden nazaj"
 msgstr[2] "%d tedna nazaj"
 msgstr[3] "%d tedne nazaj"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Prejšnji mesec"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -618,11 +663,11 @@ msgstr[1] "%d mesec nazaj"
 msgstr[2] "%d meseca nazaj"
 msgstr[3] "%d mesece nazaj"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Lansko leto"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
@@ -630,6 +675,10 @@ msgstr[0] "%d let nazaj"
 msgstr[1] "%d leto nazaj"
 msgstr[2] "%d leti nazaj"
 msgstr[3] "%d leta nazaj"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "Organiziraj"
 
 #~ msgctxt "Dialog Title"
 #~ msgid "Organize"
@@ -670,9 +719,6 @@ msgstr[3] "%d leta nazaj"
 
 #~ msgid "Add to favorites"
 #~ msgstr "Dodaj med priljubljene"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "Seznama dokumentov ni mogoče pridobiti"
 
 #~ msgid "%d of %d"
 #~ msgstr "%d od %d"
