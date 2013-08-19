@@ -105,6 +105,7 @@ const ErrorBox = new Lang.Class({
         this._secondaryLabel =
             new Gtk.Label({ label: '',
                             use_markup: true,
+                            wrap: true,
                             halign: Gtk.Align.CENTER,
                             valign: Gtk.Align.CENTER });
         this.widget.add(this._secondaryLabel);
