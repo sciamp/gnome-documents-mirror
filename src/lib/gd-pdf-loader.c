@@ -1022,14 +1022,173 @@ pdf_load_job_from_regular_file (PdfLoadJob *job)
 }
 
 static void
+remote_file_copy_cb (GObject *source,
+                     GAsyncResult *res,
+                     gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+  GError *error = NULL;
+  char *uri;
+
+  g_file_copy_finish (G_FILE (source), res, &error);
+  if (error != NULL) {
+    pdf_load_job_complete_error (job, error);
+    return;
+  }
+
+  pdf_load_job_cache_set_attributes (job);
+}
+
+static void
+pdf_load_job_remote_refresh_cache (PdfLoadJob *job)
+{
+  GFile *remote_file;
+
+  remote_file = g_file_new_for_uri (job->uri);
+  g_file_copy_async (remote_file,
+                     job->download_file,
+                     G_FILE_COPY_OVERWRITE,
+                     G_PRIORITY_DEFAULT,
+                     job->cancellable,
+                     NULL,
+                     NULL,
+                     remote_file_copy_cb,
+                     job);
+
+  g_object_unref (remote_file);
+}
+
+static void
+remote_cache_query_info_ready_cb (GObject *source,
+                                  GAsyncResult *res,
+                                  gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+  GError *error = NULL;
+  GFileInfo *info;
+
+  info = g_file_query_info_finish (G_FILE (source), res, &error);
+
+  if (error != NULL) {
+    /* create/invalidate cache */
+    pdf_load_job_remote_refresh_cache (job);
+    g_error_free (error);
+
+    return;
+  }
+
+  job->pdf_cache_mtime =
+    g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
+  g_object_unref (info);
+
+  if (job->original_file_mtime != job->pdf_cache_mtime) {
+    pdf_load_job_remote_refresh_cache (job);
+  } else {
+    job->from_old_cache = TRUE;
+
+    /* load the cached file */
+    pdf_load_job_from_pdf (job);
+  }
+}
+
+static void
+remote_query_info_ready_cb (GObject *obj,
+                            GAsyncResult *res,
+                            gpointer user_data)
+{
+  PdfLoadJob *job = user_data;
+  GError *error = NULL;
+  GFile *pdf_file;
+  GFileInfo *info;
+  const gchar *content_type;
+  gchar *tmp_name;
+  gchar *tmp_path;
+
+  info = g_file_query_info_finish (G_FILE (obj),
+                                   res, &error);
+
+  if (error != NULL) {
+    pdf_load_job_complete_error (job, error);
+    return;
+  }
+
+  job->original_file_mtime =
+    g_file_info_get_attribute_uint64 (info, G_FILE_ATTRIBUTE_TIME_MODIFIED);
+
+  tmp_name = g_strdup_printf ("gnome-documents-%u.pdf", g_str_hash (job->uri));
+  tmp_path = g_build_filename (g_get_user_cache_dir (), "gnome-documents", NULL);
+  job->pdf_path =
+    g_build_filename (tmp_path, tmp_name, NULL);
+  g_mkdir_with_parents (tmp_path, 0700);
+
+  content_type = g_file_info_get_content_type (info);
+
+  if (!content_type_is_native (content_type)) {
+    GFileIOStream *iostream;
+
+    job->download_file = g_file_new_tmp (NULL, &iostream, &error);
+    if (error != NULL) {
+      pdf_load_job_complete_error (job, error);
+      return;
+    }
+
+    /* We don't need the iostream. */
+    g_io_stream_close (G_IO_STREAM (iostream), NULL, NULL);
+  } else {
+    job->download_file = g_file_new_for_path (job->pdf_path);
+  }
+
+  pdf_file = g_file_new_for_path (job->pdf_path);
+
+  g_file_query_info_async (pdf_file,
+                           G_FILE_ATTRIBUTE_TIME_MODIFIED,
+                           G_FILE_QUERY_INFO_NONE,
+                           G_PRIORITY_DEFAULT,
+                           job->cancellable,
+                           remote_cache_query_info_ready_cb,
+                           job);
+
+  g_free (tmp_name);
+  g_free (tmp_path);
+  g_object_unref (pdf_file);
+  g_object_unref (info);
+}
+
+static void
+pdf_load_job_from_remote_file (PdfLoadJob *job)
+{
+  GFile *remote_file;
+
+  remote_file = g_file_new_for_uri (job->uri);
+  g_file_query_info_async (remote_file,
+                           G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE","
+                           G_FILE_ATTRIBUTE_TIME_MODIFIED,
+                           G_FILE_QUERY_INFO_NONE,
+                           G_PRIORITY_DEFAULT,
+                           job->cancellable,
+                           remote_query_info_ready_cb,
+                           job);
+
+  g_object_unref (remote_file);
+}
+
+static void
 pdf_load_job_start (PdfLoadJob *job)
 {
+  GFile *file;
+
+  file = g_file_new_for_uri (job->uri);
+
   if (job->gdata_entry != NULL)
     pdf_load_job_from_google_documents (job);
   else if (job->zpj_entry != NULL)
     pdf_load_job_from_skydrive (job);
+  else if (!g_file_is_native (file))
+    pdf_load_job_from_remote_file (job);
   else
     pdf_load_job_from_regular_file (job);
+
+  g_object_unref (file);
 }
 
 /**
