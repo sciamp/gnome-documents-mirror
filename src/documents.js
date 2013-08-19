@@ -1027,6 +1027,11 @@ const DocumentManager = new Lang.Class({
                 (identifier.indexOf('https://docs.google.com') != -1));
     },
 
+    _identifierIsOwncloud: function(identifier) {
+        return (identifier &&
+                (identifier.indexOf('owncloud:') != -1));
+    },
+
     _identifierIsSkydrive: function(identifier) {
         return (identifier &&
                 (identifier.indexOf('windows-live:skydrive:') != -1));
@@ -1038,6 +1043,8 @@ const DocumentManager = new Lang.Class({
 
         if (this._identifierIsGoogle(identifier))
             doc = new GoogleDocument(cursor);
+        else if (this._identifierIsOwncloud(identifier))
+            doc = new OwncloudDocument(cursor);
         else if (this._identifierIsSkydrive(identifier))
             doc = new SkydriveDocument(cursor);
         else
