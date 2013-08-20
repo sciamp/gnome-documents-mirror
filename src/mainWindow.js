@@ -49,7 +49,6 @@ const MainWindow = new Lang.Class({
                                                   width_request: _WINDOW_MIN_WIDTH,
                                                   height_request: _WINDOW_MIN_HEIGHT,
 						  window_position: Gtk.WindowPosition.CENTER,
-                                                  hide_titlebar_when_maximized: true,
 						  title: _("Documents") });
 
         // apply the last saved window size and position
