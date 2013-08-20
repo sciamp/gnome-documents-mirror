@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-06 09:31+0000\n"
-"PO-Revision-Date: 2013-08-08 10:37+0200\n"
+"POT-Creation-Date: 2013-08-20 14:22+0000\n"
+"PO-Revision-Date: 2013-08-20 17:35+0200\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -21,7 +21,7 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.5\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Documentos"
 
@@ -67,79 +67,85 @@ msgid "Window maximized state"
 msgstr "Estado maximizado de la ventana"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:592 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Locales"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:613
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:614
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Primeros pasos con Documentos"
 
-#. overridden
-#: ../src/documents.js:668
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:669
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:787 ../src/documents.js:885
-msgid "Spreadsheet"
-msgstr "Hoja de cálculo"
-
-#: ../src/documents.js:789 ../src/documents.js:887 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "Presentación"
-
-#: ../src/documents.js:791 ../src/documents.js:889
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Colección"
 
-#: ../src/documents.js:793 ../src/documents.js:891
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Hoja de cálculo"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Presentación"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Documento"
 
 #. overridden
-#: ../src/documents.js:819 ../src/documents.js:820
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Compruebe la conexión de red."
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Compruebe la configuración del proxy de red."
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "No se pudo iniciar sesión en el servicio de documentos."
 
-#: ../src/documents.js:1013
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "No se pudo encontrar este documento."
 
-#: ../src/documents.js:1016
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hay algo sospechoso (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1034
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "No se pudo cargar «%s»"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Ver"
 
@@ -148,20 +154,20 @@ msgstr "Ver"
 msgid "Loading…"
 msgstr "Cargando…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "No se encontraron documentos"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Puede añadir sus cuentas en línea en %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Configuración del sistema"
 
@@ -230,15 +236,15 @@ msgstr[1] "%d seleccionados"
 msgid "Cancel"
 msgstr "Cancelar"
 
-#: ../src/mainToolbar.js:249
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "Seleccionar elementos"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2011-2012"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Una aplicación para gestionar documentos"
 
@@ -301,63 +307,63 @@ msgid "Bookmark this page"
 msgstr "añadir esta página a marcadores"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:853
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "Abrir con %s"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "Buscar anterior"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "Buscar siguiente"
 
 #. properties button
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:766
 msgid "Properties"
 msgstr "Propiedades"
 
 #. Label for Done button in Sharing dialog
-#: ../src/properties.js:60 ../src/sharing.js:101
+#: ../src/properties.js:62 ../src/sharing.js:101
 msgid "Done"
 msgstr "Hecho"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Título"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Fuente"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Fecha de modificación"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Fecha de creación"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Tipo"
@@ -393,7 +399,7 @@ msgstr "_Copiar"
 #. open button
 #. Translators: this is the Open action in a context menu
 #: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
-#: ../src/selections.js:856
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Abrir"
 
@@ -531,7 +537,6 @@ msgstr "Eliminar"
 
 #. organize button
 #: ../src/selections.js:761
-#| msgid "Collection"
 msgid "Add to Collection"
 msgstr "Añadir a la colección"
 
@@ -625,44 +630,44 @@ msgstr "No se pudo obtener la lista de documentos"
 msgid "Load More"
 msgstr "Cargar más"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Ayer"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "hace %d día"
 msgstr[1] "hace %d días"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Última semana"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "hace %d semana"
 msgstr[1] "hace %d semanas"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Último mes"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "hace %d mes"
 msgstr[1] "hace %d meses"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Último año"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
