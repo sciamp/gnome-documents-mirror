@@ -285,6 +285,8 @@ const OverviewSearchbar = new Lang.Class({
         this._searchEntry = new Gd.TaggedEntry({ width_request: 500 });
         this._searchEntry.connect('tag-clicked',
             Lang.bind(this, this._onTagClicked));
+        this._searchEntry.connect('tag-button-clicked',
+            Lang.bind(this, this._onTagButtonClicked));
 
         this._sourceTag = new Gd.TaggedEntryTag();
         this._typeTag = new Gd.TaggedEntryTag();
@@ -356,14 +358,7 @@ const OverviewSearchbar = new Lang.Class({
             this._searchEntry.remove_tag(tag);
         } else {
             tag.set_label(item.name);
-            let res = this._searchEntry.add_tag(tag);
-
-            if (res) {
-                this._searchEntry.connect('tag-button-clicked::' + id, Lang.bind(this,
-                    function() {
-                        manager.setActiveItemById('all');
-                    }));
-            }
+            this._searchEntry.add_tag(tag);
         }
     },
 
@@ -377,6 +372,22 @@ const OverviewSearchbar = new Lang.Class({
 
     _onActiveMatchChanged: function() {
         this._onActiveChangedCommon('match', Application.searchMatchManager, this._matchTag);
+    },
+
+    _onTagButtonClicked: function(entry, tag) {
+        let manager = null;
+
+        if (tag == this._matchTag) {
+            manager = Application.searchMatchManager;
+        } else if (tag == this._typeTag) {
+            manager = Application.searchTypeManager;
+        } else if (tag == this._sourceTag) {
+            manager = Application.sourceManager;
+        }
+
+        if (manager) {
+            manager.setActiveItemById('all');
+        }
     },
 
     _onTagClicked: function() {
