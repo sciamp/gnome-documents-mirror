@@ -207,6 +207,22 @@ const Application = new Lang.Class({
         action.change_state(GLib.Variant.new('b', !state.get_boolean()));
     },
 
+    _onActionEditNote: function() {
+        let doc = documentManager.getActiveItem();
+        if (doc && doc.isLocal()) {
+            let note_file = Gio.File.new_for_uri(doc.uri+".notes");
+
+            if (!note_file.query_exists(null))
+                note_file.create (Gio.FileCreateFlags.NONE, null);
+
+            Gtk.show_uri(this._mainWindow.window.get_screen(),
+                         note_file.get_uri(),
+                         Gtk.get_current_event_time());
+        } else if (!doc.isLocal()) {
+            print ("Remote file :)");
+        }
+    },
+
     _onActionProperties: function() {
         let doc = documentManager.getActiveItem();
         if (!doc)
@@ -433,6 +449,8 @@ const Application = new Lang.Class({
               callback: this._onActionToggle,
               state: GLib.Variant.new('b', false),
               accel: 'F5' },
+            { name: 'edit-notes',
+              callback: this._onActionEditNote },
             { name: 'print-current', accel: '<Primary>p',
               callback: this._onActionPrintCurrent,
               window_mode: WindowMode.WindowMode.PREVIEW },

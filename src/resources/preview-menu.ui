@@ -19,6 +19,10 @@
         <attribute name="label" translatable="yes">Present</attribute>
         <attribute name="accel">F5</attribute>
       </item>
+      <item>
+        <attribute name="action">app.edit-notes</attribute>
+        <attribute name="label" translatable="yes">Edit presenter notes</attribute>
+      </item>
     </section>
     <section>
       <item>

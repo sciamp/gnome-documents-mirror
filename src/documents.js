@@ -583,6 +583,10 @@ const DocCommon = new Lang.Class({
             retval = '{ ?urn nie:isPartOf <' + this.id + '> }';
 
         return retval;
+    },
+
+    isLocal: function() {
+        return false;
     }
 });
 Signals.addSignalMethods(DocCommon.prototype);
@@ -662,6 +666,10 @@ const LocalDocument = new Lang.Class({
             let job = new DeleteItemJob(this.id);
             job.run(null);
         }
+    },
+
+    isLocal: function() {
+        return true;
     }
 });
 
