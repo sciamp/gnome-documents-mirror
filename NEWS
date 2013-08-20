@@ -1,3 +1,10 @@
+3.9.90 - "Flying Pig"
+=====================
+
+- Use the new selection toolbar pattern
+- Use a GTK headerbar for titlebar
+- Add support for documents on an OwnCloud share
+
 3.9.4 - "Guacamole"
 ==================
 
