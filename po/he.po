@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Gnome-Documents\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-07 20:17+0300\n"
-"PO-Revision-Date: 2013-08-07 20:18+0200\n"
+"POT-Creation-Date: 2013-08-21 13:13+0300\n"
+"PO-Revision-Date: 2013-08-21 13:13+0200\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: Hebrew <sh.yaron@gmail.com>\n"
 "Language: he\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "מסמכים"
 
@@ -81,64 +81,70 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "צעדים ראשונים עם מסמכים"
 
-#. overridden
-#: ../src/documents.js:675
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:676
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:794 ../src/documents.js:892
-msgid "Spreadsheet"
-msgstr "גיליון אלקטרוני"
-
-#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "מצגת"
-
-#: ../src/documents.js:798 ../src/documents.js:896
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "אוסף"
 
-#: ../src/documents.js:800 ../src/documents.js:898
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "גיליון אלקטרוני"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "מצגת"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "מסמך"
 
 #. overridden
-#: ../src/documents.js:826 ../src/documents.js:827
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1011
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "נא לבדוק את החיבור לרשת."
 
-#: ../src/documents.js:1014
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "נא לבדוק את הגדרות המתווך של הרשת."
 
-#: ../src/documents.js:1017
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "לא ניתן להיכנס לשירות המסמכים."
 
-#: ../src/documents.js:1020
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "לא ניתן לאתר מסמך זה."
 
-#: ../src/documents.js:1023
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "המממ, משהו פה מסריח (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1041
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "אופס! לא ניתן לטעון את „%s“"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "צפייה"
 
@@ -147,20 +153,20 @@ msgstr "צפייה"
 msgid "Loading…"
 msgstr "בטעינה…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "לא נמצאו מסמכים"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "ניתן להוסיף את החשבונות המקוונים שלך תחת %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "הגדרות מערכת"
 
@@ -230,15 +236,15 @@ msgstr[2] "נבחרו 2"
 msgid "Cancel"
 msgstr "ביטול"
 
-#: ../src/mainToolbar.js:249
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "בחירת פריטים"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "ירון שהרבני <sh.yaron@gmail.com>"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "יישום לניהול מסמכים"
 
@@ -300,63 +306,63 @@ msgid "Bookmark this page"
 msgstr "סימון דף זה"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:856
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "פתיחה באמצעות %s"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "חיפוש הקודם"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "חיפוש הבא"
 
 #. properties button
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:766
 msgid "Properties"
 msgstr "מאפיינים"
 
 #. Label for Done button in Sharing dialog
-#: ../src/properties.js:60 ../src/sharing.js:101
+#: ../src/properties.js:62 ../src/sharing.js:101
 msgid "Done"
 msgstr "בוצע"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "כותרת"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "מאת"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "מקור"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "מועד השינוי"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "מועד היצירה"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "סוג"
