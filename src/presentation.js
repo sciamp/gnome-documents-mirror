@@ -205,8 +205,6 @@ const PresentationOutputs = new Lang.Class({
         this.list = [];
         for (let idx in this._outputs) {
             let output = this._outputs[idx];
-            if (!output.is_connected())
-                continue;
 
             let out = new PresentationOutput();
             out.name = output.get_name();
