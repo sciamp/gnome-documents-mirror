@@ -211,25 +211,18 @@ const Application = new Lang.Class({
         let doc = documentManager.getActiveItem();
         if (doc) {
             GdPrivate.pdf_loader_load_uri_async(doc.uri, null, null, Lang.bind (this, function (obj, res, user_data) {
-                print("pdf load happened!");
                 let doc_model = GdPrivate.pdf_loader_load_uri_finish (res, null);
                 let doc_cached = doc_model.get_document();
-                print("cached: "+doc_cached.get_uri());
+                let note_file = Gio.File.new_for_uri(doc_cached.get_uri()+".notes");
+
+                if (!note_file.query_exists(null))
+                    note_file.create (Gio.FileCreateFlags.NONE, null);
+
+                Gtk.show_uri(this._mainWindow.window.get_screen(),
+                             note_file.get_uri(),
+                             Gtk.get_current_event_time());
             }));
         }
-        // let doc = documentManager.getActiveItem();
-        // if (doc && doc.isLocal()) {
-        //     let note_file = Gio.File.new_for_uri(doc.uri+".notes");
-
-        //     if (!note_file.query_exists(null))
-        //         note_file.create (Gio.FileCreateFlags.NONE, null);
-
-        //     Gtk.show_uri(this._mainWindow.window.get_screen(),
-        //                  note_file.get_uri(),
-        //                  Gtk.get_current_event_time());
-        // } else if (!doc.isLocal()) {
-        //     print ("Remote file :)");
-        // }
     },
 
     _onActionProperties: function() {

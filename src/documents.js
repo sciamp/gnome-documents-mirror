@@ -720,7 +720,7 @@ const GoogleDocument = new Lang.Class({
             function(entry, service, exception) {
                 if (exception) {
                     // try loading from the most recent cache, if any
-                    GdPrivate.pdf_loader_load_uri_async(this.identifier, cancellable, Lang.bind(this,
+                    GdPrivate.pdf_loader_load_uri_async(this.identifier, passwd, cancellable, Lang.bind(this,
                         function(source, res) {
                             try {
                                 let docModel = GdPrivate.pdf_loader_load_uri_finish(res);
