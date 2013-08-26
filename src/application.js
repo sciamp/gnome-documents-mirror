@@ -210,18 +210,20 @@ const Application = new Lang.Class({
     _onActionEditNote: function() {
         let doc = documentManager.getActiveItem();
         if (doc) {
-            GdPrivate.pdf_loader_load_uri_async(doc.uri, null, null, Lang.bind (this, function (obj, res, user_data) {
-                let doc_model = GdPrivate.pdf_loader_load_uri_finish (res, null);
+            GdPrivate.pdf_loader_load_uri_async(doc.uri, null, null, Lang.bind (this, function(obj, res, user_data) {
+                let doc_model = GdPrivate.pdf_loader_load_uri_finish(res, null);
                 let doc_cached = doc_model.get_document();
                 let note_file = Gio.File.new_for_uri(doc_cached.get_uri()+".notes");
 
                 if (!note_file.query_exists(null)) {
-                    note_file.create (Gio.FileCreateFlags.NONE, null);
-                    let output_stream = note_file.append_to (Gio.FileCreateFlags.NONE,
-                                                             null, null);
-                    output_stream.write ("{\n  \"0\" : \"notes for first slide\",\n  \"1\" : \"notes for second slide\"\n}",
-                                         null, null);
-                    output_stream.close (null, null);
+                    note_file.create(Gio.FileCreateFlags.NONE, null);
+                    note_file.append_to_async (Gio.FileCreateFlags.NONE, null, null,
+                                               Lang.bind (this, function(obj, res, data) {
+                                                   let output_stream = obj.append_to_finish(res, null);
+                                                   output_stream.write ("{\n  \"0\" : \"notes for first slide\",\n  \"1\" : \"notes for second slide\"\n}",
+                                                                        null, null);
+                                                   output_stream.close (null);
+                                               }));
                 }
 
                 Gtk.show_uri(this._mainWindow.window.get_screen(),
