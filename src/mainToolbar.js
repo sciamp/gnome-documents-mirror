@@ -207,7 +207,6 @@ const OverviewToolbar = new Lang.Class({
 
         let selectionButton = new Gd.HeaderSimpleButton({ label: _("Cancel") });
         this.toolbar.pack_end(selectionButton);
-        selectionButton.get_style_context().add_class('suggested-action');
         selectionButton.connect('clicked', Lang.bind(this,
             function() {
                 Application.selectionController.setSelectionMode(false);
