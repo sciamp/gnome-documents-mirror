@@ -88,6 +88,7 @@ let sourceManager = null;
 let trackerController = null;
 
 const MINER_REFRESH_TIMEOUT = 60; /* seconds */
+const DEFAULT_NOTES = "{\n  \"0\" : \"notes for first slide\",\n  \"1\" : \"notes for second slide\"\n}";
 
 const Application = new Lang.Class({
     Name: 'Application',
@@ -220,7 +221,7 @@ const Application = new Lang.Class({
                     note_file.append_to_async (Gio.FileCreateFlags.NONE, null, null,
                                                Lang.bind (this, function(obj, res, data) {
                                                    let output_stream = obj.append_to_finish(res, null);
-                                                   output_stream.write ("{\n  \"0\" : \"notes for first slide\",\n  \"1\" : \"notes for second slide\"\n}",
+                                                   output_stream.write (DEFAULT_NOTES,
                                                                         null, null);
                                                    output_stream.close (null);
                                                }));
