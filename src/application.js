@@ -215,8 +215,14 @@ const Application = new Lang.Class({
                 let doc_cached = doc_model.get_document();
                 let note_file = Gio.File.new_for_uri(doc_cached.get_uri()+".notes");
 
-                if (!note_file.query_exists(null))
+                if (!note_file.query_exists(null)) {
                     note_file.create (Gio.FileCreateFlags.NONE, null);
+                    let output_stream = note_file.append_to (Gio.FileCreateFlags.NONE,
+                                                             null, null);
+                    output_stream.write ("{\n  \"0\" : \"notes for first slide\",\n  \"1\" : \"notes for second slide\"\n}",
+                                         null, null);
+                    output_stream.close (null, null);
+                }
 
                 Gtk.show_uri(this._mainWindow.window.get_screen(),
                              note_file.get_uri(),
