@@ -34,6 +34,7 @@ imports.gi.versions.EvinceDocument = '3.0';
 imports.gi.versions.Goa = '1.0';
 imports.gi.versions.WebKit = '3.0';
 
+const ByteArray = imports.byteArray;
 const EvDoc = imports.gi.EvinceDocument;
 const GdPrivate = imports.gi.GdPrivate;
 const Gdk = imports.gi.Gdk;
@@ -208,6 +209,15 @@ const Application = new Lang.Class({
         action.change_state(GLib.Variant.new('b', !state.get_boolean()));
     },
 
+    _appendAsyncCb: function(obj, res, data) {
+        let output_stream = obj.append_to_finish(res, null);
+        let byte_array = ByteArray.fromString(DEFAULT_NOTES);
+        output_stream.write_bytes_async (byte_array.toGBytes(), 0, null,
+                                         Lang.bind(this, function(obj, res, data) {
+                                             obj.write_bytes_finish(res, null);
+                                         }));
+    },
+
     _onActionEditNote: function() {
         let doc = documentManager.getActiveItem();
         if (doc) {
@@ -219,12 +229,7 @@ const Application = new Lang.Class({
                 if (!note_file.query_exists(null)) {
                     note_file.create(Gio.FileCreateFlags.NONE, null);
                     note_file.append_to_async (Gio.FileCreateFlags.NONE, null, null,
-                                               Lang.bind (this, function(obj, res, data) {
-                                                   let output_stream = obj.append_to_finish(res, null);
-                                                   output_stream.write (DEFAULT_NOTES,
-                                                                        null, null);
-                                                   output_stream.close (null);
-                                               }));
+                                               Lang.bind (this, this._appendAsyncCb));
                 }
 
                 Gtk.show_uri(this._mainWindow.window.get_screen(),
