@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-07-09 19:34+0000\n"
-"PO-Revision-Date: 2013-06-10 19:20+0100\n"
+"POT-Creation-Date: 2013-08-27 20:09+0000\n"
+"PO-Revision-Date: 2013-08-27 23:02+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -22,7 +22,7 @@ msgstr ""
 
 # desktop entry name
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Dokumenty"
 
@@ -81,7 +81,7 @@ msgstr "Maximalizovaný stav okna"
 
 # https://bugzilla.gnome.org/show_bug.cgi?id=696217
 #. Translators: this refers to local documents
-#: ../src/documents.js:586 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Lokálne"
 
@@ -90,75 +90,82 @@ msgstr "Lokálne"
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:607
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:608
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Začíname s aplikáciou Dokumenty"
 
-# PM: toto je preklad služby na stránkach Google
-#. overridden
-#: ../src/documents.js:662
-msgid "Google Docs"
-msgstr "Dokumenty Google"
-
-#: ../src/documents.js:663
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:781 ../src/documents.js:879
-msgid "Spreadsheet"
-msgstr "Tabuľkový zošit"
-
-#: ../src/documents.js:783 ../src/documents.js:881 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "Prezentácia"
-
-#: ../src/documents.js:785 ../src/documents.js:883
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Zbierka"
 
-#: ../src/documents.js:787 ../src/documents.js:885
+# PM: toto je preklad služby na stránkach Google
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Dokumenty Google"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Tabuľkový zošit"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Prezentácia"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Dokument"
 
+# MČ: ownCloud je názov služby (programu), pomocou ktorého si môžete urobiť vlastný mráčik
+#. overridden
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
 # Sluzba od Microsoftu
 #. overridden
-#: ../src/documents.js:813 ../src/documents.js:814
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:998
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Skontrolujte, prosím, sieťové pripojenie."
 
-#: ../src/documents.js:1001
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Skontrolujte prosím nastavenia sieťového sprostredkovateľa (proxy)."
 
-#: ../src/documents.js:1004
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Nepodarilo sa prihlásiť k službe dokumentov."
 
-#: ../src/documents.js:1007
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Nepodarilo sa nájsť tento dokument."
 
-#: ../src/documents.js:1010
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Zdá sa, že niekde nastal problém (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1028
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ale nie! Nepodarilo sa načítať dokument „%s“"
 
 # button
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Zobraziť"
 
@@ -167,13 +174,13 @@ msgstr "Zobraziť"
 msgid "Loading…"
 msgstr "Načítava sa…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Neboli nájdené žiadne dokumenty"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Vaše online účty môžete pridať v %s"
@@ -181,7 +188,7 @@ msgstr "Vaše online účty môžete pridať v %s"
 # gramaticky apeluje na predoslu frazu "Mozete pridat Vase online ucty v %s"
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Nastaveniach systému"
 
@@ -253,21 +260,20 @@ msgstr[0] "%d vybraných"
 msgstr[1] "%d vybraná"
 msgstr[2] "%d vybrané"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:208 ../src/properties.js:60 ../src/sharing.js:93
-msgid "Done"
-msgstr "Hotovo"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Zrušiť"
 
 # DK: je to tooltip.prelozene na 100% spravne-overene
-#: ../src/mainToolbar.js:249
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "Umožní výber položiek"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Aplikácia na správu dokumentov"
 
@@ -331,62 +337,70 @@ msgstr "Prezentácia"
 
 # toggleButton tooltip
 #: ../src/preview.js:603
-#| msgid "Bookmarks"
 msgid "Bookmark this page"
 msgstr "Pridá túto stranu do záložiek"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "Otvoriť pomocou %s"
 
-#: ../src/preview.js:952
+# MČ: ako som správne pochopil, tak sa jedná o „nájde predchádzajúcu aplikáciu“ je to tak? Len mi nie je jasné čo to má s dokumentami.
+# tooltip
+#: ../src/preview.js:953
 msgid "Find Previous"
-msgstr ""
+msgstr "Nájde predchádzajúcu"
 
-#: ../src/preview.js:959
+# tooltip
+#: ../src/preview.js:960
 msgid "Find Next"
-msgstr ""
+msgstr "Nájde ďalšiu"
 
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#. properties button
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Vlastnosti"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:62 ../src/sharing.js:101
+msgid "Done"
+msgstr "Hotovo"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Názov"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Autor"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Zdroj"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Dátum zmeny"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Dátum vytvorenia"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Typ"
@@ -419,8 +433,10 @@ msgstr "Ukončiť"
 msgid "_Copy"
 msgstr "_Kopírovať"
 
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Otvoriť"
 
@@ -487,7 +503,7 @@ msgstr "Vám sprístupnené"
 #: ../src/search.js:167
 msgctxt "Search Filter"
 msgid "Type"
-msgstr "Typu"
+msgstr "Typ"
 
 #: ../src/search.js:172
 msgid "Collections"
@@ -531,120 +547,122 @@ msgstr "Autora"
 msgid "Sources"
 msgstr "Zdroje"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "Zatiaľ nemáte žiadne zbierky. Vyššie zadajte názov pre novú zbierku."
 
-#: ../src/selections.js:605
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "Vytvoriť novú zbierku"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Zbierky"
 
 # button tooltip
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Uskutoční tlač"
 
 # button tooltip
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Uskutoční odstránenie"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Usporiada dokumenty"
+#. organize button
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "Pridať do zbierky"
 
 # button tooltip
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Sprístupní"
 
 # dialog title
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Nastavenia sprístupnenia"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Oprávnenia k dokumentu"
 
 # button label
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Zmeniť"
 
 # RadioButton
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Súkromný"
 
 # RadioButton
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Verejný"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Upravovať môže ktokoľvek"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Pridajte ľudí"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Zadajte emailovú adresu"
 
 # role
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Môže upravovať"
 
 # role
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Môže prezerať"
 
 # button label
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Pridať"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Čítať môže ktokoľvek"
 
 # button label
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Uložiť"
 
 # role
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Vlastník"
 
 # %s je identifikator pouzivatela
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Prístup si môžete vyžiadať od používateľa %s"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Dokument nebol aktualizovaný"
 
@@ -653,7 +671,6 @@ msgid "Untitled Document"
 msgstr "Nepomenovaný dokument"
 
 #: ../src/trackerController.js:170
-#| msgid "Unable to locate this document."
 msgid "Unable to fetch the list of documents"
 msgstr "Nepodarilo sa získať zoznam dokumentov."
 
@@ -662,11 +679,11 @@ msgstr "Nepodarilo sa získať zoznam dokumentov."
 msgid "Load More"
 msgstr "Načítať viac"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Včera"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
@@ -674,11 +691,11 @@ msgstr[0] "Pred %d dňami"
 msgstr[1] "Pred %d dňom"
 msgstr[2] "Pred %d dňami"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Minulý týždeň"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
@@ -686,11 +703,11 @@ msgstr[0] "Pred %d týždňami"
 msgstr[1] "Pred %d týždňom"
 msgstr[2] "Pred %d týždňami"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Minulý mesiac"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
@@ -698,17 +715,21 @@ msgstr[0] "Pred %d mesiacmi"
 msgstr[1] "Pred %d mesiacom"
 msgstr[2] "Pred %d mesiacmi"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Minulý rok"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "Pred %d rokmi"
 msgstr[1] "Pred %d rokom"
 msgstr[2] "Pred %d rokmi"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "Usporiada dokumenty"
 
 #~ msgctxt "Dialog Title"
 #~ msgid "Organize"
