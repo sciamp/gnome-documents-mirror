@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-10 15:04-0600\n"
-"PO-Revision-Date: 2013-08-10 15:50-0600\n"
+"POT-Creation-Date: 2013-08-29 15:58-0600\n"
+"PO-Revision-Date: 2013-08-29 15:58-0600\n"
 "Last-Translator: Seán de Búrca <leftmostcat@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
 "Language: ga\n"
@@ -19,7 +19,7 @@ msgstr ""
 "4;\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Cáipéisí"
 
@@ -76,61 +76,66 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "Cur Chun Siúil le Cáipéisí"
 
-#: ../src/documents.js:675
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:676
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:794 ../src/documents.js:892
-msgid "Spreadsheet"
-msgstr "Scarbhileog"
-
-#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "Láithreoireacht"
-
-#: ../src/documents.js:798 ../src/documents.js:896
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Bailíuchán"
 
-#: ../src/documents.js:800 ../src/documents.js:898
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Scarbhileog"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Láithreoireacht"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Cáipéis"
 
-#: ../src/documents.js:826 ../src/documents.js:827
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1011
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Seiceáil an ceangal líonra, le do thoil."
 
-#: ../src/documents.js:1014
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Seiceáil socruithe do sheachfhreastalaí líonra, le do thoil."
 
-#: ../src/documents.js:1017
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Ní féidir síniú isteach sa tseirbhís cháipéise."
 
-#: ../src/documents.js:1020
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Níorbh fhéidir an cháipéis seo a aimsiú."
 
-#: ../src/documents.js:1023
+#: ../src/documents.js:1092
 #, javascript-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Tá rud éigin mícheart (%d)."
 
-#: ../src/documents.js:1041
+#: ../src/documents.js:1110
 #, javascript-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Úps! Ní féidir “%s” a luchtú"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Amharc"
 
@@ -139,16 +144,16 @@ msgstr "Amharc"
 msgid "Loading…"
 msgstr "Á luchtú…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Cáipéis gan Aimsiú"
 
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, javascript-format
 msgid "You can add your online accounts in %s"
 msgstr "Is féidir leat do chuid chuntas ar líne a chur leis i %s"
 
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Socruithe an Chórais"
 
@@ -220,15 +225,15 @@ msgstr[4] "%d roghnaithe"
 msgid "Cancel"
 msgstr "Cealaigh"
 
-#: ../src/mainToolbar.js:249
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "Roghnaigh Míreanna"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Seán de Búrca <leftmostcat@gmail.com>"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Feidhmchlár bhainisteoireacht cháipéisí"
 
@@ -288,51 +293,51 @@ msgstr "Cuir i Láthair Ar"
 msgid "Bookmark this page"
 msgstr "Cuir leabharmharc leis an leathanach seo"
 
-#: ../src/preview.js:891 ../src/selections.js:856
+#: ../src/preview.js:892 ../src/selections.js:856
 #, javascript-format
 msgid "Open with %s"
 msgstr "Oscail le %s"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "An Ceann Roimhe Seo"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "An Chéad Cheann Eile"
 
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:766
 msgid "Properties"
 msgstr "Airíonna"
 
-#: ../src/properties.js:60 ../src/sharing.js:101
+#: ../src/properties.js:62 ../src/sharing.js:101
 msgid "Done"
 msgstr "Críochnaithe"
 
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Teideal"
 
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Údar"
 
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Foinse"
 
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Dáta Athraithe"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Dátha Cruthaithe"
 
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Cineál"
