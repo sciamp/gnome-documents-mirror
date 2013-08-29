@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents 0.3.91\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-08-07 12:43+0800\n"
-"PO-Revision-Date: 2013-08-07 08:47+0800\n"
+"POT-Creation-Date: 2013-08-29 21:52+0800\n"
+"PO-Revision-Date: 2013-08-28 22:21+0800\n"
 "Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
 "Language: \n"
@@ -19,7 +19,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.5\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "文件"
 
@@ -80,64 +80,70 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "開始使用 Documents"
 
-#. overridden
-#: ../src/documents.js:675
-msgid "Google Docs"
-msgstr "Google 文件"
-
-#: ../src/documents.js:676
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:794 ../src/documents.js:892
-msgid "Spreadsheet"
-msgstr "試算表"
-
-#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "簡報"
-
-#: ../src/documents.js:798 ../src/documents.js:896
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "收藏"
 
-#: ../src/documents.js:800 ../src/documents.js:898
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google 文件"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "試算表"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "簡報"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "文件"
 
 #. overridden
-#: ../src/documents.js:826 ../src/documents.js:827
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1011
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "請檢查網路連線。"
 
-#: ../src/documents.js:1014
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "請檢查網路代理伺服器設定值。"
 
-#: ../src/documents.js:1017
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "無法登入文件服務。"
 
-#: ../src/documents.js:1020
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "無法定位這份文件。"
 
-#: ../src/documents.js:1023
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "嗯，有些地方發生問題 (%d)。"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1041
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "噢！無法載入“%s”"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "檢視"
 
@@ -146,20 +152,20 @@ msgstr "檢視"
 msgid "Loading…"
 msgstr "正在載入..."
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "找不到文件"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "您可以在 %s 加入您的線上帳號"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "系統設定值"
 
@@ -227,17 +233,17 @@ msgstr[0] "已選取 %d 個"
 msgid "Cancel"
 msgstr "取消"
 
-#: ../src/mainToolbar.js:249
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "選擇項目"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr ""
 "Cheng-Chia Tseng <pswo10680@gmail.com>, 2011. \n"
 "Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>, 2011"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "文件管理員應用程式"
 
@@ -299,63 +305,63 @@ msgid "Bookmark this page"
 msgstr "這一頁的書籤"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:856
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "以 %s 開啟"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "尋找上一筆"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "尋找下一筆"
 
 #. properties button
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:766
 msgid "Properties"
 msgstr "屬性"
 
 #. Label for Done button in Sharing dialog
-#: ../src/properties.js:60 ../src/sharing.js:101
+#: ../src/properties.js:62 ../src/sharing.js:101
 msgid "Done"
 msgstr "完成"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "題名"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "作者"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "來源"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "修改日期"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "建立日期"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "類型"
