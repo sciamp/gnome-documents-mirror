@@ -9,20 +9,21 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-13 13:46+0000\n"
-"PO-Revision-Date: 2013-08-19 22:23+0100\n"
+"POT-Creation-Date: 2013-08-29 13:53+0000\n"
+"PO-Revision-Date: 2013-08-29 18:17+0100\n"
 "Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n%100==4 ? 3 : 0);\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Dokumenti"
 
@@ -32,7 +33,7 @@ msgstr "Upravljanje, dostop in souporaba dokumentov"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Doc;PDF;Dokumenti;Word;"
+msgstr "Doc;PDF;Dokumenti;Word"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -83,7 +84,8 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "Kako začeti s programom"
 
-#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:898
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Zbirka"
 
@@ -96,46 +98,51 @@ msgstr "Google dokumenti"
 msgid "Google"
 msgstr "Google"
 
-#: ../src/documents.js:802 ../src/documents.js:900
+#: ../src/documents.js:802 ../src/documents.js:956
 msgid "Spreadsheet"
 msgstr "Preglednica"
 
-#: ../src/documents.js:804 ../src/documents.js:902 ../src/presentation.js:47
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
 msgid "Presentation"
 msgstr "Predstavitev"
 
-#: ../src/documents.js:806 ../src/documents.js:904
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Dokument"
 
 #. overridden
-#: ../src/documents.js:832 ../src/documents.js:833
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1017
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Preveriti je treba nastavitve omrežne povezave."
 
-#: ../src/documents.js:1020
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Preveriti je treba nastavitve posredniškega strežnika."
 
-#: ../src/documents.js:1023
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Ni se mogoče povezati s storitvijo dokumenta"
 
-#: ../src/documents.js:1026
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Dokumenta ni mogoče najti"
 
-#: ../src/documents.js:1029
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Zaznana je nepravilnost (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1047
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Napaka! Ni mogoče naložiti dokumenta “%s”."
@@ -149,20 +156,20 @@ msgstr "Pogled"
 msgid "Loading…"
 msgstr "Nalaganje ..."
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Ni najdenih dokumentov"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Spletne račune je mogoče dodati v meniju %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Sistemske nastavitve"
 
@@ -237,11 +244,11 @@ msgstr "Prekliči"
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Matej Urbančič <mateju@svn.gnome.org>"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Program za upravljanje z dokumenti"
 
