@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-20 14:22+0000\n"
-"PO-Revision-Date: 2013-08-13 20:32+0900\n"
+"POT-Creation-Date: 2013-08-22 15:45+0000\n"
+"PO-Revision-Date: 2013-08-25 03:19+0900\n"
 "Last-Translator: Jiro Matsuzawa <jmatsuzawa@gnome.org>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "Language: ja\n"
@@ -112,7 +112,7 @@ msgstr "ドキュメント"
 #. overridden
 #: ../src/documents.js:832
 msgid "ownCloud"
-msgstr ""
+msgstr "ownCloud"
 
 #. overridden
 #: ../src/documents.js:888 ../src/documents.js:889
