@@ -76,14 +76,6 @@ PKG_CHECK_MODULES(DOCUMENTS,
                   libgdata >= $GDATA_MIN_VERSION
                   zapojit-0.0 >= $ZAPOJIT_MIN_VERSION)
 
-PKG_CHECK_MODULES(MINER,
-                  tracker-sparql-0.16 >= $TRACKER_MIN_VERSION
-                  glib-2.0 >= $GLIB_MIN_VERSION
-                  gio-2.0 >= $GLIB_MIN_VERSION
-                  goa-1.0 >= $GOA_MIN_VERSION
-                  libgdata >= $GDATA_MIN_VERSION
-                  zapojit-0.0 >= $ZAPOJIT_MIN_VERSION)
-
 LIBGD_INIT([
   gtk-hacks
   header-bar
