@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-06-15 16:15+0000\n"
-"PO-Revision-Date: 2013-06-22 14:13+0600\n"
+"POT-Creation-Date: 2013-08-30 13:48+0000\n"
+"PO-Revision-Date: 2013-08-31 17:27+0600\n"
 "Last-Translator: Baurzhan Muftakhidinov <baurthefirst@gmail.com>\n"
 "Language-Team: Kazakh <kk_KZ@googlegroups.com>\n"
 "Language: kk\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Құжаттар қолданбасы"
 
@@ -66,101 +66,107 @@ msgid "Window maximized state"
 msgstr "Терезе максималды күйі"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:585 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Жергілікті"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:606
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:607
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Құжаттар қолданбасымен жұмысты бастау"
 
-#. overridden
-#: ../src/documents.js:661
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:662
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:780 ../src/documents.js:878
-msgid "Spreadsheet"
-msgstr "Электрондық кесте"
-
-#: ../src/documents.js:782 ../src/documents.js:880 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "Презентация"
-
-#: ../src/documents.js:784 ../src/documents.js:882
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Жинақ"
 
-#: ../src/documents.js:786 ../src/documents.js:884
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Электрондық кесте"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Презентация"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Құжат"
 
 #. overridden
-#: ../src/documents.js:812 ../src/documents.js:813
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:997
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Желілік байланысты тексеріңіз."
 
-#: ../src/documents.js:1000
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Желілік прокси баптауларын тексеріңіз."
 
-#: ../src/documents.js:1003
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Құжаттарды сақтау қызметіне кіру мүмкін емес."
 
-#: ../src/documents.js:1006
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Бұл құжатты табу мүмкін емес."
 
-#: ../src/documents.js:1009
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Қап, бірнәрсе біртүрлі болып тұр (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1022
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Қап! “%s” жүктеу мүмкін емес"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Қарау"
 
-#: ../src/embed.js:62 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Жүктеу..."
 
-#: ../src/embed.js:144
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Құжаттар табылмады"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:165
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Сіз желідегі тіркелгілерді %s ішінен қоса аласыз"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:169
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Жүйелік баптаулар"
 
@@ -169,11 +175,11 @@ msgstr "Жүйелік баптаулар"
 msgid "Page %u of %u"
 msgstr "Бет %u, барлығы %u"
 
-#: ../src/lib/gd-pdf-loader.c:232
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Құжатты жүктеу мүмкін емес"
 
-#: ../src/lib/gd-pdf-loader.c:696
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "Бұл құжатты қарау үшін LibreOffice керек"
 
@@ -201,43 +207,42 @@ msgstr "Мазмұны жоқ"
 msgid "Contents"
 msgstr "Құрамасы"
 
-#: ../src/mainToolbar.js:77
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Іздеу"
 
-#: ../src/mainToolbar.js:88
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Артқа"
 
-#: ../src/mainToolbar.js:168
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "“%s” үшін нәтижелер"
 
-#: ../src/mainToolbar.js:176
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Бірнәрсені таңдау үшін оның үстіне шертіңіз"
 
-#: ../src/mainToolbar.js:178
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d таңдалды"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:207 ../src/properties.js:60 ../src/sharing.js:93
-msgid "Done"
-msgstr "Дайын"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Бас тарту"
 
-#: ../src/mainToolbar.js:248
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Нәрселерді таңдау"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Baurzhan Muftakhidinov <baurthefirst@gmail.com> 2013"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Құжаттарды басқару қолданбасы"
 
@@ -265,6 +270,23 @@ msgstr "%s ішінен құжаттарды алу"
 msgid "Fetching documents from online accounts"
 msgstr "Желідегі тіркелгілерден құжаттарды алу"
 
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Пароль керек"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "Бо_сату"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "%s құжаты блокталған және оны ашу үшін пароль керек."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Пароль"
+
 #: ../src/places.js:59
 msgid "Close"
 msgstr "Жабу"
@@ -278,65 +300,67 @@ msgid "Present On"
 msgstr "Қайда бар"
 
 #: ../src/preview.js:603
-#| msgid "Bookmarks"
 msgid "Bookmark this page"
 msgstr "Бұл парақты бетбелгілерге қосу"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:888
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "%s көмегімен ашу"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "Алдыңғысын табу"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "Келесісін табу"
 
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:795
+#. properties button
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Қасиеттері"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:62 ../src/sharing.js:101
+msgid "Done"
+msgstr "Дайын"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
-#| msgid "Title"
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Атауы"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
-#| msgid "Author"
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Авторы"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Қайнар көзі"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Түзетілген уақыты"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Жасалған күні"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
-#| msgid "Type"
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Түрі"
@@ -369,8 +393,10 @@ msgstr "Шығу"
 msgid "_Copy"
 msgstr "_Көшіру"
 
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:891
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Ашу"
 
@@ -434,7 +460,6 @@ msgstr "Сізбен ортақ етілген"
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
 #: ../src/search.js:167
-#| msgid "Type"
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Түрі"
@@ -467,14 +492,12 @@ msgstr "Сәйкес"
 
 #. Translators: "Title" refers to "Match Title" when searching
 #: ../src/search.js:258
-#| msgid "Title"
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Атауы"
 
 #. Translators: "Author" refers to "Match Author" when searching
 #: ../src/search.js:261
-#| msgid "Author"
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Авторы"
@@ -483,110 +506,110 @@ msgstr "Авторы"
 msgid "Sources"
 msgstr "Қайнар көздер"
 
-#: ../src/selections.js:462
+#: ../src/selections.js:461
 msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "Сізде бірде-бір жинақ жоқ. Жоғарыда жаңа жинақтың атауын енгізіңіз."
 
-#: ../src/selections.js:605
-#| msgid "Collection"
+#: ../src/selections.js:604
 msgid "Create new collection"
 msgstr "Жаңа жинақты жасау"
 
 #. Translators: "Collections" refers to documents in this context
-#: ../src/selections.js:640
-#| msgid "Collections"
+#: ../src/selections.js:639
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Жинақтар"
 
-#: ../src/selections.js:763
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Баспаға шығару"
 
-#: ../src/selections.js:770
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Өшіру"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:787
-#| msgid "Organize"
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Реттеу"
+#. organize button
+#: ../src/selections.js:761
+#| msgid "Collection"
+msgid "Add to Collection"
+msgstr "Жинаққа қосу"
 
-#: ../src/selections.js:802
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Бөлісу"
 
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Ортақ қылудың баптаулары"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Құжат рұқсаттары"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Өзгерту"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Жеке"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Ортақ"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Әркім түзете алады"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Адамды қосу"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Эл. пошта адресін енгізіңіз"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Өзгерте алады"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Көре алады"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Қосу"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Әркім көре алады"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Сақтау"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Иесі"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Рұқсат үшін %s сұраңыз"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Құжат жаңартылмады"
 
@@ -595,7 +618,6 @@ msgid "Untitled Document"
 msgstr "Атаусыз құжат"
 
 #: ../src/trackerController.js:170
-#| msgid "Unable to locate this document."
 msgid "Unable to fetch the list of documents"
 msgstr "Құжаттар тізімін алу мүмкін емес"
 
@@ -604,41 +626,41 @@ msgstr "Құжаттар тізімін алу мүмкін емес"
 msgid "Load More"
 msgstr "Көбірек жүктеу"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Кеше"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d күн бұрын"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Өткен апта"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d апта бұрын"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Өткен ай"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d ай бұрын"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Былтыр"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
