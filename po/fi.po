@@ -3,28 +3,28 @@
 # This file is distributed under the same license as the gnome-documents package.
 #
 # Gnome 2012-03 Finnish translation sprint participants:
-# Jiri Grönroos
 # Niklas Laxström
-# Jiri Grönroos <jiri.gronroos@iki.fi>, 2012, 2013.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2012, 2013.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-03-15 19:10+0000\n"
-"PO-Revision-Date: 2013-03-26 20:20+0200\n"
+"POT-Creation-Date: 2013-08-20 14:22+0000\n"
+"PO-Revision-Date: 2013-09-03 22:45+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
-"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Gtranslator 2.91.6\n"
 "X-POT-Import-Date: 2012-03-05 14:46:33+0000\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:101
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Asiakirjat"
 
@@ -69,98 +69,108 @@ msgstr "Ikkuna suurennettu"
 msgid "Window maximized state"
 msgstr "Ikkunan suurennettu tila"
 
-#: ../src/documents.js:590 ../src/search.js:416
+#. Translators: this refers to local documents
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
 msgstr "Paikallinen"
 
-#: ../src/documents.js:608
+#. Translators: Documents ships a "Getting Started with Documents"
+#. tutorial PDF. The "GNOME" string below is displayed as the author name
+#. of that document, and doesn't normally need to be translated.
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "Gnome"
 
-#: ../src/documents.js:609
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Asiakirjat ja käytön aloitus"
 
-#. overridden
-#: ../src/documents.js:656
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:657
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:721 ../src/documents.js:820
-msgid "Spreadsheet"
-msgstr "Taulukko"
-
-#: ../src/documents.js:723 ../src/documents.js:822 ../src/presentation.js:48
-msgid "Presentation"
-msgstr "Esitys"
-
-#: ../src/documents.js:725 ../src/documents.js:824
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Kokoelma"
 
-#: ../src/documents.js:727 ../src/documents.js:826
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Taulukko"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Esitys"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Asiakirja"
 
 #. overridden
-#: ../src/documents.js:754 ../src/documents.js:755
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:939
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Tarkista verkkoyhteys."
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Tarkista verkkoyhteyden välityspalvelimen asetukset."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Asiakirjapalveluun kirjautuminen epäonnistui."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Tämän asiakirjan paikantaminen epäonnistui."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
-msgstr "Hmm, jokin meni meni pieleen (%d)."
+msgstr "Hmm, jokin meni pieleen (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:964
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Hups! Kohteen \"%s\" lataus epäonnistui"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Näkymä"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:379
-#: ../src/lib/gd-places-links.c:257 ../src/view.js:70
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
+#: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Ladataan…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Asiakirja ei löytynyt"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Voit lisätä verkkotilisi %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "järjestelmän asetuksissa"
 
@@ -169,24 +179,27 @@ msgstr "järjestelmän asetuksissa"
 msgid "Page %u of %u"
 msgstr "Sivu %u/%u"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Asiakirjan lataus epäonnistui"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "Tämän asiakirjan katselu vaatii LibreOfficen"
 
-#: ../src/lib/gd-places-bookmarks.c:309
+#. Translators: %s is the number of the page, already formatted
+#. * as a string, for example "Page 5".
+#.
+#: ../src/lib/gd-places-bookmarks.c:312
 #, c-format
 msgid "Page %s"
 msgstr "Sivu %s"
 
-#: ../src/lib/gd-places-bookmarks.c:372
+#: ../src/lib/gd-places-bookmarks.c:375
 msgid "No bookmarks"
 msgstr "Ei kirjanmerkkejä"
 
-#: ../src/lib/gd-places-bookmarks.c:644
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "Kirjanmerkit"
 
@@ -198,44 +211,43 @@ msgstr "Ei sisällysluetteloa"
 msgid "Contents"
 msgstr "Sisältö"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Etsi"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Takaisin"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Tulokset haulle \"%s\""
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Napsauta kohteita valitaksesi ne"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valittu"
 msgstr[1] "%d valittu"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:59 ../src/sharing.js:93
-msgid "Done"
-msgstr "Valmis"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Peru"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:250
 msgid "Select Items"
 msgstr "Valitse kohteet"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
-msgstr "Jiri Grönroos, 2012"
+msgstr "Jiri Grönroos, 2012, 2013"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Asiakirjojen hallintasovellus"
 
@@ -254,63 +266,113 @@ msgstr ""
 "Jotkin asiakirjat eivät välttämättä ole käytettävissä tämän toimenpiteen "
 "aikana"
 
-#: ../src/notifications.js:164
+#. Translators: %s refers to an online account provider, e.g.
+#. "Google", or "Windows Live".
+#: ../src/notifications.js:166
 #, c-format
 msgid "Fetching documents from %s"
 msgstr "Noudetaan asiakirjaa kohteesta %s"
 
-#: ../src/notifications.js:166
+#: ../src/notifications.js:168
 msgid "Fetching documents from online accounts"
 msgstr "Noudetaan asiakirjoja verkkotileiltä"
 
-#: ../src/presentation.js:105
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Salasana vaaditaan"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Avaa lukitus"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Asiakirja %s on lukittu ja se vaatii salasanan avausta varten."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Salasana"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Sulje"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "Toimitaan esitystilassa"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "Esitys näytöllä"
 
-#: ../src/properties.js:57 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:779
+#: ../src/preview.js:603
+#| msgid "Bookmarks"
+msgid "Bookmark this page"
+msgstr "Lisää sivu kirjanmerkkeihin"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:892 ../src/selections.js:856
+#, c-format
+msgid "Open with %s"
+msgstr "Avaa sovelluksella %s"
+
+#: ../src/preview.js:953
+msgid "Find Previous"
+msgstr "Etsi edellinen"
+
+#: ../src/preview.js:960
+msgid "Find Next"
+msgstr "Etsi seuraava"
+
+#. properties button
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Ominaisuudet"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:62 ../src/sharing.js:101
+msgid "Done"
+msgstr "Valmis"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#. Translators: "Title" refers to "Match Title" when searching
-#: ../src/properties.js:78 ../src/search.js:257
+#: ../src/properties.js:82
+#| msgid "Title"
+msgctxt "Document Title"
 msgid "Title"
 msgstr "Otsikko"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#. Translators: "Author" refers to "Match Author" when searching
-#: ../src/properties.js:87 ../src/search.js:260
+#: ../src/properties.js:91
+#| msgid "Author"
+msgctxt "Document Author"
 msgid "Author"
 msgstr "Tekijä"
 
 #. Source item
-#: ../src/properties.js:94
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Lähde"
 
 #. Date Modified item
-#: ../src/properties.js:100
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Muokkauspäivä"
 
-#: ../src/properties.js:107
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Luontipäivä"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#. Translators: "Type" refers to a search filter on the document type
-#. (PDF, spreadsheet, ...)
-#: ../src/properties.js:116 ../src/search.js:166
+#: ../src/properties.js:120
+#| msgid "Type"
+msgctxt "Document Type"
 msgid "Type"
 msgstr "Tyyppi"
 
@@ -338,8 +400,14 @@ msgstr "Ohje"
 msgid "Quit"
 msgstr "Lopeta"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopioi"
+
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:875
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Avaa"
 
@@ -379,144 +447,185 @@ msgstr "Valitse kaikki"
 msgid "Select None"
 msgstr "Poista kaikki valinnat"
 
-#: ../src/search.js:112
+#: ../src/search.js:113
 msgid "Category"
 msgstr "Luokka"
 
-#: ../src/search.js:117 ../src/search.js:169 ../src/search.js:254
-#: ../src/search.js:410
+#. Translators: this refers to new and recent documents
+#. Translators: this refers to documents
+#: ../src/search.js:118 ../src/search.js:170 ../src/search.js:255
+#: ../src/search.js:411
 msgid "All"
 msgstr "Kaikki"
 
-#: ../src/search.js:123
+#. Translators: this refers to favorite documents
+#: ../src/search.js:124
 msgid "Favorites"
 msgstr "Suosikit"
 
-#: ../src/search.js:128
+#. Translators: this refers to shared documents
+#: ../src/search.js:129
 msgid "Shared with you"
 msgstr "Kanssani jaetut"
 
-#: ../src/search.js:171
+#. Translators: "Type" refers to a search filter on the document type
+#. (PDF, spreadsheet, ...)
+#: ../src/search.js:167
+#| msgid "Type"
+msgctxt "Search Filter"
+msgid "Type"
+msgstr "Tyyppi"
+
+#: ../src/search.js:172
 msgid "Collections"
 msgstr "Kokoelmat"
 
-#: ../src/search.js:175
+#: ../src/search.js:176
 msgid "PDF Documents"
 msgstr "PDF-asiakirjat"
 
-#: ../src/search.js:179
+#: ../src/search.js:180
 msgid "Presentations"
 msgstr "Esitykset"
 
-#: ../src/search.js:182
+#: ../src/search.js:183
 msgid "Spreadsheets"
 msgstr "Taulukot"
 
-#: ../src/search.js:185
+#: ../src/search.js:186
 msgid "Text Documents"
 msgstr "Tekstiasiakirjat"
 
 #. Translators: this is a verb that refers to "All", "Title" and "Author",
 #. as in "Match All", "Match Title" and "Match Author"
-#: ../src/search.js:251
+#: ../src/search.js:252
 msgid "Match"
 msgstr "Vastaavuus"
 
-#: ../src/search.js:406
+#. Translators: "Title" refers to "Match Title" when searching
+#: ../src/search.js:258
+#| msgid "Title"
+msgctxt "Search Filter"
+msgid "Title"
+msgstr "Otsikko"
+
+#. Translators: "Author" refers to "Match Author" when searching
+#: ../src/search.js:261
+#| msgid "Author"
+msgctxt "Search Filter"
+msgid "Author"
+msgstr "Tekijä"
+
+#: ../src/search.js:407
 msgid "Sources"
 msgstr "Lähteet"
 
-#: ../src/selections.js:613 ../src/selections.js:771
-msgid "Organize"
-msgstr "Järjestä"
+#: ../src/selections.js:461
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr "Sinulla ei ole vielä kokoelmia. Anna uuden kokoelman nimi yläpuolelle."
 
-#: ../src/selections.js:748
+#: ../src/selections.js:604
+#| msgid "Collection"
+msgid "Create new collection"
+msgstr "Luo uusi kokoelma"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:639
+#| msgid "Collections"
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Kokoelmat"
+
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Tulosta"
 
-#: ../src/selections.js:755
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Poista"
 
-#: ../src/selections.js:786
+#. organize button
+#: ../src/selections.js:761
+#| msgid "Collection"
+msgid "Add to Collection"
+msgstr "Lisää kokoelmaan"
+
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Jaa"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:872
-#, c-format
-msgid "Open with %s"
-msgstr "Avaa sovelluksella %s"
-
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Jakamisen asetukset"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Asiakirjan käyttöoikeudet"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Muuta"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Yksityinen"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Julkinen"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Kaikki voivat muokata"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Lisää henkilöitä"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Anna sähköpostiosoite"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Voi muokata"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Voi katsella"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Lisää"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Kaikki voivat lukea"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Tallenna"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Omistaja"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Voit pyytää käyttöoikeutta henkilöltä %s"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Asiakirjaa ei päivitetty"
 
@@ -524,53 +633,61 @@ msgstr "Asiakirjaa ei päivitetty"
 msgid "Untitled Document"
 msgstr "Nimetön asiakirja"
 
-#: ../src/view.js:61 ../src/view.js:91
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "Asiakirjalistauksen nouto epäonnistui"
+
+#. Translators: "more" refers to documents in this context
+#: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "Lataa lisää"
 
-#: ../src/view.js:292
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "Eilen"
 
-#: ../src/view.js:294
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d päivä sitten"
 msgstr[1] "%d päivää sitten"
 
-#: ../src/view.js:298
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Viime viikolla"
 
-#: ../src/view.js:300
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d viikko sitten"
 msgstr[1] "%d viikkoa sitten"
 
-#: ../src/view.js:304
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Viime kuussa"
 
-#: ../src/view.js:306
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d kuukausi sitten"
 msgstr[1] "%d kuukautta sitten"
 
-#: ../src/view.js:310
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Viime vuonna"
 
-#: ../src/view.js:312
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d vuosi sitten"
 msgstr[1] "%d vuotta sitten"
+
+#~ msgid "Organize"
+#~ msgstr "Järjestä"
 
 #~ msgid "Unable to load \"%s\" for preview"
 #~ msgstr "Kohteen \"%s\" lataus esikatselua varten epäonnistui"
@@ -603,9 +720,6 @@ msgstr[1] "%d vuotta sitten"
 
 #~ msgid "The last active source filter"
 #~ msgstr "Viimeisin aktiivinen lähdesuodatin"
-
-#~ msgid "Unable to fetch the list of documents"
-#~ msgstr "Asiakirjalistauksen nouto epäonnistui"
 
 #~ msgid "%d of %d"
 #~ msgstr "%d/%d"
