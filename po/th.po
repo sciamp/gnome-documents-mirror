@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-07 03:26+0000\n"
-"PO-Revision-Date: 2013-08-10 13:06+0700\n"
+"POT-Creation-Date: 2013-09-04 08:56+0000\n"
+"PO-Revision-Date: 2013-09-05 21:34+0700\n"
 "Last-Translator: Akom Chotiphantawanon <knight2000@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
 "Language: th\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "เอกสาร"
 
@@ -81,64 +81,70 @@ msgstr "GNOME"
 msgid "Getting Started with Documents"
 msgstr "เริ่มต้นกับเอกสาร"
 
-#. overridden
-#: ../src/documents.js:675
-msgid "Google Docs"
-msgstr "Google Docs"
-
-#: ../src/documents.js:676
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:794 ../src/documents.js:892
-msgid "Spreadsheet"
-msgstr "ตารางคำนวณ"
-
-#: ../src/documents.js:796 ../src/documents.js:894 ../src/presentation.js:47
-msgid "Presentation"
-msgstr "งานนำเสนอ"
-
-#: ../src/documents.js:798 ../src/documents.js:896
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "ชุดเอกสาร"
 
-#: ../src/documents.js:800 ../src/documents.js:898
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Docs"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "ตารางคำนวณ"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "งานนำเสนอ"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "เอกสาร"
 
 #. overridden
-#: ../src/documents.js:826 ../src/documents.js:827
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#. overridden
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:1011
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "กรุณาตรวจสอบการเชื่อมต่อเครือข่าย"
 
-#: ../src/documents.js:1014
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "กรุณาตรวจสอบการตั้งค่าพร็อกซีเครือข่าย"
 
-#: ../src/documents.js:1017
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "ไม่สามารถเข้าระบบเพื่อใช้บริการเอกสารได้"
 
-#: ../src/documents.js:1020
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "หาเอกสารนี้ไม่พบ"
 
-#: ../src/documents.js:1023
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "มีบางสิ่งบางอย่างน่าสงสัย (%d)"
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:1041
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "ไม่สามารถโหลด “%s” ได้"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "ดู"
 
@@ -147,20 +153,20 @@ msgstr "ดู"
 msgid "Loading…"
 msgstr "กำลังโหลด…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "ไม่พบเอกสาร"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "คุณสามารถเพิ่มบัญชีออนไลน์ของคุณได้ใน %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "ตั้งค่าระบบ"
 
@@ -232,11 +238,11 @@ msgstr "ยกเลิก"
 msgid "Select Items"
 msgstr "เลือกรายการ"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr "Akom Chotiphantawanon <knight2000@gmail.com>"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "โปรแกรมจัดการเอกสาร"
 
@@ -298,63 +304,63 @@ msgid "Bookmark this page"
 msgstr "คั่นหน้านี้"
 
 #. Translators: this is the Open action in a context menu
-#: ../src/preview.js:891 ../src/selections.js:856
+#: ../src/preview.js:892 ../src/selections.js:856
 #, c-format
 msgid "Open with %s"
 msgstr "เปิดด้วย %s"
 
-#: ../src/preview.js:952
+#: ../src/preview.js:953
 msgid "Find Previous"
 msgstr "หาก่อนหน้า"
 
-#: ../src/preview.js:959
+#: ../src/preview.js:960
 msgid "Find Next"
 msgstr "หาต่อ"
 
 #. properties button
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
 #: ../src/selections.js:766
 msgid "Properties"
 msgstr "คุณสมบัติ"
 
 #. Label for Done button in Sharing dialog
-#: ../src/properties.js:60 ../src/sharing.js:101
+#: ../src/properties.js:62 ../src/sharing.js:101
 msgid "Done"
 msgstr "เสร็จ"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "ชื่อเรื่อง"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "ผู้เขียน"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "แหล่ง"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "วันที่แก้ไข"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "วันที่สร้าง"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "ชนิด"
