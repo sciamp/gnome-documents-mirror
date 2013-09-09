@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-20 14:22+0000\n"
-"PO-Revision-Date: 2013-08-22 21:12+0200\n"
+"POT-Creation-Date: 2013-09-09 09:52+0000\n"
+"PO-Revision-Date: 2013-09-09 23:44+0200\n"
 "Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
@@ -20,6 +20,37 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/gnome-documents.appdata.xml.in.h:1
+msgid ""
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
+"Online Accounts."
+msgstr ""
+"Jednoduchá aplikace, kterou můžete používat pro přístup, uspořádávání a "
+"sdílení svých dokumentů v GNOME. Je zamýšlena jako snadná a elegantní "
+"náhrada místo používání správce souborů k práci s dokumenty. Díky účtům on-"
+"line v GNOME umí bez problémů fungovat i s cloudem."
+
+#: ../data/gnome-documents.appdata.xml.in.h:2
+msgid "It lets you:"
+msgstr "Můžete v ní dělat následující věci:"
+
+#: ../data/gnome-documents.appdata.xml.in.h:3
+msgid ""
+"<li>View recent local and online documents</li> <li>Access your Google, "
+"ownCloud or SkyDrive content</li> <li>Search through documents</li> <li>See "
+"new documents shared by friends</li> <li>View documents fullscreen</li> "
+"<li>Print documents</li> <li>Select favorites</li> <li>Allow opening full "
+"featured editor for non-trivial changes</li>"
+msgstr ""
+"<li>Zobrazovat nedávno použité místní a on-line dokumenty</li> <li>Dostat se "
+"ke svému obsahu na službách Google, ownCloud nebo SkyDrive</li> "
+"<li>Vyhledávat v dokumentech</li> <li>Vidět nové dokumenty nasdílené "
+"přáteli</li> <li>Zobrazovat dokumenty přes celou obrazovku</li> <li>Tisknout "
+"dokumenty</li> <li>Vybírat oblíbené</li> <li>Pro náročnější změny otevřít "
+"dokumenty v plnohodnotném editoru</li>"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:52 ../src/mainWindow.js:273
@@ -238,7 +269,7 @@ msgstr[2] "%d vybráno"
 msgid "Cancel"
 msgstr "Zrušit"
 
-#: ../src/mainToolbar.js:250
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Vybrat položky"
 
