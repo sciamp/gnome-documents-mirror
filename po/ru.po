@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-20 14:22+0000\n"
-"PO-Revision-Date: 2013-09-06 19:35+0300\n"
+"POT-Creation-Date: 2013-09-09 09:52+0000\n"
+"PO-Revision-Date: 2013-09-09 20:23+0300\n"
 "Last-Translator: Yuri Myasoedov <omerta13@yandex.ru>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -22,6 +22,18 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 "X-Generator: Poedit 1.5.5\n"
+
+#: ../data/gnome-documents.appdata.xml.in.h:1
+msgid "A simple application to access, organize and share your documents on GNOME. It is meant to be a simple and elegant replacement for using a file manager to deal with documents. Seamless cloud integration is offered through GNOME Online Accounts."
+msgstr "Просто приложение для получения доступа, управления и публикации документов в GNOME. Это приложение упрощает работу с документами, по сравнению с обычным файловым менеджером. Бесшовная интеграция с облачными службами осуществляется через сетевые учётные записи GNOME."
+
+#: ../data/gnome-documents.appdata.xml.in.h:2
+msgid "It lets you:"
+msgstr "Оно позволяет вам:"
+
+#: ../data/gnome-documents.appdata.xml.in.h:3
+msgid "<li>View recent local and online documents</li> <li>Access your Google, ownCloud or SkyDrive content</li> <li>Search through documents</li> <li>See new documents shared by friends</li> <li>View documents fullscreen</li> <li>Print documents</li> <li>Select favorites</li> <li>Allow opening full featured editor for non-trivial changes</li>"
+msgstr "<li>Просматривать последние локальные и удалённые документы</li> <li>Получать доступ к ресурам Google, ownCloud или SkyDrive</li> <li>Выполнять поиск по документам</li> <li>Просматривать новые документы совместно с друзьями</li> <li>Просматривать документы в полноэкранном режиме</li> <li>Печатать документы</li> <li>Отмечать любимые документы</li> <li>Открывать полнофункциональный редактор для более сложного редактирования</li>"
 
 #: ../data/gnome-documents.desktop.in.in.h:1
 #: ../src/application.js:103
@@ -253,7 +265,7 @@ msgstr[2] "Выбрано: %d"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../src/mainToolbar.js:250
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Выбрать элементы"
 
@@ -319,7 +331,6 @@ msgid "Present On"
 msgstr "Презентация"
 
 #: ../src/preview.js:603
-#| msgid "Bookmarks"
 msgid "Bookmark this page"
 msgstr "Добавить в закладки эту страницу"
 
@@ -355,7 +366,6 @@ msgstr "Выполнено"
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
 #: ../src/properties.js:82
-#| msgid "Title"
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Заголовок"
@@ -363,7 +373,6 @@ msgstr "Заголовок"
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
 #: ../src/properties.js:91
-#| msgid "Author"
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Автор"
@@ -386,7 +395,6 @@ msgstr "Дата создания"
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
 #: ../src/properties.js:120
-#| msgid "Type"
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Тип"
@@ -489,7 +497,6 @@ msgstr "В открытом для вас доступе"
 #. Translators: "Type" refers to a search filter on the document type
 #. (PDF, spreadsheet, ...)
 #: ../src/search.js:167
-#| msgid "Type"
 msgctxt "Search Filter"
 msgid "Type"
 msgstr "Тип"
@@ -522,14 +529,12 @@ msgstr "Совпадение"
 
 #. Translators: "Title" refers to "Match Title" when searching
 #: ../src/search.js:258
-#| msgid "Title"
 msgctxt "Search Filter"
 msgid "Title"
 msgstr "Заголовок"
 
 #. Translators: "Author" refers to "Match Author" when searching
 #: ../src/search.js:261
-#| msgid "Author"
 msgctxt "Search Filter"
 msgid "Author"
 msgstr "Автор"
@@ -543,13 +548,11 @@ msgid "You don't have any collections yet. Enter a new collection name above."
 msgstr "Пока ещё нет ни одной коллекции. Введите имя новой коллекции выше."
 
 #: ../src/selections.js:604
-#| msgid "Collection"
 msgid "Create new collection"
 msgstr "Создать новую коллекцию"
 
 #. Translators: "Collections" refers to documents in this context
 #: ../src/selections.js:639
-#| msgid "Collections"
 msgctxt "Dialog Title"
 msgid "Collections"
 msgstr "Коллекции"
@@ -566,7 +569,6 @@ msgstr "Удалить"
 
 #. organize button
 #: ../src/selections.js:761
-#| msgid "Collection"
 msgid "Add to Collection"
 msgstr "Добавить в коллекцию"
 
