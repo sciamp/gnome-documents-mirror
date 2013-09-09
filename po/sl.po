@@ -9,9 +9,9 @@ msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "documents&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2013-08-29 13:53+0000\n"
-"PO-Revision-Date: 2013-08-30 16:46+0300\n"
-"Last-Translator: Yosef Or Boczko <yoseforb@gmail.com>\n"
+"POT-Creation-Date: 2013-09-09 16:30+0000\n"
+"PO-Revision-Date: 2013-09-09 20:32+0100\n"
+"Last-Translator: Matej Urbančič <mateju@svn.gnome.org>\n"
 "Language-Team: Slovenian GNOME Translation Team <gnome-si@googlegroups.com>\n"
 "Language: Slovenian\n"
 "MIME-Version: 1.0\n"
@@ -21,6 +21,37 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Generator: Poedit 1.5.4\n"
+
+#: ../data/gnome-documents.appdata.xml.in.h:1
+msgid ""
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
+"Online Accounts."
+msgstr ""
+"Enosaven program za urejanje in izmenjavo dokumentov na namizju GNOME. "
+"Zamišljen je kot enostavno orodje, ki naj bi nadomestilo uporabo "
+"upravljalnika datotek za take naloge. Program podpira tudi enostavno "
+"objavljanje datotek v oblak preko spletnih računov GNOME:"
+
+#: ../data/gnome-documents.appdata.xml.in.h:2
+msgid "It lets you:"
+msgstr "Omogoča:"
+
+#: ../data/gnome-documents.appdata.xml.in.h:3
+msgid ""
+"<li>View recent local and online documents</li> <li>Access your Google, "
+"ownCloud or SkyDrive content</li> <li>Search through documents</li> <li>See "
+"new documents shared by friends</li> <li>View documents fullscreen</li> "
+"<li>Print documents</li> <li>Select favorites</li> <li>Allow opening full "
+"featured editor for non-trivial changes</li>"
+msgstr ""
+"<li>Pregled nedavnih krajevnih in oddaljenih dokumentov</li> <li>Dostop do "
+"vsebine na Google Drive, ownCloud ali SkyDrive</li> <li>Iskanje med "
+"dokumenti</li> <li>Souporaba dokumentov drugih uporabnikov</li> "
+"<li>Celozaslonski ogled dokumentov</li> <li>Tiskanje dokumentov</li> "
+"<li>Izbor priljubljenih</li> <li>Omogočanje odpiranje urejevalnika za "
+"naprednejše urejanje</li>"
 
 #: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
 #: ../src/mainWindow.js:52 ../src/mainWindow.js:273
@@ -33,7 +64,7 @@ msgstr "Upravljanje, dostop in souporaba dokumentov"
 
 #: ../data/gnome-documents.desktop.in.in.h:3
 msgid "Docs;PDF;Document;"
-msgstr "Doc;PDF;Dokumenti;Word;"
+msgstr "Doc;PDF;Dokumenti;Word"
 
 #: ../data/org.gnome.documents.gschema.xml.in.h:1
 #: ../src/resources/app-menu.ui.h:1
@@ -240,7 +271,7 @@ msgstr[3] "%d izbrani"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: ../src/mainToolbar.js:250
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Izbor predmetov"
 
