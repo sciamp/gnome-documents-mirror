@@ -1,5 +1,9 @@
 SUBDIRS = icons
 
+appdatadir = $(datadir)/appdata
+appdata_DATA = $(appdata_in_files:.xml.in=.xml)
+appdata_in_files = gnome-documents.appdata.xml.in
+
 desktopdir = $(datadir)/applications
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
 desktop_in_files = gnome-documents.desktop.in
@@ -25,10 +29,12 @@ gsettings_SCHEMAS = $(gsettingsschema_in_files:.xml.in=.xml)
 
 EXTRA_DIST= \
     gnome-documents.desktop \
+    $(appdata_in_files) \
     $(desktop_in_files) \
     $(searchprovider_DATA) \
     $(gsettingsschema_in_files)
 
 CLEANFILES = \
+    $(appdata_DATA) \
     $(desktop_DATA) \
     $(gsettings_SCHEMAS)
