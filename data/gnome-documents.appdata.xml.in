@@ -24,4 +24,5 @@
     </_ul>
   </description>
   <url type="homepage">https://wiki.gnome.org/Apps/Documents</url>
+  <updatecontact>debarshir_at_gnome.org</updatecontact>
 </application>
