@@ -2,7 +2,7 @@
 # Copyright (C) 2011, 2012 Free Software Foundation and translators
 # This file is distributed under the same license as the gnome-documents package.
 #
-# Kris Thomsen <lakristho@gmail.com>, 2011-2012.
+# Kris Thomsen <mail@kristhomsen.dk>, 2011-2013.
 # Kenneth Nielsen <k.nielsen81@gmail.com>, 2012-2013.
 # Ask Hjorth Larsen <asklarsen@gmail.com>, 2012.
 #
@@ -10,9 +10,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-documents master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-06 10:43+0200\n"
-"PO-Revision-Date: 2013-03-29 19:15+0100\n"
-"Last-Translator: Kenneth Nielsen <k.nielsen81@gmail.com>\n"
+"POT-Creation-Date: 2013-09-10 23:35+0200\n"
+"PO-Revision-Date: 2013-09-10 21:46+0100\n"
+"Last-Translator: Kris Thomsen <mail@kristhomsen.dk>\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
 "MIME-Version: 1.0\n"
@@ -20,8 +20,38 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:102
-#: ../src/mainWindow.js:53 ../src/mainWindow.js:274
+#: ../data/gnome-documents.appdata.xml.in.h:1
+msgid ""
+"A simple application to access, organize and share your documents on GNOME. "
+"It is meant to be a simple and elegant replacement for using a file manager "
+"to deal with documents. Seamless cloud integration is offered through GNOME "
+"Online Accounts."
+msgstr ""
+"En simpel applikation til at tilgå, organisere og dele dine dokumenter i "
+"GNOME. Det er påtænkt at være en simpel og elegant erstatning for at bruge "
+"et filhåndteringsprogram til at håndtere dokumenter. Problemfri cloud-"
+"integration tilbydes gennem GNOME online-konti."
+
+#: ../data/gnome-documents.appdata.xml.in.h:2
+msgid "It lets you:"
+msgstr "Den lader dig:"
+
+#: ../data/gnome-documents.appdata.xml.in.h:3
+msgid ""
+"<li>View recent local and online documents</li> <li>Access your Google, "
+"ownCloud or SkyDrive content</li> <li>Search through documents</li> <li>See "
+"new documents shared by friends</li> <li>View documents fullscreen</li> "
+"<li>Print documents</li> <li>Select favorites</li> <li>Allow opening full "
+"featured editor for non-trivial changes</li>"
+msgstr ""
+"<li>Se seneste lokale og online dokumenter</li> <li>Tilgå dit Google-, "
+"ownCloud- eller SkyDrive-indhold</li> <li>Søge i dokumenter</li> <li>Se nye "
+"dokumenter delt af dine venner</li> <li>Se dokumenter i fuldskærmstilstand</"
+"li> <li>Udskrive dokumenter</li> <li>Vælge favoritter</li> <li>Åbne et fuldt "
+"funktionsdygtigt redigeringsprogram til ikke-trivielle ændringer</li>"
+
+#: ../data/gnome-documents.desktop.in.in.h:1 ../src/application.js:103
+#: ../src/mainWindow.js:52 ../src/mainWindow.js:273
 msgid "Documents"
 msgstr "Dokumenter"
 
@@ -67,102 +97,108 @@ msgid "Window maximized state"
 msgstr "Maksimeringstilstand for vindue"
 
 #. Translators: this refers to local documents
-#: ../src/documents.js:590 ../src/search.js:417
+#: ../src/documents.js:599 ../src/search.js:417
 msgid "Local"
-msgstr "Lokal"
+msgstr "Lokale"
 
 #. Translators: Documents ships a "Getting Started with Documents"
 #. tutorial PDF. The "GNOME" string below is displayed as the author name
 #. of that document, and doesn't normally need to be translated.
-#: ../src/documents.js:611
+#: ../src/documents.js:620
 msgid "GNOME"
 msgstr "GNOME"
 
-#: ../src/documents.js:612
+#: ../src/documents.js:621
 msgid "Getting Started with Documents"
 msgstr "Kom godt i gang med Dokumenter"
 
-#. overridden
-#: ../src/documents.js:659
-msgid "Google Docs"
-msgstr "Google Dokumenter"
-
-#: ../src/documents.js:660
-msgid "Google"
-msgstr "Google"
-
-#: ../src/documents.js:724 ../src/documents.js:823
-msgid "Spreadsheet"
-msgstr "Regneark"
-
-#: ../src/documents.js:726 ../src/documents.js:825 ../src/presentation.js:48
-msgid "Presentation"
-msgstr "Præsentation"
-
-#: ../src/documents.js:728 ../src/documents.js:827
+#: ../src/documents.js:637 ../src/documents.js:800 ../src/documents.js:854
+#: ../src/documents.js:954
 msgid "Collection"
 msgstr "Samling"
 
-#: ../src/documents.js:730 ../src/documents.js:829
+#. overridden
+#: ../src/documents.js:681
+msgid "Google Docs"
+msgstr "Google Dokumenter"
+
+#: ../src/documents.js:682
+msgid "Google"
+msgstr "Google"
+
+#: ../src/documents.js:802 ../src/documents.js:956
+msgid "Spreadsheet"
+msgstr "Regneark"
+
+#: ../src/documents.js:804 ../src/documents.js:958 ../src/presentation.js:47
+msgid "Presentation"
+msgstr "Præsentation"
+
+#: ../src/documents.js:806 ../src/documents.js:960
 msgid "Document"
 msgstr "Dokument"
 
+#. overridden
+#: ../src/documents.js:832
+msgid "ownCloud"
+msgstr "ownCloud"
+
 # MS lagring i skyen-snask http://en.wikipedia.org/wiki/SkyDrive
 #. overridden
-#: ../src/documents.js:757 ../src/documents.js:758
+#: ../src/documents.js:888 ../src/documents.js:889
 msgid "Skydrive"
 msgstr "Skydrive"
 
-#: ../src/documents.js:942
+#: ../src/documents.js:1080
 msgid "Please check the network connection."
 msgstr "Kontrollér venligst din netværkskonfiguration."
 
-#: ../src/documents.js:945
+#: ../src/documents.js:1083
 msgid "Please check the network proxy settings."
 msgstr "Kontrollér venligst konfiguration for din netværksproxy."
 
-#: ../src/documents.js:948
+#: ../src/documents.js:1086
 msgid "Unable to sign in to the document service."
 msgstr "Kunne ikke logge ind på dokumenttjenesten."
 
-#: ../src/documents.js:951
+#: ../src/documents.js:1089
 msgid "Unable to locate this document."
 msgstr "Kunne ikke finde dette dokumentet."
 
-#: ../src/documents.js:954
+#: ../src/documents.js:1092
 #, c-format
 msgid "Hmm, something is fishy (%d)."
 msgstr "Hmm, noget er mistænkeligt (%d)."
 
 #. Translators: %s is the title of a document
-#: ../src/documents.js:967
+#: ../src/documents.js:1110
 #, c-format
 msgid "Oops! Unable to load “%s”"
 msgstr "Ups! Ikke i stand til at indlæse “%s”"
 
-#: ../src/edit.js:191
+#: ../src/edit.js:192
 msgid "View"
 msgstr "Vis"
 
-#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:382
+#: ../src/embed.js:63 ../src/lib/gd-places-bookmarks.c:383
 #: ../src/lib/gd-places-links.c:257 ../src/view.js:71
 msgid "Loading…"
 msgstr "Indlæser…"
 
-#: ../src/embed.js:145
+#: ../src/embed.js:146
 msgid "No Documents Found"
 msgstr "Ingen dokumenter fundet"
 
 #. Translators: %s here is "System Settings", which is in a separate string
 #. due to markup, and should be translated only in the context of this sentence
-#: ../src/embed.js:166
+#: ../src/embed.js:167
 #, c-format
 msgid "You can add your online accounts in %s"
 msgstr "Du kan tilføje dine onlinekonti i %s"
 
 #. Translators: this should be translated in the context of the
 #. "You can add your online accounts in System Settings" sentence above
-#: ../src/embed.js:170
+#: ../src/embed.js:171
 msgid "System Settings"
 msgstr "Systemindstillinger"
 
@@ -171,11 +207,11 @@ msgstr "Systemindstillinger"
 msgid "Page %u of %u"
 msgstr "Side %u af %u"
 
-#: ../src/lib/gd-pdf-loader.c:226
+#: ../src/lib/gd-pdf-loader.c:247
 msgid "Unable to load the document"
 msgstr "Kunne ikke indlæse dokumentet"
 
-#: ../src/lib/gd-pdf-loader.c:676
+#: ../src/lib/gd-pdf-loader.c:715
 msgid "LibreOffice is required to view this document"
 msgstr "Du skal bruge LibreOffice for at se dette dokument"
 
@@ -191,7 +227,7 @@ msgstr "Side %s"
 msgid "No bookmarks"
 msgstr "Ingen bogmærker"
 
-#: ../src/lib/gd-places-bookmarks.c:647
+#: ../src/lib/gd-places-bookmarks.c:648 ../src/preview.js:594
 msgid "Bookmarks"
 msgstr "Bogmærker"
 
@@ -203,40 +239,39 @@ msgstr "Ingen indholdsfortegnelse"
 msgid "Contents"
 msgstr "Indhold"
 
-#: ../src/mainToolbar.js:62
+#: ../src/mainToolbar.js:78
 msgid "Search"
 msgstr "Søg"
 
-#: ../src/mainToolbar.js:73
+#: ../src/mainToolbar.js:89
 msgid "Back"
 msgstr "Tilbage"
 
-#: ../src/mainToolbar.js:153
+#: ../src/mainToolbar.js:169
 #, c-format
 msgid "Results for “%s”"
 msgstr "Resultater for “%s”"
 
-#: ../src/mainToolbar.js:161
+#: ../src/mainToolbar.js:177
 msgid "Click on items to select them"
 msgstr "Klik på elementer for at vælge dem"
 
-#: ../src/mainToolbar.js:163
+#: ../src/mainToolbar.js:179
 #, c-format
 msgid "%d selected"
 msgid_plural "%d selected"
 msgstr[0] "%d valgt"
 msgstr[1] "%d valgte"
 
-#. Label for Done button in Sharing dialog
-#: ../src/mainToolbar.js:192 ../src/properties.js:60 ../src/sharing.js:93
-msgid "Done"
-msgstr "Færdig"
+#: ../src/mainToolbar.js:208
+msgid "Cancel"
+msgstr "Annullér"
 
-#: ../src/mainToolbar.js:233
+#: ../src/mainToolbar.js:249
 msgid "Select Items"
 msgstr "Vælg elementer"
 
-#: ../src/mainWindow.js:273
+#: ../src/mainWindow.js:272
 msgid "translator-credits"
 msgstr ""
 "Kris Thomsen\n"
@@ -245,7 +280,7 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/mainWindow.js:275
+#: ../src/mainWindow.js:274
 msgid "A document manager application"
 msgstr "Et program til dokumenthåndtering"
 
@@ -273,52 +308,97 @@ msgstr "Henter dokumenter fra %s"
 msgid "Fetching documents from online accounts"
 msgstr "Henter dokumenter fra online-konti"
 
-#: ../src/presentation.js:105
+#: ../src/password.js:45
+msgid "Password Required"
+msgstr "Adgangskode påkrævet"
+
+#: ../src/password.js:48
+msgid "_Unlock"
+msgstr "_Lås op"
+
+#: ../src/password.js:64
+#, c-format
+msgid "Document %s is locked and requires a password to be opened."
+msgstr "Dokumentet %s er låst og kræver en adgangskode for at blive åbnet."
+
+#: ../src/password.js:78
+msgid "_Password"
+msgstr "_Adgangskode"
+
+#: ../src/places.js:59
+msgid "Close"
+msgstr "Luk"
+
+#: ../src/presentation.js:104
 msgid "Running in presentation mode"
 msgstr "Kører i præsentationstilstand"
 
-#: ../src/presentation.js:158
+#: ../src/presentation.js:157
 msgid "Present On"
 msgstr "Præsentér på"
 
-#: ../src/properties.js:58 ../src/resources/preview-menu.ui.h:9
-#: ../src/selections.js:782
+#: ../src/preview.js:603
+msgid "Bookmark this page"
+msgstr "Bogmærk denne side"
+
+#. Translators: this is the Open action in a context menu
+#: ../src/preview.js:892 ../src/selections.js:856
+#, c-format
+msgid "Open with %s"
+msgstr "Åbn med %s"
+
+#: ../src/preview.js:953
+msgid "Find Previous"
+msgstr "Find forrige"
+
+#: ../src/preview.js:960
+msgid "Find Next"
+msgstr "Find næste"
+
+#. properties button
+#: ../src/properties.js:60 ../src/resources/preview-menu.ui.h:9
+#: ../src/selections.js:766
 msgid "Properties"
 msgstr "Egenskaber"
+
+#. Label for Done button in Sharing dialog
+#: ../src/properties.js:62 ../src/sharing.js:101
+msgid "Done"
+msgstr "Færdig"
 
 #. Title item
 #. Translators: "Title" is the label next to the document title
 #. in the properties dialog
-#: ../src/properties.js:80
+#: ../src/properties.js:82
 msgctxt "Document Title"
 msgid "Title"
 msgstr "Titel"
 
 #. Translators: "Author" is the label next to the document author
 #. in the properties dialog
-#: ../src/properties.js:89
+#: ../src/properties.js:91
 msgctxt "Document Author"
 msgid "Author"
 msgstr "Forfatter"
 
 #. Source item
-#: ../src/properties.js:96
+#: ../src/properties.js:98
 msgid "Source"
 msgstr "Kilde"
 
 #. Date Modified item
-#: ../src/properties.js:102
+#: ../src/properties.js:104
 msgid "Date Modified"
 msgstr "Modifikationsdato"
 
-#: ../src/properties.js:109
+#: ../src/properties.js:111
 msgid "Date Created"
 msgstr "Oprettelsesdato"
 
 #. Document type item
 #. Translators: "Type" is the label next to the document type
 #. (PDF, spreadsheet, ...) in the properties dialog
-#: ../src/properties.js:118
+#: ../src/properties.js:120
 msgctxt "Document Type"
 msgid "Type"
 msgstr "Type"
@@ -347,8 +427,14 @@ msgstr "Hjælp"
 msgid "Quit"
 msgstr "Afslut"
 
+#: ../src/resources/preview-context-menu.ui.h:1
+msgid "_Copy"
+msgstr "_Kopiér"
+
+#. open button
 #. Translators: this is the Open action in a context menu
-#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:878
+#: ../src/resources/preview-menu.ui.h:1 ../src/selections.js:746
+#: ../src/selections.js:859
 msgid "Open"
 msgstr "Åbn"
 
@@ -387,10 +473,6 @@ msgstr "Vælg alle"
 #: ../src/resources/selection-menu.ui.h:2
 msgid "Select None"
 msgstr "Vælg ingen"
-
-#: ../src/resources/preview-context-menu.ui.h:1
-msgid "_Copy"
-msgstr ""
 
 #: ../src/search.js:113
 msgid "Category"
@@ -462,105 +544,110 @@ msgstr "Forfatter"
 msgid "Sources"
 msgstr "Kilder"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:615
-msgctxt "Dialog Title"
-msgid "Organize"
-msgstr "Organisér"
+#: ../src/selections.js:461
+msgid "You don't have any collections yet. Enter a new collection name above."
+msgstr ""
+"Du har endnu ingen samlinger. Indtast et navn til en ny samling ovenfor."
 
-#: ../src/selections.js:750
+#: ../src/selections.js:604
+msgid "Create new collection"
+msgstr "Opret ny samling"
+
+#. Translators: "Collections" refers to documents in this context
+#: ../src/selections.js:639
+msgctxt "Dialog Title"
+msgid "Collections"
+msgstr "Samlinger"
+
+#. print button
+#: ../src/selections.js:751
 msgid "Print"
 msgstr "Udskriv"
 
-#: ../src/selections.js:757
+#. trash button
+#: ../src/selections.js:756
 msgid "Delete"
 msgstr "Slet"
 
-#. Translators: "Organize" refers to documents in this context
-#: ../src/selections.js:774
-msgctxt "Toolbar button tooltip"
-msgid "Organize"
-msgstr "Organisér"
+#. organize button
+#: ../src/selections.js:761
+msgid "Add to Collection"
+msgstr "Føj til samling"
 
-#: ../src/selections.js:789
+#. share button
+#: ../src/selections.js:771
 msgid "Share"
 msgstr "Del"
 
-#. Translators: this is the Open action in a context menu
-#: ../src/selections.js:875
-#, c-format
-msgid "Open with %s"
-msgstr "Åbn med %s"
-
-#: ../src/sharing.js:89
+#: ../src/sharing.js:97
 msgid "Sharing Settings"
 msgstr "Delingsindstillinger"
 
 #. Label for widget group for changing document permissions
-#: ../src/sharing.js:126
+#: ../src/sharing.js:134
 msgid "Document permissions"
 msgstr "Dokumentrettigheder"
 
 #. Label for permission change in Sharing dialog
-#: ../src/sharing.js:133 ../src/sharing.js:311
+#: ../src/sharing.js:141 ../src/sharing.js:319
 msgid "Change"
 msgstr "Ændr"
 
 #. Label for radiobutton that sets doc permission to private
-#: ../src/sharing.js:157 ../src/sharing.js:286
+#: ../src/sharing.js:165 ../src/sharing.js:294
 msgid "Private"
 msgstr "Privat"
 
-#: ../src/sharing.js:167 ../src/sharing.js:279
+#: ../src/sharing.js:175 ../src/sharing.js:287
 msgid "Public"
 msgstr "Offentlig"
 
 #. Label for checkbutton that sets doc permission to Can edit
-#: ../src/sharing.js:171 ../src/sharing.js:281
+#: ../src/sharing.js:179 ../src/sharing.js:289
 msgid "Everyone can edit"
 msgstr "Alle kan redigere"
 
 #. Label for widget group used for adding new contacts
-#: ../src/sharing.js:178
+#: ../src/sharing.js:186
 msgid "Add people"
 msgstr "Tilføj folk"
 
 #. Editable text in entry field
-#: ../src/sharing.js:185
+#: ../src/sharing.js:193
 msgid "Enter an email address"
 msgstr "Indtast en e-mailadresse"
 
-#: ../src/sharing.js:200 ../src/sharing.js:367
+#: ../src/sharing.js:208 ../src/sharing.js:375
 msgid "Can edit"
 msgstr "Kan redigere"
 
-#: ../src/sharing.js:200 ../src/sharing.js:370
+#: ../src/sharing.js:208 ../src/sharing.js:378
 msgid "Can view"
 msgstr "Kan se"
 
-#: ../src/sharing.js:207
+#: ../src/sharing.js:215
 msgid "Add"
 msgstr "Tilføj"
 
-#: ../src/sharing.js:283
+#: ../src/sharing.js:291
 msgid "Everyone can read"
 msgstr "Alle kan læse"
 
-#: ../src/sharing.js:298
+#: ../src/sharing.js:306
 msgid "Save"
 msgstr "Gem"
 
-#: ../src/sharing.js:364
+#: ../src/sharing.js:372
 msgid "Owner"
 msgstr "Ejer"
 
-#: ../src/sharing.js:433
+#: ../src/sharing.js:441
 #, c-format
 msgid "You can ask %s for access"
 msgstr "Du kan bede %s om adgang"
 
-#: ../src/sharing.js:470 ../src/sharing.js:506 ../src/sharing.js:563
-#: ../src/sharing.js:580 ../src/sharing.js:599
+#: ../src/sharing.js:478 ../src/sharing.js:514 ../src/sharing.js:571
+#: ../src/sharing.js:588 ../src/sharing.js:607
 msgid "The document was not updated"
 msgstr "Dokumentet blev ikke opdateret"
 
@@ -568,52 +655,63 @@ msgstr "Dokumentet blev ikke opdateret"
 msgid "Untitled Document"
 msgstr "Unavngivet dokument"
 
-# Jeg går stærk ud fra at der er tale om dokumenter. Men jeg har fejlmeldt for at få en kontekst på: https://bugzilla.gnome.org/show_bug.cgi?id=695557
+#: ../src/trackerController.js:170
+msgid "Unable to fetch the list of documents"
+msgstr "Kunne ikke hente dokumentlisten"
+
 #. Translators: "more" refers to documents in this context
 #: ../src/view.js:62 ../src/view.js:93
 msgid "Load More"
 msgstr "Indlæs flere"
 
-#: ../src/view.js:294
+#: ../src/view.js:295
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/view.js:296
+#: ../src/view.js:297
 #, c-format
 msgid "%d day ago"
 msgid_plural "%d days ago"
 msgstr[0] "%d dag siden"
 msgstr[1] "%d dage siden"
 
-#: ../src/view.js:300
+#: ../src/view.js:301
 msgid "Last week"
 msgstr "Sidste uge"
 
-#: ../src/view.js:302
+#: ../src/view.js:303
 #, c-format
 msgid "%d week ago"
 msgid_plural "%d weeks ago"
 msgstr[0] "%d uge siden"
 msgstr[1] "%d uger siden"
 
-#: ../src/view.js:306
+#: ../src/view.js:307
 msgid "Last month"
 msgstr "Sidste måned"
 
-#: ../src/view.js:308
+#: ../src/view.js:309
 #, c-format
 msgid "%d month ago"
 msgid_plural "%d months ago"
 msgstr[0] "%d måned siden"
 msgstr[1] "%d måneder siden"
 
-#: ../src/view.js:312
+#: ../src/view.js:313
 msgid "Last year"
 msgstr "Sidste år"
 
-#: ../src/view.js:314
+#: ../src/view.js:315
 #, c-format
 msgid "%d year ago"
 msgid_plural "%d years ago"
 msgstr[0] "%d år siden"
 msgstr[1] "%d år siden"
+
+#~ msgctxt "Dialog Title"
+#~ msgid "Organize"
+#~ msgstr "Organisér"
+
+#~ msgctxt "Toolbar button tooltip"
+#~ msgid "Organize"
+#~ msgstr "Organisér"
