@@ -17,6 +17,7 @@ config.log
 config.status
 config
 configure
+data/gnome-documents.appdata.xml
 data/gnome-documents.desktop
 data/gnome-documents.desktop.in
 data/org.gnome.Documents.enums.xml
