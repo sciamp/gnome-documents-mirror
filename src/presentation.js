@@ -122,6 +122,7 @@ const PresenterWindow = new Lang.Class({
                                         transient_for: presentation_window.window,
                                         destroy_with_parent: true,
                                         title: _("Presenter console"),
+                                        name: "presenter",
                                         hexpand: true });
         this.window.connect('key-press-event',
                             Lang.bind(this, this._onKeyPressEvent));
