@@ -219,24 +219,18 @@ const Application = new Lang.Class({
     },
 
     _onActionEditNote: function() {
-        let doc = documentManager.getActiveItem();
-        if (doc) {
-            GdPrivate.pdf_loader_load_uri_async(doc.uri, null, null, Lang.bind (this, function(obj, res, user_data) {
-                let doc_model = GdPrivate.pdf_loader_load_uri_finish(res, null);
-                let doc_cached = doc_model.get_document();
-                let note_file = Gio.File.new_for_uri(doc_cached.get_uri()+".notes");
+        let doc = documentManager._activeDocModel.get_document();
 
-                if (!note_file.query_exists(null)) {
-                    note_file.create(Gio.FileCreateFlags.NONE, null);
-                    note_file.append_to_async (Gio.FileCreateFlags.NONE, null, null,
-                                               Lang.bind (this, this._appendAsyncCb));
-                }
-
-                Gtk.show_uri(this._mainWindow.window.get_screen(),
-                             note_file.get_uri(),
-                             Gtk.get_current_event_time());
-            }));
+        let note_file = Gio.File.new_for_uri(doc.get_uri()+".notes");
+        if (!note_file.query_exists(null)) {
+            note_file.create(Gio.FileCreateFlags.NONE, null);
+            note_file.append_to_async (Gio.FileCreateFlags.NONE, null, null,
+                                       Lang.bind (this, this._appendAsyncCb));
         }
+
+        Gtk.show_uri(this._mainWindow.window.get_screen(),
+                     note_file.get_uri(),
+                     Gtk.get_current_event_time());
     },
 
     _onActionProperties: function() {
