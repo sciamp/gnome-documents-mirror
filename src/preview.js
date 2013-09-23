@@ -247,16 +247,16 @@ const PreviewView = new Lang.Class({
                 function(chooser, output) {
                     if (output) {
                         this._showPresentation(output);
-                        if (outputs.list.length == 2) {
-                            if (output == outputs[0])
-                                console = output[1];
+                        if (chooser._outputs.list.length == 2) {
+                            if (output == chooser._outputs.list[0])
+                                console = chooser._outputs.list[1];
                             else
-                                console = output[0];
+                                console = chooser._outputs.list[0];
                             this._showPresenter(console);
                         } else {
-                            outputs.splice(outputs.indexOf(output), 1);
+                            this._outputs.splice(chooser._outputs.list.indexOf(output), 1);
                             let console_chooser =
-                                new Presentation.PresentationOutputChooser(outputs);
+                                new Presentation.PresentationOutputChooser(chooser._outputs);
                             console_chooser.connect(
                                 'output-activated',
                                 Lang.bind(this,
